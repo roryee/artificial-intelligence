@@ -1,0 +1,56 @@
+// SET COLORS
+// Set color variables for base colors.
+// Keep in mind that these should be good color names.
+// http://chir.ag/projects/name-that-color/
+//
+$lightning: #fd0;
+$mineshaft: #222;
+$gallery: #eee;
+$dodger: #5291ff;
+
+// BASE COLORS
+// Set base colors. Use the color variables set above.
+// In your actual styles, use these map keys instead of the variable names.
+//
+$colors: (
+	lightning: (
+		fg: $mineshaft,
+		bg: $gallery,
+		one: $lightning,
+		two: lighten($mineshaft, 5%),
+		link: $dodger,
+	)
+);
+
+// SET FONTS
+// Set font stacks.
+// Use the name of the first font as the variable name.
+//
+$fhelvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$foxygen:    'Oxygen', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$fraleway:   'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// BASE FONTS
+// Set base fonts. Use the font variables set above.
+// In your actual styles, use these map keys instead of the variable names.
+//
+$fonts: (
+	lightning: (
+		body: $foxygen,
+		one: $fraleway,
+	)
+);
+
+// IMPORT FONTS
+// If you need to, import fonts from Google Fonts.
+// Give the font's name and what styles you need.
+//
+$fonts-import: (
+	'Raleway': 200 300,
+	'Oxygen': 400 400italic 700 700italic,
+);
+
+// That's all!
+// These variables will be used to configure AI themes. It's hard to get
+// PHP and Sass working together, and this is the best we can do.
+//
