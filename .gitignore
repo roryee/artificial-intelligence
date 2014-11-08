@@ -10,3 +10,4 @@ composer.lock
 # Assets
 app/assets/css/*.css
 app/assets/js/*.js
+.sass-cache
