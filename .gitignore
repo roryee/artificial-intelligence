@@ -6,3 +6,7 @@ Thumbs.db
 # Theme
 vendor/
 composer.lock
+
+# Assets
+app/assets/css/*.css
+app/assets/js/*.js
