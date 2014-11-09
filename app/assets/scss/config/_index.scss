@@ -27,7 +27,7 @@ $colors: (
 // Use the name of the first font as the variable name.
 //
 $fhelvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$foxygen:    'Oxygen', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$fopensans:  'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $fraleway:   'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 // BASE FONTS
@@ -36,7 +36,7 @@ $fraleway:   'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 //
 $fonts: (
 	lightning: (
-		body: $foxygen,
+		body: $fopensans,
 		one: $fraleway,
 	)
 );
@@ -47,7 +47,7 @@ $fonts: (
 //
 $fonts-import: (
 	'Raleway': "200" "300",
-	'Oxygen': "400" "400italic" "700" "700italic",
+	'Open Sans': "400" "400italic" "700" "700italic",
 );
 
 // That's all!

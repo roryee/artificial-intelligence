@@ -1,0 +1,225 @@
+%font-title
+{
+	font-family: $fraleway;
+	font-weight: 200;
+	text-transform: uppercase;
+}
+
+%font-heading
+{
+	font-family: $fraleway;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+%font-lead
+{
+	font-family: $fraleway;
+	font-weight: 300;
+}
+
+body
+{
+	font-family: $fopensans;
+	background: $gallery;
+	color: $mineshaft;
+}
+
+a
+{
+	text-decoration: none;
+	color: $dodger;
+}
+
+.cc
+{
+	width: 95%;
+	max-width: 1250px;
+	margin: 0 auto;
+}
+
+#header
+{
+	z-index: 1000;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	background: transparentize($mineshaft, 0.4);
+	
+	body.has-post-thumbnail &
+	{
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+	
+	> .cc
+	{
+		display: flex;
+	}
+	
+	#nav
+	{
+		margin-left: auto;
+	}
+	
+	li
+	{
+		display:inline-block;
+		font-size: 1.5rem;
+		@extend %font-title;
+		
+		a
+		{
+			display: block;
+			padding: 0.5em;
+		}
+		
+		&.number a
+		{
+			background: $lightning;
+			color: $mineshaft;
+		}
+		
+		&.menu-item a,
+		&.name a
+		{
+			color: $lightning;
+		}
+		
+		&.menu-item a:hover
+		{
+			background: $lightning;
+			color: $mineshaft;
+		}
+		
+	}
+}
+
+#thumbnail
+{
+	height:100vh;
+	width:100vw;
+	position:relative;
+	background: url(../images/robot.jpg);
+	background-size: cover;
+	background-position: center;
+	
+	> .c
+	{
+		position:absolute;
+		bottom: 0;
+		width: 100%;
+		padding:2em 0;
+		background: transparentize($mineshaft, 0.4);
+		color: $gallery;
+		
+		h1
+		{
+			@extend %font-title;
+			margin-bottom:0.5em;
+			font-size: 4em;
+			color: $lightning;
+		}
+		
+		p
+		{
+			@extend %font-lead;
+			max-width:40em;
+			font-size:1.2em;
+			line-height: 1.618;
+		}
+		
+		.meta
+		{
+			display: flex;
+			justify-content: flex-end;
+			@extend %font-heading;
+			color: $gallery;
+			
+			a
+			{
+				margin: 0 0.5em;
+				color: $lightning;
+			}
+		}
+	}
+}
+
+#article
+{
+	padding-bottom: 1em;
+	font-size: 18px;
+	
+	p
+	{
+		margin: 1em auto 0;
+		max-width:600px;
+		line-height:1.618;
+	}
+	
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6
+	{
+		@extend %font-heading;
+		margin: 1em auto 0;
+		max-width: 600px;
+	}
+	
+	h1
+	{
+		font-size: 1.6em;
+	}
+	
+	h2
+	{
+		font-size: 1.4em;
+	}
+	
+	h3
+	{
+		font-size: 1.2em;
+	}
+}
+
+#comments
+{
+	padding: 1em;
+	background: $mineshaft;
+	color: $gallery;
+	
+	h1
+	{
+		margin: 0.5em auto;
+		font-size: 3em;
+		max-width:600px;
+		@extend %font-title;
+		text-align: center;
+		color: $lightning;
+	}
+	
+	.comment
+	{
+		margin: 0 auto;
+		max-width: 600px;
+		
+		&-header,
+		&-actions
+		{
+			// padding: 0.5em;
+			background: lighten($mineshaft, 10%);
+		}
+		
+		&-body
+		{
+			@extend %font-lead;
+			padding: 0.5em;
+			line-height: 1.500;
+		}
+		
+	}
+}
