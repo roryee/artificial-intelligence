@@ -28,6 +28,12 @@ module.exports = (grunt) ->
 				src: 'app/assets/css/*.css'
 				options:
 					map: true
+					browsers: [
+						'last 2 versions'
+						'> 3%'
+						'ie 9'
+						'firefox esr'
+					]
 		coffee:
 			compile:
 				files: [
