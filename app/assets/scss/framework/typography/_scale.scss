@@ -1,0 +1,15 @@
+
+// FUNCTION: SCALE
+// Find the font size at a specific exponent up the provided scale.
+//
+@function scale($exp: 0, $unit: "rem")
+{
+	@if $unit == "rem"
+	{
+		@return rem($val-font-size * raise($val-multiplier, $exp));
+	}
+	@elseif $unit == "px"
+	{
+		@return $val-font-size * raise($val-multiplier, $exp);
+	}
+}

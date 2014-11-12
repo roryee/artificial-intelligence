@@ -1,26 +1,6 @@
-%font-title
-{
-	font-family: $fraleway;
-	font-weight: 200;
-	text-transform: uppercase;
-}
-
-%font-heading
-{
-	font-family: $fraleway;
-	font-weight: 300;
-	text-transform: uppercase;
-}
-
-%font-lead
-{
-	font-family: $fraleway;
-	font-weight: 300;
-}
-
 body
 {
-	font-family: $fopensans;
+	@extend %font-body;
 	background: $gallery;
 	color: $mineshaft;
 }
@@ -33,17 +13,14 @@ a
 
 .cc
 {
-	width: 95%;
-	max-width: 1250px;
+	width: $val-cc-width;
+	max-width: $val-cc-max-width;
 	margin: 0 auto;
 }
 
 #header
 {
 	z-index: 1000;
-	position: absolute;
-	top: 0;
-	width: 100%;
 	background: transparentize($mineshaft, 0.4);
 	
 	body.has-post-thumbnail &
@@ -66,13 +43,13 @@ a
 	li
 	{
 		display:inline-block;
-		font-size: 1.5rem;
+		font-size: scale(1);
 		@extend %font-title;
 		
 		a
 		{
 			display: block;
-			padding: 0.5em;
+			padding: 0.3em;
 		}
 		
 		&.number a
@@ -100,6 +77,7 @@ a
 {
 	height:100vh;
 	width:100vw;
+	margin-bottom:1.8rem;
 	position:relative;
 	background: url(../images/robot.jpg);
 	background-size: cover;
@@ -118,22 +96,22 @@ a
 		{
 			@extend %font-title;
 			margin-bottom:0.5em;
-			font-size: 4em;
+			font-size: scale(3);
 			color: $lightning;
 		}
 		
 		p
 		{
 			@extend %font-lead;
-			max-width:40em;
-			font-size:1.2em;
-			line-height: 1.618;
+			max-width:30em;
+			line-height: 1.333;
 		}
 		
 		.meta
 		{
 			display: flex;
 			justify-content: flex-end;
+			font-size: scale(-1);
 			@extend %font-heading;
 			color: $gallery;
 			
@@ -148,14 +126,19 @@ a
 
 #article
 {
+	@extend %ai-article;
 	padding-bottom: 1em;
-	font-size: 18px;
 	
 	p
 	{
-		margin: 1em auto 0;
+		margin:0 auto;
 		max-width:600px;
-		line-height:1.618;
+		@include spacing;
+		
+		&:first-of-type
+		{
+			padding-top:0.42rem;
+		}
 	}
 	
 	h1,
@@ -166,24 +149,44 @@ a
 	h6
 	{
 		@extend %font-heading;
-		margin: 1em auto 0;
 		max-width: 600px;
+		@include spacing;
+		@include spacing(top);
 	}
 	
 	h1
 	{
-		font-size: 1.6em;
+		margin: 0 auto;
+		@include scale(3);
 	}
 	
 	h2
 	{
-		font-size: 1.4em;
+		margin: 0 auto;
+		@include scale(2);
 	}
 	
 	h3
 	{
-		font-size: 1.2em;
+		margin: 0 auto;
+		@include scale(1);
 	}
+	
+	a
+	{
+		color: $mineshaft;
+		border-bottom: 1px solid $mineshaft;
+		transition-property: border-color, color;
+		transition-duration: 0.5s, 0.5s;
+		transition-timing-function: ease, ease;
+		
+		&:hover
+		{
+			border-color: lighten($mineshaft, 50%);
+			color: lighten($mineshaft, 50%);
+		}
+	}
+	
 }
 
 #comments
@@ -210,7 +213,6 @@ a
 		&-header,
 		&-actions
 		{
-			// padding: 0.5em;
 			background: lighten($mineshaft, 10%);
 		}
 		
@@ -218,7 +220,7 @@ a
 		{
 			@extend %font-lead;
 			padding: 0.5em;
-			line-height: 1.500;
+			line-height: 1.333;
 		}
 		
 	}

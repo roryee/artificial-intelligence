@@ -1,0 +1,46 @@
+
+// DEBUG RHYTHM
+// If debugging turned on, import a background image to help debug rhythm.
+//
+@if $val-rhythm-debug
+{
+	%ai-article
+	{
+		background-image: url(http://basehold.it/i/#{$val-line-height / 1px});
+	}
+}
+
+// MIXIN: SCALE
+// Applies the scale() function with the passed exponent,
+// then adjusts the line-height to maintain vertical rhythm.
+//
+@mixin scale($exp)
+{
+	font-size: scale($exp);
+	$size: scale($exp, "px");
+	line-height: $val-line-height * ceil($size / $val-line-height) / $size;
+}
+
+// MIXIN: SPACING
+// Adds spacing above or below parent element.
+//
+@mixin spacing($pos: bottom, $prop: padding)
+{
+	#{$prop}-#{$pos}: rem($val-line-height);
+}
+
+// CONSTANT: LINE-HEIGHT
+// The actual unitless line-height value that is applied to elements.
+//
+$line-height: $val-line-height / $val-font-size;
+
+// Set root font-size so rems work
+:root
+{
+	font-size: em($val-font-size, 16px);
+}
+
+%ai-article
+{
+	line-height: $line-height;
+}

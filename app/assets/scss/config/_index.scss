@@ -1,3 +1,28 @@
+// THEME REGISTRY
+// Register your theme by adding its slug to this list.
+//
+$themes: (lightning);
+
+// VALUES
+// Set breakpoints, base font size, multipliers, line height, and other display variables.
+//
+$val-font-size: 18px; // base font size
+$val-line-height: 27px;
+$val-multiplier: 1.414; // multiplier
+
+$val-cc-width: 95%;
+$val-cc-max-width: 1250px; // primary container width
+
+// breakpoints
+$val-breaks: (
+	pop:   1px,
+	rock:  768px,
+	punk:  992px,
+	disco: 1200px,
+);
+
+$val-rhythm-debug: false;
+
 // SET COLORS
 // Set color variables for base colors.
 // Keep in mind that these should be good color names.
@@ -14,11 +39,14 @@ $dodger: #5291ff;
 //
 $colors: (
 	lightning: (
-		fg: $mineshaft,
-		bg: $gallery,
-		one: $lightning,
-		two: lighten($mineshaft, 5%),
-		link: $dodger,
+		lfg:   $mineshaft,                        // light foreground
+		lbg:   $gallery,                          // light background
+		la:    lighten($mineshaft, 40%),          // light links (anchors)
+		dfg:   $gallery,                          // dark foreground
+		dbg:   $mineshaft,                        // dark background
+		da:    $dodger,                           // dark links (anchors)
+		chrfg: $lightning,                        // chrome foreground
+		chrbg: transparentize($mineshaft, 0.4),   // chrome background
 	)
 );
 
@@ -32,14 +60,36 @@ $fraleway:   'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 // BASE FONTS
 // Set base fonts. Use the font variables set above.
-// In your actual styles, use these map keys instead of the variable names.
+// In your actual styles, extend these selectors without the theme name
+// (i.e., @extend %font-title) to pull in the font styling.
 //
-$fonts: (
-	lightning: (
-		body: $fopensans,
-		one: $fraleway,
-	)
-);
+%lightning-font-title
+{
+	font-family: $fraleway;
+	font-weight: 200;
+	text-transform: uppercase;
+	// line-height: $val-line-height-h;
+}
+
+%lightning-font-heading
+{
+	font-family: $fraleway;
+	font-weight: 300;
+	text-transform: uppercase;
+	// line-height: $val-line-height-h;
+}
+
+%lightning-font-lead
+{
+	font-family: $fraleway;
+	font-weight: 300;
+}
+
+%lightning-font-body,
+%lightning-font-main
+{
+	font-family: $fopensans;
+}
 
 // IMPORT FONTS
 // If you need to, import fonts from Google Fonts.

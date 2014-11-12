@@ -1,0 +1,26 @@
+$typesets: title, heading, lead, body, main;
+
+@each $set in $typesets
+{
+	%font-#{$set}
+	{
+		@each $theme in $themes
+		{
+			@if $set != body
+			{
+				body.aitheme-#{$theme} &
+				{
+					@extend %#{$theme}-font-#{$set};
+				}
+			}
+			
+			@else
+			{
+				&.aitheme-#{$theme}
+				{
+					@extend %#{$theme}-font-#{$set};
+				}
+			}
+		}
+	}
+}
