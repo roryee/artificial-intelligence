@@ -1,14 +1,14 @@
 body
 {
 	@extend %font-body;
-	background: $gallery;
-	color: $mineshaft;
+	@include apply(background, lbg);
+	@include apply(color, lfg);
 }
 
 a
 {
 	text-decoration: none;
-	color: $dodger;
+	@include apply(color, da);
 }
 
 .cc
@@ -21,7 +21,7 @@ a
 #header
 {
 	z-index: 1000;
-	background: transparentize($mineshaft, 0.4);
+	@include apply(background, chrbg);
 	
 	body.has-post-thumbnail &
 	{
@@ -54,20 +54,20 @@ a
 		
 		&.number a
 		{
-			background: $lightning;
-			color: $mineshaft;
+			@include apply(color, chrifg);
+			@include apply(background, chribg);
 		}
 		
 		&.menu-item a,
 		&.name a
 		{
-			color: $lightning;
+			@include apply(color, chrfg);
 		}
 		
 		&.menu-item a:hover
 		{
-			background: $lightning;
-			color: $mineshaft;
+			@include apply(background, chribg);
+			@include apply(color, chrifg);
 		}
 		
 	}
@@ -89,15 +89,15 @@ a
 		bottom: 0;
 		width: 100%;
 		padding:2em 0;
-		background: transparentize($mineshaft, 0.4);
-		color: $gallery;
+		@include apply(background, chrbg);
+		@include apply(color, dfg);
 		
 		h1
 		{
 			@extend %font-title;
 			margin-bottom:0.5em;
 			font-size: scale(3);
-			color: $lightning;
+			@include apply(color, chrfg);
 		}
 		
 		p
@@ -111,14 +111,13 @@ a
 		{
 			display: flex;
 			justify-content: flex-end;
-			font-size: scale(-1);
+			font-size: scale();
 			@extend %font-heading;
-			color: $gallery;
 			
 			a
 			{
 				margin: 0 0.5em;
-				color: $lightning;
+				@include apply(color, chrfg);
 			}
 		}
 	}
@@ -174,16 +173,16 @@ a
 	
 	a
 	{
-		color: $mineshaft;
-		border-bottom: 1px solid $mineshaft;
+		@include apply(color, lfg);
+		@include apply_(border-bottom, "1px solid *lfg", lfg);
 		transition-property: border-color, color;
 		transition-duration: 0.5s, 0.5s;
 		transition-timing-function: ease, ease;
 		
 		&:hover
 		{
-			border-color: lighten($mineshaft, 50%);
-			color: lighten($mineshaft, 50%);
+			@include apply(color, la);
+			@include apply(border-color, la);
 		}
 	}
 	
@@ -192,8 +191,8 @@ a
 #comments
 {
 	padding: 1em;
-	background: $mineshaft;
-	color: $gallery;
+	@include apply(background, dbg);
+	@include apply(color, dfg);
 	
 	h1
 	{
@@ -202,7 +201,7 @@ a
 		max-width:600px;
 		@extend %font-title;
 		text-align: center;
-		color: $lightning;
+		@include apply(color, dh);
 	}
 	
 	.comment
@@ -210,17 +209,10 @@ a
 		margin: 0 auto;
 		max-width: 600px;
 		
-		&-header,
-		&-actions
-		{
-			background: lighten($mineshaft, 10%);
-		}
-		
 		&-body
 		{
 			@extend %font-lead;
 			padding: 0.5em;
-			line-height: 1.333;
 		}
 		
 	}

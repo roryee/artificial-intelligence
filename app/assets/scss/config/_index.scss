@@ -38,15 +38,18 @@ $dodger: #5291ff;
 // In your actual styles, use these map keys instead of the variable names.
 //
 $colors: (
-	lightning: (
-		lfg:   $mineshaft,                        // light foreground
-		lbg:   $gallery,                          // light background
-		la:    lighten($mineshaft, 40%),          // light links (anchors)
-		dfg:   $gallery,                          // dark foreground
-		dbg:   $mineshaft,                        // dark background
-		da:    $dodger,                           // dark links (anchors)
-		chrfg: $lightning,                        // chrome foreground
-		chrbg: transparentize($mineshaft, 0.4),   // chrome background
+	lightning : (
+		lfg:    $mineshaft,                        // light foreground
+		lbg:    $gallery,                          // light background
+		la:     lighten($mineshaft, 40%),          // light links (anchors)
+		dfg:    $gallery,                          // dark foreground
+		dbg:    $mineshaft,                        // dark background
+		da:     $dodger,                           // dark links (anchors)
+		dh:     $lightning,                        // dark headings
+		chrfg:  $lightning,                        // chrome foreground
+		chrbg:  transparentize($mineshaft, 0.4),   // chrome background
+		chrifg: $mineshaft,                        // chrome inverted foreground
+		chribg: $lightning,                        // chrome inverted background
 	)
 );
 
