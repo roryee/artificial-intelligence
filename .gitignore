@@ -9,8 +9,8 @@ composer.lock
 
 # Assets
 *.map
-app/assets/css/*.css
-app/assets/js/*.js
+app/assets/css/**/*.css
+app/assets/js/**/*.js
 .sass-cache
 
 # Node
