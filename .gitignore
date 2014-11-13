@@ -15,3 +15,6 @@ app/assets/js/*.js
 
 # Node
 node_modules
+
+# Bower
+bower_components
