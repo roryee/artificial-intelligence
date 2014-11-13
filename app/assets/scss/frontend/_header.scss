@@ -82,6 +82,7 @@ a
 	background: url(../images/robot.jpg);
 	background-size: cover;
 	background-position: center;
+	background-attachment: fixed;
 	
 	> .c
 	{
@@ -190,9 +191,28 @@ a
 
 #comments
 {
-	padding: 1em;
-	@include apply(background, dbg);
+	background-image: url(../images/robot.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
 	@include apply(color, dfg);
+	
+	> .ccc
+	{
+		padding: 1em;
+		@extend %row;
+		@include apply(background-color, chrbg);
+	}
+	
+	.comments-old.w
+	{
+		@include span(3/5);
+	}
+	
+	.comments-new.w
+	{
+		@include span(2/5);
+	}
 	
 	h1
 	{
@@ -206,12 +226,11 @@ a
 	
 	.comment
 	{
-		margin: 0 auto;
-		max-width: 600px;
 		
 		&-body
 		{
 			@extend %font-lead;
+			@extend %ai-article;
 			padding: 0.5em;
 		}
 		

@@ -1,0 +1,35 @@
+
+%row
+{
+	html.no-flexbox.no-flexboxlegacy &
+	{
+		@extend %cf;
+		
+		> *
+		{
+			float: left;
+		}
+		
+		> :last-child
+		{
+			float: right
+		}
+	}
+	
+	html.flexbox &,
+	html.flexboxlegacy &
+	{
+		display: flex;
+		
+		> :last-child
+		{
+			margin-left: auto;
+		}
+	}
+}
+
+
+@mixin span($width)
+{
+	width: percentage($width);
+}
