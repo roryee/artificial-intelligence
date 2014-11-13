@@ -46,6 +46,38 @@ module.exports = (grunt) ->
 						extDot: 'first'
 					}
 				]
+		modernizr:
+			build:
+				devFile: "bower_components/modernizr/modernizr.js"
+				outputFile: "app/assets/js/deps/modernizr.js"
+				
+				extra:
+          shiv : false
+          printshiv : true
+          load : true
+          mq : false
+          cssclasses : true
+				
+        extensibility:
+          addtest : false
+          prefixed : false
+          teststyles : false
+          testprops : false
+          testallprops : false
+          hasevents : false
+          prefixes : false
+          domprefixes : false
+          cssclassprefix: ""
+				
+				parseFiles: true
+				files:
+					src: [
+						"app/assets/js/**/*.js"
+						"app/assets/scss/**/*.scss"
+					]
+				
+				matchCommunityTests: false
+        
 	}
 	
 	require('load-grunt-tasks') grunt
