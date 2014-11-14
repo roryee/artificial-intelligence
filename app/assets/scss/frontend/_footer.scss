@@ -1,6 +1,5 @@
 #footer
 {
-	@include apply_(border-top, "5px solid *chrfg", chrfg);
 	padding: 1em 0;
 	@include apply(background, chrbg);
 	@include apply(color, dfg);
