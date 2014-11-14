@@ -1,0 +1,49 @@
+#footer
+{
+	@include apply_(border-top, "5px solid *chrfg", chrfg);
+	padding: 1em 0;
+	@include apply(background, chrbg);
+	@include apply(color, dfg);
+	
+	> .cc
+	{
+		@extend %row;
+	}
+	
+	.col
+	{
+		@include span(1/6);
+		@extend %ai-article;
+		@extend %font-lead;
+		
+		h6
+		{
+			@include spacing;
+			@include scale;
+			@extend %font-heading;
+			@include apply(color, chrfg);
+		}
+		
+		&:last-of-type
+		{
+			@include span(2/6);
+			
+			h6
+			{
+				@include scale(1);
+			}
+			
+		}
+	}
+}
+
+#copyright
+{
+	@include spacing;
+	@include spacing(top);
+	@include scale(-1);
+	text-align:center;
+	@extend %font-lead;
+	@include apply(background, chrbg);
+	@include apply(color, chrfg);
+}
