@@ -29,6 +29,31 @@
 	#{$prop}-#{$pos}: rem($val-line-height);
 }
 
+// MIXIN: LEADER
+// Alias for spacing(top).
+//
+@mixin leader
+{
+	@include spacing(top);
+}
+
+// MIXIN: TRAILER
+// Alias for spacing, without any arguments.
+//
+@mixin trailer
+{
+	@include spacing;
+}
+
+// MIXIN: WRAP
+// Alias for leader and trailer together.
+//
+@mixin wrap
+{
+	@include spacing(top);
+	@include spacing;
+}
+
 // CONSTANT: LINE-HEIGHT
 // The actual unitless line-height value that is applied to elements.
 //
