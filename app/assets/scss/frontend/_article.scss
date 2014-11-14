@@ -1,0 +1,63 @@
+#article
+{
+	@extend %ai-article;
+	padding: 1em;
+	@include apply(background, lbg);
+	
+	p
+	{
+		margin:0 auto;
+		max-width:600px;
+		@include spacing;
+		
+		&:first-of-type
+		{
+			padding-top:0.42rem;
+		}
+	}
+	
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6
+	{
+		@extend %font-heading;
+		margin: 0 auto;
+		max-width: 600px;
+		@include spacing;
+		@include spacing(top);
+	}
+	
+	h1
+	{
+		@include scale(3);
+	}
+	
+	h2
+	{
+		@include scale(2);
+	}
+	
+	h3
+	{
+		@include scale(1);
+	}
+	
+	a
+	{
+		@include apply(color, lfg);
+		@include apply_(border-bottom, "1px solid *lfg", lfg);
+		transition-property: border-color, color;
+		transition-duration: 0.5s, 0.5s;
+		transition-timing-function: ease, ease;
+		
+		&:hover
+		{
+			@include apply(color, la);
+			@include apply(border-color, la);
+		}
+	}
+	
+}

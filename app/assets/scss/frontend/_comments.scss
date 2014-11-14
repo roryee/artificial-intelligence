@@ -1,0 +1,45 @@
+
+#comments
+{
+	@include apply(background, dbg);
+	@include apply(color, dfg);
+	padding: 1em 0;
+	
+	> .ccc
+	{
+		padding: 1em;
+		@extend %row;
+	}
+	
+	.comments-old.w
+	{
+		@include span(3/5);
+	}
+	
+	.comments-new.w
+	{
+		@include span(2/5);
+	}
+	
+	h1
+	{
+		margin: 0.5em auto;
+		font-size: 3em;
+		max-width:600px;
+		@extend %font-title;
+		text-align: center;
+		@include apply(color, dh);
+	}
+	
+	.comment
+	{
+		
+		&-body
+		{
+			@extend %ai-article;
+			padding: 0.5em;
+			@extend %font-lead;
+		}
+		
+	}
+}

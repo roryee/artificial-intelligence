@@ -1,4 +1,8 @@
 @import "index";
 
+@import "frontend/base";
 @import "frontend/header";
-@import "frontend/footer"; 
+@import "frontend/thumbnail";
+@import "frontend/article";
+@import "frontend/comments";
+@import "frontend/footer";

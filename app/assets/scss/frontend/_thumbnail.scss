@@ -1,0 +1,54 @@
+body
+{
+	background: url(../images/robot.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+#thumbnail
+{
+	height:100vh;
+	width:100vw;
+	// margin-bottom:1.8rem;
+	position:relative;
+	
+	> .c
+	{
+		position:absolute;
+		bottom: 0;
+		width: 100%;
+		padding:2em 0;
+		@include apply(background, chrbg);
+		@include apply(color, dfg);
+		
+		h1
+		{
+			@extend %font-title;
+			margin-bottom:0.5em;
+			font-size: scale(3);
+			@include apply(color, chrfg);
+		}
+		
+		p
+		{
+			@extend %font-lead;
+			max-width:30em;
+			line-height: 1.333;
+		}
+		
+		.meta
+		{
+			display: flex;
+			justify-content: flex-end;
+			font-size: scale();
+			@extend %font-heading;
+			
+			a
+			{
+				margin: 0 0.5em;
+				@include apply(color, chrfg);
+			}
+		}
+	}
+}
