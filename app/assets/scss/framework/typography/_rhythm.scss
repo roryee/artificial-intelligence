@@ -14,7 +14,7 @@
 // Applies the scale() function with the passed exponent,
 // then adjusts the line-height to maintain vertical rhythm.
 //
-@mixin scale($exp)
+@mixin scale($exp: 0)
 {
 	font-size: scale($exp);
 	$size: scale($exp, "px");
