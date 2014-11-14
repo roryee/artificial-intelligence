@@ -6,7 +6,7 @@
 {
 	%ai-article
 	{
-		background-image: url(http://basehold.it/i/#{$val-line-height / 1px});
+		background-image: url(http://basehold.it/i/#{$val-line-height / 1px}) !important;
 	}
 }
 
