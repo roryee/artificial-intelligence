@@ -1,5 +1,9 @@
 body
 {
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	 -webkit-font-smoothing: subpixel-antialiased;
+		       font-smoothing: subpixel-antialiased;
 	@extend %font-body;
 	@include apply(background, lbg);
 	@include apply(color, lfg);

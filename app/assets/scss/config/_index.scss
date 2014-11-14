@@ -4,24 +4,25 @@
 $themes: (lightning);
 
 // VALUES
-// Set breakpoints, base font size, multipliers, line height, and other display variables.
+// Set breakpoints, base font size, multipliers, line height,
+// and other display variables.
 //
-$val-font-size: 18px; // base font size
-$val-line-height: 27px;
-$val-multiplier: 1.414; // multiplier
+$val-font-size: 20px;      // base font size
+$val-line-height: 30px;    // total line height, including the font size
+$val-multiplier: 1.25;     // multiplier
 
-$val-cc-width: 95%;
-$val-cc-max-width: 1250px; // primary container width
+$val-cc-width: 95%;        // percentage width of main container
+$val-cc-max-width: 1250px; // maximum width of main container
 
 // breakpoints
 $val-breaks: (
-	pop:   1px,
-	rock:  768px,
-	punk:  992px,
-	disco: 1200px,
+	pop:   1px,     // smartphones
+	rock:  768px,   // tablets
+	punk:  992px,   // small desktops/laptops
+	disco: 1200px,  // large desktops/laptops
 );
 
-$val-rhythm-debug: false;
+$val-rhythm-debug: false;  // debug vertical rhythm like a boss
 
 // SET COLORS
 // Set color variables for base colors.
@@ -57,9 +58,10 @@ $colors: (
 // Set font stacks.
 // Use the name of the first font as the variable name.
 //
-$fhelvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$fhelvetica:              'Helvetica Neue', Helvetica, Arial, sans-serif;
 $fopensans:  'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$fraleway:   'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$flato:      'Lato',      'Helvetica Neue', Helvetica, Arial, sans-serif;
+$fraleway:   'Raleway',   'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 // BASE FONTS
 // Set base fonts. Use the font variables set above.
@@ -71,7 +73,6 @@ $fraleway:   'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-family: $fraleway;
 	font-weight: 200;
 	text-transform: uppercase;
-	// line-height: $val-line-height-h;
 }
 
 %lightning-font-heading
@@ -79,7 +80,6 @@ $fraleway:   'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-family: $fraleway;
 	font-weight: 300;
 	text-transform: uppercase;
-	// line-height: $val-line-height-h;
 }
 
 %lightning-font-lead
@@ -91,7 +91,8 @@ $fraleway:   'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 %lightning-font-body,
 %lightning-font-main
 {
-	font-family: $fopensans;
+	font-family: $flato;
+	// font-weight: 300;
 }
 
 // IMPORT FONTS
@@ -100,7 +101,7 @@ $fraleway:   'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 //
 $fonts-import: (
 	'Raleway': "200" "300",
-	'Open Sans': "400" "400italic" "700" "700italic",
+	'Lato': "400" "400italic" "700" "700italic",
 );
 
 // That's all!
