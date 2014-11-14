@@ -13,3 +13,13 @@
 		@return $val-font-size * raise($val-multiplier, $exp);
 	}
 }
+
+// CONSTANT: ARTICLE-WIDTH
+// The maximum width of the article container.
+//
+$val-cc-article: rem($val-cc-article);
+
+// CONSTANT: ARTICLE-FOOTER-WIDTH
+// The maximum width of the article footer container.
+//
+$val-cc-article-f: $val-cc-article * (4/3);

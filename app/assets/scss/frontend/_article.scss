@@ -7,7 +7,7 @@
 	p
 	{
 		margin:0 auto;
-		max-width: rem(600px);
+		max-width: $val-cc-article;
 		@include spacing;
 		
 		&:first-of-type
@@ -25,7 +25,7 @@
 	{
 		@extend %font-heading;
 		margin: 0 auto;
-		max-width: rem(600px);
+		max-width: $val-cc-article;
 		@include spacing;
 		@include spacing(top);
 	}
@@ -83,7 +83,7 @@
 	
 	hr.end
 	{
-		max-width: rem(500px);
+		max-width: $val-cc-article * (5/6);
 		margin:0 auto;
 		border: 0;
 		height: rem(1px);
@@ -92,7 +92,7 @@
 	
 	.profile
 	{
-		max-width: rem(800px);
+		max-width: $val-cc-article-f;
 		margin: 0 auto;
 		padding: 1em 0;
 		
@@ -122,7 +122,7 @@
 	.categories
 	{
 		@extend %row;
-		max-width: rem(800px);
+		max-width: $val-cc-article-f;
 		padding: 1em 0;
 		margin: 0 auto;
 		text-align: center;
