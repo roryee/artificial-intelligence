@@ -1,15 +1,7 @@
-/**
 
-	Genericons
-
-*/
-
-
-/* IE8 and below use EOT and allow cross-site embedding.
-   IE9 uses WOFF which is base64 encoded to allow cross-site embedding.
-   So unfortunately, IE9 will throw a console error, but it'll still work.
-   When the font is base64 encoded, cross-site embedding works in Firefox */
-
+// GENERICONS
+// Importing...
+//
 @font-face {
     font-family: 'Genericons';
     src: url('Genericons.eot');
@@ -31,11 +23,11 @@
   }
 }
 
-
-/**
- * All Genericons
- */
-
+// CONSTANT: GENERICONS
+// A map of all Genericons, slugs to codes, in alphabetical order.
+// Commenting out the ones you don't need will greatly decrease
+// the size of the generated CSS file.
+//
 $genericons: (
   404: "\f423",
   activity: "\f508",
@@ -186,6 +178,10 @@ $genericons: (
   zoom: "\f402",
 );
 
+// SELECTOR: BASE GENERICON
+// This is the exact selector that came with the install,
+// except the fixed font size has been removed.
+//
 %genericon {
 	// font-size: 16px;
 	vertical-align: top;
@@ -206,12 +202,17 @@ $genericons: (
   
   @each $slug, $icon in $genericons
   {
+    // You may @extend %genericon-SLUG to get your icon.
+    //
     &-#{$slug}:before
     {
       @extend %genericon;
       content: $icon;
     }
     
+    // Or, you may simply use a span with its data-icon attr
+    // set to a slug.
+    //
     @at-root
     {
       [data-icon="#{$slug}"]
@@ -221,8 +222,3 @@ $genericons: (
     }
   }
 }
-
-
-/**
- * Individual icons
- */
