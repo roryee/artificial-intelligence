@@ -14,12 +14,44 @@
 	}
 }
 
-// CONSTANT: ARTICLE-WIDTH
+// CONSTANT: ARTICLE-CONTAINER
 // The maximum width of the article container.
 //
 $val-cc-article: rem($val-cc-article);
 
-// CONSTANT: ARTICLE-FOOTER-WIDTH
+// SELECTOR: ARTICLE-CONTAINER
+// Wraps the above variable in a selector.
+//
+%ai-article-cc
+{
+	margin: 0 auto;
+	max-width: $val-cc-article;
+}
+
+// CONSTANT: ARTICLE-CONTAINER-WIDE
 // The maximum width of the article footer container.
 //
-$val-cc-article-f: $val-cc-article * (4/3);
+$val-cc-article-w: $val-cc-article * (4/3);
+
+// SELECTOR: ARTICLE-CONTAINER
+// Wraps the above variable in a selector.
+//
+%ai-article-cc-w
+{
+	margin: 0 auto;
+	max-width: $val-cc-article-w;
+}
+
+// CONSTANT: ARTICLE-CONTAINER-WIDE
+// The maximum width of the article footer container.
+//
+$val-cc-article-s: $val-cc-article * (5/6);
+
+// SELECTOR: ARTICLE-CONTAINER
+// Wraps the above variable in a selector.
+//
+%ai-article-cc-s
+{
+	margin: 0 auto;
+	max-width: $val-cc-article-s;
+}

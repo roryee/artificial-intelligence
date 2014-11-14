@@ -1,65 +1,6 @@
 #article
 {
-	@extend %ai-article;
-	padding: 1em;
-	@include apply(background, lbg);
-	
-	p
-	{
-		margin:0 auto;
-		max-width: $val-cc-article;
-		@include spacing;
-		
-		&:first-of-type
-		{
-			padding-top:0.42rem;
-		}
-	}
-	
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6
-	{
-		@extend %font-heading;
-		margin: 0 auto;
-		max-width: $val-cc-article;
-		@include spacing;
-		@include spacing(top);
-	}
-	
-	h1
-	{
-		@include scale(3);
-	}
-	
-	h2
-	{
-		@include scale(2);
-	}
-	
-	h3
-	{
-		@include scale(1);
-	}
-	
-	a
-	{
-		@include apply(color, lfg);
-		@include apply_(border-bottom, "1px solid *lfg", lfg);
-		transition-property: border-color, color;
-		transition-duration: 0.5s, 0.5s;
-		transition-timing-function: ease, ease;
-		
-		&:hover
-		{
-			@include apply(color, la);
-			@include apply(border-color, la);
-		}
-	}
-	
+	@include ai-article(".article", $adjust-first: 0.42rem);
 }
 
 #article-footer
@@ -67,64 +8,25 @@
 	@extend %ai-article;
 	@include apply(background, lbg);
 	
-	a
-	{
-		@include apply(color, lfg);
-		transition-property: border-color, color;
-		transition-duration: 0.5s, 0.5s;
-		transition-timing-function: ease, ease;
-		
-		&:hover
-		{
-			@include apply(color, la);
-			@include apply(border-color, la);
-		}
-	}
-	
 	hr.end
 	{
-		max-width: $val-cc-article * (5/6);
-		margin:0 auto;
-		border: 0;
+		@extend %ai-article-cc-s;
 		height: rem(1px);
+		border: 0;
 		@include apply(background, la);
 	}
 	
 	.profile
 	{
-		max-width: $val-cc-article-f;
-		margin: 0 auto;
-		padding: 1em 0;
-		
-		&-img
-		{
-			text-align: center;
-			@include spacing(top);
-			
-			img
-			{
-				border-radius: 50%;
-			}
-		}
-		
-		&-bio
-		{
-			@extend %font-lead;
-			text-align: center;
-			
-			a
-			{
-				@include apply_(border-bottom, "1px solid *lfg", lfg);
-			}
-		}
+		@include ai-profile;
 	}
 	
 	.categories
 	{
 		@extend %row;
-		max-width: $val-cc-article-f;
-		padding: 1em 0;
-		margin: 0 auto;
+		@extend %ai-article-cc-w;
+		@include wrap;
+		@extend %font-lead;
 		text-align: center;
 		
 		.col
@@ -133,17 +35,13 @@
 			
 			h6
 			{
-				font-size: scale(4);
-			}
-			
-			ul
-			{
-				@extend %font-lead;
+				@include scale(4);
 			}
 			
 			a
 			{
-				border: 0;
+				@extend a%ai-article;
+				border: 0 !important;
 			}
 		}
 	}

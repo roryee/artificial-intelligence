@@ -1,0 +1,56 @@
+@mixin ai-article($sel: &, $opts...)
+{
+	$args: keywords($opts);
+	
+	@extend %ai-article;
+	@include apply(background, lbg);
+	
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6
+	{
+		@extend %ai-article-cc;
+		@include wrap;
+		@extend %font-heading;
+	}
+	
+	h1
+	{
+		@include scale(3);
+	}
+	
+	h2
+	{
+		@include scale(2);
+	}
+	
+	h3
+	{
+		@include scale(1);
+	}
+	
+	p
+	{
+		@extend %ai-article-cc;
+		@include trailer;
+		
+		&:first-of-type
+		{
+			@include leader;
+			@if map-has-key($args, adjust-first)
+			{
+				// sooo cheaty
+				border-top: map-find($args, adjust-first) solid transparent;
+			}
+		}
+	}
+	
+	a
+	{
+		@extend a%ai-article;
+	}
+	
+}

@@ -1,6 +1,6 @@
 #footer
 {
-	padding: 1em 0;
+	@include wrap;
 	@include apply(background, chrbg);
 	@include apply(color, dfg);
 	
@@ -17,7 +17,7 @@
 		
 		h6
 		{
-			@include spacing;
+			@include trailer;
 			@include scale;
 			@extend %font-heading;
 			@include apply(color, chrfg);
@@ -38,8 +38,7 @@
 
 #copyright
 {
-	@include spacing;
-	@include spacing(top);
+	@include wrap;
 	@include scale(-1);
 	text-align:center;
 	@extend %font-lead;

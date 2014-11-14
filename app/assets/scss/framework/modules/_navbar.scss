@@ -1,0 +1,53 @@
+@mixin ai-navbar($sel: &, $opts...)
+{
+	$args: keywords($opts);
+	
+	body.has-post-thumbnail &
+	{
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+	
+	z-index: 1000;
+	font-size: scale(1);
+	@extend %font-heading;
+	@include apply(background, chrbg);
+	@include apply(color, chrfg);
+	
+	> .cc
+	{
+		@extend %row;
+	}
+	
+	#{$sel}-sep
+	{
+		&:first-of-type
+		{
+			@include box;
+		}
+		
+		&:last-of-type
+		{
+			@include box(right, $cc: "> .c", $items: "> .menu-item");
+		}
+	}
+	
+	a
+	{
+		display: block;
+		padding: 0.5em 0.3em;
+		@include apply(color, chrfg);
+		transition-property: color, background;
+		transition-duration: 0.2s, 0.2s;
+		transition-timing-function: ease, ease;
+	}
+	
+	.menu-item a:hover,
+	.number a
+	{
+		@include apply(background, chribg);
+		@include apply(color, chrifg);
+	}
+	
+}

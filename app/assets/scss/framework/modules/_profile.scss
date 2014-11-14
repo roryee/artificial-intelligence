@@ -1,0 +1,32 @@
+@mixin ai-profile($sel: &, $opts...)
+{
+	$args: keywords($opts);
+	
+	@extend %ai-article-cc-w;
+	@include wrap;
+	
+	text-align: center;
+	
+	&-img
+	{
+		@include leader;
+		
+		img
+		{
+			border-radius: 50%;
+		}
+		
+	}
+	
+	&-bio
+	{
+		@extend %ai-article;
+		@extend %font-lead;
+		
+		a
+		{
+			@extend a%ai-article;
+		}
+	}
+	
+}

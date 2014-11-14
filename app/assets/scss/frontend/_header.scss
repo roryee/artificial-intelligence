@@ -1,58 +1,5 @@
 
 #header
 {
-	z-index: 1000;
-	@include apply(background, chrbg);
-	
-	body.has-post-thumbnail &
-	{
-		position: absolute;
-		top: 0;
-		width: 100%;
-	}
-	
-	> .cc
-	{
-		display: flex;
-	}
-	
-	#nav
-	{
-		margin-left: auto;
-	}
-	
-	li
-	{
-		display:inline-block;
-		font-size: scale(1);
-		@extend %font-heading;
-		
-		a
-		{
-			display: block;
-			padding: 0.5em 0.3em;
-			transition-property: color, background;
-			transition-duration: 0.2s, 0.2s;
-			transition-timing-function: ease, ease;
-		}
-		
-		&.number a
-		{
-			@include apply(color, chrifg);
-			@include apply(background, chribg);
-		}
-		
-		&.menu-item a,
-		&.name a
-		{
-			@include apply(color, chrfg);
-		}
-		
-		&.menu-item a:hover
-		{
-			@include apply(background, chribg);
-			@include apply(color, chrifg);
-		}
-		
-	}
+	@include ai-navbar(".header");
 }
