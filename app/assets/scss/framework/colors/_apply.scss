@@ -2,13 +2,24 @@
 // MIXIN: APPLY
 // Applies the passed slug to the passed property.
 //
-@mixin apply($prop, $slug)
+@mixin apply($prop, $slug, $body: false)
 {
 	@each $theme in $themes
 	{
-		body.aitheme-#{$theme} &
+		@if $body
 		{
-			#{$prop}: map-find($colors, $theme, $slug);
+			&.aitheme-#{$theme}
+			{
+				#{$prop}: map-find($colors, $theme, $slug);
+			}
+		}
+		
+		@else
+		{
+			body.aitheme-#{$theme} &
+			{
+				#{$prop}: map-find($colors, $theme, $slug);
+			}
 		}
 	}
 }
