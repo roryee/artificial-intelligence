@@ -22,7 +22,7 @@ module.exports = (grunt) ->
 					}
 				]
 				options:
-					style: 'compressed'
+					style: 'expanded'
 		autoprefixer:
 			compile:
 				src: 'app/assets/css/*.css'

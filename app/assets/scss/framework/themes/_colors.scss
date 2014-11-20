@@ -1,0 +1,88 @@
+
+// MIXIN: APPLY
+// Applies the passed slug to the passed property.
+//
+@mixin apply($prop, $slug, $body: false)
+{
+	@each $theme in $themes
+	{
+		@if $body
+		{
+			&.aitheme-#{$theme}
+			{
+				#{$prop}: map-find($colors, $theme, $slug);
+			}
+		}
+		
+		@else
+		{
+			body.aitheme-#{$theme} &
+			{
+				#{$prop}: map-find($colors, $theme, $slug);
+			}
+		}
+	}
+}
+
+// MIXIN: APPLY_
+// Applies the passed set of colors to their keys in the value,
+// and then outputs them as associated with the property.
+//
+@mixin apply_($prop, $val: "", $slugs...)
+{
+	@each $theme in $themes
+	{
+		body.aitheme-#{$theme} &
+		{
+			@each $slug in $slugs
+			{
+				$val: str-replace($val, "*#{$slug}", "#{map-find($colors, $theme, $slug)}");
+			}
+			#{$prop}: unquote($val);
+		}
+	}
+}
+
+// CONSTANT: COLOR SLUGS
+// These slugs are used to determine where to apply theme colors.
+//
+$color-slugs: (
+	lfg,       // light foreground
+	lbg,       // light background
+	la,        // light links (anchors)
+	dfg,       // dark foreground
+	dbg,       // dark background
+	da,        // dark links (anchors)
+	dh,        // dark headings
+	chrfg,     // chrome foreground
+	chrbg,     // chrome background
+	chrac,     // chrome accent
+	chrifg,    // chrome inverted foreground
+	chribg,    // chrome inverted background
+);
+
+// CONSTANT: COMMON PROPERTIES
+// These are properties that are commonly used with colors.
+// slug => actual property
+//
+$color-props: (
+	color: color,
+	bg: background-color,
+	border: border-color,
+);
+
+// GENERATE COLOR SELECTORS
+// Generate conveinence selectors for the apply mixins.
+// These can be @extended, resulting in less generated CSS.
+// The apply mixins are still available, of course.
+//
+@each $prop-slug, $prop in $color-props
+{
+	@each $color-slug in $color-slugs
+	{
+		%#{$prop-slug}-#{$color-slug}
+		{
+			@include apply($prop, $color-slug);
+		}
+	}
+}
