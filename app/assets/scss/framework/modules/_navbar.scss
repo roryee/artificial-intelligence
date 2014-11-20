@@ -2,19 +2,15 @@
 {
 	$args: keywords($opts);
 	
+	position: absolute;
+	top: 0;
+	width: 100%;
+	
 	z-index: 1000;
 	font-size: scale(1);
 	@extend %font-heading;
 	@extend %bg-chrbg;
 	@extend %color-chrfg;
-	
-	body.has-post-thumbnail &,
-	body.front-page &
-	{
-		position: absolute;
-		top: 0;
-		width: 100%;
-	}
 	
 	> .cc
 	{

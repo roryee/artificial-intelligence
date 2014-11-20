@@ -14,19 +14,13 @@ body
 	
 	@extend %font-body;
 	
-	@include apply(background, lbg);
 	@extend %bg-lbg;
 	@extend %color-lfg;
 	
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
-	
-	&.front-page,
-	&.has-post-thumbnail
-	{
-		background-image: url(../images/robot.jpg);
-	}
+	background-image: url(../images/robot.jpg);
 	
 }
 
@@ -41,4 +35,9 @@ a
 	width: $val-cc-width;
 	max-width: em($val-cc-max-width);
 	margin: 0 auto;
+}
+
+a.cc
+{
+	display: block;
 }

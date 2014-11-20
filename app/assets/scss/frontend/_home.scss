@@ -1,0 +1,48 @@
+.post
+{
+	@include ai-block;
+	
+	&-continue
+	{
+		@extend %genericon-next;
+		position: absolute;
+		bottom: 1.5rem;
+		right: 3.5rem;
+		font-size: 5rem;
+		color: transparent;
+		transition-property: color, right;
+		transition-duration: 0.5s, 0.5s;
+		transition-timing-function: ease-out, ease-out;
+		
+		&:before
+		{
+			margin-top:0.1em;
+		}
+		
+		.cc:hover &
+		{
+			@extend %color-chrfg;
+			right: 1.5rem;
+		}
+		
+	}
+	
+	&-sticky
+	{
+		position: absolute;
+		@extend %genericon-pinned;
+		top: -2.5rem;
+		left: 1rem;
+		width: 1.7rem;
+		height: 1.7rem;
+		border-radius: 50%;
+		text-align: center;
+		@extend %bg-chribg;
+		@extend %color-chrifg;
+		
+		&:before
+		{
+			vertical-align: middle;
+		}
+	}
+}
