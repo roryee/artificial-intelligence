@@ -17,7 +17,7 @@
 		
 		a
 		{
-			@include apply(color, chrfg);
+			@extend %color-chrfg;
 		}
 	}
 }

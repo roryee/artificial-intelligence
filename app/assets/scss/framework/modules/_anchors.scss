@@ -1,14 +1,15 @@
 a%ai-article
 {
-	@include apply_(border-bottom, "1px solid *lfg", lfg);
-	@include apply(color, lfg);
+	border-bottom: 1px solid;
+	@extend %border-lfg;
+	@extend %color-lfg;
 	transition-property: border-color, color;
 	transition-duration: 0.5s, 0.5s;
 	transition-timing-function: ease, ease;
 	
 	&:hover
 	{
-		@include apply(color, la);
-		@include apply(border-color, la);
+		@extend %color-la;
+		@extend %border-la;
 	}
 }

@@ -5,7 +5,7 @@
 	
 	.number a
 	{
-		@include apply(background, chribg);
-		@include apply(color, chrifg);
+		@extend %bg-chribg;
+		@extend %color-chrifg;
 	}
 }

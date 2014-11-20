@@ -1,8 +1,8 @@
 #footer
 {
 	@include wrap;
-	@include apply(background, chrbg);
-	@include apply(color, dfg);
+	@extend %bg-chrbg;
+	@extend %color-dfg;
 	
 	> .cc
 	{
@@ -20,7 +20,7 @@
 			@include trailer;
 			@include scale;
 			@extend %font-heading;
-			@include apply(color, chrfg);
+			@extend %color-chrfg;
 		}
 		
 		&:last-of-type
@@ -42,6 +42,6 @@
 	@include scale(-1);
 	text-align:center;
 	@extend %font-lead;
-	@include apply(background, chrbg);
-	@include apply(color, chrfg);
+	@extend %bg-chrbg;
+	@extend %color-chrfg;
 }

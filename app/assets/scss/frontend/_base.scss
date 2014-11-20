@@ -15,7 +15,8 @@ body
 	@extend %font-body;
 	
 	@include apply(background, lbg);
-	@include apply(color, lfg);
+	@extend %bg-lbg;
+	@extend %color-lfg;
 	
 	background-size: cover;
 	background-position: center;
@@ -32,7 +33,7 @@ body
 a
 {
 	text-decoration: none;
-	@include apply(color, da);
+	@extend %color-da;
 }
 
 .cc

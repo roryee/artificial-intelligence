@@ -23,11 +23,11 @@
 				line-height: 0;
 				font-size: 0;
 				border-top: 1px solid;
-				@include apply(border-color, chrac);
+				@extend %border-chrac;
 				
 				&.active
 				{
-					@include apply(border-color, chrfg);
+					@extend %border-chrfg;
 				}
 			}
 		}
