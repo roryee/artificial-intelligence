@@ -51,6 +51,7 @@ $colors: (
 		dh:     $lightning,                        // dark headings
 		chrfg:  $lightning,                        // chrome foreground
 		chrbg:  transparentize($mineshaft, 0.4),   // chrome background
+		chrac:  lighten($mineshaft, 40%),          // chrome accent
 		chrifg: $mineshaft,                        // chrome inverted foreground
 		chribg: $lightning,                        // chrome inverted background
 	)
