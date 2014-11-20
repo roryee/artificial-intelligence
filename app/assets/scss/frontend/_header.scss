@@ -2,4 +2,10 @@
 #header
 {
 	@include ai-navbar(".header");
+	
+	.number a
+	{
+		@include apply(background, chribg);
+		@include apply(color, chrifg);
+	}
 }

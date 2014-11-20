@@ -1,0 +1,36 @@
+@mixin ai-block($sel: &, $opts...)
+{
+	$args: keywords($opts);
+	
+	height:100vh;
+	width:100vw;
+	position:relative;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	
+	> .c
+	{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		padding: 1em 0 2em;
+		@include apply(background, chrbg);
+		@include apply(color, dfg);
+	}
+	
+	h1
+	{
+		@extend %font-title;
+		@include scale(5);
+		@include apply(color, chrfg);
+	}
+	
+	p
+	{
+		@extend %font-lead;
+		max-width: 30em;
+		@include scale;
+	}
+	
+}
