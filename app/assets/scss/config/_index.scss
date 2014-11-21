@@ -52,6 +52,7 @@ $colors: (
 		chrfg:  $lightning,
 		chrbg:  transparentize($mineshaft, 0.4),
 		chrac:  lighten($mineshaft, 40%),
+		chra:   transparentize($mineshaft, 0.2),
 		chrifg: $mineshaft,
 		chribg: $lightning,
 	)

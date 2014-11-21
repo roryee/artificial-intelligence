@@ -1,0 +1,48 @@
+@mixin ai-plate($sel: &, $opts...)
+{
+	$args: keywords($opts);
+	
+	padding: 2rem 0;
+	@extend %ai-article;
+	@extend %bg-dbg;
+	
+	.cc
+	{
+		@extend %row;
+	}
+	
+	.icon
+	{
+		@if map-has-key($args, icon)
+		{
+			@extend %genericon-#{map-find($args, icon)};
+		}
+		
+		font-size: 2rem;
+		@include span(1/12);
+		@extend %color-dh;
+		
+	}
+	
+	.meta
+	{
+		@include span(1/3);
+		@include scale(1);
+		@extend %font-heading;
+		@extend %color-dfg;
+		
+		li a
+		{
+			@extend %color-dh;
+		}
+		
+	}
+	
+	.content
+	{
+		@include span(1/2);
+		@extend %font-lead;
+		@extend %color-dfg;
+	}
+	
+}
