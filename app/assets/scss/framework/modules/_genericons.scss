@@ -193,12 +193,12 @@ $genericons: (
 		// Or, you may simply use a span with its data-icon attr
 		// set to a slug.
 		//
-		// @at-root
-		// {
-		// 	[data-icon="#{$slug}"]
-		// 	{
-		// 		@extend %genericon-#{$slug};
-		// 	}
-		// }
+		@at-root
+		{
+			[data-icon="#{$slug}"]
+			{
+				@extend %genericon-#{$slug};
+			}
+		}
 	}
 }
