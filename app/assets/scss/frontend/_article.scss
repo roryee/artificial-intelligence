@@ -10,7 +10,7 @@
 	
 	hr.end
 	{
-		@extend %ai-article-cc-s;
+		@extend %ccs-article;
 		height: rem(1px);
 		border: 0;
 		@extend %bg-la;
@@ -24,7 +24,7 @@
 	.categories
 	{
 		@extend %row;
-		@extend %ai-article-cc-w;
+		@extend %ccw-article;
 		@include wrap;
 		@extend %font-lead;
 		text-align: center;

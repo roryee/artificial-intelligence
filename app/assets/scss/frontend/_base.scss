@@ -14,8 +14,8 @@ body
 	
 	@extend %font-body;
 	
-	@extend %bg-lbg;
-	@extend %color-lfg;
+	@include apply(background-color, lbg, true);
+	@include apply(color,            lfg, true);
 	
 	background-size: cover;
 	background-position: center;
@@ -32,14 +32,7 @@ a
 
 .cc
 {
-	width: $config-cc-width;
-	max-width: em($config-cc-max-width);
-	margin: 0 auto;
-}
-
-a.cc
-{
-	display: block;
+	@extend %cc;
 }
 
 img

@@ -12,7 +12,7 @@
 	h5,
 	h6
 	{
-		@extend %ai-article-cc;
+		@extend %cc-article;
 		@include wrap;
 		@extend %font-heading;
 	}
@@ -34,7 +34,7 @@
 	
 	p
 	{
-		@extend %ai-article-cc;
+		@extend %cc-article;
 		@include trailer;
 		
 		&:first-of-type

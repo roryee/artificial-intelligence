@@ -2,7 +2,7 @@
 {
 	$args: keywords($opts);
 	
-	@extend %ai-article-cc-w;
+	@extend %ccw-article;
 	@include wrap;
 	
 	text-align: center;
