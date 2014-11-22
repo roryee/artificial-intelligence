@@ -1,2 +1,4 @@
-@import "config/index";
-@import "framework/index"
+@import "config";
+@import "bootstrap";
+@import "themes/*";          // Sass globbing plugin enabled
+@import "framework/index";

@@ -6,18 +6,18 @@
 {
 	@if $unit == "rem"
 	{
-		@return rem($val-font-size * raise($val-multiplier, $exp));
+		@return rem($config-font-size * raise($config-multiplier, $exp));
 	}
 	@elseif $unit == "px"
 	{
-		@return $val-font-size * raise($val-multiplier, $exp);
+		@return $config-font-size * raise($config-multiplier, $exp);
 	}
 }
 
 // CONSTANT: ARTICLE-CONTAINER
 // The maximum width of the article container.
 //
-$val-cc-article: rem($val-cc-article);
+$config-cc-article: rem($config-cc-article);
 
 // SELECTOR: ARTICLE-CONTAINER
 // Wraps the above variable in a selector.
@@ -25,13 +25,13 @@ $val-cc-article: rem($val-cc-article);
 %ai-article-cc
 {
 	margin: 0 auto;
-	max-width: $val-cc-article;
+	max-width: $config-cc-article;
 }
 
 // CONSTANT: ARTICLE-CONTAINER-WIDE
 // The maximum width of the article footer container.
 //
-$val-cc-article-w: $val-cc-article * (4/3);
+$config-cc-article-w: $config-cc-article * (4/3);
 
 // SELECTOR: ARTICLE-CONTAINER
 // Wraps the above variable in a selector.
@@ -39,13 +39,13 @@ $val-cc-article-w: $val-cc-article * (4/3);
 %ai-article-cc-w
 {
 	margin: 0 auto;
-	max-width: $val-cc-article-w;
+	max-width: $config-cc-article-w;
 }
 
 // CONSTANT: ARTICLE-CONTAINER-WIDE
 // The maximum width of the article footer container.
 //
-$val-cc-article-s: $val-cc-article * (5/6);
+$config-cc-article-s: $config-cc-article * (5/6);
 
 // SELECTOR: ARTICLE-CONTAINER
 // Wraps the above variable in a selector.
@@ -53,5 +53,5 @@ $val-cc-article-s: $val-cc-article * (5/6);
 %ai-article-cc-s
 {
 	margin: 0 auto;
-	max-width: $val-cc-article-s;
+	max-width: $config-cc-article-s;
 }

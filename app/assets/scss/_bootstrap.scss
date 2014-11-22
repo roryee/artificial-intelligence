@@ -1,0 +1,26 @@
+// BOOTSTRAP
+// Bootstraps Sass pipeline.
+//
+
+// CONSTANT: THEMES
+// Contains the slug and settings of each imported theme.
+//
+$themes: ();
+
+// MIXIN: EXPORT
+// Builds and exports a theme.
+//   $slug            The name of the theme
+//   $colors          A map of colors for the theme to use
+//   $fonts           A map of font settings for the theme to use
+//   $fonts-import    A map of fonts for the theme to import from Google Fonts
+//
+@mixin export($slug, $colors, $fonts, $fonts-import)
+{
+	$theme: (
+		colors: $colors,
+		fonts: $fonts,
+		fonts-import: $fonts-import,
+	);
+	
+	$themes: map-merge($themes, ($slug: $theme)) !global;
+}

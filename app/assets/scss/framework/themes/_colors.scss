@@ -4,13 +4,14 @@
 //
 @mixin apply($prop, $slug, $body: false)
 {
-	@each $theme in $themes
+	
+	@each $theme, $settings in $themes
 	{
 		@if $body
 		{
 			&.aitheme-#{$theme}
 			{
-				#{$prop}: map-find($colors, $theme, $slug);
+				#{$prop}: map-find($settings, colors, $slug);
 			}
 		}
 		
@@ -18,7 +19,7 @@
 		{
 			body.aitheme-#{$theme} &
 			{
-				#{$prop}: map-find($colors, $theme, $slug);
+				#{$prop}: map-find($settings, colors, $slug);
 			}
 		}
 	}
@@ -30,21 +31,27 @@
 //
 @mixin apply_($prop, $val: "", $slugs...)
 {
-	@each $theme in $themes
+	@each $theme, $settings in $themes
 	{
 		body.aitheme-#{$theme} &
 		{
 			@each $slug in $slugs
 			{
-				$val: str-replace($val, "*#{$slug}", "#{map-find($colors, $theme, $slug)}");
+				$val: str-replace(
+					$val,
+					"*#{$slug}",
+					"#{map-find($settings, colors, $slug)}"
+				);
 			}
-			#{$prop}: unquote($val);
+			
+			#{$prop}: $val;
 		}
 	}
 }
 
 // CONSTANT: COLOR SLUGS
 // These slugs are used to determine where to apply theme colors.
+// These provide a standardized reference of color slugs.
 //
 $color-slugs: (
 	lfg,       // light foreground

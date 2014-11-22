@@ -5,7 +5,7 @@
 $breaks: ();
 
 // Building $breaks with ems
-@each $key, $val in $val-breaks
+@each $key, $val in $config-breaks
 {
 	$breaks: map-merge($breaks, ($key: em($val)));
 }

@@ -3,7 +3,7 @@
 // Converts pixels to ems, given both target and contextual sizes in pixels.
 // By default, uses the base font size as context.
 //
-@function em($target, $context: $val-font-size)
+@function em($target, $context: $config-font-size)
 {
 	@return ($target / $context) * 1em;
 }
@@ -12,7 +12,7 @@
 // Converts pixes to rems, given both target and base sizes in pixels.
 // By default, uses the base font size as base.
 //
-@function rem($target, $font-size: $val-font-size)
+@function rem($target, $font-size: $config-font-size)
 {
 	@return ($target / $font-size) * 1rem;
 }
@@ -21,11 +21,11 @@
 // Converts rems or ems to pixels, given target and contextual values.
 // By default, uses the base font size as context.
 //
-@function px($target, $context: $val-font-size)
+@function px($target, $context: $config-font-size)
 {
 	@if unit($target) == "rem"
 	{
-		@return ($target / 1rem) * $val-font-size;
+		@return ($target / 1rem) * $config-font-size;
 	}
 	
 	@elseif unit($target) == "em"

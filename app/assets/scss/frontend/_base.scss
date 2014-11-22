@@ -32,8 +32,8 @@ a
 
 .cc
 {
-	width: $val-cc-width;
-	max-width: em($val-cc-max-width);
+	width: $config-cc-width;
+	max-width: em($config-cc-max-width);
 	margin: 0 auto;
 }
 

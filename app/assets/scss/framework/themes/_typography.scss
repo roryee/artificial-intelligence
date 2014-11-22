@@ -1,24 +1,40 @@
-$typesets: title, heading, lead, body, main;
 
+// CONSTANT: TYPESETS
+// Locations where associated styles may be applied. Standardized.
+//
+$typesets: (
+	title,     // Appears on big page titles
+	heading,   // Appears on smaller headings
+	lead,      // Appears in lead paragraph text
+	body,      // The default styling
+	main,      // Applied to areas where there is a lot of text (articles, etc.)
+);
+
+// Build typesets
+//
 @each $set in $typesets
 {
 	%font-#{$set}
 	{
-		@each $theme in $themes
+		@each $theme, $settings in $themes
 		{
+			// Apply most sets below the body
+			//
 			@if $set != body
 			{
 				body.aitheme-#{$theme} &
 				{
-					@extend %#{$theme}-font-#{$set};
+					@include map-build(map-find($settings, fonts, $set));
 				}
 			}
 			
+			// Apply body sets directly to the body
+			//
 			@else
 			{
 				&.aitheme-#{$theme}
 				{
-					@extend %#{$theme}-font-#{$set};
+					@include map-build(map-find($settings, fonts, $set));
 				}
 			}
 		}

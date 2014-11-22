@@ -2,11 +2,11 @@
 // DEBUG RHYTHM
 // If debugging turned on, import a background image to help debug rhythm.
 //
-@if $val-rhythm-debug
+@if $config-rhythm-debug
 {
 	%ai-article
 	{
-		background-image: url(http://basehold.it/i/#{$val-line-height / 1px}) !important;
+		background-image: url(http://basehold.it/i/#{$config-line-height / 1px}) !important;
 	}
 }
 
@@ -18,7 +18,7 @@
 {
 	font-size: scale($exp);
 	$size: scale($exp, "px");
-	line-height: $val-line-height * ceil($size / $val-line-height) / $size;
+	line-height: $config-line-height * ceil($size / $config-line-height) / $size;
 }
 
 // MIXIN: SPACING
@@ -26,7 +26,7 @@
 //
 @mixin spacing($pos: bottom, $prop: padding)
 {
-	#{$prop}-#{$pos}: rem($val-line-height);
+	#{$prop}-#{$pos}: rem($config-line-height);
 }
 
 // MIXIN: LEADER
@@ -57,12 +57,12 @@
 // CONSTANT: LINE-HEIGHT
 // The actual unitless line-height value that is applied to elements.
 //
-$line-height: $val-line-height / $val-font-size;
+$line-height: $config-line-height / $config-font-size;
 
 // Set root font-size so rems work
 :root
 {
-	font-size: em($val-font-size, 16px);
+	font-size: em($config-font-size, 16px);
 }
 
 %ai-article
