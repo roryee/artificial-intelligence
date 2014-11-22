@@ -29,21 +29,37 @@ module.exports = (grunt) ->
 		
 		# Watch config
 		watch:
-			styles:
-				files: 'app/assets/scss/**/*.scss'
-				tasks: ['sass', 'autoprefixer']
-			scripts:
-				files: 'app/assets/coffee/**/*.coffee'
-				tasks: ['coffee']
+			dist:
+				files: [
+					'app/assets/scss/**/*.scss'
+					'app/assets/coffee/**/*.coffee'
+				]
+				tasks: [
+					'sass:dist'
+					'autoprefixer'
+					'coffee'
+				]
+				
+			debug:
+				files: [
+					'app/assets/scss/**/*.scss'
+					'app/assets/coffee/**/*.coffee'
+				]
+				tasks: [
+					'sass:debug'
+					'autoprefixer'
+					'coffee'
+				]
 		
 		# Sass config
 		sass:
-			files: filesScss
 			debug:
+				files: filesScss
 				options:
 					style: 'expanded'
 					lineNumbers: true
 			dist:
+				files: filesScss
 				options:
 					style: 'compressed'
 					
