@@ -6,6 +6,11 @@
 @function map-find($map, $keys...)
 {
 	
+	@if not cast($map, map)
+	{
+		@error "$map #{$map} is not a map. Keys are #{inspect($keys)}";
+	}
+	
 	// Begin search
 	//
 	@while length($keys) > 1

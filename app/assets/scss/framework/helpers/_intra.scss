@@ -15,5 +15,5 @@
 	
 	// Return if $var is one of $types
 	//
-	@return index($args, type-of($var));
+	@return index($types, type-of($var));
 }
