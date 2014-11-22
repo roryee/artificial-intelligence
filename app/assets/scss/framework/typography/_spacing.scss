@@ -1,0 +1,33 @@
+
+// MIXIN: SPACING
+// Adds spacing above or below parent element.
+//
+@mixin spacing($pos: bottom, $prop: padding)
+{
+	#{$prop}-#{$pos}: rem($config-line-height);
+}
+
+// MIXIN: LEADER
+// Alias for spacing(top).
+//
+@mixin leader
+{
+	@include spacing(top);
+}
+
+// MIXIN: TRAILER
+// Alias for spacing, without any arguments.
+//
+@mixin trailer
+{
+	@include spacing;
+}
+
+// MIXIN: WRAP
+// Alias for leader and trailer together.
+//
+@mixin wrap
+{
+	@include spacing(top);
+	@include spacing;
+}
