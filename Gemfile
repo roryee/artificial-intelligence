@@ -3,6 +3,7 @@ source "https://rubygems.org"
 
 # Sass
 gem 'sass', '~> 3.4.7'
+gem 'sass-globbing'
 
 # CoffeeScript
 # gem 'coffee-script-source', '~> 1.8.0'

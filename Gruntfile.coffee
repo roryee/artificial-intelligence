@@ -53,6 +53,10 @@ module.exports = (grunt) ->
 		
 		# Sass config
 		sass:
+			options:
+				require: [
+					'sass-globbing'
+				]
 			debug:
 				files: filesScss
 				options:
