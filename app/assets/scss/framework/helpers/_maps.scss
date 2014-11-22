@@ -51,7 +51,18 @@
 	//
 	@each $property, $value in $map
 	{
-		#{$property}: $value;
+		@if type-of($value) == map
+		{
+			#{$property}
+			{
+				@include map-build($value);
+			}
+		}
+		
+		@else
+		{
+			#{$property}: $value;
+		}
 	}
 	
 }
