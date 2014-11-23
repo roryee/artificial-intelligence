@@ -12,20 +12,17 @@
 	@extend %bg-chrbg;
 	@extend %color-chrfg;
 	
-	> .cc
-	{
-		@extend %row;
-	}
-	
 	#{$sel}-sep
 	{
-		&:first-of-type
+		&:first-child
 		{
+			@include span(6 first);
 			@include box;
 		}
 		
-		&:last-of-type
+		&:last-child
 		{
+			@include span(6 last);
 			@include box(right, $cc: "> .c", $items: "> .menu-item");
 		}
 	}

@@ -8,17 +8,21 @@
 	> .ccc
 	{
 		padding: 1em;
-		@extend %row;
-	}
-	
-	.comments-old.w
-	{
-		@include span(3/5);
-	}
-	
-	.comments-new.w
-	{
-		@include span(2/5);
+		
+		@include with-layout(5 (1/4) after)
+		{
+			@include container;
+			
+			.comments-old.w
+			{
+				@include span(3 first);
+			}
+			
+			.comments-new.w
+			{
+				@include span(2 last);
+			}
+		}
 	}
 	
 	h1
@@ -36,7 +40,6 @@
 		
 		&-header
 		{
-			@extend %row;
 			font-size: scale();
 			@extend %font-heading;
 			
@@ -47,13 +50,11 @@
 			
 			> .left
 			{
-				@include span(3/4);
 				@include box($cc: "> .c");
 			}
 			
 			> .right
 			{
-				@include span(1/4);
 				@include box(right, $cc: "> .c");
 			}
 			

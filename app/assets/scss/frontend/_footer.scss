@@ -4,14 +4,9 @@
 	@extend %bg-chrbg;
 	@extend %color-dfg;
 	
-	> .cc
-	{
-		@extend %row;
-	}
-	
 	.col
 	{
-		@include span(1/6);
+		@include span(2);
 		@extend %ai-article;
 		@extend %font-lead;
 		
@@ -25,7 +20,7 @@
 		
 		&:last-of-type
 		{
-			@include span(2/6);
+			@include span(4 last);
 			
 			h6
 			{

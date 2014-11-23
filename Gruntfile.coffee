@@ -56,6 +56,7 @@ module.exports = (grunt) ->
 			options:
 				require: [
 					'sass-globbing'
+					'susy'
 				]
 			debug:
 				files: filesScss

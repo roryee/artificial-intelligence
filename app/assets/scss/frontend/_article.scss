@@ -23,26 +23,32 @@
 	
 	.categories
 	{
-		@extend %row;
 		@extend %ccw-article;
 		@include wrap;
 		@extend %font-lead;
 		text-align: center;
 		
-		.col
+		@include with-layout(2 (0))
 		{
-			@include span(1/2);
+			@include container($config-cc-article);
 			
-			h6
+			.col
 			{
-				@include scale(4);
-			}
-			
-			a
-			{
-				@extend a%ai-article;
-				border: 0 !important;
+				@include span(1);
 			}
 		}
+		
+		h6
+		{
+			@include scale(4);
+		}
+		
+		a
+		{
+			@extend a%ai-article;
+			border: 0 !important;
+		}
+			
 	}
+	
 }

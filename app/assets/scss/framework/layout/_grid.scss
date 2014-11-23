@@ -1,35 +1,16 @@
 
-%row
-{
-	html.no-flexbox.no-flexboxlegacy &
-	{
-		@extend %cf;
-		
-		> *
-		{
-			float: left;
-		}
-		
-		> :last-child
-		{
-			float: right
-		}
-	}
-	
-	html.flexbox &,
-	html.flexboxlegacy &
-	{
-		display: flex;
-		
-		> :last-child
-		{
-			margin-left: auto;
-		}
-	}
-}
+$susy: (
+	columns: 12,
+	gutters: 1/4,
+	math: fluid,
+	output: float,
+	gutter-position: inside,
+	container: em($config-cc-max-width),
+	// debug: (
+	// 	image: show,
+	// ),
+);
 
+@include layout($susy);
 
-@mixin span($width)
-{
-	width: percentage($width);
-}
+@include border-box-sizing;
