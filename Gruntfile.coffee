@@ -4,9 +4,9 @@ module.exports = (grunt) ->
 	filesScss = [
 		{
 			expand: true
-			cwd: 'app/assets/scss/'
+			cwd: 'scss/'
 			src: ['**/*.scss']
-			dest: 'app/assets/css/'
+			dest: 'css/'
 			ext: '.css'
 			extDot: 'first'
 		}
@@ -16,9 +16,9 @@ module.exports = (grunt) ->
 	filesCoffee = [
 		{
 			expand: true
-			cwd: 'app/assets/coffee/'
+			cwd: 'coffee/'
 			src: ['**/*.coffee']
-			dest: 'app/assets/js/'
+			dest: 'js/'
 			ext: '.js'
 			extDot: 'first'
 		}
@@ -31,8 +31,8 @@ module.exports = (grunt) ->
 		watch:
 			dist:
 				files: [
-					'app/assets/scss/**/*.scss'
-					'app/assets/coffee/**/*.coffee'
+					'scss/**/*.scss'
+					'coffee/**/*.coffee'
 				]
 				tasks: [
 					'sass:dist'
@@ -42,8 +42,8 @@ module.exports = (grunt) ->
 				
 			debug:
 				files: [
-					'app/assets/scss/**/*.scss'
-					'app/assets/coffee/**/*.coffee'
+					'scss/**/*.scss'
+					'coffee/**/*.coffee'
 				]
 				tasks: [
 					'sass:debug'
@@ -71,7 +71,7 @@ module.exports = (grunt) ->
 		# Autoprefixer config
 		autoprefixer:
 			dist:
-				src: 'app/assets/css/*.css'
+				src: 'css/*.css'
 				options:
 					map: true
 					browsers: [
@@ -91,7 +91,7 @@ module.exports = (grunt) ->
 		modernizr:
 			dist:
 				devFile: "bower_components/modernizr/modernizr.js"
-				outputFile: "app/assets/js/deps/modernizr.js"
+				outputFile: "js/deps/modernizr.js"
 				
 				extra:
           shiv : false
@@ -114,8 +114,8 @@ module.exports = (grunt) ->
 				parseFiles: true
 				files:
 					src: [
-						"app/assets/js/**/*.js"
-						"app/assets/scss/**/*.scss"
+						"js/**/*.js"
+						"scss/**/*.scss"
 					]
 				
 				matchCommunityTests: false
