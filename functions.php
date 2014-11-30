@@ -149,3 +149,21 @@ class Artificial_Intelligence
 }
 
 Artificial_Intelligence::init();
+
+function get_post_thumbnail_src( $post )
+{
+	if ( has_post_thumbnail( $post->ID ) )
+	{
+		return wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
+	}
+	
+	else
+	{
+		return Artificial_Intelligence::$dir . '/images/robot2.jpg';
+	}
+}
+
+function the_post_thumbnail_src( $post )
+{
+	echo get_post_thumbnail_src( $post );
+}
