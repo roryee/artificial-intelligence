@@ -25,7 +25,7 @@
 			@include box;
 		}
 		
-		&:last-child
+		&:last-child:not(:first-child)
 		{
 			@include span(6 last);
 			@include box(right, $cc: "> .c", $items: "> .menu-item");

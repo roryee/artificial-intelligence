@@ -9,40 +9,53 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class( 'aitheme-lightning' ); ?>>
+<body <?php body_class( 'aitheme-lightning' ); ?> style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/robot2.jpg);">
 	<header id="header" class="ww">
 		<div class="cc">
+			
 			<hgroup id="logo" class="header-sep">
 				<ul class="c">
 					<li class="number">
-						<a href="#">#1444</a>
+						<a href="#"><?php bloginfo( 'description' ); ?></a>
 					</li>
 					<li class="name">
-						<a href="#">Lightning Lancers</a>
+						<a href="#"><?php bloginfo( 'tagline' ); ?></a>
 					</li>
 				</ul>
 			</hgroup>
-			<nav id="nav" class="header-sep">
-				<ul class="c">
-					<li class="menu-item">
-						<a href="#">Blog</a>
-					</li>
-					<li class="menu-item">
-						<a href="#">About</a>
-					</li>
-					<li class="menu-item">
-						<a href="#">Discord</a>
-					</li>
-					<li class="menu-item">
-						<a href="#">Social</a>
-					</li>
-					<li id="nav-login" class="menu-item">
-						<a href="#"><span data-icon="user"></span></a>
-					</li>
-					<li id="nav-search" class="menu-item">
-						<a href="#"><span data-icon="search"></span></a>
-					</li>
-				</ul>
-			</nav>
+			
+			<?php
+			
+			if ( is_user_logged_in() && has_nav_menu( 'admin' ) )
+			{
+				wp_nav_menu([
+					'theme_location'  => 'admin',
+					'menu'            => 'Admin',
+					'container'       => 'nav',
+					'container_class' => 'header-sep',
+					'container_id'    => 'nav',
+					'menu_class'      => 'c',
+					'menu_id'         => false,
+					'depth'           => 2,
+				]);
+			}
+			
+			else
+			{
+				wp_nav_menu([
+					'theme_location'  => 'primary',
+					'menu'            => 'Primary',
+					'container'       => 'nav',
+					'container_class' => 'header-sep',
+					'container_id'    => 'nav',
+					'menu_class'      => 'c',
+					'menu_id'         => 'nav-c',
+					'fallback_cb'     => false,
+					'depth'           => 2,
+				]);
+			}
+			
+			?>
+			
 		</div>
 	</header>

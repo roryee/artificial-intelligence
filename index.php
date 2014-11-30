@@ -2,7 +2,7 @@
 
 <main id="main" class="ww">
 	<section class="slidesjs">
-		<section class="post format-standard w" style="background-image:url(../images/robot.jpg);">
+		<section class="post format-standard w" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/robot2.jpg);">
 			<hgroup class="c">
 				<div class="icon"></div>
 				<div class="icon-sticky" title="Sticky post"></div>
@@ -14,7 +14,7 @@
 				</a>
 			</hgroup>
 		</section>
-		<section class="post format-standard w" style="background-image:url(../images/welding.jpg);">
+		<section class="post format-standard w" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/welding.jpg);">
 			<hgroup class="c">
 				<div class="icon"></div>
 				<div class="icon-sticky" title="Sticky post"></div>
@@ -51,7 +51,7 @@
 			</div>
 		</hgroup>
 	</section>
-	<section class="post format-standard w" style="background-image:url(../images/bolts.jpg);">
+	<section class="post format-standard w" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/bolts.jpg);">
 		<hgroup class="c">
 			<div class="icon"></div>
 			<a href="#" class="cc">
@@ -73,7 +73,7 @@
 				</ul>
 				<div class="content">
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non [...]
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non [<?php echo get_template_directory_uri(); ?>.]
 					</p>
 				</div>
 			</div>
@@ -96,13 +96,13 @@
 						<a href="#">Promoting Gracious Professionalism</a>
 					</p>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non [...]
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non [<?php echo get_template_directory_uri(); ?>.]
 					</p>
 				</div>
 			</div>
 		</hgroup>
 	</section>
-	<section class="post format-standard w" style="background-image:url(../images/robot2.jpg);">
+	<section class="post format-standard w" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/robot2.jpg);">
 		<hgroup class="c">
 			<div class="icon"></div>
 			<a href="#" class="cc">
@@ -124,7 +124,7 @@
 			</div>
 		</hgroup>
 	</section>
-	<section class="post format-standard w" style="background-image:url(../images/welding.jpg);">
+	<section class="post format-standard w" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/welding.jpg);">
 		<hgroup class="c">
 			<div class="icon"></div>
 			<a href="#" class="cc">
@@ -147,14 +147,14 @@
 				</li>
 			</ul>
 			<div class="content">
-				<img src="../images/gearbox.jpg" alt="Gearbox assembly" />
+				<img src="<?php echo get_template_directory_uri(); ?>/images/gearbox.jpg" alt="Gearbox assembly" />
 				<p>
 					Our gearbox assemblies. A heavy-duty mecanum wheel driven by a CIM motor.
 				</p>
 			</div>
 		</hgroup>
 	</section>
-	<section class="post format-standard w" style="background-image:url(../images/sprockets.jpg);">
+	<section class="post format-standard w" style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/sprockets.jpg);">
 		<hgroup class="c">
 			<div class="icon"></div>
 			<a href="#" class="cc">
