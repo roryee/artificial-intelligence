@@ -93,7 +93,13 @@ class Artificial_Intelligence
 			'comment-list', 'comment-form', 'search-form', 'gallery', 'caption',
 		]);
 		
-		// add_theme_support( 'custom-background' );
+		add_theme_support( 'custom-background', [
+			'default-color'      => '#eee',
+			'default-image'      => self::$dir . '/images/robot2.jpg',
+			'default-attachment' => 'fixed',
+			'default-position-x' => 'center',
+			'default-repeat'     => 'no-repeat',
+		]);
 			
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'post-formats', [
