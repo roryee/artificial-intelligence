@@ -9,7 +9,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class( 'aitheme-lightning' ); ?> style="background-image:url(<?php echo get_template_directory_uri(); ?>/images/robot2.jpg);">
+<body <?php body_class( 'aitheme-lightning' ); ?>>
 	<header id="header" class="ww">
 		<div class="cc">
 			
