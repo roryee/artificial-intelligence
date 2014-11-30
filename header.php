@@ -16,10 +16,10 @@
 			<hgroup id="logo" class="header-sep">
 				<ul class="c">
 					<li class="number">
-						<a href="#"><?php bloginfo( 'description' ); ?></a>
+						<a href="<?php bloginfo( 'url' ); ?>"><?php bloginfo( 'description' ); ?></a>
 					</li>
 					<li class="name">
-						<a href="#"><?php bloginfo( 'tagline' ); ?></a>
+						<a href="<?php bloginfo( 'url' ); ?>"><?php bloginfo( 'tagline' ); ?></a>
 					</li>
 				</ul>
 			</hgroup>
