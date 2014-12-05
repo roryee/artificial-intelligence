@@ -42,10 +42,25 @@
 		transition-timing-function: ease, ease;
 	}
 	
-	.menu-item a:hover
+	.sub-menu
 	{
-		@extend %bg-chribg;
-		@extend %color-chrifg;
+		display: none;
+		position: absolute;
+		@extend %bg-chrbg;
+	}
+	
+	.menu-item:hover
+	{
+		> a
+		{
+			@extend %bg-chribg;
+			@extend %color-chrifg;
+		}
+		
+		.sub-menu
+		{
+			display: initial;
+		}
 	}
 	
 }
