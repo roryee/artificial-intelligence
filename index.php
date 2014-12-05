@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="main" class="ww">
+<main id="main" <?php body_class( 'ww' ); ?>>
 
 	<?php if ( have_posts() ): ?>
 		

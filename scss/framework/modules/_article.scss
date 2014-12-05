@@ -3,7 +3,11 @@
 	$args: keywords($opts);
 	
 	@extend %ai-article;
-	@include apply(background, lbg);
+	
+	@if map-has-key($args, color)
+	{
+		@extend %color-#{map-find($args, color)};
+	}
 	
 	h1,
 	h2,
@@ -15,6 +19,11 @@
 		@extend %cc-article;
 		@include wrap;
 		@extend %font-heading;
+		
+		@if map-has-key($args, color-heading)
+		{
+			@extend %color-#{map-find($args, color-heading)};
+		}
 	}
 	
 	h1

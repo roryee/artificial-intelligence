@@ -1,6 +1,37 @@
-#article
+
+
+.single-format-standard #article,
+.page-template-default #article
 {
-	@include ai-article(".article", $adjust-first: 0.42rem);
+	@extend %bg-lbg;
+	
+	.article.c
+	{
+		@include ai-article(".article", $adjust-first: 0.42rem);
+	}
+}
+
+.single-format-aside #article
+{
+	min-height: 100vh;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	
+	> .c
+	{
+		min-height: 100vh;
+		@extend %bg-chrbg;
+	}
+	
+	.article.c
+	{
+		padding: 5rem 0;
+		@include ai-article(".article",
+												$color: dfg,
+												$color-heading: dh);
+		
+	}
 }
 
 #article-footer
