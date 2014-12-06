@@ -11,18 +11,23 @@
 	}
 }
 
-.single-format-aside #article,
-.page-template-photobg-page-php #article
+.page-template-photobg-page-php,
+.single-format-aside,
+.single-format-status,
+.single-format-quote
 {
-	min-height: 100vh;
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
-	
-	> .c
+	#article
 	{
 		min-height: 100vh;
-		@extend %bg-chrbg;
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		
+		> .c
+		{
+			min-height: 100vh;
+			@extend %bg-chrbg;
+		}
 	}
 	
 	.article.c
@@ -33,6 +38,33 @@
 												$color-heading: dh);
 		
 	}
+}
+
+.page-template-darkbg-page-php,
+.single-format-image,
+.single-format-video,
+.single-format-link
+{
+	#article
+	{
+		min-height: 100vh;
+		
+		> .c
+		{
+			min-height: 100vh;
+			@extend %bg-dbg;
+		}
+	}
+	
+	.article.c
+	{
+		padding: 5rem 0;
+		@include ai-article(".article",
+		$color: dfg,
+		$color-heading: dh);
+		
+	}
+	
 }
 
 #article-footer

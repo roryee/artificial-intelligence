@@ -1,6 +1,5 @@
 <?php if ( is_singular() ): ?>
 	
-	
 	<article id="article"
 		style="background-image:url(<?php the_post_thumbnail_src( $post ); ?>);">
 		<div class="c">

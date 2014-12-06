@@ -1,0 +1,149 @@
+
+%ai-post
+{
+	@extend %ai-article;
+	
+	p
+	{
+		@extend %cc-article;
+	}
+	
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6
+	{
+		@extend %cc-article;
+		@include wrap;
+		@extend %font-heading;
+	}
+	
+	hr
+	{
+		@extend %ccs-article;
+		height: rem(1px);
+		@include spacing(bottom, margin);
+		border: 0;
+		@extend %bg-la;
+	}
+	
+	strong
+	{
+		font-weight: 700;
+	}
+	
+	em
+	{
+		font-style: italic;
+	}
+	
+	// don't do underlines, kids
+	span[style*="underline"]
+	{
+		text-decoration: none !important;
+		border-bottom: rem(1px) solid;
+		@extend %border-lfg;
+	}
+	
+	ul,
+	ol
+	{
+		@extend %cc-article;
+		@include trailer;
+	}
+	
+	ul
+	{
+		list-style: circle outside;
+	}
+	
+	ol
+	{
+		list-style: decimal outside;
+	}
+	
+	blockquote
+	{
+		@extend %cc-article;
+		@extend %border-la;
+		@extend %color-la;
+		@extend %font-lead;
+		@include spacing($prop: margin);
+		border-left: rem(2px) solid; 
+	}
+	
+	.wp-caption
+	{
+		@extend %border-la;
+		
+		&.aligncenter,
+		&.alignnone
+		{
+			@extend %cc-article;
+			@include wrap;
+		}
+		
+		@each $align, $opposite in left right, right left
+		{
+			&.align#{$align}
+			{
+				float: $align;
+				border-#{$opposite}: rem(2px) solid;
+				padding-#{$opposite}: 0.75rem;
+				margin-#{$opposite}: 0.75rem;
+			}
+		}
+		
+		&-text
+		{
+			@extend %color-la;
+			@extend %font-lead;
+		}
+		
+	}
+	
+	.gallery
+	{
+		@extend %ccw-article;
+		
+		html.flexbox &
+		{
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+		}
+		
+		html.no-flexbox &
+		{
+			@extend %cf;
+			
+			&-item
+			{
+				float: left;
+			}
+		}
+		
+		@for $i from 1 through 4
+		{
+			&-columns-#{$i} .gallery-item
+			{
+				width: 100% / $i;
+			}
+		}
+		
+		&-item
+		{
+			text-align: center;
+			margin: 0.5rem auto;
+		}
+		
+		&-icon
+		{
+			margin: 0 auto;
+		}
+		
+	}
+	
+}

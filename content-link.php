@@ -1,6 +1,15 @@
 <?php if ( is_singular() ): ?>
 	
-	
+	<article id="article"
+	style="background-image:url(<?php the_post_thumbnail_src( $post ); ?>);">
+	<div class="c">
+		<div <?php post_class( 'article cc c' ); ?>>
+			
+			<?php the_content(); ?>
+			
+		</div>
+	</div>
+</article>
 	
 <?php else: ?>
 	

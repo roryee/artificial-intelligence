@@ -1,6 +1,15 @@
 <?php if ( is_singular() ): ?>
 	
-	
+	<article id="article"
+	style="background-image:url(<?php the_post_thumbnail_src( $post ); ?>);">
+		<div class="c">
+			<div <?php post_class( 'article cc c' ); ?>>
+				
+				<?php the_content(); ?>
+				
+			</div>
+		</div>
+	</article>
 	
 <?php else: ?>
 	
@@ -11,10 +20,7 @@
 			
 			<ul class="meta">
 				<li>
-					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-				</li>
-				<li>
-					<?php the_time( 'n/j/Y g:i A' ); ?>
+					<a href="<?php the_permalink(); ?>"><?php the_time( 'n/j/Y g:i A' ); ?></a>
 				</li>
 			</ul>
 			

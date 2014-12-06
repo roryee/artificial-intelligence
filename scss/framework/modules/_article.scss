@@ -1,26 +1,23 @@
+
 @mixin ai-article($sel: &, $opts...)
 {
 	$args: keywords($opts);
 	
-	@extend %ai-article;
+	@extend %ai-post;
 	
 	@if map-has-key($args, color)
 	{
 		@extend %color-#{map-find($args, color)};
 	}
 	
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6
+	@if map-has-key($args, color-heading)
 	{
-		@extend %cc-article;
-		@include wrap;
-		@extend %font-heading;
-		
-		@if map-has-key($args, color-heading)
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6
 		{
 			@extend %color-#{map-find($args, color-heading)};
 		}
@@ -43,7 +40,6 @@
 	
 	p
 	{
-		@extend %cc-article;
 		@include trailer;
 		
 		&:first-of-type
@@ -57,7 +53,7 @@
 		}
 	}
 	
-	a
+	p a
 	{
 		@extend a%ai-article;
 	}
