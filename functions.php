@@ -109,6 +109,9 @@ class Artificial_Intelligence
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'title-tag' );
 		
+		
+		add_post_type_support( 'page', 'excerpt' );
+		
 	}
 
 	public static function assets()
