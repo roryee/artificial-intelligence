@@ -189,16 +189,19 @@ $genericons: (
 			@extend %genericon;
 			content: $icon;
 		}
-		
-		// Or, you may simply use a span with its data-icon attr
-		// set to a slug.
-		//
-		@at-root
-		{
-			[data-icon="#{$slug}"]
-			{
-				@extend %genericon-#{$slug};
-			}
-		}
+	}
+}
+
+// GENERATE DATA-ICON SELECTORS
+// A list of selectors to generate for data-icon.
+// Generate selectors that use the data-icon attribute to inject the icon.
+//
+$genericons-data-icon: user, search, menu, category, tag;
+
+@each $slug in $genericons-data-icon
+{
+	[data-icon="#{$slug}"]
+	{
+		@extend %genericon-#{$slug};
 	}
 }
