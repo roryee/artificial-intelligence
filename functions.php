@@ -75,16 +75,24 @@ class Artificial_Intelligence
 		],
 	];
 	
+	protected static $themes = [
+		'lightning' => 'Lightning',
+		'chezy'     => 'Cheezy Poofs',
+	];
+	
 	
 	public static function init()
 	{
 		
 		self::$dir = get_template_directory_uri();
 		
-		add_action( 'after_setup_theme',  ['Artificial_Intelligence', 'setup'  ] );
-		add_action( 'wp_enqueue_scripts', ['Artificial_Intelligence', 'assets' ] );
-		add_action( 'init',               ['Artificial_Intelligence', 'menus'  ] );
-		add_action( 'widgets_init',       ['Artificial_Intelligence', 'widgets'] );
+		add_action( 'after_setup_theme',  ['Artificial_Intelligence', 'setup'     ] );
+		add_action( 'wp_enqueue_scripts', ['Artificial_Intelligence', 'assets'    ] );
+		add_action( 'init',               ['Artificial_Intelligence', 'menus'     ] );
+		add_action( 'widgets_init',       ['Artificial_Intelligence', 'widgets'   ] );
+		add_action( 'customize_register', ['Artificial_Intelligence', 'customizer'] );
+		
+		add_filter( 'body_class', ['Artificial_Intelligence', 'theme_output'] );
 	}
 	
 	public static function setup()
@@ -147,6 +155,45 @@ class Artificial_Intelligence
 		{
 			register_sidebar( $sidebar );
 		}
+	}
+	
+	
+	public static function customizer( $wp_customize )
+	{
+		
+		$wp_customize->add_setting(
+			'ai_theme',
+			[
+				'default' => 'lightning',
+			]
+		);
+		
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'ai_theme',
+				[
+					'label'     => __( 'Skin' ),
+					'section'   => 'colors',
+					'settings'  => 'ai_theme',
+					'type'      => 'select',
+					'choices'   => self::$themes,
+				]
+			)
+		);
+		
+	}
+	
+	public static function theme_output( $classes )
+	{
+		
+		if ( get_theme_mod( 'ai_theme' ) )
+			$classes[] = 'aitheme-' . get_theme_mod( 'ai_theme' );
+		
+		else
+			$classes[] = 'aitheme-lightning';
+			
+		return $classes;
 	}
 
 }
