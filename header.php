@@ -9,7 +9,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class( 'aitheme-lightning' ); ?>>
+<body <?php body_class( 'aitheme-chezy' ); ?>>
 	<header id="header" class="ww">
 		<div class="cc">
 			

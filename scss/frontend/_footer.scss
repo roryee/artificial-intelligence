@@ -2,7 +2,7 @@
 {
 	@include wrap;
 	@extend %bg-chrbg;
-	@extend %color-dfg;
+	@extend %color-chrfg;
 	
 	.col
 	{
@@ -15,7 +15,7 @@
 			@include trailer;
 			@include scale;
 			@extend %font-heading;
-			@extend %color-chrfg;
+			@extend %color-chrh;
 		}
 		
 		&:last-of-type
@@ -38,5 +38,5 @@
 	text-align:center;
 	@extend %font-lead;
 	@extend %bg-chrbg;
-	@extend %color-chrfg;
+	@extend %color-chrh;
 }

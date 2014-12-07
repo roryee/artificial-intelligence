@@ -54,19 +54,28 @@
 // These provide a standardized reference of color slugs.
 //
 $color-slugs: (
+	
 	lfg,       // light foreground
 	lbg,       // light background
 	la,        // light links (anchors)
+	lh,        // light headings
+	lac,       // light accent
+	
 	dfg,       // dark foreground
 	dbg,       // dark background
 	da,        // dark links (anchors)
 	dh,        // dark headings
+	dac,       // dark accent
+	
 	chrfg,     // chrome foreground
 	chrbg,     // chrome background
+	chra,      // chrome hover
+	chrh,      // chrome headings/title
 	chrac,     // chrome accent
-	chra,      // chrome anchor (hover) color
+	
 	chrifg,    // chrome inverted foreground
 	chribg,    // chrome inverted background
+	
 );
 
 // CONSTANT: COMMON PROPERTIES

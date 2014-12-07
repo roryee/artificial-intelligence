@@ -7,7 +7,6 @@
 $lightning: #fd0;
 $mineshaft: #222;
 $gallery: #eee;
-$dodger: #5291ff;
 
 // BASE COLORS
 // Set base colors. Use the color variables set above.
@@ -17,14 +16,21 @@ $lightning-colors: (
 	lfg:    $mineshaft,
 	lbg:    $gallery,
 	la:     lighten($mineshaft, 40%),
+	lh:     lighten($mineshaft, 20%),
+	lac:    lighten($mineshaft, 40%),
+	
 	dfg:    $gallery,
 	dbg:    $mineshaft,
 	da:     $lightning,
 	dh:     $lightning,
+	dac:    darken($gallery, 40%),
+	
 	chrfg:  $lightning,
 	chrbg:  transparentize($mineshaft, 0.4),
-	chrac:  lighten($mineshaft, 40%),
 	chra:   transparentize($mineshaft, 0.2),
+	chrh:   $lightning,
+	chrac:  lighten($mineshaft, 40%),
+	
 	chrifg: $mineshaft,
 	chribg: $lightning,
 );

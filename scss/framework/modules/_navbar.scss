@@ -15,7 +15,7 @@
 	font-size: scale(1);
 	@extend %font-heading;
 	@extend %bg-chrbg;
-	@extend %color-chrfg;
+	@extend %color-chrh;
 	
 	#{$sel}-sep
 	{
@@ -36,7 +36,7 @@
 	{
 		display: block;
 		padding: 0.5em;
-		@extend %color-chrfg;
+		@extend %color-chrh;
 		transition-property: color, background;
 		transition-duration: 0.2s, 0.2s;
 		transition-timing-function: ease, ease;
