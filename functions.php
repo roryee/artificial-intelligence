@@ -3,6 +3,8 @@
 class Artificial_Intelligence
 {
 	
+	public static $version = '0.1.0';
+	
 	public static $dir;
 	
 	protected static $assets_css = [
@@ -18,35 +20,35 @@ class Artificial_Intelligence
 			'uri' => '/js/deps/modernizr.js',
 			'deps' => [],
 			'vers' => '',
-			'footer' => true,
+			'footer' => false,
 		],
 		[
 			'slug' => 'gsap',
 			'uri' => '/bower_components/gsap/src/minified/TweenMax.min.js',
 			'deps' => [],
 			'vers' => '',
-			'footer' => true,
+			'footer' => false,
 		],
 		[
 			'slug' => 'jquery-gsap',
 			'uri' => '/bower_components/gsap/src/minified/jquery.gsap.min.js',
 			'deps' => ['jquery', 'gsap'],
 			'vers' => '',
-			'footer' => true,
+			'footer' => false,
 		],
 		[
 			'slug' => 'slidesjs',
 			'uri' => '/bower_components/slidesjs/source/jquery.slides.min.js',
 			'deps' => ['jquery'],
 			'vers' => '',
-			'footer' => true,
+			'footer' => false,
 		],
 		[
 			'slug' => 'jquery-cookie',
 			'uri' => '/bower_components/jquery-cookie/jquery.cookie.js',
 			'deps' => ['jquery'],
 			'vers' => '',
-			'footer' => true,
+			'footer' => false,
 		],
 		[
 			'slug' => 'slider',
@@ -138,7 +140,7 @@ class Artificial_Intelligence
 				$script['slug'],
 				self::$dir . $script['uri'],
 				$script['deps'],
-				$script['vers'],
+				( ! empty( $script['vers'] ) ? $script['vers'] : self::$version ),
 				$script['footer']
 			);
 		}
