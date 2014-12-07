@@ -30,4 +30,10 @@
 	
 	$slider.slidesjs sliderArgs
 	
+	reveal = ->
+		$('#www').toggleClass 'reveal'
+		false
+	
+	$('#header .nav-mobile-toggle').click reveal
+	
 ) jQuery

@@ -8,4 +8,51 @@
 		@extend %bg-chribg;
 		@extend %color-chrifg;
 	}
+	
+	@include below(disco)
+	{
+		.number
+		{
+			margin-left: auto;
+		}
+	}
+	
+	// @include below(rock)
+	// {
+	// 	.name
+	// 	{
+	// 		display: none;
+	// 	}
+	// }
+	
+}
+
+#nav-mobile
+{
+	position: fixed;
+	left: rem(-300px);
+	top: 0;
+	width: rem(300px);
+	height: 100%;
+	@extend %bg-dbg;
+	
+	> .c
+	{
+		position: sticky;
+		top: 0;
+		width: 100%;
+	}
+}
+
+#www.reveal
+{
+	transform: translateX(rem(300px));
+}
+
+@include above(disco)
+{
+	.nav-mobile-toggle
+	{
+		display: none;
+	}
 }

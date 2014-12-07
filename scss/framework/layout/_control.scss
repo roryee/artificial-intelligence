@@ -100,11 +100,17 @@
 	
 	html.no-flexbox.no-flexboxlegacy &
 	{
-		@extend %cf;
+		@at-root (with: rule)
+		{
+			@extend %cf;
+		}
 		
 		#{$cc}
 		{
-			@extend %cf;
+			@at-root (with: rule)
+			{
+				@extend %cf;
+			}
 			
 			@if $align == center
 			{
