@@ -50,7 +50,8 @@ $article-colors: (
 	}
 	
 	blockquote,
-	.wp-caption
+	.wp-caption,
+	.wp-caption-text
 	{
 		@extend %color-#{map-find($colors, ac)};
 		@extend %border-#{map-find($colors, ac)};
