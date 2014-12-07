@@ -21,3 +21,7 @@ bower_components
 
 # Vagrant
 .vagrant
+
+# AI themes
+scss/themes/*.scss
+!scss/themes/_lightning.scss
