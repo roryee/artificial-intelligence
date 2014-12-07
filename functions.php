@@ -182,6 +182,27 @@ class Artificial_Intelligence
 			)
 		);
 		
+		
+		$wp_customize->add_setting(
+			'copyright',
+			[
+				'default' => '',
+			]
+		);
+		
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'copyright',
+				[
+					'label'    => __( 'Copyright text' ),
+					'section'  => 'title_tagline',
+					'settings' => 'copyright',
+					'type'     => 'text',
+				]
+			)
+		);
+		
 	}
 	
 	public static function theme_output( $classes )
