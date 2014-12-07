@@ -34,7 +34,7 @@
 	{
 		padding: 5rem 0;
 		@include ai-article(".article",
-												$color: chrfg,
+												$color-p: chrfg,
 												$color-h: chrh,
 												$color-ac: chrac);
 		
@@ -61,7 +61,7 @@
 	{
 		padding: 5rem 0;
 		@include ai-article(".article",
-		                    $color: dfg,
+		                    $color-p: dfg,
 		                    $color-h: dh,
 		                    $color-ac: dac);
 		

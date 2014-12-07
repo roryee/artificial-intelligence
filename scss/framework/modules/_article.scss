@@ -1,25 +1,32 @@
 
+$article-colors: (
+	p:  lfg,
+	h:  lh,
+	a:  la,
+	ac: lac,
+);
+
 @mixin ai-article($sel: &, $opts...)
 {
 	$args: keywords($opts);
 	
-	$colors: (
-		p:  lfg,
-		h:  lh,
-		a:  la,
-		ac: lac,
-	);
+	$colors: ();
 	
-	@each $context, $color in $colors
+	@each $context, $color in $article-colors
 	{
-		@if map-has-key( $args, color-#{$context} )
+		@if map-has-key($args, color-#{$context})
 		{
 			$colors: map-merge(
-				map-remove($colors, $context),
-				($context: map-find(
-					$args,
-					color-#{$context}
-				))
+				$colors,
+				( $context: map-find($args, color-#{$context}) )
+			);
+		}
+		
+		@else
+		{
+			$colors: map-merge(
+				$colors,
+				( $context: $color )
 			);
 		}
 	}
