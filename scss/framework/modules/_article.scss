@@ -3,59 +3,64 @@
 {
 	$args: keywords($opts);
 	
+	$colors: (
+		p:  lfg,
+		h:  lh,
+		a:  la,
+		ac: lac,
+	);
+	
+	@each $context, $color in $colors
+	{
+		@if map-has-key( $args, color-#{$context} )
+		{
+			$colors: map-merge(
+				map-remove($colors, $context),
+				($context: map-find(
+					$args,
+					color-#{$context}
+				))
+			);
+		}
+	}
+	
 	@extend %ai-post;
+	@extend %color-#{map-find($colors, p)};
 	
-	@if map-has-key($args, color)
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6
 	{
-		@extend %color-#{map-find($args, color)};
+		@extend %color-#{map-find($colors, h)};
 	}
 	
-	@if map-has-key($args, color-heading)
+	hr
 	{
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6
+		@extend %color-#{map-find($colors, ac)};
+	}
+	
+	blockquote,
+	.wp-caption
+	{
+		@extend %color-#{map-find($colors, ac)};
+		@extend %border-#{map-find($colors, ac)};
+	}
+	
+	span[style*="underline"]
+	{
+		@extend %border-#{map-find($colors, p)};
+	}
+	
+	@if map-has-key($args, adjust-first)
+	{
+		// sooo cheaty
+		p:first-of-type
 		{
-			@extend %color-#{map-find($args, color-heading)};
+			border-top: map-find($args, adjust-first) solid transparent;
 		}
-	}
-	
-	h1
-	{
-		@include scale(3);
-	}
-	
-	h2
-	{
-		@include scale(2);
-	}
-	
-	h3
-	{
-		@include scale(1);
-	}
-	
-	p
-	{
-		@include trailer;
-		
-		&:first-of-type
-		{
-			@include leader;
-			@if map-has-key($args, adjust-first)
-			{
-				// sooo cheaty
-				border-top: map-find($args, adjust-first) solid transparent;
-			}
-		}
-	}
-	
-	p a
-	{
-		@extend a%ai-article;
 	}
 	
 }

@@ -6,6 +6,17 @@
 	p
 	{
 		@extend %cc-article;
+		@include trailer;
+		
+		&:first-of-type
+		{
+			@include leader;
+		}
+		
+		a
+		{
+			@extend a%ai-article;
+		}
 	}
 	
 	h1,
@@ -20,13 +31,27 @@
 		@extend %font-heading;
 	}
 	
+	h1
+	{
+		@include scale(3);
+	}
+	
+	h2
+	{
+		@include scale(2);
+	}
+	
+	h3
+	{
+		@include scale(1);
+	}
+	
 	hr
 	{
 		@extend %ccs-article;
 		height: rem(1px);
 		@include spacing(bottom, margin);
 		border: 0;
-		@extend %bg-la;
 	}
 	
 	strong
@@ -44,7 +69,6 @@
 	{
 		text-decoration: none !important;
 		border-bottom: rem(1px) solid;
-		@extend %border-lfg;
 	}
 	
 	ul,
@@ -67,16 +91,13 @@
 	blockquote
 	{
 		@extend %cc-article;
-		@extend %border-la;
-		@extend %color-la;
 		@extend %font-lead;
 		@include spacing($prop: margin);
-		border-left: rem(2px) solid; 
+		border-left: rem(2px) solid;
 	}
 	
 	.wp-caption
 	{
-		@extend %border-la;
 		
 		&.aligncenter,
 		&.alignnone
@@ -98,7 +119,6 @@
 		
 		&-text
 		{
-			@extend %color-la;
 			@extend %font-lead;
 		}
 		
