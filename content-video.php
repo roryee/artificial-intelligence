@@ -21,10 +21,10 @@
 			
 			<ul class="meta">
 				<li>
-					<a href="#">Team Video</a>
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 				</li>
 				<li>
-					11/21/2014 9:39 AM
+					<?php the_time( 'n/j/Y g:i A' ); ?>
 				</li>
 			</ul>
 			

@@ -65,4 +65,9 @@
 		
 	}
 	
+	&-video .content p:first-of-type
+	{
+		@extend .video.w;
+	}
+	
 }

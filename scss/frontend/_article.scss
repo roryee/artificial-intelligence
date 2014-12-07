@@ -69,6 +69,11 @@
 	
 }
 
+.single-format-video .article.c p:first-of-type
+{
+	@extend .video.w;
+}
+
 #article-footer
 {
 	@extend %ai-article;
