@@ -27,12 +27,13 @@
 	
 }
 
-#nav-mobile
+#nav-offcanvas-left,
+#nav-offcanvas-right
 {
 	position: fixed;
-	left: rem(-300px);
 	top: 0;
 	width: rem(300px);
+	max-width: 100%;
 	height: 100%;
 	@extend %bg-dbg;
 	
@@ -44,9 +45,19 @@
 	}
 }
 
-#www.reveal
+@each $side in left, right
 {
-	transform: translateX(rem(300px));
+	#nav-offcanvas-#{$side}
+	{
+		#{$side}: rem(-300px);
+		text-align: $side;
+	}
+	
+	#www.offcanvas-#{$side}
+	{
+		transform: translateX(rem(300px * if($side == left, 1, -1)));
+	}
+	
 }
 
 @include above(disco)

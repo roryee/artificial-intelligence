@@ -16,9 +16,11 @@
 				
 				<hgroup id="logo" class="header-sep">
 					<ul class="c">
-						<li class="nav-mobile-toggle">
-							<a href="#"><span data-icon="menu"></span></a>
-						</li>
+						<?php if ( has_nav_menu( 'offcanvas_left' ) ): ?>
+							<li class="nav-mobile-toggle">
+								<a href="#"><span data-icon="menu"></span></a>
+							</li>
+						<?php endif; ?>
 						<li class="number">
 							<a href="<?php bloginfo( 'url' ); ?>"><?php bloginfo( 'description' ); ?></a>
 						</li>
@@ -29,23 +31,6 @@
 				</hgroup>
 				
 				<?php
-				
-				if ( is_user_logged_in() && has_nav_menu( 'admin' ) )
-				{
-					wp_nav_menu([
-						'theme_location'  => 'admin',
-						'menu'            => 'Admin',
-						'container'       => 'nav',
-						'container_class' => 'header-sep',
-						'container_id'    => 'nav',
-						'menu_class'      => 'c',
-						'menu_id'         => false,
-						'depth'           => 2,
-					]);
-				}
-				
-				else
-				{
 					wp_nav_menu([
 						'theme_location'  => 'primary',
 						'menu'            => 'Primary',
@@ -57,8 +42,6 @@
 						'fallback_cb'     => false,
 						'depth'           => 2,
 					]);
-				}
-				
 				?>
 				
 			</div>
@@ -66,13 +49,26 @@
 			<?php
 			
 			wp_nav_menu([
-				'theme_location'  => 'mobile',
+				'theme_location'  => 'offcanvas_left',
 				'menu'            => 'Mobile',
 				'container'       => 'nav',
-				'container_class' => false,
-				'container_id'    => 'nav-mobile',
+				'container_class' => '',
+				'container_id'    => 'nav-offcanvas-left',
 				'menu_class'      => 'c',
-				'menu_id'         => false,
+				'menu_id'         => '',
+				'fallback_cb'     => false,
+				'depth'           => 1,
+			]);
+			
+			
+			wp_nav_menu([
+				'theme_location'  => 'offcanvas_right',
+				'menu'            => 'Offcanvas Right',
+				'container'       => 'nav',
+				'container_class' => '',
+				'container_id'    => 'nav-offcanvas-right',
+				'menu_class'      => 'c',
+				'menu_id'         => '',
 				'fallback_cb'     => false,
 				'depth'           => 1,
 			]);

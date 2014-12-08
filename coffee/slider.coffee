@@ -30,10 +30,19 @@
 	
 	$slider.slidesjs sliderArgs
 	
-	reveal = ->
-		$('#www').toggleClass 'reveal'
+	offcanvas = (side) ->
+		if typeof side isnt 'string' then side = 'left'
+		$('#www').toggleClass 'offcanvas-' + side
 		false
 	
-	$('#header .nav-mobile-toggle').click reveal
+	resetOffcanvas = ->
+		if      $('#www').hasClass 'offcanvas-left'  then offcanvas
+		else if $('#www').hasClass 'offcanvas-right' then offcanvas 'right'
+	
+	$('#header .nav-mobile-toggle').click offcanvas
+	$('#header [title="Offcanvas Right"]').click ->
+		offcanvas 'right'
+	
+	$('#nav-offcanvas-left,#nav-offcanvas-right').dblclick resetOffcanvas
 	
 ) jQuery

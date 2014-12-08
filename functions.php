@@ -60,9 +60,9 @@ class Artificial_Intelligence
 	];
 	
 	protected static $menus = [
-		'primary' => 'Primary Navigation',
-		'mobile'  => 'Mobile Navigation',
-		'admin'   => 'Admin Navigation',
+		'primary'           => 'Navbar',
+		'offcanvas_left'    => 'Offcanvas Left',
+		'offcanvas_right'   => 'Offcanvas Right',
 	];
 	
 	protected static $sidebars = [
