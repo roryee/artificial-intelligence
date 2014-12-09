@@ -74,7 +74,7 @@ $breaks-keys: map-keys($breaks);
 //
 @mixin below($break)
 {
-	@media (max-width: break-above($break) - em(1px))
+	@media (max-width: break($break) - em(1px))
 	{
 		@content;
 	}
@@ -85,7 +85,7 @@ $breaks-keys: map-keys($breaks);
 //
 @mixin between($lower, $upper: $lower)
 {
-	@media (min-width: break($lower)) and (max-width: break-above($upper) - em(1px))
+	@media (min-width: break($lower)) and (max-width: break($upper) - em(1px))
 	{
 		@content;
 	}
@@ -96,7 +96,7 @@ $breaks-keys: map-keys($breaks);
 //
 @mixin around($lower, $upper: $lower)
 {
-	@media (max-width: break-above($lower) - em(1px)), (min-width: break($upper))
+	@media (max-width: break($lower) - em(1px)), (min-width: break($upper))
 	{
 		@content;
 	}

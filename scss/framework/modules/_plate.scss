@@ -8,6 +8,8 @@
 	
 	.icon
 	{
+		display: block;
+		
 		@if map-has-key($args, icon)
 		{
 			@extend %genericon-#{map-find($args, icon)};
@@ -21,6 +23,12 @@
 	
 	.meta
 	{
+		display: none;
+		@include above(rock)
+		{
+			display: initial;
+		}
+		
 		@include span(4);
 		@include scale(1);
 		@extend %font-heading;
@@ -35,7 +43,12 @@
 	
 	.content
 	{
-		@include span(6 last);
+		@include span(10 last);
+		@include above(rock)
+		{
+			@include span(6 last);
+		}
+		
 		@extend %font-lead;
 		@extend %color-dfg;
 	}

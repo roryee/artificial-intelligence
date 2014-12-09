@@ -11,6 +11,18 @@ $config-font-size: 20px !default;
 //
 $config-line-height: 30px !default;
 
+// CONFIG: MOBILE FONT SIZE
+// Font size to use for smaller viewports.
+// Set in pixels.
+//
+$config-font-size-mobile: 16px !default;
+
+// CONFIG: MOBILE LINE HEIGHT
+// The line-height used for smaller viewports.
+// Set in pixels.
+//
+$config-line-height-mobile: 24px !default;
+
 // CONFIG: FONT SCALE MULTIPLIER
 // Defines the scale used when multiplying font sizes.
 // Set as unitless value.
@@ -42,10 +54,10 @@ $config-cc-article: 600px !default;
 // viewports of smaller devices.
 //
 $config-breaks: (
-pop:   1px,     // smartphones
-rock:  768px,   // tablets
-punk:  992px,   // small desktops/laptops
-disco: 1200px,  // large desktops/laptops
+	pop:   1px,     // smartphones
+	rock:  768px,   // tablets
+	punk:  992px,   // small desktops/laptops
+	disco: 1200px,  // large desktops/laptops
 ) !default;
 
 // CONFIG: RHYTHM DEBUG

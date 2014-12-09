@@ -60,6 +60,13 @@ class Artificial_Intelligence
 			'vers' => '',
 			'footer' => true,
 		],
+		[
+			'slug'   => 'respondjs',
+			'uri'    => 'bower_components/Respond/src/respond.js',
+			'deps'   => ['modernizr'],
+			'vers'   => '',
+			'footer' => true,
+		]
 	];
 	
 	protected static $menus = [
@@ -98,7 +105,8 @@ class Artificial_Intelligence
 		add_action( 'init',               ['Artificial_Intelligence', 'post_types'] );
 		add_action( 'customize_register', ['Artificial_Intelligence', 'customizer'] );
 		
-		add_filter( 'body_class', ['Artificial_Intelligence', 'theme_output'] );
+		add_filter( 'excerpt_length', ['Artificial_Intelligence', 'excerpt'], 999 );
+		add_filter( 'body_class',     ['Artificial_Intelligence', 'theme_output'] );
 	}
 	
 	public static function setup()
@@ -248,6 +256,11 @@ class Artificial_Intelligence
 		if ( ! WP_DEBUG )
 			require_once self::$dir . '/functions-acf.php';
 		
+	}
+	
+	public static function excerpt( $length )
+	{
+		return 30;
 	}
 
 }

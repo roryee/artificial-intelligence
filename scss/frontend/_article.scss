@@ -32,7 +32,12 @@
 	
 	.article.c
 	{
-		padding: 5rem 0;
+		padding: 10rem 0;
+		@include above(punk)
+		{
+			padding: 7rem 0;
+		}
+		
 		@include ai-article(".article",
 												$color-p: chrfg,
 												$color-h: chrh,
@@ -59,7 +64,12 @@
 	
 	.article.c
 	{
-		padding: 5rem 0;
+		padding: 10rem 0;
+		@include above(punk)
+		{
+			padding: 7rem 0;
+		}
+		
 		@include ai-article(".article",
 		                    $color-p: dfg,
 		                    $color-h: dh,

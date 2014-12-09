@@ -107,14 +107,27 @@
 			@include wrap;
 		}
 		
-		@each $align, $opposite in left right, right left
+		@include below(punk)
 		{
-			&.align#{$align}
+			&.alignleft,
+			&.alignright
 			{
-				float: $align;
-				border-#{$opposite}: rem(2px) solid;
-				padding-#{$opposite}: 0.75rem;
-				margin-#{$opposite}: 0.75rem;
+				margin: 0 auto;
+				@include wrap;
+			}
+		}
+		
+		@include above(punk)
+		{
+			@each $align, $opposite in left right, right left
+			{
+				&.align#{$align}
+				{
+					float: $align;
+					border-#{$opposite}: rem(2px) solid;
+					padding-#{$opposite}: 0.75rem;
+					margin-#{$opposite}: 0.75rem;
+				}
 			}
 		}
 		
@@ -132,25 +145,13 @@
 		html.flexbox &
 		{
 			display: flex;
-			justify-content: space-around;
+			flex-direction: column;
 			flex-wrap: wrap;
-		}
-		
-		html.no-flexbox &
-		{
-			@extend %cf;
+			justify-content: space-around;
 			
-			&-item
+			@include above(punk)
 			{
-				float: left;
-			}
-		}
-		
-		@for $i from 1 through 4
-		{
-			&-columns-#{$i} .gallery-item
-			{
-				width: 100% / $i;
+				flex-direction: row;
 			}
 		}
 		
@@ -163,6 +164,28 @@
 		&-icon
 		{
 			margin: 0 auto;
+		}
+		
+		html.no-flexbox &
+		{
+			@extend %cf;
+		}
+		
+		@include above(punk)
+		{
+			
+			html.no-flexbox &-item
+			{
+				float: left;
+			}
+			
+			@for $i from 1 through 4
+			{
+				&-columns-#{$i} .gallery-item
+				{
+					width: 100% / $i;
+				}
+			}
 		}
 		
 	}

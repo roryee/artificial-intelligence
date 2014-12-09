@@ -114,6 +114,9 @@ module.exports = (grunt) ->
 				parseFiles: true
 				files:
 					src: [
+						"bower_components/**/*.js"
+						"bower_components/**/*.css"
+						"!bower_components/modernizr/**/*.js"
 						"js/**/*.js"
 						"scss/**/*.scss"
 					]

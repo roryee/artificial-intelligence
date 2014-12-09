@@ -18,7 +18,7 @@
 		<hgroup class="c">
 			<div class="cc">
 				
-				<div class="icon"></div>
+				<a class="icon" href="<?php the_permalink(); ?>"></a>
 				
 				<cite class="cite"><?php the_title(); ?></cite>
 				

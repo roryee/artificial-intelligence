@@ -6,6 +6,13 @@
 	
 	.col
 	{
+		display: none;
+		
+		@include above(rock)
+		{
+			display: initial;
+		}
+		
 		@include span(2);
 		@extend %ai-article;
 		@extend %font-lead;
@@ -20,7 +27,13 @@
 		
 		&:last-of-type
 		{
-			@include span(4 last);
+			display: initial;
+			@include span(12 first last);
+			
+			@include above(rock)
+			{
+				@include span(4 last);
+			}
 			
 			h6
 			{

@@ -27,6 +27,7 @@
     "jquery": "~2.1.1",
     "gsap": "~1.14.2",
     "jquery-cookie": "~1.4.1",
-    "slidesjs": "https://github.com/nathansearles/Slides.git#SlidesJS-3"
+    "slidesjs": "https://github.com/nathansearles/Slides.git#SlidesJS-3",
+    "Respond": "https://github.com/scottjehl/Respond.git#master"
   }
 }

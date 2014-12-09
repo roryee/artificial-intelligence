@@ -17,7 +17,7 @@
 	<section <?php post_class(); ?>>
 		<hgroup class="cc">
 			
-			<div class="icon"></div>
+			<a class="icon" href="<?php the_permalink(); ?>"></a>
 			
 			<ul class="meta">
 				<li>

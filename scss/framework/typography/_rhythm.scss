@@ -6,7 +6,15 @@
 {
 	%ai-article
 	{
-		background-image: url(http://basehold.it/i/#{$config-line-height / 1px}) !important;
+		@include above(punk)
+		{
+			background-image: url(http://basehold.it/i/#{$config-line-height / 1px}) !important;
+		}
+		
+		@include below(punk)
+		{
+			background-image: url(http://basehold.it/i/#{$config-line-height-mobile / 1px}) !important;
+		}
 	}
 }
 
@@ -36,18 +44,29 @@
 	line-height: $config-line-height * ceil($size / $config-line-height) / $size;
 }
 
-// CONSTANT: LINE-HEIGHT
-// The actual unitless line-height value that is applied to elements.
-//
-$line-height: $config-line-height / $config-font-size;
-
 // Set root font-size so rems work
 :root
 {
-	font-size: em($config-font-size, 16px);
+	@include above(punk)
+	{
+		font-size: em($config-font-size, 16px);
+	}
+	
+	@include below(punk)
+	{
+		font-size: em($config-font-size-mobile, 16px);
+	}
 }
 
 %ai-article
 {
-	line-height: $line-height;
+	@include above(punk)
+	{
+		line-height: $config-line-height / $config-font-size;
+	}
+	
+	@include below(punk)
+	{
+		line-height: $config-line-height-mobile / $config-font-size-mobile;
+	}
 }

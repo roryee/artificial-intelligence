@@ -22,11 +22,12 @@
 		&:first-child
 		{
 			@include span(12 first last);
-			@include box;
+			text-align: center;
 			
 			@include above(disco)
 			{
 				@include span(6 first);
+				@include box;
 			}
 			
 		}

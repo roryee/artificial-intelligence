@@ -1,5 +1,12 @@
 ( ($) ->
 	
+	# Responsive behavior
+	$win = $ window
+	vp = $win.width()
+	
+	$win.resize ->
+		vp = $win.width()
+	
 	# Search
 	
 	$('#header [title="Search"]').click ->
@@ -27,10 +34,8 @@
 	# Slider
 	
 	$slider = $ '.slidesjs'
-	$win = $ window
 	
-	doSlider = (interval) ->
-		if typeof interval is "object" then interval = 5000
+	doSlider = ->
 		
 		sliderArgs =
 			width: $win.width()
@@ -47,7 +52,7 @@
 			play:
 				active: false
 				effect: "fade"
-				interval: interval
+				interval: 5000
 				auto: true
 				
 			effect:
@@ -69,32 +74,33 @@
 		$body.css 'overflow-y', 'initial'
 		$c.css 'text-shadow', ''
 	
-	if $('#main').hasClass 'fade-slide'
-		$slide = $('.slide').first()
-		slider = $slider.length
-		
-		$h = $ '#header'
-		$body = $ 'body'
-		
-		$h1 =  $slide.find 'h1'
-		$h2 =  $slide.find 'h2'
-		$p =   $slide.find 'p'
-		$c =   $slide.find '> .c'
-		$pag = $('.slidesjs-pagination').first() if slider?
-		
-		tl = new TimelineMax {
-			onStart: startFade
-			onComplete: endFade
-		}
-		
-		tl.from $slide,  5, { autoAlpha: 0 }, 2
-		tl.from $h1,     2, { autoAlpha: 0 }, 5
-		tl.from $p,			 2, { autoAlpha: 0 }, 10
-		tl.from $c,      2, { background: 'transparent' }, 8
-		tl.from $pag,    2, { autoAlpha: 0 }, 10
-		tl.from $h,      3, { autoAlpha: 0 }, 10
-		
-	else
-		doSlider()
+	if vp > 991
+		if $('#main').hasClass('fade-slide')
+			$slide = $('.slide').first()
+			slider = $slider.length
+			
+			$h = $ '#header'
+			$body = $ 'body'
+			
+			$h1 =  $slide.find 'h1'
+			$h2 =  $slide.find 'h2'
+			$p =   $slide.find 'p'
+			$c =   $slide.find '> .c'
+			$pag = $('.slidesjs-pagination').first() if slider?
+			
+			tl = new TimelineMax {
+				onStart: startFade
+				onComplete: endFade
+			}
+			
+			tl.from $slide,  5, { autoAlpha: 0 }, 2
+			tl.from $h1,     2, { autoAlpha: 0 }, 5
+			tl.from $p,			 2, { autoAlpha: 0 }, 10
+			tl.from $c,      2, { background: 'transparent' }, 8
+			tl.from $pag,    2, { autoAlpha: 0 }, 10
+			tl.from $h,      3, { autoAlpha: 0 }, 10
+			
+		else
+			doSlider()
 	
 ) jQuery
