@@ -76,6 +76,7 @@
 	{
 		@extend %cc-article;
 		@include trailer;
+		border-left: 2rem solid transparent;
 	}
 	
 	ul
