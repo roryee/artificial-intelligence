@@ -3,6 +3,12 @@
     "description": "A dark, modern theme aimed at FRC teams.",
     "keywords": ["dark", "modern", "FRC"],
     "license": "GPL-2.0+",
+    "repositories": [
+      {
+        "type": "composer",
+        "url": "http://wpackagist.org"
+      }
+    ],
     "authors":[
         {
             "name": "Ryan Duchene",
@@ -11,9 +17,15 @@
     ],
     "type": "wordpress-theme",
     "require": {
-        "php": ">=5.3.3"
+        "php": ">=5.3.3",
+        "wpackagist-plugin/advanced-custom-fields": ">=4.3.9"
     },
     "require-dev":{
         "php": ">=5.3.3"
+    },
+    "extra": {
+      "installer-paths": {
+        "vendor/{$name}": ["wpackagist-plugin/advanced-custom-fields"]
+      }
     }
 }

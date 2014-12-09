@@ -1,5 +1,8 @@
 <?php
 
+// define( 'ACF_LITE', true );
+require_once dirname( __FILE__ ) . '/vendor/advanced-custom-fields/acf.php';
+
 class Artificial_Intelligence
 {
 	
@@ -92,6 +95,7 @@ class Artificial_Intelligence
 		add_action( 'wp_enqueue_scripts', ['Artificial_Intelligence', 'assets'    ] );
 		add_action( 'init',               ['Artificial_Intelligence', 'menus'     ] );
 		add_action( 'widgets_init',       ['Artificial_Intelligence', 'widgets'   ] );
+		add_action( 'init',               ['Artificial_Intelligence', 'post_types'] );
 		add_action( 'customize_register', ['Artificial_Intelligence', 'customizer'] );
 		
 		add_filter( 'body_class', ['Artificial_Intelligence', 'theme_output'] );
@@ -104,7 +108,7 @@ class Artificial_Intelligence
 		]);
 		
 		add_theme_support( 'custom-background', [
-			'default-color'      => '#eee',
+			'default-color'      => '#000',
 			'default-image'      => self::$dir . '/images/robot2.jpg',
 			'default-attachment' => 'fixed',
 			'default-position-x' => 'center',
@@ -217,6 +221,28 @@ class Artificial_Intelligence
 			$classes[] = 'aitheme-lightning';
 			
 		return $classes;
+	}
+	
+	public static function post_types()
+	{
+		register_post_type( 'slides', [
+			'labels' => [
+				'name'               => __( 'Slides' ),
+				'singular_name'      => __( 'Slide'  ),
+			],
+			'description'          => 'Slides that appear on the front page.',
+			'menu_position'        => 20,
+			'menu_icon'            => 'dashicons-images-alt2',
+			'show_ui'              => true,
+			'exclude_from_search'  => true,
+			'publicly_queryabale'  => false,
+			'show_in_nav_menus'    => false,
+			'rewrite'              => false,
+			'supports'             => [
+				'title', 'author', 'revisions',
+				'thumbnail', 'custom-fields', 'page-attributes'
+			],
+		]);
 	}
 
 }

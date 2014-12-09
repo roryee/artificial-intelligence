@@ -35,11 +35,19 @@
 		@extend %color-chrh;
 	}
 	
+	// h2
+	// {
+	// 	@extend %font-title;
+	// 	@include scale(4);
+	// 	@extend %color-chrfg;
+	// }
+	//
 	p
 	{
 		@extend %font-lead;
 		max-width: 30em;
 		@include scale;
+		// @include leader;
 		@extend %color-chrfg;
 	}
 	
