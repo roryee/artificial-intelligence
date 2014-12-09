@@ -243,6 +243,11 @@ class Artificial_Intelligence
 				'thumbnail', 'custom-fields', 'page-attributes'
 			],
 		]);
+		
+		// Temporary structure for ACF until I can make it better
+		if ( ! WP_DEBUG )
+			require_once self::$dir . '/functions-acf.php';
+		
 	}
 
 }
