@@ -12,6 +12,7 @@
 }
 
 .page-template-photobg-page-php,
+.page-template-searchpage-php,
 .single-format-aside,
 .single-format-status,
 .single-format-quote
@@ -83,6 +84,14 @@
 {
 	@extend .video.w;
 }
+
+.body-search-input
+{
+	display: block;
+	@extend #nav-search-input;
+	@extend %cc-article;
+}
+
 
 #article-footer
 {

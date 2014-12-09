@@ -12,8 +12,7 @@
 // It is possible to click on these to be taken to the full article.
 //
 // All other formats are displayed as plates, with the icon sitting in the left,
-// metadata sitting next to it, and content sitting on the right. With the
-// exception of aside, these are not meant to be clicked on and read further.
+// metadata sitting next to it, and content sitting on the right.
 //
 // If at all possible, I am interested in changing the way some of these are
 // displayed (these being the formats that use plates). I really like the way
@@ -26,7 +25,9 @@
 // I am very interested in adding gallery, less so in audio, and not at all
 // in chat.
 //
-.blog .post.format // never actually used directly
+.blog .post.format,
+.search .post.format,
+.archive .post.format // never actually used directly
 {
 	
 	// POST FORMAT

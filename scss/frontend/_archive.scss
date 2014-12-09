@@ -1,0 +1,31 @@
+
+#header-archive
+{
+	padding: 7rem 0;
+	
+	@extend %ai-article;
+	@extend %bg-dbg;
+	@extend %color-dh;
+	
+	h1
+	{
+		@extend %ccw-article;
+		@include scale(3);
+		@extend %font-heading;
+	}
+	
+	h2
+	{
+		@extend %ccw-article;
+		@include scale(2);
+		@extend %font-heading;
+	}
+	
+	p
+	{
+		@extend %ccw-article;
+		@extend %font-lead;
+		@extend %color-dfg;
+	}
+	
+}
