@@ -46,6 +46,13 @@
 				
 			</div>
 			
+			<form id="nav-search" method="get" role="search"
+			action="<?php echo esc_url( home_url( '/' ) ); ?>">
+				<input id="nav-search-input"
+				name="s" value="<?php echo get_search_query(); ?>"
+				placeholder="Search" />
+			</form>
+			
 			<?php
 			
 			wp_nav_menu([
