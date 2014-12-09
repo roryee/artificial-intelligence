@@ -29,12 +29,13 @@ $breaks-keys: map-keys($breaks);
 @function break-above($break)
 {
 	$pos: index($breaks-keys, $break) + 1;
+	
 	@if length($breaks-keys) >= $pos
 	{
-		@return break(nth($breaks, $pos));
+		@return break(nth($breaks-keys, $pos));
 	}
 	
-	@else
+	@if length($breaks-keys) < $pos
 	{
 		@return break(last($breaks-keys));
 	}
@@ -48,7 +49,7 @@ $breaks-keys: map-keys($breaks);
 	$pos: index($breaks-keys, $break) - 1;
 	@if 1 <= $pos
 	{
-		@return break(nth($breaks, $pos));
+		@return break(nth($breaks-keys, $pos));
 	}
 	
 	@else
