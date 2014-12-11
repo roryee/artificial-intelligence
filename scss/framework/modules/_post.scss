@@ -56,12 +56,12 @@
 	
 	strong
 	{
-		font-weight: 700;
+		@extend %font-bold;
 	}
 	
 	em
 	{
-		font-style: italic;
+		@extend %font-italic;
 	}
 	
 	// don't do underlines, kids

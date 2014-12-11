@@ -8,6 +8,8 @@ $typesets: (
 	lead,      // Appears in lead paragraph text
 	body,      // The default styling
 	main,      // Applied to areas where there is a lot of text (articles, etc.)
+	bold,      // Applied to phrases in articles wrapped in strong tags
+	italic,    // Applied to phrases in articles wrapped in em tags
 );
 
 // Build typesets

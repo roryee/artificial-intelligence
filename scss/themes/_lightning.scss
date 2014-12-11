@@ -72,6 +72,12 @@ $lightning-fonts: (
 		font-family: $fraleway,
 		font-weight: 400,
 	),
+	bold: (
+		font-weight: 600,
+	),
+	italic: (
+		font-style: italic,
+	),
 );
 
 // FONTS-IMPORT
