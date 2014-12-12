@@ -63,7 +63,7 @@ class Artificial_Intelligence
 		],
 		[
 			'slug'   => 'respondjs',
-			'uri'    => 'bower_components/Respond/src/respond.js',
+			'uri'    => '/bower_components/Respond/src/respond.js',
 			'deps'   => ['modernizr'],
 			'vers'   => '',
 			'footer' => true,
