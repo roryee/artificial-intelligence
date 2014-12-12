@@ -28,6 +28,10 @@
     "gsap": "~1.14.2",
     "jquery-cookie": "~1.4.1",
     "slidesjs": "https://github.com/nathansearles/Slides.git#SlidesJS-3",
-    "Respond": "https://github.com/scottjehl/Respond.git#master"
+    "Respond": "https://github.com/scottjehl/Respond.git#master",
+    "angular": "~1.3.6",
+    "angular-sanitize": "~1.3.6",
+    "angular-resource": "~1.3.6",
+    "angular-route": "~1.3.6"
   }
 }

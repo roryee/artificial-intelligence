@@ -11,6 +11,7 @@ composer.lock
 *.map
 css/**/*.css
 js/**/*.js
+!js/streams/**/*.js
 .sass-cache
 
 # Node

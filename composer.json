@@ -18,14 +18,18 @@
     "type": "wordpress-theme",
     "require": {
         "php": ">=5.3.3",
-        "wpackagist-plugin/advanced-custom-fields": ">=4.3.9"
+        "wpackagist-plugin/advanced-custom-fields": ">=4.3.9",
+        "wpackagist-plugin/json-rest-api": ">=1.1.1"
     },
     "require-dev":{
         "php": ">=5.3.3"
     },
     "extra": {
       "installer-paths": {
-        "vendor/{$name}": ["wpackagist-plugin/advanced-custom-fields"]
+        "vendor/{$name}": [
+          "wpackagist-plugin/advanced-custom-fields",
+          "wpackagist-plugin/json-rest-api"
+        ]
       }
     }
 }
