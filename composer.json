@@ -3,6 +3,7 @@
     "description": "A dark, modern theme aimed at FRC teams.",
     "keywords": ["dark", "modern", "FRC"],
     "license": "GPL-2.0+",
+    "version": "1.0.1",
     "repositories": [
       {
         "type": "composer",

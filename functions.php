@@ -7,7 +7,7 @@ require_once dirname( __FILE__ ) . '/vendor/advanced-custom-fields/acf.php';
 class Artificial_Intelligence
 {
 	
-	public static $version = '0.1.0';
+	public static $version = '1.0.1';
 	
 	public static $dir;
 	
