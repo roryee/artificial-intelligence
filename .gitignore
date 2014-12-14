@@ -5,7 +5,6 @@ Thumbs.db
 
 # Theme
 vendor/
-composer.lock
 
 # Assets
 *.map
