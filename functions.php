@@ -7,11 +7,7 @@ require_once dirname( __FILE__ ) . '/vendor/json-rest-api/plugin.php';
 class Artificial_Intelligence
 {
 	
-<<<<<<< HEAD
 	public static $version = '1.1.0';
-=======
-	public static $version = '1.0.1';
->>>>>>> master
 	
 	public static $dir;
 	
