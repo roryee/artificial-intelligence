@@ -29,25 +29,29 @@ module.exports = (grunt) ->
 		
 		# Watch config
 		watch:
-			dist:
+			sass:
 				files: [
 					'scss/**/*.scss'
-					'coffee/**/*.coffee'
 				]
 				tasks: [
 					'sass:dist'
 					'autoprefixer'
-					'coffee'
 				]
-				
-			debug:
+			
+			sassdebug:
 				files: [
-					'scss/**/*.scss'
-					'coffee/**/*.coffee'
+					'scss/**/.scss'
 				]
 				tasks: [
 					'sass:debug'
 					'autoprefixer'
+				]
+					
+			coffee:
+				files: [
+					'coffee/**/*.coffee'
+				]
+				tasks: [
 					'coffee'
 				]
 		
@@ -77,7 +81,7 @@ module.exports = (grunt) ->
 					browsers: [
 						'last 2 versions'
 						'> 3%'
-						'ie 9' # screw IE8
+						'ie 8'
 						'firefox esr'
 					]
 		
