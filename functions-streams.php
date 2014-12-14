@@ -1,6 +1,5 @@
 <?php
 
-
 class Streams
 {
 	protected static $assets_css = [];
@@ -8,16 +7,19 @@ class Streams
 	
 	public static function init()
 	{
-		add_action( 'init',                       ['Streams', 'post_type'     ] );
-		// add_filter( 'json_authentication_errors', ['Streams', 'authentication'], 999 );
+		add_action( 'init',                       ['Streams', 'post_type'] );
+		// add_filter( 'json_authentication_errors', ['Streams', 'auth'     ] );
 		
 		add_action( 'wp_enqueue_scripts', ['Streams', 'assets'] );
 	}
 	
-	// public static function authentication()
-	// {
-	// 	return true;
-	// }
+	public static function auth()
+	{
+		if ( ! is_user_logged_in )
+			return false;
+		
+		return true;
+	}
 	
 	public static function assets()
 	{
@@ -40,18 +42,18 @@ class Streams
 		
 		
 		wp_enqueue_style( 'bootstrap',
-		  'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'
+		  Artificial_Intelligence::$dir . '/bower_components/bootstrap/dist/css/bootstrap.min.css'
 		);
 		
 		wp_enqueue_style( 'bootstrap-theme',
-			'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css'
+			Artificial_Intelligence::$dir . '/bower_components/bootstrap/dist/css/bootstrap-theme.min.css'
 		);
 		
 		
 		
 		wp_enqueue_script( 'bootstrap-js',
-			'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js',
-			[],
+			Artificial_Intelligence::$dir . '/bower_components/bootstrap/dist/js/bootstrap.min.js',
+			['jquery'],
 			'3.3.1',
 			true
 		);
@@ -64,7 +66,7 @@ class Streams
 		                   	'angular-sanitize',
 		                   	'angular-resource',
 		                   	'angular-route',
-												// 'streams-factories',
+												'streams-factories',
 		                   ], '', false );
 		
 		wp_enqueue_script( 'streams-factories',
@@ -85,13 +87,26 @@ class Streams
 											 	'angular-sanitize',
 											 	'angular-resource',
 											 	'angular-route',
-												// 'streams-ctrls',
-												// 'streams-factories'
+												'streams-ctrls',
+												'streams-factories'
 											 ], '', false );
+		
+		ob_start();
+		dynamic_sidebar('sidebar_streams');
+		$sidebar = ob_get_clean();
 		
 		wp_localize_script( 'streams', 'streamsConfig', [
 			'partials' => Artificial_Intelligence::$dir . '/streams',
+			'sidebar'  => $sidebar,
+			'urls'     => [
+				'admin'   => admin_url(),
+				'profile' => admin_url( 'profile.php' ),
+				'logout'  => wp_logout_url( home_url() ),
+			],
 		]);
+		
+		// unset($sidebar);
+		
 	}
 	
 	public static function post_type()
@@ -113,19 +128,21 @@ class Streams
 				'title', 'author', 'revisions',
 				'editor', 'post-formats', 'comments',
 			],
+			'taxonomies'           => ['post_tag'],
 		]);
 		
-		register_taxonomy( 'stream-cats', ['streams'], [
+		register_taxonomy( 'stream_cats', ['streams'], [
 			'labels' => [
 				'name'           => 'Groups',
 				'singular_name'  => 'Group',
 			],
 			'public'        => true,
 			'show_tagcloud' => false,
+			'hierarchial'   => false,
 		]);
 	}
 	
 }
 
-// if ( is_page_template( 'streams.php' ) )
+if ( is_page_template( 'streams.php' ) )
 	Streams::init();

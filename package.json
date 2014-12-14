@@ -1,6 +1,10 @@
 {
   "name": "artificial-intelligence",
+<<<<<<< HEAD
   "version": "1.1.0",
+=======
+  "version": "1.0.1",
+>>>>>>> master
   "description": "A dark, modern theme aimed at FRC teams.",
   "main": "functions.php",
   "scripts": {
