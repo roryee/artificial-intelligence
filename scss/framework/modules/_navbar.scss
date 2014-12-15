@@ -19,35 +19,14 @@
 	
 	> .cc
 	{
-		@extend %row;
-	}
-	
-	#{$sel}-sep
-	{
-		&:first-child
+		@if map-has-key($args, custom-layout) and map-find($args, custom-layout)
 		{
-			@extend %col-pop-12;
-			@extend %col-disco-6;
-			text-align: center;
-			
-			@include above(disco)
-			{
-				@include box;
-			}
-			
+			@extend %row;
 		}
 		
-		&:last-child:not(:first-child)
+		@else
 		{
-			@extend %hide-pop;
-			@extend %show-disco;
-			@extend %col-disco-6;
-			
-			@include above(disco)
-			{
-				@include box(right, $cc: "> .c", $items: "> .menu-item");
-			}
-			
+			@include box;
 		}
 	}
 	
@@ -63,7 +42,7 @@
 	a
 	{
 		display: block;
-		padding: 0.4em 0.5em;
+		padding: 0.4em;
 		border-top: 0.1em solid transparent;
 		border-bottom: 0.1em solid transparent;
 		@extend %color-chrh;
@@ -82,7 +61,7 @@
 		{
 			border-top: 0;
 			border-bottom: 0;
-			padding: 0.5em 0.5em 0.5em 0.45em;
+			padding: 0.5em 0.4em 0.5em 0.35em;
 			
 			border-left: 0.2em solid transparent;
 		}
