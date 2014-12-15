@@ -1,0 +1,41 @@
+
+<header class="jumbotron">
+	<div class="container">
+		
+		<h1>{{post.title}} <small>by {{post.author.name}}</small></h1>
+		
+	</div>
+</header>
+
+<main class="container">
+	
+	<div class="row">
+		
+		<main class="col-xs-12 col-md-8">
+			<article class="post-content" ng-bind-html="post.content" ng-show="state === 'read'"></article>
+			<div class="form-group" ng-show="state === 'write'">
+				<textarea class="form-control" style="min-height: 40em" ng-model="post.content"></textarea>
+			</div>
+		</main>
+		
+		<aside class="hide-xs col-md-4">
+			<h3>Actions</h3>
+			<div class="btn-group btn-group-lg" ng-show="state === 'read'">
+				<button class="btn btn-default" ng-click="edit()">Edit</button>
+				<a href="#/" class="btn btn-danger" ng-click="delete()">Delete</a>
+			</div>
+			<div class="btn-group btn-group-lg" ng-show="state === 'write'">
+				<button class="btn btn-default" ng-click="cancel()">Cancel</button>
+				<button class="btn btn-primary" ng-click="save()">Save</button>
+			</div>
+			
+			<h3>Posted in</h3>
+			<ul>
+				<li ng-repeat="cat in post.terms.stream_cats">
+					<a href="#/categories/{{cat.ID - 2}}">{{cat.name}}</a>
+				</li>
+			</ul>
+		</aside>
+		
+	</div>
+</main>
