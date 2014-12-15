@@ -86,6 +86,15 @@ class Artificial_Intelligence
 			'before_title'  => '<h6>',
 			'after_title'   => '</h6>',
 		],
+		[
+			'name'          => 'Footer',
+			'id'            => 'footer_showcase',
+			'description'   => 'Showcase Footer',
+			'before_widget' => '<div id="%1$s" class="col %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h6>',
+			'after_title'   => '</h6>',
+		],
 	];
 	
 	protected static $themes = [
