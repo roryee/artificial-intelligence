@@ -1,16 +1,92 @@
 
-$susy: (
-	columns: 12,
-	gutters: 1/4,
-	math: fluid,
-	output: float,
-	gutter-position: inside,
-	container: em($config-cc-max-width),
-	// debug: (
-	// 	image: show,
-	// ),
-);
+$grid-cols-num: 12;
 
-@include layout($susy);
+$grid-cols-gutter: 2%;
 
-@include border-box-sizing;
+$grid-cols-width: ((100% / $grid-cols-num) - $grid-cols-gutter);
+
+%row
+{
+	html.flexbox &,
+	html.flexboxlegacy
+	{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	html.no-flexbox.no-flexboxlegacy &
+	{
+		@extend %cf;
+	}
+}
+
+%col
+{
+	margin: 0 $grid-cols-gutter / 2;
+	
+	html.no-flexbox.no-flexboxlegacy &
+	{
+		float: left;
+	}
+	
+	&:last-child//:not(%col-end)
+	{
+		html.flexbox &,
+		html.flexboxlegacy &
+		{
+			margin-left: auto;
+		}
+		
+		html.no-flexbox.no-flexboxlegacy &
+		{
+			float: right;
+		}
+	}
+}
+
+@each $break in $breaks-keys
+{
+	@include above($break)
+	{
+		@for $i from 1 through $grid-cols-num
+		{
+			%col-#{$break}-#{$i}
+			{
+				@at-root (with: rule)
+				{
+					@extend %col;
+				}
+				
+				width: ($grid-cols-width * $i) + ($grid-cols-gutter * ($i - 1));
+			}
+		}
+		
+		@for $i from 1 to $grid-cols-num
+		{
+			
+			%col-#{$break}-offset-#{$i}
+			{
+				margin-left: ($grid-cols-width * $i) + ($grid-cols-gutter * ($i - 0.5));
+			}
+			
+			%col-#{$break}-push-#{$i}
+			{
+				left: ($grid-cols-width * $i) + ($grid-cols-gutter * ($i - 1));
+			}
+			%col-#{$break}-pull-#{$i}
+			{
+				right: ($grid-cols-width * $i) + ($grid-cols-gutter * ($i - 1));
+			}
+		}
+		
+		%hide-#{$break}
+		{
+			display: none;
+		}
+		
+		%show-#{$break}
+		{
+			display: initial;
+		}
+	}
+}

@@ -58,7 +58,10 @@
 		
 		.cite
 		{
-			@include span(4);
+			@extend %hide-pop;
+			@extend %show-rock;
+			@extend %col-rock-4;
+			
 			@include scale(1);
 			@extend %font-heading;
 			@extend %color-dh;

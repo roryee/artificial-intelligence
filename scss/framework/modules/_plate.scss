@@ -6,9 +6,15 @@
 	@extend %ai-article;
 	@extend %bg-dbg;
 	
+	> .cc
+	{
+		@extend %row;
+	}
+	
 	.icon
 	{
 		display: block;
+		@extend %col-pop-1;
 		
 		@if map-has-key($args, icon)
 		{
@@ -16,20 +22,16 @@
 		}
 		
 		font-size: 2rem;
-		@include span(1);
 		@extend %color-dh;
 		
 	}
 	
 	.meta
 	{
-		display: none;
-		@include above(rock)
-		{
-			display: initial;
-		}
+		@extend %hide-pop;
+		@extend %show-rock;
+		@extend %col-rock-4;
 		
-		@include span(4);
 		@include scale(1);
 		@extend %font-heading;
 		@extend %color-dfg;
@@ -43,11 +45,8 @@
 	
 	.content
 	{
-		@include span(10 last);
-		@include above(rock)
-		{
-			@include span(6 last);
-		}
+		@extend %col-pop-10;
+		@extend %col-rock-6;
 		
 		@extend %font-lead;
 		@extend %color-dfg;

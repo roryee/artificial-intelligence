@@ -17,16 +17,21 @@
 	@extend %bg-chrbg;
 	@extend %color-chrh;
 	
+	> .cc
+	{
+		@extend %row;
+	}
+	
 	#{$sel}-sep
 	{
 		&:first-child
 		{
-			@include span(12 first last);
+			@extend %col-pop-12;
+			@extend %col-disco-6;
 			text-align: center;
 			
 			@include above(disco)
 			{
-				@include span(6 first);
 				@include box;
 			}
 			
@@ -34,12 +39,12 @@
 		
 		&:last-child:not(:first-child)
 		{
-			display: none;
+			@extend %hide-pop;
+			@extend %show-disco;
+			@extend %col-disco-6;
 			
 			@include above(disco)
 			{
-				display: initial;
-				@include span(6 last);
 				@include box(right, $cc: "> .c", $items: "> .menu-item");
 			}
 			

@@ -15,32 +15,30 @@
 <?php else: ?>
 	
 	<section <?php post_class( 'ww' ); ?>>
-		<hgroup class="c">
-			<div class="cc">
-				
-				<a class="icon" href="<?php the_permalink(); ?>"></a>
-				
-				<ul class="meta">
-					<li>
-						<?php the_author_posts_link(); ?>
-					</li>
-					<li>
-						<a href="#"><?php the_time( 'F d, Y' ); ?></a>
-					</li>
-					<li>
-						<a href="<?php comments_link(); ?>"><?php comments_number( '0 comments', '1 comment', '% comments' ); ?></a>
-					</li>
-					<li>
-						<a href="<?php the_permalink(); ?>">Read more</a>
-					</li>
-				</ul>
-				
-				<div class="content">
-					<?php the_excerpt(); ?>
-				</div>
-				
+		<div class="cc">
+			
+			<a class="icon" href="<?php the_permalink(); ?>"></a>
+			
+			<ul class="meta">
+				<li>
+					<?php the_author_posts_link(); ?>
+				</li>
+				<li>
+					<a href="#"><?php the_time( 'F d, Y' ); ?></a>
+				</li>
+				<li>
+					<a href="<?php comments_link(); ?>"><?php comments_number( '0 comments', '1 comment', '% comments' ); ?></a>
+				</li>
+				<li>
+					<a href="<?php the_permalink(); ?>">Read more</a>
+				</li>
+			</ul>
+			
+			<div class="content">
+				<?php the_excerpt(); ?>
 			</div>
-		</hgroup>
+			
+		</div>
 	</section>
 	
 <?php endif; ?>

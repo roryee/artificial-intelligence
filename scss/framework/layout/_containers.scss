@@ -2,8 +2,8 @@
 %cc
 {
 	width: $config-cc-width;
-	// max-width: rem($config-cc-max-width);
-	@include container;
+	max-width: rem($config-cc-max-width);
+	// @extend %row;
 	margin: 0 auto;
 }
 

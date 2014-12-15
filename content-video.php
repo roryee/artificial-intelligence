@@ -15,7 +15,7 @@
 <?php else: ?>
 	
 	<section <?php post_class(); ?>>
-		<hgroup class="cc">
+		<div class="cc">
 			
 			<a class="icon" href="<?php the_permalink(); ?>"></a>
 			
@@ -33,7 +33,7 @@
 				<?php the_content(); ?>
 				
 			</div>
-		</hgroup>
+		</div>
 	</section>
 	
 <?php endif; ?>

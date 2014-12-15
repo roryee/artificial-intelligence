@@ -4,16 +4,17 @@
 	@extend %bg-chrbg;
 	@extend %color-chrfg;
 	
+	> .cc
+	{
+		@extend %row;
+	}
+	
 	.col
 	{
-		display: none;
+		@extend %hide-pop;
+		@extend %show-rock;
+		@extend %col-rock-2;
 		
-		@include above(rock)
-		{
-			display: initial;
-		}
-		
-		@include span(2);
 		@extend %ai-article;
 		@extend %font-lead;
 		
@@ -27,13 +28,9 @@
 		
 		&:last-of-type
 		{
-			display: initial;
-			@include span(12 first last);
-			
-			@include above(rock)
-			{
-				@include span(4 last);
-			}
+			@extend %show-pop;
+			@extend %col-pop-12;
+			@extend %col-rock-4;
 			
 			h6
 			{

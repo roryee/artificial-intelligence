@@ -117,15 +117,11 @@
 		@include wrap;
 		@extend %font-lead;
 		text-align: center;
-		
-		@include with-layout(2 (0))
-		{
-			@include container($config-cc-article);
+		@extend %row;
 			
-			.col
-			{
-				@include span(1);
-			}
+		.col
+		{
+			@extend %col-pop-6;
 		}
 		
 		h6
