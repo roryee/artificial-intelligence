@@ -65,13 +65,13 @@
 	
 	startFade = ->
 		$slider.css 'background', '#000'
-		$body.css 'overflow-y', 'hidden'
+		$body.css 'position', 'fixed'
 		$c.css 'textShadow', '2px 2px 10px #000'
 	
 	endFade = ->
 		$slider.css 'background', ''
 		doSlider()
-		$body.css 'overflow-y', 'initial'
+		$body.css 'position', 'initial'
 		$c.css 'text-shadow', ''
 	
 	if vp > 991
@@ -80,6 +80,7 @@
 			slider = $slider.length
 			
 			$h = $ '#header'
+			$hshowcase = $ '#header-showcase'
 			$body = $ 'body'
 			
 			$h1 =  $slide.find 'h1'
@@ -93,12 +94,13 @@
 				onComplete: endFade
 			}
 			
-			tl.from $slide,  5, { autoAlpha: 0 }, 2
-			tl.from $h1,     2, { autoAlpha: 0 }, 5
-			tl.from $p,			 2, { autoAlpha: 0 }, 10
-			tl.from $c,      2, { background: 'transparent' }, 8
-			tl.from $pag,    2, { autoAlpha: 0 }, 10
-			tl.from $h,      3, { autoAlpha: 0 }, 10
+			tl.from $slide,     5, { autoAlpha: 0 }, 2
+			tl.from $h1,        2, { autoAlpha: 0 }, 5
+			tl.from $p,			    2, { autoAlpha: 0 }, 10
+			tl.from $c,         2, { background: 'transparent' }, 8
+			tl.from $pag,       2, { autoAlpha: 0 }, 10
+			tl.from $h,         3, { autoAlpha: 0 }, 10
+			tl.from $hshowcase, 3, { autoAlpha: 0 }, 10
 			
 		else
 			doSlider()

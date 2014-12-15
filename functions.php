@@ -256,8 +256,27 @@ class Artificial_Intelligence
 			'rewrite'              => false,
 			'supports'             => [
 				'title', 'author', 'revisions',
-				'thumbnail', 'custom-fields', 'page-attributes'
+				'thumbnail', 'custom-fields', 'page-attributes',
 			],
+		]);
+		
+		register_post_type( 'showcases', [
+			'labels' => [
+				'name'               => __( 'Showcase' ),
+				'singular_name'      => __( 'Showcase Part' ),
+			],
+			'description'          => __( 'Pages used for advertising.' ),
+			'menu_position'        => 21,
+			'menu_icon'            => 'dashicons-analytics',
+			'show_ui'              => true,
+			'exclude_from_search'  => true,
+			'publicly_queryabale'  => false,
+			'show_in_nav_menus'    => false,
+			'rewrite'              => false,
+			'supports'             => [
+				'title', 'author', 'revisions',
+				'thumbnail', 'custom-fields', 'page-attributes',
+			]
 		]);
 		
 		// Temporary structure for ACF until I can make it better
