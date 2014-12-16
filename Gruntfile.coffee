@@ -129,4 +129,11 @@ module.exports = (grunt) ->
         
 	}
 	
+	grunt.registerTask 'build', [
+		'sass:dist'
+		'autoprefixer'
+		'coffee'
+		'modernizr'
+	]
+	
 	require('load-grunt-tasks') grunt # Also awesome
