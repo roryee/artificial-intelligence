@@ -1,0 +1,55 @@
+form
+{
+	@extend %cc-article;
+}
+
+.form-group
+{
+	@include trailer;
+	
+	input,
+	textarea
+	{
+		-webkit-appearance: none;
+		   -moz-appearance: none;
+			  -ms-appearance: none;
+		        appearance: none;
+		
+		border: 0;
+		padding: 0.5em;
+		width: 100%;
+		font-size: scale();
+		
+		@extend %font-lead;
+		@extend %bg-chrfg;
+		@extend %color-chrifg;
+	}
+	
+	&.req
+	{
+		input,
+		textarea
+		{
+			@extend %bg-chrh;
+		}
+	}
+}
+
+button,
+input[type="submit"]
+{
+	
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	    -ms-appearance: none;
+	        appearance: none;
+	
+	display: inline-block;
+	padding: 0.4em;
+	border: 0;
+	font-size: scale(1);
+	
+	@extend %font-heading;
+	@extend %bg-chribg;
+	@extend %color-chrifg;
+}
