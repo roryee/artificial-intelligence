@@ -6,11 +6,6 @@
 	top: 0;
 	width: 100%;
 	
-	body.admin-bar &
-	{
-		top: 32px;
-	}
-	
 	z-index: 1000;
 	font-size: scale(1);
 	@extend %font-heading;
