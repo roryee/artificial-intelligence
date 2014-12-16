@@ -34,7 +34,7 @@ module.exports = (grunt) ->
 					'scss/**/*.scss'
 				]
 				tasks: [
-					'sass'
+					'sass:dist'
 					'autoprefixer'
 				]
 			
@@ -67,7 +67,7 @@ module.exports = (grunt) ->
 				options:
 					style: 'expanded'
 					lineNumbers: true
-			default:
+			dist:
 				files: filesScss
 				options:
 					style: 'compressed'
