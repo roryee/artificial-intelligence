@@ -20,11 +20,12 @@ Right now, we're still developing AI, so some stuff might not work as intended. 
 
 To help develop AI, you'll need the following tools:
 
-* Ruby (with Bundler)
-* PHP (with Composer)
-* Node (with npm)
-* Grunt
-* Vagrant and VirtualBox
+* [Ruby](https://www.ruby-lang.org/) (with [Bundler](http://bundler.io/))
+* [PHP](http://php.net/) (with [Composer](https://getcomposer.org/))
+* [Node](http://nodejs.org/) (with [npm](https://www.npmjs.com/))
+* [Grunt](http://www.gruntjs.org/)
+* [Bower](http://bower.io/)
+* [Vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/)
 
 After cloning the repo, you'll need to run the following commands to get everything up and working:
 
@@ -55,4 +56,4 @@ Documentation is in the works. We're working hard to put out a lot of new featur
 
 Artificial Intelligence officially supports the previous two versions of all browsers with a market share of greater than 3%, as well as Firefox ESR and Internet Explorer 9.
 
-AI *does not* officially support Internet Explorer 8. It includes Modernizr, HTML5shiv, and Respond.js to help with backwards-compatibility, but does not implement further support. This includes backend applications such as Streams.
+AI *does not* officially support Internet Explorer 8. It includes [Modernizr](http://modernizr.com/), [HTML5 Shiv](https://github.com/aFarkas/html5shiv), and [Respond.js](https://github.com/scottjehl/Respond) to help with backwards-compatibility, but does not implement further support. This includes backend applications such as Streams.
