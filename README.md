@@ -2,6 +2,8 @@
 
 Artificial Intelligence is a WordPress theme. It wants to take your FRC team's website and give it superpowers.
 
+![Screenshot of Artificial Intelligence](https://raw.githubusercontent.com/duchenerc/artificial-intelligence/master/screenshot.png "Screenshot of Artificial Intelligence")
+
 Right now, we're still developing AI, so some stuff might not work as intended. If so, just submit a ticket and we'll get to at as soon as possible.
 
 ## Features
