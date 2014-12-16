@@ -4,8 +4,32 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e88c1102d2dfb7af0993b8b446a7bc97",
+    "hash": "821d0c1b2daba81e93f8954a2cefe416",
     "packages": [
+        {
+            "name": "afragen/github-updater",
+            "version": "3.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/afragen/github-updater.git",
+                "reference": "13dbfabda2c3898ced36f026bd5337e52ad9f4fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/afragen/github-updater/zipball/13dbfabda2c3898ced36f026bd5337e52ad9f4fa",
+                "reference": "13dbfabda2c3898ced36f026bd5337e52ad9f4fa",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPLv2"
+            ],
+            "time": "2014-12-02 03:35:26"
+        },
         {
             "name": "composer/installers",
             "version": "v1.0.19",

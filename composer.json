@@ -1,6 +1,6 @@
 {
     "name": "first1444/artificial-intelligence",
-    "description": "A dark, modern theme aimed at FRC teams.",
+    "description": "The ultimate WordPress theme for any FRC team.",
     "keywords": ["dark", "modern", "FRC"],
     "license": "GPL-2.0+",
     "version": "1.1.0",
@@ -20,7 +20,8 @@
     "require": {
         "php": ">=5.3.3",
         "wpackagist-plugin/advanced-custom-fields": ">=4.3.9",
-        "wpackagist-plugin/json-rest-api": ">=1.1.1"
+        "wpackagist-plugin/json-rest-api": ">=1.1.1",
+        "afragen/github-updater": "~3.0"
     },
     "require-dev":{
         "php": ">=5.3.3"
@@ -29,7 +30,8 @@
       "installer-paths": {
         "vendor/{$name}": [
           "wpackagist-plugin/advanced-custom-fields",
-          "wpackagist-plugin/json-rest-api"
+          "wpackagist-plugin/json-rest-api",
+          "afragen/github-updater"
         ]
       }
     }
