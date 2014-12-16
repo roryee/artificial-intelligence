@@ -9,21 +9,21 @@
 	
 	h1
 	{
-		@extend %ccw-article;
+		@extend %cc-article;
 		@include scale(3);
 		@extend %font-heading;
 	}
 	
 	h2
 	{
-		@extend %ccw-article;
+		@extend %cc-article;
 		@include scale(2);
 		@extend %font-heading;
 	}
 	
 	p
 	{
-		@extend %ccw-article;
+		@extend %cc-article;
 		@extend %font-lead;
 		@extend %color-dfg;
 	}
