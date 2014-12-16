@@ -2,7 +2,7 @@
 
 Artificial Intelligence is a WordPress theme. It wants to take your FRC team's website and give it superpowers.
 
-Right now, we're still developing AI, so some stuff might not work as intended. If so, just submit a ticket and we'll get too at as soon as possible.
+Right now, we're still developing AI, so some stuff might not work as intended. If so, just submit a ticket and we'll get to at as soon as possible.
 
 ## Features
 
