@@ -10,7 +10,9 @@ vendor/
 *.map
 css/**/*.css
 js/**/*.js
-!js/streams/**/*.js
+streams/streams.js
+streams/partials/*.html
+*.src.coffee
 .sass-cache
 
 # Node

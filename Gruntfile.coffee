@@ -1,29 +1,5 @@
 module.exports = (grunt) ->
 	
-	# Sass files
-	filesScss = [
-		{
-			expand: true
-			cwd: 'scss/'
-			src: ['**/*.scss']
-			dest: 'css/'
-			ext: '.css'
-			extDot: 'first'
-		}
-	]
-	
-	# Coffee files
-	filesCoffee = [
-		{
-			expand: true
-			cwd: 'coffee/'
-			src: ['**/*.coffee']
-			dest: 'js/'
-			ext: '.js'
-			extDot: 'first'
-		}
-	]
-	
 	grunt.initConfig {
 		pkg: grunt.file.readJSON 'package.json'
 		
@@ -49,10 +25,22 @@ module.exports = (grunt) ->
 					
 			coffee:
 				files: [
-					'coffee/**/*.coffee'
+					'coffee/*.coffee'
 				]
 				tasks: [
-					'coffee'
+					'coffee:frontend'
+					# 'uglify:frontend'
+				]
+			
+			streams:
+				files: [
+					'streams/app/**/*.coffee'
+					'streams/templates/*.jade'
+				]
+				tasks: [
+					'jade:streams'
+					'coffee:streams'
+					# 'uglify:streams'
 				]
 		
 		# Sass config
@@ -63,12 +51,30 @@ module.exports = (grunt) ->
 					# 'susy'
 				]
 			debug:
-				files: filesScss
+				files: [
+					{
+						expand: true
+						cwd: 'scss/'
+						src: ['**/*.scss']
+						dest: 'css/'
+						ext: '.css'
+						extDot: 'first'
+					}
+				]
 				options:
 					style: 'expanded'
 					lineNumbers: true
 			dist:
-				files: filesScss
+				files: [
+					{
+						expand: true
+						cwd: 'scss/'
+						src: ['**/*.scss']
+						dest: 'css/'
+						ext: '.css'
+						extDot: 'first'
+					}
+				]
 				options:
 					style: 'compressed'
 					
@@ -87,15 +93,48 @@ module.exports = (grunt) ->
 		
 		# CoffeeScript config
 		coffee:
-			dist:
-				files: filesCoffee
+			options:
+				sourceMap: true
+			
+			frontend:
+				options:
+					bare: true
+					join: true
+				files:
+					'js/frontend.js': ['coffee/*.coffee']
+			
+			streams:
+				options:
+					bare: true
+					join: true
+				files:
+					'streams/streams.js': ['streams/app/**/*.coffee']
 				
+		
+		# Jade config
+		# used for Streams templating, maybe eventually for WordPress
+		jade:
+			options:
+				pretty: true
+				
+			streams:
+				files: [
+					{
+						expand: true
+						cwd: 'streams/templates/'
+						src: ['*.jade']
+						dest: 'streams/partials/'
+						ext: '.html'
+						extDot: 'first'
+					}
+				]
+		
 		# Modernizr config
 		# Awesomeness
 		modernizr:
 			dist:
 				devFile: "bower_components/modernizr/modernizr.js"
-				outputFile: "js/deps/modernizr.js"
+				outputFile: "js/modernizr.js"
 				
 				extra:
           shiv : false

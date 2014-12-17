@@ -23,90 +23,71 @@ class Streams
 	
 	public static function assets()
 	{
-		wp_enqueue_script( 'angular', Artificial_Intelligence::$dir .
-		                   '/bower_components/angular/angular.min.js', [], '1.3.6', false );
-		
-		wp_enqueue_script( 'angular-sanitize', Artificial_Intelligence::$dir .
-		                   '/bower_components/angular-sanitize/angular-sanitize.min.js',
-											 ['angular'], '1.3.6', false );
-		
-		wp_enqueue_script( 'angular-resource', Artificial_Intelligence::$dir .
-		                   '/bower_components/angular-resource/angular-resource.min.js',
-											 ['angular'], '1.3.6', false );
-		
-		wp_enqueue_script( 'angular-route', Artificial_Intelligence::$dir .
-		                   '/bower_components/angular-route/angular-route.min.js',
-											 ['angular'], '1.3.6', false );
-		
-		wp_enqueue_script( 'wp-api' );
-		
-		
-		wp_enqueue_style( 'bootstrap',
-		  Artificial_Intelligence::$dir . '/bower_components/bootstrap/dist/css/bootstrap.min.css'
-		);
-		
-		wp_enqueue_style( 'bootstrap-theme',
-			Artificial_Intelligence::$dir . '/bower_components/bootstrap/dist/css/bootstrap-theme.min.css'
-		);
-		
-		
-		
-		wp_enqueue_script( 'bootstrap-js',
-			Artificial_Intelligence::$dir . '/bower_components/bootstrap/dist/js/bootstrap.min.js',
-			['jquery'],
-			'3.3.1',
-			true
-		);
-		
-		wp_enqueue_script( 'streams-ctrls',
-		                   Artificial_Intelligence::$dir . '/js/streams/controllers.js',
-		                   [
-		                   	'wp-api',
-		                   	'angular',
-		                   	'angular-sanitize',
-		                   	'angular-resource',
-		                   	'angular-route',
-												'streams-factories',
-		                   ], '', false );
-		
-		wp_enqueue_script( 'streams-factories',
-											 Artificial_Intelligence::$dir . '/js/streams/factories.js',
-											 [
-											 	'wp-api',
-											 	'angular',
-											 	'angular-sanitize',
-											 	'angular-resource',
-											 	'angular-route'
-											 ], '', false );
-		
-		wp_enqueue_script( 'streams',
-		                   Artificial_Intelligence::$dir . '/js/streams/app.js',
-											 [
-											 	'wp-api',
-											 	'angular',
-											 	'angular-sanitize',
-											 	'angular-resource',
-											 	'angular-route',
-												'streams-ctrls',
-												'streams-factories'
-											 ], '', false );
-		
-		ob_start();
-		dynamic_sidebar('sidebar_streams');
-		$sidebar = ob_get_clean();
-		
-		wp_localize_script( 'streams', 'streamsConfig', [
-			'partials' => Artificial_Intelligence::$dir . '/streams',
-			'sidebar'  => $sidebar,
-			'urls'     => [
-				'admin'   => admin_url(),
-				'profile' => admin_url( 'profile.php' ),
-				'logout'  => wp_logout_url( home_url() ),
-			],
-		]);
-		
-		// unset($sidebar);
-		
+		// if ( is_page_template( 'streams.php' ) )
+		// {
+			wp_enqueue_script( 'angular', Artificial_Intelligence::$dir .
+			                   '/bower_components/angular/angular.min.js', [], '1.3.6', false );
+			
+			wp_enqueue_script( 'angular-sanitize', Artificial_Intelligence::$dir .
+			                   '/bower_components/angular-sanitize/angular-sanitize.min.js',
+												 ['angular'], '1.3.6', false );
+			
+			wp_enqueue_script( 'angular-resource', Artificial_Intelligence::$dir .
+			                   '/bower_components/angular-resource/angular-resource.min.js',
+												 ['angular'], '1.3.6', false );
+			
+			wp_enqueue_script( 'angular-route', Artificial_Intelligence::$dir .
+			                   '/bower_components/angular-route/angular-route.min.js',
+												 ['angular'], '1.3.6', false );
+			
+			wp_enqueue_script( 'wp-api' );
+			
+			
+			wp_enqueue_style( 'bootstrap',
+			  Artificial_Intelligence::$dir . '/bower_components/bootstrap/dist/css/bootstrap.min.css'
+			);
+			
+			wp_enqueue_style( 'bootstrap-theme',
+				Artificial_Intelligence::$dir . '/bower_components/bootstrap/dist/css/bootstrap-theme.min.css'
+			);
+			
+			
+			
+			wp_enqueue_script( 'bootstrap-js',
+				Artificial_Intelligence::$dir . '/bower_components/bootstrap/dist/js/bootstrap.min.js',
+				['jquery'],
+				'3.3.1',
+				true
+			);
+			
+			
+			wp_enqueue_script( 'streams',
+			                   Artificial_Intelligence::$dir . '/streams/streams.js',
+												 [
+												 	'wp-api',
+												 	'angular',
+												 	'angular-sanitize',
+												 	'angular-resource',
+												 	'angular-route',
+												 ], '', false );
+			
+			ob_start();
+			dynamic_sidebar('sidebar_streams');
+			$sidebar = ob_get_clean();
+			
+			wp_localize_script( 'streams', 'streamsConfig', [
+				'partials' => Artificial_Intelligence::$dir . '/streams/partials',
+				'sidebar'  => $sidebar,
+				'urls'     => [
+					'admin'   => admin_url(),
+					'profile' => admin_url( 'profile.php' ),
+					'logout'  => wp_logout_url( home_url() ),
+				],
+			]);
+			
+			// unset($sidebar);
+			
+		// }
 	}
 	
 	public static function post_type()
@@ -144,5 +125,4 @@ class Streams
 	
 }
 
-if ( is_page_template( 'streams.php' ) )
-	Streams::init();
+Streams::init();

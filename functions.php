@@ -22,7 +22,7 @@ class Artificial_Intelligence
 	protected static $assets_js = [
 		[
 			'slug' => 'modernizr',
-			'uri' => '/js/deps/modernizr.js',
+			'uri' => '/js/modernizr.js',
 			'deps' => [],
 			'vers' => '',
 			'footer' => false,
@@ -56,8 +56,8 @@ class Artificial_Intelligence
 			'footer' => false,
 		],
 		[
-			'slug' => 'slider',
-			'uri' => '/js/slider.js',
+			'slug' => 'frontend',
+			'uri' => '/js/frontend.js',
 			'deps' => ['jquery', 'slidesjs'],
 			'vers' => '',
 			'footer' => true,
