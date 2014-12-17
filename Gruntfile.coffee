@@ -172,6 +172,7 @@ module.exports = (grunt) ->
 		'sass:dist'
 		'autoprefixer'
 		'coffee'
+		'jade'
 		'modernizr'
 	]
 	
