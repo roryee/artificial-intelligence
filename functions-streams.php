@@ -7,10 +7,8 @@ class Streams
 	
 	public static function init()
 	{
-		add_action( 'init',                       ['Streams', 'post_type'] );
-		// add_filter( 'json_authentication_errors', ['Streams', 'auth'     ] );
-		
-		add_action( 'wp_enqueue_scripts', ['Streams', 'assets'] );
+		add_action( 'init',               ['Streams', 'post_type'] );
+		add_action( 'wp_enqueue_scripts', ['Streams', 'assets'   ] );
 	}
 	
 	public static function auth()
@@ -23,8 +21,8 @@ class Streams
 	
 	public static function assets()
 	{
-		// if ( is_page_template( 'streams.php' ) )
-		// {
+		if ( is_page_template( 'streams.php' ) )
+		{
 			wp_enqueue_script( 'angular', Artificial_Intelligence::$dir .
 			                   '/bower_components/angular/angular.min.js', [], '1.3.6', false );
 			
@@ -85,9 +83,9 @@ class Streams
 				],
 			]);
 			
-			// unset($sidebar);
+			unset($sidebar);
 			
-		// }
+		}
 	}
 	
 	public static function post_type()

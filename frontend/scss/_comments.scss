@@ -1,8 +1,8 @@
 
 #comments
 {
-	@extend %bg-dbg;
-	@extend %color-dfg;
+	background-color: color(dbg);
+	color: color(dfg);
 	padding: 1em 0;
 	
 	> .ccc
@@ -31,7 +31,7 @@
 		font-size: scale(3);
 		@extend %font-title;
 		text-align: center;
-		@extend %color-dh;
+		color: color(dh);
 	}
 	
 	.comment
@@ -65,15 +65,15 @@
 				{
 					display: block;
 					padding: 0.5em 0.2em;
-					@extend %color-dh;
+					color: color(dh);
 					transition-property: background, color;
 					transition-duration: 0.1s, 0.1s;
 					transition-timing-function: ease, ease;
 					
 					&:hover
 					{
-						@extend %bg-dh;
-						@extend %color-dbg;
+						background-color: color(dh);
+						color: color(dbg);
 					}
 				}
 			}

@@ -3,7 +3,7 @@
 .single-format-standard #article,
 .page-template-default #article
 {
-	@extend %bg-lbg;
+	background-color: color(lbg);
 	
 	.article.c
 	{
@@ -27,7 +27,7 @@
 		> .c
 		{
 			min-height: 100vh;
-			@extend %bg-chrbg;
+			background-color: color(chrbg);
 		}
 	}
 	
@@ -60,7 +60,7 @@
 		> .c
 		{
 			min-height: 100vh;
-			@extend %bg-dbg;
+			background-color: color(dbg);
 		}
 	}
 	
@@ -97,14 +97,14 @@
 #article-footer
 {
 	@extend %ai-article;
-	@extend %bg-lbg;
+	background-color: color(lbg);
 	
 	hr.end
 	{
 		@extend %ccs-article;
 		height: rem(1px);
 		border: 0;
-		@extend %bg-la;
+		background-color: color(la);
 	}
 	
 	.profile

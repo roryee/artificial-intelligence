@@ -4,8 +4,8 @@
 	padding: 7rem 0;
 	
 	@extend %ai-article;
-	@extend %bg-dbg;
-	@extend %color-dh;
+	background-color: color(dbg);
+	color: color(dh);
 	
 	h1
 	{
@@ -25,7 +25,7 @@
 	{
 		@extend %cc-article;
 		@extend %font-lead;
-		@extend %color-dfg;
+		color: color(dfg);
 	}
 	
 }

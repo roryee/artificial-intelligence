@@ -32,7 +32,7 @@ $article-colors: (
 	}
 	
 	@extend %ai-post;
-	@extend %color-#{map-find($colors, p)};
+	color: color(map-find($colors, p));
 	
 	h1,
 	h2,
@@ -41,25 +41,25 @@ $article-colors: (
 	h5,
 	h6
 	{
-		@extend %color-#{map-find($colors, h)};
+		color: color(map-find($colors, h));
 	}
 	
 	hr
 	{
-		@extend %color-#{map-find($colors, ac)};
+		color: color(map-find($colors, ac));
 	}
 	
 	blockquote,
 	.wp-caption,
 	.wp-caption-text
 	{
-		@extend %color-#{map-find($colors, ac)};
-		@extend %border-#{map-find($colors, ac)};
+		color: color(map-find($colors, ac));
+		color: color(map-find($colors, ac));
 	}
 	
 	span[style*="underline"]
 	{
-		@extend %border-#{map-find($colors, p)};
+		color: color(map-find($colors, p));
 	}
 	
 	@if map-has-key($args, adjust-first)

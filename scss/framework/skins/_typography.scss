@@ -18,27 +18,6 @@ $typesets: (
 {
 	%font-#{$set}
 	{
-		@each $theme, $settings in $themes
-		{
-			// Apply most sets below the body
-			//
-			@if $set != body
-			{
-				body.aitheme-#{$theme} &
-				{
-					@include map-build(map-find($settings, fonts, $set));
-				}
-			}
-			
-			// Apply body sets directly to the body
-			//
-			@else
-			{
-				&.aitheme-#{$theme}
-				{
-					@include map-build(map-find($settings, fonts, $set));
-				}
-			}
-		}
+		@include map-build(map-find($fonts, $set));
 	}
 }

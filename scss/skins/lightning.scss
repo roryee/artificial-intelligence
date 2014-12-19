@@ -12,25 +12,25 @@ $gallery: #eee;
 // Set base colors. Use the color variables set above.
 // Find documentation in app/assets/scss/framework/themes/_colors.scss
 //
-$lightning-colors: (
+$colors: (
 	lfg:    $mineshaft,
 	lbg:    $gallery,
 	la:     lighten($mineshaft, 40%),
 	lh:     lighten($mineshaft, 20%),
 	lac:    lighten($mineshaft, 40%),
-	
+
 	dfg:    $gallery,
 	dbg:    $mineshaft,
 	da:     $lightning,
 	dh:     $lightning,
 	dac:    darken($gallery, 40%),
-	
+
 	chrfg:  $gallery,
 	chrbg:  transparentize($mineshaft, 0.4),
 	chra:   transparentize($mineshaft, 0.2),
 	chrh:   $lightning,
 	chrac:  lighten($mineshaft, 40%),
-	
+
 	chrifg: $mineshaft,
 	chribg: $lightning,
 );
@@ -49,7 +49,7 @@ $fraleway:   'Raleway',   'Helvetica Neue', Helvetica, Arial, sans-serif;
 // These maps will be converted to %selectors that you can @extend.
 // (e.g., @extend %font-title)
 //
-$lightning-fonts: (
+$fonts: (
 	title: (
 		font-family: $fraleway,
 		font-weight: 200,
@@ -84,15 +84,11 @@ $lightning-fonts: (
 // If you need to, import fonts from Google Fonts.
 // Give the font's name and what styles you need.
 //
-$lightning-fonts-import: (
+$fonts-import: (
 	"Raleway": "200" "300" "400" "600", // Raleway has no italics styles
 );
 
 // EXPORT
 //
-@include export(
-	lightning,
-	$lightning-colors,
-	$lightning-fonts,
-	$lightning-fonts-import
-);
+@import "bootstrap";
+@import "export";

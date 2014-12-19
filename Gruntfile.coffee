@@ -1,12 +1,13 @@
 module.exports = (grunt) ->
 	
-	grunt.initConfig {
+	grunt.initConfig
 		pkg: grunt.file.readJSON 'package.json'
 		
 		# Watch config
 		watch:
 			sass:
 				files: [
+					'frontend/scss/*.scss'
 					'scss/**/*.scss'
 				]
 				tasks: [
@@ -16,7 +17,8 @@ module.exports = (grunt) ->
 			
 			sassdebug:
 				files: [
-					'scss/**/.scss'
+					'frontend/scss/*.scss'
+					'scss/**/*.scss'
 				]
 				tasks: [
 					'sass:debug'
@@ -25,11 +27,10 @@ module.exports = (grunt) ->
 					
 			coffee:
 				files: [
-					'coffee/*.coffee'
+					'frontend/coffee/*.coffee'
 				]
 				tasks: [
 					'coffee:frontend'
-					# 'uglify:frontend'
 				]
 			
 			streams:
@@ -40,23 +41,19 @@ module.exports = (grunt) ->
 				tasks: [
 					'jade:streams'
 					'coffee:streams'
-					# 'uglify:streams'
 				]
 		
 		# Sass config
 		sass:
 			options:
-				require: [
-					'sass-globbing'
-					# 'susy'
-				]
+				bundleExec: true
 			debug:
 				files: [
 					{
 						expand: true
-						cwd: 'scss/'
-						src: ['**/*.scss']
-						dest: 'css/'
+						cwd: 'scss/skins/'
+						src: ['*.scss']
+						dest: 'frontend/gen/'
 						ext: '.css'
 						extDot: 'first'
 					}
@@ -64,32 +61,42 @@ module.exports = (grunt) ->
 				options:
 					style: 'expanded'
 					lineNumbers: true
+					loadPath: [
+						'scss/'
+						'frontend/scss/'
+					]
 			dist:
 				files: [
 					{
 						expand: true
-						cwd: 'scss/'
-						src: ['**/*.scss']
-						dest: 'css/'
+						cwd: 'scss/skins/'
+						src: ['*.scss']
+						dest: 'frontend/gen/'
 						ext: '.css'
 						extDot: 'first'
 					}
 				]
 				options:
 					style: 'compressed'
+					loadPath: [
+						'scss/'
+						'frontend/scss/'
+					]
 					
 		# Autoprefixer config
 		autoprefixer:
+			options:
+				browsers: [
+					'last 2 versions'
+					'> 3%'
+					'ie 8'
+					'firefox esr'
+				]
+				map: true
+				
 			dist:
-				src: 'css/*.css'
-				options:
-					map: true
-					browsers: [
-						'last 2 versions'
-						'> 3%'
-						'ie 8'
-						'firefox esr'
-					]
+				src: 'frontend/gen/*.css'
+			
 		
 		# CoffeeScript config
 		coffee:
@@ -101,7 +108,7 @@ module.exports = (grunt) ->
 					bare: true
 					join: true
 				files:
-					'js/frontend.js': ['coffee/*.coffee']
+					'frontend/gen/frontend.js': ['frontend/coffee/*.coffee']
 			
 			streams:
 				options:
@@ -134,7 +141,7 @@ module.exports = (grunt) ->
 		modernizr:
 			dist:
 				devFile: "bower_components/modernizr/modernizr.js"
-				outputFile: "js/modernizr.js"
+				outputFile: "frontend/gen/modernizr.js"
 				
 				extra:
           shiv : false
@@ -160,13 +167,16 @@ module.exports = (grunt) ->
 						"bower_components/**/*.js"
 						"bower_components/**/*.css"
 						"!bower_components/modernizr/**/*.js"
-						"js/**/*.js"
+						"frontend/**/*.js"
+						"frontend/**/*.scss"
 						"scss/**/*.scss"
+						"streams/**/*.js"
+						"streams/**/*.scss"
 					]
 				
 				matchCommunityTests: false
         
-	}
+	
 	
 	grunt.registerTask 'build', [
 		'sass:dist'

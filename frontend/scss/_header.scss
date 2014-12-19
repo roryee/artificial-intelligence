@@ -5,8 +5,8 @@
 	
 	.number a
 	{
-		@extend %bg-chribg;
-		@extend %color-chrifg;
+		background-color: color(chribg);
+		color: color(chrifg);
 	}
 	
 	@include below(disco)
@@ -65,8 +65,8 @@
 		font-size: scale(1);
 		
 		@extend %font-heading;
-		@extend %bg-chribg;
-		@extend %color-chrifg;
+		background-color: color(chribg);
+		color: color(chrifg);
 	}
 }
 
@@ -78,7 +78,7 @@
 	width: rem(300px);
 	max-width: 100%;
 	height: 100%;
-	@extend %bg-dbg;
+	background-color: color(dbg);
 	
 	> .c
 	{

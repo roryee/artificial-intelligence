@@ -12,65 +12,6 @@ class Artificial_Intelligence
 	
 	public static $dir;
 	
-	protected static $assets_css = [
-		[
-			'slug' => 'frontend',
-			'uri' => '/css/frontend.css',
-		],
-	];
-
-	protected static $assets_js = [
-		[
-			'slug' => 'modernizr',
-			'uri' => '/js/modernizr.js',
-			'deps' => [],
-			'vers' => '',
-			'footer' => false,
-		],
-		[
-			'slug' => 'gsap',
-			'uri' => '/bower_components/gsap/src/minified/TweenMax.min.js',
-			'deps' => [],
-			'vers' => '',
-			'footer' => false,
-		],
-		[
-			'slug' => 'jquery-gsap',
-			'uri' => '/bower_components/gsap/src/minified/jquery.gsap.min.js',
-			'deps' => ['jquery', 'gsap'],
-			'vers' => '',
-			'footer' => false,
-		],
-		[
-			'slug' => 'slidesjs',
-			'uri' => '/bower_components/slidesjs/source/jquery.slides.min.js',
-			'deps' => ['jquery'],
-			'vers' => '',
-			'footer' => false,
-		],
-		[
-			'slug' => 'jquery-cookie',
-			'uri' => '/bower_components/jquery-cookie/jquery.cookie.js',
-			'deps' => ['jquery'],
-			'vers' => '',
-			'footer' => false,
-		],
-		[
-			'slug' => 'frontend',
-			'uri' => '/js/frontend.js',
-			'deps' => ['jquery', 'slidesjs'],
-			'vers' => '',
-			'footer' => true,
-		],
-		[
-			'slug'   => 'respondjs',
-			'uri'    => '/bower_components/Respond/src/respond.js',
-			'deps'   => ['modernizr'],
-			'vers'   => '',
-			'footer' => true,
-		]
-	];
-	
 	protected static $menus = [
 		'primary'           => 'Navbar',
 		'offcanvas_left'    => 'Offcanvas Left',
@@ -117,7 +58,6 @@ class Artificial_Intelligence
 		add_action( 'customize_register', ['Artificial_Intelligence', 'customizer'] );
 		
 		add_filter( 'excerpt_length', ['Artificial_Intelligence', 'excerpt'], 999 );
-		add_filter( 'body_class',     ['Artificial_Intelligence', 'theme_output'] );
 	}
 	
 	public static function setup()
@@ -147,24 +87,25 @@ class Artificial_Intelligence
 
 	public static function assets()
 	{
-		foreach ( self::$assets_css as $style )
-		{
-			wp_enqueue_style(
-				$style['slug'],
-				self::$dir . $style['uri']
-			);
-		}
-
-		foreach ( self::$assets_js as $script )
-		{
-			wp_enqueue_script(
-				$script['slug'],
-				self::$dir . $script['uri'],
-				$script['deps'],
-				( ! empty( $script['vers'] ) ? $script['vers'] : self::$version ),
-				$script['footer']
-			);
-		}
+		wp_enqueue_style( 'frontend', self::$dir . '/frontend/gen/' .
+			( get_theme_mod( 'ai_theme' ) ? get_theme_mod( 'ai_theme' ) : 'lightning' ) . '.css'
+		);
+		
+		wp_enqueue_script( 'modernizr', self::$dir . '/frontend/gen/modernizr.js',
+		[], '', false);
+		
+		wp_enqueue_script( 'respond', self::$dir . '/bower_components/Respond/src/respond.js',
+		['modernizr'], '', false );
+		
+		wp_enqueue_script( 'gsap', self::$dir . '/bower_components/gsap/src/minified/TweenMax.min.js',
+		[], '', false );
+		
+		wp_enqueue_script( 'slidesjs', self::$dir . '/bower_components/slidesjs/source/jquery.slides.min.js',
+		['jquery'], '', false );
+		
+		wp_enqueue_script( 'frontend', self::$dir . '/frontend/gen/frontend.js',
+		['jquery', 'slidesjs', 'gsap'], '', true );
+		
 	}
 	
 	public static function menus()
@@ -226,18 +167,6 @@ class Artificial_Intelligence
 			)
 		);
 		
-	}
-	
-	public static function theme_output( $classes )
-	{
-		
-		if ( get_theme_mod( 'ai_theme' ) )
-			$classes[] = 'aitheme-' . get_theme_mod( 'ai_theme' );
-		
-		else
-			$classes[] = 'aitheme-lightning';
-			
-		return $classes;
 	}
 	
 	public static function post_types()

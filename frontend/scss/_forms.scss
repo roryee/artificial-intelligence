@@ -24,8 +24,8 @@
 			font-size: scale();
 			
 			@extend %font-lead;
-			@extend %bg-chrfg;
-			@extend %color-chrifg;
+			background-color: color(chrfg);
+			color: color(chrifg);
 		}
 		
 		&.req
@@ -33,7 +33,7 @@
 			input,
 			textarea
 			{
-				@extend %bg-chrh;
+				background-color: color(chrh);
 			}
 		}
 	}
@@ -53,7 +53,7 @@
 		font-size: scale(1);
 		
 		@extend %font-heading;
-		@extend %bg-chribg;
-		@extend %color-chrifg;
+		background-color: color(chribg);
+		color: color(chrifg);
 	}
 }

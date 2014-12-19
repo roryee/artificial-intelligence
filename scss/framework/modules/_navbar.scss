@@ -9,8 +9,8 @@
 	z-index: 1000;
 	font-size: scale(1);
 	@extend %font-heading;
-	@extend %bg-chrbg;
-	@extend %color-chrh;
+	background-color: color(chrbg);
+	color: color(chrh);
 	
 	> .cc
 	{
@@ -30,7 +30,7 @@
 	{
 		> a
 		{
-			@include apply(border-top-color, chribg);
+			border-top-color: color(chribg);
 		}
 	}
 	
@@ -40,7 +40,7 @@
 		padding: 0.4em;
 		border-top: 0.1em solid transparent;
 		border-bottom: 0.1em solid transparent;
-		@extend %color-chrh;
+		color: color(chrh);
 		transition-property: color, background, border-color;
 		transition-duration: 0.2s, 0.2s, 0.2s;
 		transition-timing-function: ease, ease, ease;
@@ -50,7 +50,7 @@
 	{
 		display: none;
 		position: absolute;
-		@extend %bg-chrbg;
+		background-color: color(chrbg);
 		
 		a
 		{
@@ -63,7 +63,7 @@
 		
 		> .menu-item.current-menu-item > a
 		{
-			@extend %border-chribg;
+			border-color: color(chribg);
 		}
 	}
 	
@@ -71,9 +71,9 @@
 	{
 		> a
 		{
-			@extend %bg-chribg;
-			@extend %border-chribg;
-			@extend %color-chrifg;
+			background-color: color(chribg);
+			border-color: color(chribg);
+			color: color(chrifg);
 		}
 		
 		.sub-menu

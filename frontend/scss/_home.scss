@@ -64,7 +64,7 @@
 			
 			@include scale(1);
 			@extend %font-heading;
-			@extend %color-dh;
+			color: color(dh);
 		}
 		
 	}

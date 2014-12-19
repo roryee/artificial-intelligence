@@ -18,11 +18,10 @@ body
 	
 	@extend %font-body;
 	
-	@include apply(background-color, lbg, true);
-	@include apply(color,            lfg, true);
-	
+	background-color: color(lbg);
 	background-size: cover;
 	background-position: center;
+	color: color(lfg);
 	
 	&.custom-background
 	{
@@ -43,7 +42,7 @@ body
 a
 {
 	text-decoration: none;
-	@extend %color-da;
+	color: color(da);
 }
 
 .cc

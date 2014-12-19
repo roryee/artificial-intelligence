@@ -1,10 +1,9 @@
-# A sample Gemfile
 source "https://rubygems.org"
 
 # Sass
 gem 'sass', '~> 3.4.7'
-gem 'sass-globbing', '1.1.0'
 
+# gem 'sass-globbing', '1.1.0'
 # gem 'susy', '~> 2.1.3'
 
 # CoffeeScript

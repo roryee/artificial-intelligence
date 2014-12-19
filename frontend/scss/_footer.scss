@@ -1,8 +1,8 @@
 #footer
 {
 	@include wrap;
-	@extend %bg-chrbg;
-	@extend %color-chrfg;
+	background-color: color(chrbg);
+	color: color(chrfg);
 	
 	> .cc
 	{
@@ -23,7 +23,7 @@
 			@include trailer;
 			@include scale;
 			@extend %font-heading;
-			@extend %color-chrh;
+			color: color(chrh);
 		}
 		
 		&:last-of-type
@@ -47,6 +47,6 @@
 	@include scale(-1);
 	text-align:center;
 	@extend %font-lead;
-	@extend %bg-chrbg;
-	@extend %color-chrh;
+	background-color: color(chrbg);
+	color: color(chrh);
 }

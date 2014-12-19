@@ -4,7 +4,7 @@
 	
 	padding: 2rem 0;
 	@extend %ai-article;
-	@extend %bg-dbg;
+	background-color: color(dbg);
 	
 	> .cc
 	{
@@ -22,7 +22,7 @@
 		}
 		
 		font-size: 2rem;
-		@extend %color-dh;
+		color: color(dh);
 		
 	}
 	
@@ -34,11 +34,11 @@
 		
 		@include scale(1);
 		@extend %font-heading;
-		@extend %color-dfg;
+		color: color(dfg);
 		
 		li a
 		{
-			@extend %color-dh;
+			color: color(dh);
 		}
 		
 	}
@@ -49,7 +49,7 @@
 		@extend %col-rock-6;
 		
 		@extend %font-lead;
-		@extend %color-dfg;
+		color: color(dfg);
 	}
 	
 }
