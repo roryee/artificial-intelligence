@@ -38,8 +38,9 @@
 	{
 		display: block;
 		padding: 0.4em;
-		border-top: 0.1em solid transparent;
-		border-bottom: 0.1em solid transparent;
+		border-top: 0.1em solid;
+		border-bottom: 0.1em solid;
+		border-color: transparent;
 		color: color(chrh);
 		transition-property: color, background, border-color;
 		transition-duration: 0.2s, 0.2s, 0.2s;
@@ -58,7 +59,8 @@
 			border-bottom: 0;
 			padding: 0.5em 0.4em 0.5em 0.35em;
 			
-			border-left: 0.2em solid transparent;
+			border-left: 0.2em solid;
+			border-color: transparent;
 		}
 		
 		> .menu-item.current-menu-item > a
