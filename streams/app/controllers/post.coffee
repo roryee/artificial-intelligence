@@ -6,7 +6,6 @@ streamsCtrls.controller 'postCtrl', [
 	($scope, Post, $routeParams, $http) ->
 		
 		$scope.state = 'read'
-		$scope.sidebar = streamsConfig.sidebar
 		
 		postId = $routeParams.postId
 		

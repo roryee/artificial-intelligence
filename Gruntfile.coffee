@@ -115,7 +115,11 @@ module.exports = (grunt) ->
 					bare: true
 					join: true
 				files:
-					'streams/streams.js': ['streams/app/**/*.coffee']
+					'streams/streams.js': [
+						'streams/app/factories/*.coffee'
+						'streams/app/controllers/*coffee'
+						'streams/app/config/*.coffee'
+					]
 				
 		
 		# Jade config

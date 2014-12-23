@@ -11,13 +11,9 @@ streams.config [
 	'$httpProvider'
 	($routeProvider, $httpProvider) ->
 		
-		$routeProvider.when '/',
+		$routeProvider.when( '/',
 			templateUrl: streamsConfig.partials + '/home.html'
-			controller: 'homeCtrl'
-
-		$routeProvider.when '/category/:catId',
-			templateUrl: streamsConfig.partials + '/categories.html'
-			controller: 'catCtrl'
+			controller: 'homeCtrl')
 
 		$routeProvider.when '/posts/:postId',
 			templateUrl: streamsConfig.partials + '/post.html'

@@ -8,4 +8,8 @@
 	<?php wp_head(); ?>
 </head>
 
-<body>
+<body ng-controller="bodyCtrl">
+	
+	<div ng-include="partials + '/nav.html'" ng-controller="navbarCtrl"></div>
+	
+	<div ng-view></div>
