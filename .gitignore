@@ -27,5 +27,5 @@ bower_components
 .vagrant
 
 # AI Skins
-/scss/skins/*.scss
-!/scss/skins/lightning.scss
+# /scss/skins/*.scss
+# !/scss/skins/lightning.scss
