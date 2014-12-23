@@ -62,6 +62,8 @@
 		
 	<?php endif; ?>
 	
+	<?php comments_template(); ?>
+	
 <?php else: ?>
 	
 	<section <?php post_class( 'w' ); ?>

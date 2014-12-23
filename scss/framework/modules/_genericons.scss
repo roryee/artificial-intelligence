@@ -196,7 +196,19 @@ $genericons: (
 // A list of selectors to generate for data-icon.
 // Generate selectors that use the data-icon attribute to inject the icon.
 //
-$genericons-data-icon: user, search, menu, category, tag, next, previous;
+$genericons-data-icon: (
+	category,
+	cog,
+	edit,
+	feed,
+	menu,
+	next,
+	previous,
+	reply,
+	search,
+	tag,
+	user
+);
 
 @each $slug in $genericons-data-icon
 {
