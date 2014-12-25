@@ -1,6 +1,6 @@
 <?php
 
-// define( 'ACF_LITE', true );
+define( 'ACF_LITE', true );
 require_once dirname( __FILE__ ) . '/vendor/advanced-custom-fields/acf.php';
 require_once dirname( __FILE__ ) . '/vendor/json-rest-api/plugin.php';
 
