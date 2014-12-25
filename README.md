@@ -12,6 +12,7 @@ Right now, we're still developing AI, so some stuff might not work as intended. 
 * Showcases take the photos-first thing to a whole new level, enabling you to build gorgeous pages and embark on advertising like only Apple has. Go ahead, brag about your robot or praise your sponsors. Nothing's stopping you.
 * What would a WordPress theme be without a blog? We've spent hours crafting perfect typography to make reading as comfortable as possible, ensuring that you can keep old readers as well as you make new ones.
 * With its built-in Skin API, AI is incredibly easy to customize to fit your team's branding. Use one of the default skins, or build your own with a config file.
+* AI is made to be easily usable on smartphones, tablets, laptops, and desktops alike. Reach everyone, no matter what device they use.
 * It's free. Doesn't get any better than that, right?
 * And we're adding more stuff as fast as we can. Expect more awesome things coming soon!
 
