@@ -213,7 +213,7 @@ class Artificial_Intelligence
 		
 		// Temporary structure for ACF until I can make it better
 		// if ( ! WP_DEBUG )
-			require_once self::$dir . '/functions-acf.php';
+			require_once dirname( __FILE__ ) . '/functions-acf.php';
 		
 	}
 	
