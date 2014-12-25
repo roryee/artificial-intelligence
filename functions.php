@@ -212,7 +212,7 @@ class Artificial_Intelligence
 		]);
 		
 		// Temporary structure for ACF until I can make it better
-		if ( ! WP_DEBUG )
+		// if ( ! WP_DEBUG )
 			require_once self::$dir . '/functions-acf.php';
 		
 	}
