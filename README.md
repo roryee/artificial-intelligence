@@ -45,7 +45,7 @@ As AI is hosted on GitHub rather than the WordPress Theme Repo, you will not see
 
 ### Setup
 
-We've got a quick guide for you in the wiki that covers setting up your homepage, blog, navigation menus, widget areas, background, and skin.
+We've got a [quick guide](https://github.com/duchenerc/artificial-intelligence/wiki/Setup) for you in the wiki that covers setting up your homepage, blog, navigation menus, widget areas, background, and skin.
 
 ## Development
 
