@@ -6,69 +6,76 @@
 	top: 0;
 	width: 100%;
 	
-	body.admin-bar &
-	{
-		top: 32px;
-	}
-	
 	z-index: 1000;
 	font-size: scale(1);
 	@extend %font-heading;
-	@extend %bg-chrbg;
-	@extend %color-chrh;
+	background-color: color(chrbg);
+	color: color(chrh);
 	
-	#{$sel}-sep
+	> .cc
 	{
-		&:first-child
+		@if map-has-key($args, custom-layout) and map-find($args, custom-layout)
 		{
-			@include span(12 first last);
-			text-align: center;
-			
-			@include above(disco)
-			{
-				@include span(6 first);
-				@include box;
-			}
-			
+			@extend %row;
 		}
 		
-		&:last-child:not(:first-child)
+		@else
 		{
-			display: none;
-			
-			@include above(disco)
-			{
-				display: initial;
-				@include span(6 last);
-				@include box(right, $cc: "> .c", $items: "> .menu-item");
-			}
-			
+			@include box;
+		}
+	}
+	
+	.menu-item.current-menu-ancestor,
+	.menu-item.current-menu-item
+	{
+		> a
+		{
+			border-top-color: color(chribg);
 		}
 	}
 	
 	a
 	{
 		display: block;
-		padding: 0.5em;
-		@extend %color-chrh;
-		transition-property: color, background;
-		transition-duration: 0.2s, 0.2s;
-		transition-timing-function: ease, ease;
+		padding: 0.4em;
+		border-top: 0.1em solid;
+		border-bottom: 0.1em solid;
+		border-color: transparent;
+		color: color(chrh);
+		transition-property: color, background, border-color;
+		transition-duration: 0.2s, 0.2s, 0.2s;
+		transition-timing-function: ease, ease, ease;
 	}
 	
 	.sub-menu
 	{
 		display: none;
 		position: absolute;
-		@extend %bg-chrbg;
+		background-color: color(chrbg);
+		
+		a
+		{
+			border-top: 0;
+			border-bottom: 0;
+			padding: 0.5em 0.4em 0.5em 0.35em;
+			
+			border-left: 0.2em solid;
+			border-color: transparent;
+		}
+		
+		> .menu-item.current-menu-item > a
+		{
+			border-color: color(chribg);
+		}
 	}
 	
 	.menu-item:hover
 	{
 		> a
 		{
-			@extend %bg-chribg;
-			@extend %color-chrifg;
+			background-color: color(chribg);
+			border-color: color(chribg);
+			color: color(chrifg);
 		}
 		
 		.sub-menu

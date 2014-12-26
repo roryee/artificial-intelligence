@@ -1,0 +1,23 @@
+
+#thumbnail
+{
+	@include ai-block;
+	
+	.meta
+	{
+		display: flex;
+		justify-content: flex-end;
+		@include scale(-1);
+		@extend %font-heading;
+		
+		li
+		{
+			margin: 0 0.5em;
+		}
+		
+		a
+		{
+			color: color(chrh);
+		}
+	}
+}

@@ -15,25 +15,23 @@
 <?php else: ?>
 	
 	<section <?php post_class( 'w' ); ?>>
-		<hgroup class="c">
-			<div class="cc">
+		<div class="cc">
+			
+			<a class="icon" href="<?php the_permalink(); ?>"></a>
+			
+			<ul class="meta">
+				<li>
+					<a href="<?php the_permalink(); ?>"><?php the_time( 'n/j/Y g:i A' ); ?></a>
+				</li>
+			</ul>
+			
+			<div class="content">
 				
-				<a class="icon" href="<?php the_permalink(); ?>"></a>
-				
-				<ul class="meta">
-					<li>
-						<a href="<?php the_permalink(); ?>"><?php the_time( 'n/j/Y g:i A' ); ?></a>
-					</li>
-				</ul>
-				
-				<div class="content">
-					
-					<?php the_content(); ?>
-					
-				</div>
+				<?php the_content(); ?>
 				
 			</div>
-		</hgroup>
+			
+		</div>
 	</section>
 	
 <?php endif; ?>

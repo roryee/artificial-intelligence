@@ -1,0 +1,86 @@
+
+main.container
+	.row
+		
+		main.col-xs-12.col-md-8.col-md-offset-2
+			
+			section.post-new.panel.panel-success(ng-show!="!query && togNew")
+				
+				.panel-heading
+					.panel-title Create Post
+				
+				.panel-body
+					
+					.form-group
+						label(for="_new-title") Title
+						input#_new-title.input-lg.form-control(
+						type="text"
+						ng-model="postNew.title"
+						)
+					
+					.form-group
+						label(for="_new-content") Content
+						textarea#_new-content.form-control(
+						style="min-height:20em;"
+						mg-model="postNew.content_raw"
+						)
+					
+					
+					.btn-group.btn-group-lg.pull-right
+						button.btn.btn-default(
+						ng-click="togNew = !togNew"
+						) Cancel
+						
+						button.btn.btn-success(
+						ng-click="save()"
+						) Save
+						
+			
+			section.post
+				.media
+					a.media-left(href="#")
+						img(ng-src="{{user.avatar}}&s=64")
+							
+					.media-body
+						strong {{user.name}}
+				
+				article.post-content
+					//- .well
+					p.lead
+						| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				
+				hr
+				
+			section.post(
+			ng-repeat="post in posts track by post.ID"
+			)
+				.media
+					a.media-left(href="#")
+						img(ng-src="{{post.author.avatar}}&s=64")
+					
+					.media-body
+						strong {{post.author.first_name}} {{post.author.last_name}}
+						br
+						|  {{post.date | date: 'fullDate'}}
+						br
+						|  {{post.format}}
+					
+				div(ng-if="post.format == 'status'")
+					p.lead
+						{{post.content}}
+					
+				div(ng-if="post-format != 'status'")
+					h2
+						a(ng-href="#/posts/{{post.ID}}") {{post.title}}
+						
+					article.post-content(ng-bind-html="post.content")
+				
+				hr
+				
+				//- .comments
+				//- 	.media(ng-repeat="comment in post.comments")
+				//- 		.media-left
+				//- 			img(ng-src="comment.author.avatar")
+				//- 		.media-body(ng-bind-html="comment.content")
+					
+			

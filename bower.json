@@ -1,10 +1,10 @@
 {
   "name": "artificial-intelligence",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "authors": [
     "Ryan Duchene <duchenerc@gmail.com>"
   ],
-  "description": "A dark, modern WordPress theme aimed at FRC teams.",
+  "description": "The ultimate WordPress theme for any FRC team.",
   "main": "functions.php",
   "keywords": [
     "wordpress",
@@ -28,6 +28,11 @@
     "gsap": "~1.14.2",
     "jquery-cookie": "~1.4.1",
     "slidesjs": "https://github.com/nathansearles/Slides.git#SlidesJS-3",
-    "Respond": "https://github.com/scottjehl/Respond.git#master"
+    "Respond": "https://github.com/scottjehl/Respond.git#master",
+    "angular": "~1.3.6",
+    "angular-sanitize": "~1.3.6",
+    "angular-resource": "~1.3.6",
+    "angular-route": "~1.3.6",
+    "bootstrap": "~3.3.1"
   }
 }

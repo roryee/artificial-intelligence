@@ -1,0 +1,52 @@
+#footer
+{
+	@include wrap;
+	background-color: color(chrbg);
+	color: color(chrfg);
+	
+	> .cc
+	{
+		@extend %row;
+	}
+	
+	.col
+	{
+		@extend %hide-pop;
+		@extend %show-rock;
+		@extend %col-rock-2;
+		
+		@extend %ai-article;
+		@extend %font-lead;
+		
+		h6
+		{
+			@include trailer;
+			@include scale;
+			@extend %font-heading;
+			color: color(chrh);
+		}
+		
+		&:last-of-type
+		{
+			@extend %show-pop;
+			@extend %col-pop-12;
+			@extend %col-rock-4;
+			
+			h6
+			{
+				@include scale(1);
+			}
+			
+		}
+	}
+}
+
+#copyright
+{
+	@include wrap;
+	@include scale(-1);
+	text-align:center;
+	@extend %font-lead;
+	background-color: color(chrbg);
+	color: color(chrh);
+}

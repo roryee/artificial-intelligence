@@ -4,7 +4,8 @@
 	
 	<header id="header-archive">
 		<h1>Search Results</h1>
-		<h2>&ldquo;<?php echo get_search_query(); ?>&rdquo;</h2>
+		<!-- <h2>&ldquo;<?php echo get_search_query(); ?>&rdquo;</h2> -->
+		<?php get_search_form(); ?>
 	</header>
 	
 	<?php if ( have_posts() ): ?>

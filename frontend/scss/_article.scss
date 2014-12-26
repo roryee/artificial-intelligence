@@ -1,0 +1,141 @@
+
+
+.single-format-standard #article,
+.page-template-default #article
+{
+	background-color: color(lbg);
+	
+	.article.c
+	{
+		@include ai-article(".article", $adjust-first: 0.42rem);
+	}
+}
+
+.page-template-photobg-page-php,
+.page-template-searchpage-php,
+.single-format-aside,
+.single-format-status,
+.single-format-quote
+{
+	#article
+	{
+		min-height: 100vh;
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		
+		> .c
+		{
+			min-height: 100vh;
+			background-color: color(chrbg);
+		}
+	}
+	
+	.article.c
+	{
+		padding: 10rem 0;
+		@include above(punk)
+		{
+			padding: 7rem 0;
+		}
+		
+		@include ai-article(".article",
+												$color-p: chrfg,
+												$color-h: chrh,
+												$color-ac: chrac);
+		
+	}
+}
+
+.page-template-darkbg-page-php,
+.single-format-image,
+.single-format-video,
+.single-format-link,
+.error404
+{
+	#article
+	{
+		min-height: 100vh;
+		
+		> .c
+		{
+			min-height: 100vh;
+			background-color: color(dbg);
+		}
+	}
+	
+	.article.c
+	{
+		padding: 10rem 0;
+		@include above(punk)
+		{
+			padding: 7rem 0;
+		}
+		
+		@include ai-article(".article",
+		                    $color-p: dfg,
+		                    $color-h: dh,
+		                    $color-ac: dac);
+		
+	}
+	
+}
+
+.single-format-video .article.c p:first-of-type
+{
+	@extend .video.w;
+}
+
+.body-search-input
+{
+	display: block;
+	@extend #nav-search-input;
+	@extend %cc-article;
+}
+
+
+#article-footer
+{
+	@extend %ai-article;
+	background-color: color(lbg);
+	
+	hr.end
+	{
+		@extend %ccs-article;
+		height: rem(1px);
+		border: 0;
+		background-color: color(la);
+	}
+	
+	.profile
+	{
+		@include ai-profile;
+	}
+	
+	.categories
+	{
+		@extend %ccw-article;
+		@include wrap;
+		@extend %font-lead;
+		text-align: center;
+		@extend %row;
+			
+		.col
+		{
+			@extend %col-pop-6;
+		}
+		
+		h6
+		{
+			@include scale(4);
+		}
+		
+		a
+		{
+			@extend a%ai-article;
+			border: 0 !important;
+		}
+			
+	}
+	
+}

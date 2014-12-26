@@ -29,7 +29,7 @@
 			else
 			{
 				printf(
-					'Copyright 2004-%1$s by <abbr title="For Insipration and Recognition of Science and Technology">FIRST</abbr> Team %2$s, the %3$s. All rights reserved.',
+					'Copyright 2004&ndash;%1$s by <abbr title="For Insipration and Recognition of Science and Technology">FIRST</abbr> Team %2$s, the %3$s. All rights reserved.',
 					date( 'Y' ),
 					get_bloginfo( 'description' ),
 					get_bloginfo( 'tagline' )

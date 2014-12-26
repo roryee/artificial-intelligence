@@ -1,0 +1,95 @@
+doctype html
+
+#_new-post.modal.fade
+	.modal-dialog
+		.modal-content
+			.modal-header
+				button.close(type="button",data-dismiss="modal")
+					span(aria-hidden="true") &times;
+					span.sr-only Close
+					
+				h4.modal-title New Post
+				
+			.modal-body
+				.form-group
+					label(for="_new-title") Title
+					input#_new-title.input-lg.form-control(
+					type="text"
+					ng-model="postNew.title"
+					)
+					
+				.form-group
+					label(for="_new-content") Content
+					textarea#_new-content.form-control(
+					style="min-height:20em;"
+					ng-model="postNew.content_raw"
+					)
+				
+				.form-group
+					label(for='_new-format') Format
+					select#_new-format.form-control(ng-model="postNew.post_format",ng-change="temp()")
+						option(value="standard") Post
+						option(value="status") Status Update
+						option(value="image") Picture
+						option(value="link") Link
+						option(value="video") Video
+						option(value="quote") Quotation
+						option(value="aside") Aside
+						
+				
+			.modal-footer
+				.btn-group.btn-group-lg.pull-right
+					button.btn.btn-success(data-dismiss="modal",ng-click="save()") Save
+					button.btn.btn-default(data-dismiss="modal") Cancel
+	
+
+nav.navbar.navbar-default(role="navigation")
+	.container
+		.navbar-header
+			button.navbar-toggle(data-toggle="collapse", data-target="navbar")
+				span.sr-only Toggle Navigation
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			a.navbar-brand(href="#/") Streams
+							
+		#navbar.collapse.navbar-collapse
+			div.navbar-left
+				button.btn.btn-success.navbar-btn(data-toggle="modal",data-target="#_new-post")
+					span.glyphicon.glyphicon-plus
+					|  New Post
+				
+			//- form.navbar-form.navbar-left
+			//- 	input.form-control(type="text",placeholder="Search",ng-model="search.query",ng-change="temp()",autofocus)
+			//- 	
+			//- 	select#_sort.form-control(ng-model="search.sort")
+			//- 		option(value="date") Date Created
+			//- 		option(value="modified") Last Modified
+			//- 		option(value="title") Title
+			//- 	
+			//- 	.btn-group(data-toggle="buttons")
+			//- 		label.btn.btn-default(for="_sort-asc",title="Ascending order")
+			//- 			input#_sort-asc(type="radio",ng-model="search.order",value="asc")
+			//- 			span.glyphicon.glyphicon-chevron-up
+			//- 		label.btn.btn-default.active(for="_sort-desc",title="Descending order")
+			//- 			input#_sort-desc(type="radio",ng-model="search.order",value="desc",checked)
+			//- 			span.glyphicon.glyphicon-chevron-down
+				
+			ul.nav.navbar-nav.navbar-right
+				li.dropdown
+					a.dropdown-toggle(data-toggle="dropdown")
+						img(ng-src="{{user.avatar}}&s=16")
+						|  {{user.name}}
+							
+					ul.dropdown-menu
+						li
+							a(ng-href="{{urls.profile}}") Profile
+								
+						li
+							a(ng-href="{{urls.admin}}") WordPress
+							
+						li.divider
+						
+						li
+							a(ng-href="{{urls.logout}}") Log out
+	

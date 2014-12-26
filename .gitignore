@@ -5,13 +5,17 @@ Thumbs.db
 
 # Theme
 vendor/
-composer.lock
 
 # Assets
-*.map
-css/**/*.css
-js/**/*.js
+*.src.coffee
 .sass-cache
+*.map
+
+/frontend/gen/*.css
+/frontend/gen/*.js
+
+streams/streams.js
+streams/partials/*.html
 
 # Node
 node_modules
@@ -22,6 +26,6 @@ bower_components
 # Vagrant
 .vagrant
 
-# AI themes
-scss/themes/*.scss
-!scss/themes/_lightning.scss
+# AI Skins
+# /scss/skins/*.scss
+# !/scss/skins/lightning.scss

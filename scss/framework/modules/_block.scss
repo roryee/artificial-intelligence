@@ -15,14 +15,14 @@
 		bottom: 0;
 		width: 100%;
 		padding: 1em 0 2em;
-		@extend %bg-chrbg;
-		@extend %color-chrfg;
+		background-color: color(chrbg);
+		color: color(chrfg);
 		
 		transition: background, 0.5s, ease;
 		
 		&:hover
 		{
-			@extend %bg-chra;
+			background-color: color(chra);
 		}
 		
 	}
@@ -31,7 +31,7 @@
 	{
 		@extend %font-title;
 		@include scale(5);
-		@extend %color-chrh;
+		color: color(chrh);
 	}
 	
 	p
@@ -39,7 +39,7 @@
 		@extend %font-lead;
 		max-width: 30em;
 		@include scale;
-		@extend %color-chrfg;
+		color: color(chrfg);
 	}
 	
 	@if map-has-key($args, icon)
@@ -52,7 +52,7 @@
 			font-size: 3rem;
 			width: 3.4rem; height: 3.4rem;
 			text-align: center;
-			@extend %color-chrh;
+			color: color(chrh);
 		}
 	}
 	
@@ -68,8 +68,8 @@
 				width: 1.7rem; height: 1.7rem;
 				border-radius: 50%;
 				text-align: center;
-				@extend %bg-chribg;
-				@extend %color-chrifg;
+				background-color: color(chribg);
+				color: color(chrifg);
 				
 				&:before
 				{

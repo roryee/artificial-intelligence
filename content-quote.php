@@ -15,19 +15,17 @@
 <?php else: ?>
 	
 	<section <?php post_class( 'w' ); ?>>
-		<hgroup class="c">
-			<div class="cc">
-				
-				<a class="icon" href="<?php the_permalink(); ?>"></a>
-				
-				<cite class="cite"><?php the_title(); ?></cite>
-				
-				<div class="content">
-					<?php the_content(); ?>
-				</div>
-				
+		<div class="cc">
+			
+			<a class="icon" href="<?php the_permalink(); ?>"></a>
+			
+			<cite class="cite"><?php the_title(); ?></cite>
+			
+			<div class="content">
+				<?php the_content(); ?>
 			</div>
-		</hgroup>
+			
+		</div>
 	</section>
 	
 <?php endif; ?>
