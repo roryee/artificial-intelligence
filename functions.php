@@ -10,47 +10,13 @@ class Artificial_Intelligence
 	public static $version = '1.1.0';
 	
 	public static $dir;
-	
-	protected static $menus = [
-		'primary'           => 'Navbar',
-		'offcanvas_left'    => 'Offcanvas Left',
-		'offcanvas_right'   => 'Offcanvas Right',
-	];
-	
-	protected static $sidebars = [
-		[
-			'name'          => 'Footer',
-			'id'            => 'footer',
-			'description'   => 'Primary footer',
-			'before_widget' => '<div id="%1$s" class="col %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h6>',
-			'after_title'   => '</h6>',
-		],
-		[
-			'name'          => 'Footer',
-			'id'            => 'footer_showcase',
-			'description'   => 'Showcase Footer',
-			'before_widget' => '<div id="%1$s" class="col %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h6>',
-			'after_title'   => '</h6>',
-		],
-	];
-	
-	protected static $themes = [
-		'lightning' => 'Electrify',
-		'cappy'     => 'Mecha',
-		'kitty'     => 'Blue',
-		'modern'    => 'Yosemite',
-		'edge'      => 'Edge',
-	];
-	
+	public static $dir_abs;
 	
 	public static function init()
 	{
 		
-		self::$dir = get_template_directory_uri();
+		self::$dir =     get_template_directory();
+		self::$dir_abs = get_template_directory_uri();
 		
 		add_action( 'after_setup_theme',  ['Artificial_Intelligence', 'setup'     ] );
 		add_action( 'wp_enqueue_scripts', ['Artificial_Intelligence', 'assets'    ] );
@@ -70,7 +36,7 @@ class Artificial_Intelligence
 		
 		add_theme_support( 'custom-background', [
 			'default-color'      => '#000',
-			'default-image'      => self::$dir . '/images/robot2.jpg',
+			'default-image'      => self::$dir_abs . '/images/robot2.jpg',
 			'default-attachment' => 'fixed',
 			'default-position-x' => 'center',
 			'default-repeat'     => 'no-repeat',
@@ -89,35 +55,64 @@ class Artificial_Intelligence
 
 	public static function assets()
 	{
-		wp_enqueue_style( 'frontend', self::$dir . '/frontend/gen/' .
+		wp_enqueue_style( 'frontend', self::$dir_abs . '/frontend/gen/' .
 			( get_theme_mod( 'ai_theme' ) ? get_theme_mod( 'ai_theme' ) : 'lightning' ) . '.css'
 		);
 		
-		wp_enqueue_script( 'modernizr', self::$dir . '/frontend/gen/modernizr.js',
+		wp_enqueue_script( 'modernizr', self::$dir_abs . '/frontend/gen/modernizr.js',
 		[], '', false);
 		
-		wp_enqueue_script( 'respond', self::$dir . '/bower_components/Respond/src/respond.js',
+		wp_enqueue_script( 'respond', self::$dir_abs . '/bower_components/Respond/src/respond.js',
 		['modernizr'], '', false );
 		
-		wp_enqueue_script( 'gsap', self::$dir . '/bower_components/gsap/src/minified/TweenMax.min.js',
+		wp_enqueue_script( 'gsap', self::$dir_abs . '/bower_components/gsap/src/minified/TweenMax.min.js',
 		[], '', false );
 		
-		wp_enqueue_script( 'slidesjs', self::$dir . '/bower_components/slidesjs/source/jquery.slides.min.js',
+		wp_enqueue_script( 'slidesjs', self::$dir_abs . '/bower_components/slidesjs/source/jquery.slides.min.js',
 		['jquery'], '', false );
 		
-		wp_enqueue_script( 'frontend', self::$dir . '/frontend/gen/frontend.js',
+		wp_enqueue_script( 'frontend', self::$dir_abs . '/frontend/gen/frontend.js',
 		['jquery', 'slidesjs', 'gsap'], '', true );
 		
 	}
 	
 	public static function menus()
 	{
-		register_nav_menus( self::$menus );
+		
+		$menus = array(
+			'primary'           => __( 'Navbar' ),
+			'offcanvas_left'    => __( 'Offcanvas Left' ),
+			'offcanvas_right'   => __( 'Offcanvas Right' ),
+		);
+		
+		register_nav_menus( $menus );
 	}
 	
 	public static function widgets()
 	{
-		foreach ( self::$sidebars as $sidebar )
+		
+		$sidebars = array(
+			array(
+				'name'          => 'Footer',
+				'id'            => 'footer',
+				'description'   => 'Primary footer',
+				'before_widget' => '<div id="%1$s" class="col %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h6>',
+				'after_title'   => '</h6>',
+			),
+			array(
+				'name'          => 'Footer',
+				'id'            => 'footer_showcase',
+				'description'   => 'Showcase Footer',
+				'before_widget' => '<div id="%1$s" class="col %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h6>',
+				'after_title'   => '</h6>',
+			),
+		);
+		
+		foreach ( $sidebars as $sidebar )
 		{
 			register_sidebar( $sidebar );
 		}
@@ -126,6 +121,14 @@ class Artificial_Intelligence
 	
 	public static function customizer( $wp_customize )
 	{
+		
+		$themes = array(
+			'lightning' => __( 'Electrify' ),
+			'cappy'     => __( 'Mecha' ),
+			'kitty'     => __( 'Blue' ),
+			'modern'    => __( 'Yosemite' ),
+			'edge'      => __( 'Edge' ),
+		);
 		
 		$wp_customize->add_setting(
 			'ai_theme',
@@ -143,7 +146,7 @@ class Artificial_Intelligence
 					'section'   => 'colors',
 					'settings'  => 'ai_theme',
 					'type'      => 'select',
-					'choices'   => self::$themes,
+					'choices'   => $themes,
 				]
 			)
 		);
