@@ -1,4 +1,6 @@
-# Changelog
+## v1.1.2
+
+* Fixed broken slides and blocks
 
 ## v1.1.1
 
