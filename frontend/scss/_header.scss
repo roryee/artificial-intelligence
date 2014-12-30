@@ -1,4 +1,6 @@
 
+// SELECTOR: HEADER
+//
 #header
 {
 	@include ai-navbar(".header", $custom-layout: true);
@@ -48,6 +50,9 @@
 	
 }
 
+// SELECTOR: SEARCH FROM NAV
+// Drops down from navigation.
+//
 #nav-search
 {
 	display: none;
@@ -70,6 +75,9 @@
 	}
 }
 
+// SELECTOR: OFFCANVAS MENUS
+// Use CSS transforms to move. Triggered by a JavaScript class toggle.
+//
 #nav-offcanvas-left,
 #nav-offcanvas-right
 {
@@ -88,6 +96,7 @@
 	}
 }
 
+
 @each $side in left, right
 {
 	#nav-offcanvas-#{$side}
@@ -103,6 +112,8 @@
 	
 }
 
+// SELECTOR: TOGGLE MOBILE NAVIGATION
+//
 @include above(disco)
 {
 	.nav-mobile-toggle

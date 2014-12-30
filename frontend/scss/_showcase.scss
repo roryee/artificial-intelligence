@@ -1,8 +1,13 @@
+
+// SELECTOR: SHOWCASE HEADER
+//
 #header-showcase
 {
 	@include ai-navbar(".header-showcase");
 }
 
+// SELECTOR: SHOWCASE NAVIGATION
+//
 #nav-showcase
 {
 	@include box($cc: "> .c", $items: "> .menu-item");
@@ -23,6 +28,7 @@
 	
 }
 
+// Override background color
 .page-template-showcase-php #main
 {
 	background-color: #000;

@@ -18,13 +18,16 @@
 		
 		<?php
 		
-		$q_slides_slider = new WP_Query([
+		// Build new WordPress query
+		// Request all slides that are in the slider
+		//
+		$q_slides_slider = new WP_Query( array(
 			'post_type'  => 'slides',
 			'meta_key'   => 'position',
 			'meta_value' => 'slider',
 			'orderby'    => 'menu_order',
 			'order'      => 'ASC',
-		]);
+		));
 		
 		?>
 		
@@ -44,14 +47,17 @@
 		
 		<?php
 		
-		$q_slides_not_slider = new WP_Query([
+		// Build new WordPress query
+		// Request all slides not in the slider position
+		//
+		$q_slides_not_slider = new WP_Query(array(
 			'post_type'    => 'slides',
 			'meta_key'     => 'position',
 			'meta_compare' => '!=',
 			'meta_value'   => 'slider',
 			'orderby'      => 'menu_order',
 			'order'        => 'ASC',
-		]);
+		));
 		?>
 		
 		<?php if ( $q_slides_not_slider->have_posts() ): ?>

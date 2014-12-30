@@ -3,16 +3,10 @@
 Thumbs.db
 .idea/
 
-# Theme
-vendor/
-
 # Assets
 *.src.coffee
 .sass-cache
 *.map
-
-/frontend/gen/*.css
-/frontend/gen/*.js
 
 streams/streams.js
 streams/partials/*.html
@@ -20,12 +14,11 @@ streams/partials/*.html
 # Node
 node_modules
 
-# Bower
-bower_components
-
 # Vagrant
 .vagrant
 
-# AI Skins
-# /scss/skins/*.scss
-# !/scss/skins/lightning.scss
+# Builds
+vendor
+bower_components
+frontend/gen/*.js
+frontend/gen/*.css

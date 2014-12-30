@@ -1,3 +1,9 @@
+
+// FUNCTION: RAISE
+// Raises the passed base to a positive or negative (integer) power.
+//   $base number The number to raise
+//   $power number The power to raise by
+//
 @function raise($base, $power)
 {
 	$base-orig: $base;

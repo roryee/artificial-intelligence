@@ -19,7 +19,7 @@
 			<div class="cc">
 				
 				<?php
-				wp_nav_menu([
+				wp_nav_menu( array(
 					'menu'            => get_field( 'nav_menu' ),
 					'container'       => 'nav',
 					'container_class' => '',
@@ -28,7 +28,7 @@
 					'menu_id'         => 'nav-c',
 					'fallback_cb'     => false,
 					'depth'           => 1,
-				]);
+				));
 				?>
 					
 			</div>

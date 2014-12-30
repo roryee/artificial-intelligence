@@ -35,7 +35,7 @@
 				</hgroup>
 				
 				<?php
-					wp_nav_menu([
+					wp_nav_menu(array(
 						'theme_location'  => 'primary',
 						'menu'            => 'Primary',
 						'container'       => 'nav',
@@ -45,7 +45,7 @@
 						'menu_id'         => 'nav-c',
 						'fallback_cb'     => false,
 						'depth'           => 2,
-					]);
+					));
 				?>
 				
 			</div>
@@ -59,7 +59,7 @@
 			
 			<?php
 			
-			wp_nav_menu([
+			wp_nav_menu(array(
 				'theme_location'  => 'offcanvas_left',
 				'menu'            => 'Mobile',
 				'container'       => 'nav',
@@ -69,10 +69,10 @@
 				'menu_id'         => '',
 				'fallback_cb'     => false,
 				'depth'           => 1,
-			]);
+			));
 			
 			
-			wp_nav_menu([
+			wp_nav_menu(array(
 				'theme_location'  => 'offcanvas_right',
 				'menu'            => 'Offcanvas Right',
 				'container'       => 'nav',
@@ -82,7 +82,7 @@
 				'menu_id'         => '',
 				'fallback_cb'     => false,
 				'depth'           => 1,
-			]);
+			));
 			
 			?>
 			

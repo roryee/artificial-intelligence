@@ -1,16 +1,22 @@
 
-
+// SELECTOR: STANDARD
+// Primary page, with a full-screen thumbnail at the top.
+//
 .single-format-standard #article,
 .page-template-default #article
 {
 	background-color: color(lbg);
 	
+	// Actual article
 	.article.c
 	{
 		@include ai-article(".article", $adjust-first: 0.42rem);
 	}
 }
 
+// SELECTOR: PHOTO BACKGROUND
+// Uses post thumbnail as background image.
+//
 .page-template-photobg-page-php,
 .page-template-searchpage-php,
 .single-format-aside,
@@ -31,6 +37,7 @@
 		}
 	}
 	
+	// Actual article
 	.article.c
 	{
 		padding: 10rem 0;
@@ -47,6 +54,9 @@
 	}
 }
 
+// SELECTOR: DARK BACKGROUND
+// Page with dark background.
+//
 .page-template-darkbg-page-php,
 .single-format-image,
 .single-format-video,
@@ -64,6 +74,7 @@
 		}
 	}
 	
+	// Actual article
 	.article.c
 	{
 		padding: 10rem 0;
@@ -81,11 +92,16 @@
 	
 }
 
+// First element on video posts is likely to be video,
+// so give it a video wrapper.
+//
 .single-format-video .article.c p:first-of-type
 {
 	@extend .video.w;
 }
 
+// On search pages, style search form.
+//
 .body-search-input
 {
 	display: block;
@@ -93,7 +109,10 @@
 	@extend %cc-article;
 }
 
-
+// SELECTOR: ARTICLE FOOTER
+// Appears at the bottom of posts,
+// giving author bio and associated categories and tags.
+//
 #article-footer
 {
 	@extend %ai-article;

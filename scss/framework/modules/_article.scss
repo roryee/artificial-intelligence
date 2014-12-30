@@ -1,4 +1,7 @@
 
+// CONSTANT: DEFAULT ARTICLE COLORS
+// Default color slugs to use in article contexts.
+//
 $article-colors: (
 	p:  lfg,
 	h:  lh,
@@ -6,6 +9,15 @@ $article-colors: (
 	ac: lac,
 );
 
+// MODULE: ARTICLE
+// Provides basic color and typography styles.
+// Options:
+//   p                Color to apply to body copy
+//   h                Color to apply to headings
+//   a                Color to apply to anchors
+//   ac               Accent color
+//   adjust-first     The border-top-width of the first paragraph element
+//
 @mixin ai-article($sel: &, $opts...)
 {
 	$args: keywords($opts);
@@ -64,7 +76,6 @@ $article-colors: (
 	
 	@if map-has-key($args, adjust-first)
 	{
-		// sooo cheaty
 		p:first-of-type
 		{
 			border-top: map-find($args, adjust-first) solid transparent;

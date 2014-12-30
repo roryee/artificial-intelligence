@@ -1,3 +1,11 @@
+
+// MODULE: BLOCK
+// Expands to fill the entire viewport.
+// Uses background image, has caption of sorts at bottom.
+// Options:
+//   icon         The slug of the genericon to apply
+//   req-sticky   Whether the sticky icon should be included
+//
 @mixin ai-block($sel: &, $opts...)
 {
 	$args: keywords($opts);

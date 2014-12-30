@@ -1,0 +1,19 @@
+{
+  "name": "respond",
+  "main": "dest/respond.src.js",
+  "description": "Fast and lightweight polyfill for min/max-width CSS3 Media Queries (for IE 6-8, and more)",
+  "ignore": [
+    "**/.*",
+    "test"
+  ],
+  "homepage": "https://github.com/scottjehl/Respond",
+  "_release": "6d9b409a80",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6d9b409a80e44438ca78808be26f8602a8a88479"
+  },
+  "_source": "https://github.com/scottjehl/Respond.git",
+  "_target": "master",
+  "_originalSource": "https://github.com/scottjehl/Respond.git"
+}

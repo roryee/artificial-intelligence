@@ -1,12 +1,17 @@
 
+// SELECTOR: PRIMARY CONTAINER
+// Container used for most root site elements.
+//
 %cc
 {
 	width: $config-cc-width;
 	max-width: rem($config-cc-max-width);
-	// @extend %row;
 	margin: 0 auto;
 }
 
+// SELECTOR: PRIMARY CONTAINER (ANCHOR)
+// Sometimes, anchors/links are used as containers.
+// We need those to display as block.
 a%cc
 {
 	display: block;
