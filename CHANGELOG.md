@@ -1,3 +1,8 @@
+## v1.1.3
+
+* Actually fixed broken slides and blocks
+* Hopefully fixed update issues
+
 ## v1.1.2
 
 * Fixed broken slides and blocks
