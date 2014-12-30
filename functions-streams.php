@@ -114,7 +114,7 @@ class Streams
 				'editor', 'post-formats', 'comments',
 			),
 			'taxonomies'           => array('post_tag'),
-		]);
+		));
 		
 		register_taxonomy( 'stream_cats', array('streams'), array(
 			'labels' => array(
