@@ -1,4 +1,6 @@
 
+// SELECTOR: COMMENTS
+//
 #comments
 {
 	background-color: color(dbg);
@@ -39,71 +41,74 @@
 		@include trailer;
 	}
 	
-	.comment
+}
+
+// SELECTOR: COMMENT
+// Man, comments take a lot of styles for such a small component.
+//
+.comment
+{
+	
+	@include leader;
+	
+	&-header
 	{
+		font-size: scale();
+		@extend %font-heading;
+		@extend %cf;
 		
-		@include leader;
-		
-		&-header
+		> .left,
+		> .right
 		{
-			font-size: scale();
-			@extend %font-heading;
-			@extend %cf;
 			
-			.date
+			a
 			{
+				display: block;
 				padding: 0.5em 0.2em;
-			}
-			
-			> .left
-			{
-				float: left;
-				@include box($cc: "> .c");
-			}
-			
-			> .right
-			{
-				float: right;
-				@include box(right, $cc: "> .c");
-			}
-			
-			> .left,
-			> .right
-			{
+				color: color(dh);
+				transition-property: background, color;
+				transition-duration: 0.1s, 0.1s;
+				transition-timing-function: ease, ease;
 				
-				a
+				&:hover
 				{
-					display: block;
-					padding: 0.5em 0.2em;
-					color: color(dh);
-					transition-property: background, color;
-					transition-duration: 0.1s, 0.1s;
-					transition-timing-function: ease, ease;
-					
-					&:hover
-					{
-						background-color: color(dh);
-						color: color(dbg);
-					}
+					background-color: color(dh);
+					color: color(dbg);
 				}
 			}
-			
 		}
 		
-		&-body
+		> .left
 		{
-			@extend %ai-article;
-			padding: 0.5em 0;
-			@extend %font-lead;
+			float: left;
+			@include box($cc: "> .c");
 		}
 		
-		&-replies
+		> .right
 		{
-			padding-left: 3.5%;
-			margin-left: 1.5%;
-			border-left: 1px solid color(dac);
+			float: right;
+			@include box(right, $cc: "> .c");
 		}
 		
+		.date
+		{
+			padding: 0.5em 0.2em;
+		}
+		
+	}
+	
+	&-body
+	{
+		@extend %ai-article;
+		padding: 0.5em 0;
+		@extend %font-lead;
+	}
+	
+	&-replies
+	{
+		padding-left: 3.5%;
+		margin-left: 1.5%;
+		border-left: 1px solid color(dac);
 	}
 	
 }

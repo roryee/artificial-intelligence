@@ -1,3 +1,10 @@
+
+// MODULE: PLATE
+// A simple, three-column-wide block used to display
+// non-standard post formats.
+// Options:
+//   icon   Slug of the genericon to use
+//
 @mixin ai-plate($sel: &, $opts...)
 {
 	$args: keywords($opts);

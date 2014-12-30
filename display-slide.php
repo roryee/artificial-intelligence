@@ -1,5 +1,5 @@
 <section class="slide"
-style="background-image:url(<?php the_post_thumbnail_src( $post ); ?>);">
+style="background-image:url(<?php the_post_thumbnail_src(); ?>);">
 	<hgroup class="c">
 		
 		

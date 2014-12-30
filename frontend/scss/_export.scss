@@ -1,13 +1,58 @@
+
+// EXPORT
+// The Sass framework is injected into this file.
+// See the Gruntfile for more information.
+//
+
+// BASE
+// Base styles
+//
 @import "base";
+
+// HEADER
+//
 @import "header";
+
+// THUMBNAIL
+// Post thumbnails
+//
 @import "thumbnail";
+
+// ARTICLE
+//
 @import "article";
+
+// HOME
+// Main blog
+//
 @import "home";
+
+// COMMENTS
+//
 @import "comments";
+
+// FOOTER
+//
 @import "footer";
+
+// ARCHIVE
+// Search results, categories, tags, authors, dates
+//
 @import "archive";
 
+
+// SLIDER
+// Slider styling
+//
 @import "slider";
+
+// FORMS
+// General forms styling
+//
 @import "forms";
 
+
+// SHOWCASE
+// Styles for showcases pages, including header, navigation, and main
+//
 @import "showcase";

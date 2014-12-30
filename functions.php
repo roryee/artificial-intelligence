@@ -1,183 +1,413 @@
 <?php
 
-define( 'ACF_LITE', true );
-require_once dirname( __FILE__ ) . '/vendor/advanced-custom-fields/acf.php';
-require_once dirname( __FILE__ ) . '/vendor/json-rest-api/plugin.php';
-
+/**
+ * Artificial Intelligence
+ *
+ * @author Ryan Duchene <duchenerc@gmail.com>
+ * @license GPLv2
+ *
+ * @package Artifical Intelligence
+ * @version 1.1.1
+ *
+ * @since v1.0 First introduced.
+ *
+ **/
 class Artificial_Intelligence
 {
+	/**
+	 * Verison.
+	 *
+	 * @var string
+	 **/
+	public static $version = '1.1.1';
 	
-	public static $version = '1.1.0';
-	
+	/**
+	 * Template directory, root-relative.
+	 * Used for including PHP source.
+	 *
+	 * @since v1.1.1 Added to work with PHP source.
+	 * @var string
+	 **/
 	public static $dir;
 	
-	protected static $menus = [
-		'primary'           => 'Navbar',
-		'offcanvas_left'    => 'Offcanvas Left',
-		'offcanvas_right'   => 'Offcanvas Right',
-	];
-	
-	protected static $sidebars = [
-		[
-			'name'          => 'Footer',
-			'id'            => 'footer',
-			'description'   => 'Primary footer',
-			'before_widget' => '<div id="%1$s" class="col %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h6>',
-			'after_title'   => '</h6>',
-		],
-		[
-			'name'          => 'Footer',
-			'id'            => 'footer_showcase',
-			'description'   => 'Showcase Footer',
-			'before_widget' => '<div id="%1$s" class="col %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h6>',
-			'after_title'   => '</h6>',
-		],
-	];
-	
-	protected static $themes = [
-		'lightning' => 'Electrify',
-		'cappy'     => 'Mecha',
-		'kitty'     => 'Blue',
-		'modern'    => 'Yosemite',
-		'edge'      => 'Edge',
-	];
+	/**
+	 * Template directory, absolute.
+	 * Used for including assets.
+	 *
+	 * @since v1.0 First release.
+	 * @var string
+	 **/
+	public static $dir_abs;
 	
 	
+	/**
+	 * Initializes theme, sets hooks
+	 *
+	 * @since v1.0
+	 **/
 	public static function init()
 	{
 		
-		self::$dir = get_template_directory_uri();
+		// Set directories.
+		//
+		self::$dir =     get_template_directory();
+		self::$dir_abs = get_template_directory_uri();
 		
-		add_action( 'after_setup_theme',  ['Artificial_Intelligence', 'setup'     ] );
-		add_action( 'wp_enqueue_scripts', ['Artificial_Intelligence', 'assets'    ] );
-		add_action( 'init',               ['Artificial_Intelligence', 'menus'     ] );
-		add_action( 'widgets_init',       ['Artificial_Intelligence', 'widgets'   ] );
-		add_action( 'init',               ['Artificial_Intelligence', 'post_types'] );
-		add_action( 'customize_register', ['Artificial_Intelligence', 'customizer'] );
+		// Set up theme.
+		//
+		add_action( 'after_setup_theme', array(
+			'Artificial_Intelligence', 'setup'
+		));
 		
-		add_filter( 'excerpt_length', ['Artificial_Intelligence', 'excerpt'], 999 );
+		// Enqueue assets.
+		//
+		add_action( 'wp_enqueue_scripts', array(
+			'Artificial_Intelligence', 'assets'
+		));
+		
+		// Register menus.
+		//
+		add_action( 'init', array(
+			'Artificial_Intelligence', 'menus'
+		));
+		
+		// Register sidebars.
+		//
+		add_action( 'widgets_init', array(
+			'Artificial_Intelligence', 'widgets'
+		));
+		
+		// Register custom post types.
+		//
+		add_action( 'init', array(
+			'Artificial_Intelligence', 'post_types'
+		));
+		
+		// Register customizer options.
+		//
+		add_action( 'customize_register', array(
+			'Artificial_Intelligence', 'customizer'
+		));
+		
+		
+		// Tweak excerpt length.
+		//
+		add_filter( 'excerpt_length', array(
+			'Artificial_Intelligence', 'excerpt'
+		), 999 );
+		
 	}
 	
+	/**
+	 * Artificial_Intelligence::setup()
+	 * Declares theme features.
+	 *
+	 * @since v1.0
+	 **/
 	public static function setup()
 	{
-		add_theme_support( 'html5', [
-			'comment-list', 'comment-form', 'search-form', 'gallery', 'caption',
-		]);
 		
-		add_theme_support( 'custom-background', [
+		// HTML5 support
+		//
+		add_theme_support( 'html5', array(
+			'comment-list', 'comment-form', 'search-form', 'gallery', 'caption',
+		));
+		
+		// Custom background
+		//
+		add_theme_support( 'custom-background', array(
 			'default-color'      => '#000',
-			'default-image'      => self::$dir . '/images/robot2.jpg',
+			'default-image'      => self::$dir_abs . '/images/bolts.jpg',
 			'default-attachment' => 'fixed',
 			'default-position-x' => 'center',
 			'default-repeat'     => 'no-repeat',
-		]);
-			
-		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'post-formats', [
-			'aside', 'image', 'video', 'status', 'quote', 'link',
-		]);
+		));
 		
+		// Post thumbnails
+		//
+		add_theme_support( 'post-thumbnails' );
+		
+		// Post formats
+		//
+		add_theme_support( 'post-formats', array(
+			'aside', 'image', 'video', 'status', 'quote', 'link',
+		));
+		
+		// Automatic RSS
+		//
 		add_theme_support( 'automatic-feed-links' );
 		
+		// Pages don't have excerpts by default, so we'll add them.
+		//
 		add_post_type_support( 'page', 'excerpt' );
 		
 	}
-
+	
+	/**
+	 * Artificial_Intelligence::assets()
+	 * Injects theme assets into template header and footer.
+	 *
+	 * @since v1.0
+	 **/
 	public static function assets()
 	{
-		wp_enqueue_style( 'frontend', self::$dir . '/frontend/gen/' .
-			( get_theme_mod( 'ai_theme' ) ? get_theme_mod( 'ai_theme' ) : 'lightning' ) . '.css'
+		
+		// Get current theme.
+		//
+		$theme = get_theme_mod( 'ai_theme' );
+		
+		// If theme is not set, default to lightning.
+		//
+		if ( empty( $theme ) )
+			$theme = 'lightning';
+		
+		// Frontend styles
+		// The actual stylesheet enqueued depends on the skin currently selected.
+		//
+		wp_register_style(
+			'frontend',
+			self::$dir_abs . '/frontend/gen/' . $theme . '.css'
 		);
 		
-		wp_enqueue_script( 'modernizr', self::$dir . '/frontend/gen/modernizr.js',
-		[], '', false);
+		// Modernizr
+		// Detects browser features
+		//
+		wp_register_script(
+			'modernizr',
+			self::$dir_abs . '/frontend/gen/modernizr.js',
+			array(),
+			'2.8.3',
+			false
+		);
 		
-		wp_enqueue_script( 'respond', self::$dir . '/bower_components/Respond/src/respond.js',
-		['modernizr'], '', false );
+		// Reponsd.js
+		// Allows IE6, IE7, IE8 to interpret width-based media queries
+		//
+		wp_register_script(
+			'respond',
+			self::$dir_abs . '/bower_components/Respond/src/respond.js',
+			array( 'modernizr' ),
+			'',
+			false
+		);
 		
-		wp_enqueue_script( 'gsap', self::$dir . '/bower_components/gsap/src/minified/TweenMax.min.js',
-		[], '', false );
+		// GSAP
+		// Fast, fluid animation library
+		//
+		wp_register_script(
+			'gsap',
+			self::$dir_abs . '/bower_components/gsap/src/minified/TweenMax.min.js',
+			array(),
+			'',
+			false
+		);
 		
-		wp_enqueue_script( 'slidesjs', self::$dir . '/bower_components/slidesjs/source/jquery.slides.min.js',
-		['jquery'], '', false );
+		// SlidesJS
+		// Lightweight slider plugin for jQuery
+		//
+		wp_register_script(
+			'slidesjs',
+			self::$dir_abs . '/bower_components/slidesjs/source/jquery.slides.min.js',
+			array( 'jquery' ),
+			'',
+			false
+		);
 		
-		wp_enqueue_script( 'frontend', self::$dir . '/frontend/gen/frontend.js',
-		['jquery', 'slidesjs', 'gsap'], '', true );
+		// Frontend scipts
+		//
+		wp_register_script(
+			'frontend',
+			self::$dir_abs . '/frontend/gen/frontend.js',
+			array(
+				'modernizr',
+				'respond',
+				'jquery',
+				'slidesjs',
+				'gsap',
+			),
+			'',
+			true
+		);
+		
+		
+		// ENQUEUE ALL THE THINGS
+		//
+		wp_enqueue_style(  'frontend' );
+		wp_enqueue_script( 'frontend' );
 		
 	}
 	
+	/**
+	 * Artificial_Intelligence::menus()
+	 * Registers navigation menus.
+	 *
+	 * @since v1.0
+	 **/
 	public static function menus()
 	{
-		register_nav_menus( self::$menus );
+		
+		$menus = array(
+			'primary'           => __( 'Navbar' ),
+			'offcanvas_left'    => __( 'Offcanvas Left' ),
+			'offcanvas_right'   => __( 'Offcanvas Right' ),
+		);
+		
+		register_nav_menus( $menus );
 	}
 	
+	/**
+	 * Artificial_Intelligence::widgets()
+	 * Registers theme sidebars.
+	 *
+	 * @since v1.0
+	 **/
 	public static function widgets()
 	{
-		foreach ( self::$sidebars as $sidebar )
+		
+		$sidebars = array(
+			array(
+				'name'          => 'Footer',
+				'id'            => 'footer',
+				'description'   => 'Primary footer',
+				'before_widget' => '<div id="%1$s" class="col %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h6>',
+				'after_title'   => '</h6>',
+			),
+			array(
+				'name'          => 'Footer',
+				'id'            => 'footer_showcase',
+				'description'   => 'Showcase Footer',
+				'before_widget' => '<div id="%1$s" class="col %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h6>',
+				'after_title'   => '</h6>',
+			),
+		);
+		
+		foreach ( $sidebars as $sidebar )
 		{
 			register_sidebar( $sidebar );
 		}
 	}
 	
-	
+	/**
+	 * Artificial_Intelligence::customizer()
+	 * Registers customizer settings and controls.
+	 *
+	 * @since v1.0
+	 **/
 	public static function customizer( $wp_customize )
 	{
 		
-		$wp_customize->add_setting(
-			'ai_theme',
-			[
-				'default' => 'lightning',
-			]
+		// List of skins registered with AI.
+		//
+		$skins = array(
+			'lightning' => __( 'Electrify' ),
+			'cappy'     => __( 'Mecha' ),
+			'kitty'     => __( 'Blue' ),
+			'modern'    => __( 'Yosemite' ),
+			'edge'      => __( 'Edge' ),
 		);
 		
+		// Skins setting
+		//
+		$wp_customize->add_setting(
+			'ai_theme',
+			array(
+				'default' => 'lightning',
+			)
+		);
+		
+		// Skins control
+		//
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
 				'ai_theme',
-				[
+				array(
 					'label'     => __( 'Skin' ),
 					'section'   => 'colors',
 					'settings'  => 'ai_theme',
 					'type'      => 'select',
-					'choices'   => self::$themes,
-				]
+					'choices'   => $skins,
+				)
 			)
 		);
 		
-		
+		// Copyright setting
+		//
 		$wp_customize->add_setting(
 			'copyright',
-			[
+			array(
 				'default' => '',
-			]
+			)
 		);
 		
+		// Copyright control
+		//
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
 				'copyright',
-				[
+				array(
 					'label'    => __( 'Copyright text' ),
 					'section'  => 'title_tagline',
 					'settings' => 'copyright',
 					'type'     => 'text',
-				]
+				)
+			)
+		);
+		
+		// Default featured image section
+		//
+		$wp_customize->add_section( 'default_post_thumbnail', array(
+			'title'     => __( 'Featured Images' ),
+			'priority'  => 85,
+		));
+		
+		// Default featured image setting
+		//
+		$wp_customize->add_setting(
+			'default_post_thumbnail',
+			array(
+				'default' => self::$dir_abs . '/images/welding.jpg',
+			)
+		);
+		
+		// Default featured image control
+		//
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'default_post_thumbnail',
+				array(
+					'label'    => __( 'Default Featured Image' ),
+					'section'  => 'default_post_thumbnail',
+					'setting'  => 'default_post_thumbnail',
+					'priority' => 30,
+				)
 			)
 		);
 		
 	}
 	
+	/**
+	 * Artificial_Intelligence::post_types()
+	 * Registers custom post types.
+	 *
+	 * @since v1.0
+	 **/
 	public static function post_types()
 	{
-		register_post_type( 'slides', [
-			'labels' => [
+		
+		// Slides
+		//
+		register_post_type( 'slides', array(
+			'labels' => array(
 				'name'               => __( 'Slides' ),
 				'singular_name'      => __( 'Slide'  ),
-			],
+			),
 			'description'          => 'Slides that appear on the front page.',
 			'menu_position'        => 20,
 			'menu_icon'            => 'dashicons-images-alt2',
@@ -186,17 +416,19 @@ class Artificial_Intelligence
 			'publicly_queryabale'  => false,
 			'show_in_nav_menus'    => false,
 			'rewrite'              => false,
-			'supports'             => [
+			'supports'             => array(
 				'title', 'author', 'revisions',
 				'thumbnail', 'custom-fields', 'page-attributes',
-			],
-		]);
+			),
+		));
 		
-		register_post_type( 'showcases', [
-			'labels' => [
+		// Showcases
+		//
+		register_post_type( 'showcases', array(
+			'labels' => array(
 				'name'               => __( 'Showcase' ),
 				'singular_name'      => __( 'Showcase Part' ),
-			],
+			),
 			'description'          => __( 'Pages used for advertising.' ),
 			'menu_position'        => 21,
 			'menu_icon'            => 'dashicons-analytics',
@@ -205,18 +437,24 @@ class Artificial_Intelligence
 			'publicly_queryabale'  => false,
 			'show_in_nav_menus'    => false,
 			'rewrite'              => false,
-			'supports'             => [
+			'supports'             => array(
 				'title', 'author', 'revisions',
 				'thumbnail', 'custom-fields', 'page-attributes',
-			]
-		]);
+			)
+		));
 		
-		// Temporary structure for ACF until I can make it better
-		// if ( ! WP_DEBUG )
-			require_once dirname( __FILE__ ) . '/functions-acf.php';
+		// Require ACF field registrations.
+		//
+		require self::$dir . '/functions-acf.php';
 		
 	}
 	
+	/**
+	 * Artificial_Intelligence::excerpt()
+	 * Changes the length of excerpts.
+	 *
+	 * @since v1.0
+	 **/
 	public static function excerpt( $length )
 	{
 		return 30;
@@ -224,24 +462,64 @@ class Artificial_Intelligence
 
 }
 
+/**
+ * Initialize theme.
+ *
+ **/
 Artificial_Intelligence::init();
 
-require_once dirname( __FILE__ ) . '/functions-streams.php';
+/**
+ * Make sure ACF is in lite mode, no GUI.
+ *
+ **/
+define( 'ACF_LITE', true );
 
-function get_post_thumbnail_src( $post )
+/**
+ * Import PHP dependencies.
+ *
+ **/
+require_once Artificial_Intelligence::$dir . '/vendor/autoload.php';
+
+/**
+ * Import other AI features.
+ *
+ **/
+require Artificial_Intelligence::$dir . '/functions-streams.php';
+
+
+/**
+ * get_post_thumbnail_src()
+ * Returns the post thumbnail for the given post;
+ * otherwise, returns a static image.
+ *
+ * @param WP_Post $post The post, intended to be the post global
+ * @since v1.0 Initial release.
+ **/
+function get_post_thumbnail_src( $post = null )
 {
+	
+	if ( empty( $post ) )
+		global $post;
+	
 	if ( has_post_thumbnail( $post->ID ) )
-	{
 		return wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
-	}
+	
+	elseif ( ! get_theme_mod( 'post_thumbnail' ) )
+		return get_theme_mod( 'default_post_thumbnail' );
 	
 	else
-	{
-		return Artificial_Intelligence::$dir . '/images/robot2.jpg';
-	}
+		return Artificial_Intelligence::$dir_abs . '/images/welding.jpg';
+	
 }
 
-function the_post_thumbnail_src( $post )
+/**
+ * the_post_thumbnail_src()
+ * Echoes out the post thumbnail for the given post.
+ *
+ * @uses get_post_thumbnail_src()
+ * @since v1.0 Initial release.
+ **/
+function the_post_thumbnail_src( $post = null )
 {
 	echo get_post_thumbnail_src( $post );
 }

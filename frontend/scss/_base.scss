@@ -1,3 +1,5 @@
+
+// Default box-sizing sucks.
 *,
 * > *:before,
 * > *:after
@@ -5,6 +7,7 @@
 	box-sizing: border-box;
 }
 
+// Default body styling
 body
 {
 	position: relative;
@@ -23,6 +26,7 @@ body
 	background-position: center;
 	color: color(lfg);
 	
+	// Override WP's override
 	&.custom-background
 	{
 		background-position: center !important;
@@ -30,6 +34,7 @@ body
 	
 }
 
+// Primary wrapper
 #www
 {
 	position: relative;
@@ -39,23 +44,27 @@ body
 	transition: all ease 0.3s;
 }
 
+// Default anchors
 a
 {
 	text-decoration: none;
 	color: color(da);
 }
 
+// Default container
 .cc
 {
 	@extend %cc;
 }
 
+// Image wrappers
 img
 {
 	max-width: 100%;
 	height: auto !important; // jic
 }
 
+// Video wrappers
 .video.w {
 	height: 0;
 	padding-top: rem(25px);
@@ -70,6 +79,7 @@ img
 	top: 0; left: 0; right: 0; bottom: 0;
 }
 
+// Random
 small
 {
 	font-size: 0.7em;

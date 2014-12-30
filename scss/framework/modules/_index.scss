@@ -1,9 +1,27 @@
+
+// ANCHORS
+// Styles for non-default links.
+//
 @import "anchors";
+
+// POST
+// Post styles.
+//
 @import "post";
+
+// GENERICONS
+// Automattic's Genericons library.
+//
 @import "genericons";
 
-@import "article";
-@import "navbar";
-@import "profile";
-@import "block";
-@import "plate";
+
+// MODULES
+// Common components throughout AI.
+//
+@import "article";   // Article
+@import "navbar";    // Navbar
+@import "profile";   // Profile
+@import "block";     // Block
+@import "plate";     // Plate
+
+// ... more to come ...

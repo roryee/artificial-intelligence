@@ -1,3 +1,8 @@
+
+// MODULE: PROFILE
+// Simple, beautiful profile widget.
+// Has no options.
+//
 @mixin ai-profile($sel: &, $opts...)
 {
 	$args: keywords($opts);
