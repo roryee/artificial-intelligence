@@ -1,7 +1,7 @@
 <?php if ( is_singular() ): ?>
 	
 	<header id="thumbnail"
-		style="background-image:url(<?php the_post_thumbnail_src(); ?>);">
+		style="background-image:url(<?php the_post_thumbnail_src( $post ); ?>);">
 		
 		<hgroup class="c">
 			
@@ -67,7 +67,7 @@
 <?php else: ?>
 	
 	<section <?php post_class( 'w' ); ?>
-		style="background-image:url(<?php the_post_thumbnail_src(); ?>);">
+		style="background-image:url(<?php the_post_thumbnail_src( $post ); ?>);">
 		
 		<hgroup class="c">
 			

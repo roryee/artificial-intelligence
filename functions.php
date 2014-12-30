@@ -513,7 +513,7 @@ function get_post_thumbnail_src( $post = null )
 }
 
 /**
- * the_post_thumbnail_src()
+ * the_post_thumbnail_src( $post )
  * Echoes out the post thumbnail for the given post.
  *
  * @uses get_post_thumbnail_src()
