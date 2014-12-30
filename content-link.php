@@ -1,7 +1,7 @@
 <?php if ( is_singular() ): ?>
 	
 	<article id="article"
-	style="background-image:url(<?php the_post_thumbnail_src( $post ); ?>);">
+	style="background-image:url(<?php the_post_thumbnail_src(); ?>);">
 	<div class="c">
 		<div <?php post_class( 'article cc c' ); ?>>
 			

@@ -117,7 +117,7 @@ class Artificial_Intelligence
 		//
 		add_theme_support( 'custom-background', array(
 			'default-color'      => '#000',
-			'default-image'      => self::$dir_abs . '/images/robot2.jpg',
+			'default-image'      => self::$dir_abs . '/images/bolts.jpg',
 			'default-attachment' => 'fixed',
 			'default-position-x' => 'center',
 			'default-repeat'     => 'no-repeat',
@@ -311,6 +311,37 @@ class Artificial_Intelligence
 			)
 		);
 		
+		// Default featured image section
+		//
+		$wp_customize->add_section( 'default_post_thumbnail', array(
+			'title'     => __( 'Featured Images' ),
+			'priority'  => 85,
+		));
+		
+		// Default featured image setting
+		//
+		$wp_customize->add_setting(
+			'default_post_thumbnail',
+			array(
+				'default' => self::$dir_abs . '/images/welding.jpg',
+			)
+		);
+		
+		// Default featured image control
+		//
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'default_post_thumbnail',
+				array(
+					'label'    => __( 'Default Featured Image' ),
+					'section'  => 'default_post_thumbnail',
+					'setting'  => 'default_post_thumbnail',
+					'priority' => 30,
+				)
+			)
+		);
+		
 	}
 	
 	/**
@@ -416,17 +447,21 @@ require Artificial_Intelligence::$dir . '/functions-streams.php';
  * @param WP_Post $post The post, intended to be the post global
  * @since v1.0 Initial release.
  **/
-function get_post_thumbnail_src( $post )
+function get_post_thumbnail_src( $post = null )
 {
+	
+	if ( empty( $post ) )
+		global $post;
+	
 	if ( has_post_thumbnail( $post->ID ) )
-	{
 		return wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
-	}
+	
+	elseif ( ! get_theme_mod( 'post_thumbnail' ) )
+		return get_theme_mod( 'default_post_thumbnail' );
 	
 	else
-	{
-		return Artificial_Intelligence::$dir_abs . '/images/robot2.jpg';
-	}
+		return Artificial_Intelligence::$dir_abs . '/images/welding.jpg';
+	
 }
 
 /**
@@ -436,7 +471,7 @@ function get_post_thumbnail_src( $post )
  * @uses get_post_thumbnail_src()
  * @since v1.0 Initial release.
  **/
-function the_post_thumbnail_src( $post )
+function the_post_thumbnail_src( $post = null )
 {
 	echo get_post_thumbnail_src( $post );
 }
