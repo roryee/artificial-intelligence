@@ -1,5 +1,5 @@
 {
-    "name": "first1444/artificial-intelligence",
+    "name": "duchenerc/artificial-intelligence",
     "description": "The ultimate WordPress theme for any FRC team.",
     "keywords": ["dark", "modern", "FRC"],
     "license": "GPL-2.0+",
@@ -33,5 +33,11 @@
           "afragen/github-updater"
         ]
       }
+    },
+    "autoload": {
+      "files": [
+        "vendor/advanced-custom-fields/acf.php",
+        "vendor/json-rest-api/plugin.php"
+      ]
     }
 }

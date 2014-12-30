@@ -1,8 +1,6 @@
 <?php
 
 define( 'ACF_LITE', true );
-require_once dirname( __FILE__ ) . '/vendor/advanced-custom-fields/acf.php';
-require_once dirname( __FILE__ ) . '/vendor/json-rest-api/plugin.php';
 
 class Artificial_Intelligence
 {
@@ -250,6 +248,8 @@ class Artificial_Intelligence
 
 Artificial_Intelligence::init();
 
+require_once Artificial_Intelligence::$dir . '/vendor/autoload.php';
+
 require_once dirname( __FILE__ ) . '/functions-streams.php';
 
 function get_post_thumbnail_src( $post )
@@ -261,7 +261,7 @@ function get_post_thumbnail_src( $post )
 	
 	else
 	{
-		return Artificial_Intelligence::$dir . '/images/robot2.jpg';
+		return Artificial_Intelligence::$dir_abs . '/images/robot2.jpg';
 	}
 }
 
