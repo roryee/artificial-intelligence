@@ -1,6 +1,11 @@
 
+// SELECTOR: POST
+// Provides advanced styling for all the typographic elements
+// supported by WordPress's impelmentation of TinyMCE.
+//
 %ai-post
 {
+	// Pull in regular article styles
 	@extend %ai-article;
 	
 	p

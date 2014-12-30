@@ -1,5 +1,5 @@
 
-// CLEARFIX
+// SELECTOR: CLEARFIX
 // Forces element to clear floated children
 //
 %cf
@@ -22,6 +22,39 @@
 
 // MIXIN: BOX
 // Creates a flexbox-like environment that's friendly to older browsers.
+// When applied to an element, must have an additional wrapper around the items.
+// Example (mixin applied to .box):
+//
+// <div class="box">
+//   <ul class="container">
+//     <li>
+//       Item #1
+//     </li>
+//     <li>
+//       Item #2
+//     </li>
+//     <li>
+//       Item #3
+//     </li>
+//     <li>
+//       Item #4
+//     </li>
+//     <li>
+//       Item #5
+//     </li>
+//   </ul>
+// </div>
+//
+//   $align    The starting position of child elements.
+//             Supports all values supplied to justify-content, as well as
+//             left, right, start, and end.
+//
+//   $reverse  Whether to reverse source order. Boolean.
+//
+//   $cc       Selector that will be applied to the wrapper.
+//
+//   $items    Selector that will be applied to the items,
+//             from the perspective of the wrapper.
 //
 @mixin box($align: left, $reverse: false, $cc: "> :first-child", $items: "> *")
 {

@@ -1,3 +1,9 @@
+
+// MODULE: NAVBAR
+// Minimalist navbar.
+// Options:
+//   custom-layout   Allow user to define grid within
+//
 @mixin ai-navbar($sel: &, $opts...)
 {
 	$args: keywords($opts);

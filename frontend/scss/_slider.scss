@@ -1,3 +1,7 @@
+
+// SELECTOR: SLIDER
+// TODO: Refactor to only include in homepage.
+//
 .slidesjs
 {
 	position: relative;
@@ -35,6 +39,7 @@
 	}
 }
 
+// Slides are blocks
 .slide
 {
 	@include ai-block;

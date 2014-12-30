@@ -1,3 +1,6 @@
+
+// SELECTOR: FOOTER
+//
 #footer
 {
 	@include wrap;
@@ -41,6 +44,8 @@
 	}
 }
 
+// SELECTOR: COPYRIGHT
+//
 #copyright
 {
 	@include wrap;
