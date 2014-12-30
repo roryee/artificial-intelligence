@@ -9,7 +9,7 @@
 		<?php while ( have_posts() ): the_post(); ?>
 			
 			<article id="article"
-			style="background-image:url(<?php the_post_thumbnail_src(); ?>);">
+			style="background-image:url(<?php the_post_thumbnail_src( $post ); ?>);">
 				<div class="c">
 					<div <?php post_class( 'article cc c' ); ?>>
 						
