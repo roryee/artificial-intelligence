@@ -16,3 +16,9 @@ node_modules
 
 # Vagrant
 .vagrant
+
+# Builds
+vendor
+bower_components
+frontend/gen/*.js
+frontend/gen/*.css
