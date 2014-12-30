@@ -47,68 +47,98 @@ class Streams
 			// AngularJS
 			// Front-end framework.
 			//
-			wp_enqueue_script( 'angular', Artificial_Intelligence::$dir_abs .
-			                   '/bower_components/angular/angular.min.js', array(), '1.3.6', false );
+			wp_register_script(
+				'angular',
+				Artificial_Intelligence::$dir_abs . '/bower_components/angular/angular.min.js',
+				array(),
+				'1.3.6',
+				false
+			);
 			
 			// AngularJS Sanitize
 			// Plugin for AngularJS.
 			//
-			wp_enqueue_script( 'angular-sanitize', Artificial_Intelligence::$dir_abs .
-			                   '/bower_components/angular-sanitize/angular-sanitize.min.js',
-												 array('angular'), '1.3.6', false );
+			wp_register_script(
+				'angular-sanitize',
+				Artificial_Intelligence::$dir_abs . '/bower_components/angular-sanitize/angular-sanitize.min.js',
+				array( 'angular' ),
+				'1.3.6',
+				false
+			);
 			
 			// AngularJS Resource
 			// Plugin for AngularJS.
-			wp_enqueue_script( 'angular-resource', Artificial_Intelligence::$dir_abs .
-			                   '/bower_components/angular-resource/angular-resource.min.js',
-												 array('angular'), '1.3.6', false );
+			wp_register_script(
+				'angular-resource',
+				Artificial_Intelligence::$dir_abs .
+				'/bower_components/angular-resource/angular-resource.min.js',
+				array( 'angular' ),
+				'1.3.6',
+				false
+			);
 			
 			// AngularJS Route
 			// Plugin for AngularJS.
-			wp_enqueue_script( 'angular-route', Artificial_Intelligence::$dir_abs .
-			                   '/bower_components/angular-route/angular-route.min.js',
-												 array('angular'), '1.3.6', false );
+			wp_register_script(
+				'angular-route',
+				Artificial_Intelligence::$dir_abs . '/bower_components/angular-route/angular-route.min.js',
+				array( 'angular' ),
+				'1.3.6',
+				false
+			);
 			
-			// Enqueue JSON API.
+			// JSON API.
 			//
-			wp_enqueue_script( 'wp-api' );
+			wp_register_script( 'wp-api' );
 			
 			// Bootstrap
 			// Design framework that makes rapid prototyping easy.
 			//
-			wp_enqueue_style( 'bootstrap',
-			  Artificial_Intelligence::$dir_abs . '/bower_components/bootstrap/dist/css/bootstrap.min.css'
+			wp_register_style(
+				'bootstrap',
+			  Artificial_Intelligence::$dir_abs . '/bower_components/bootstrap/dist/css/bootstrap.min.css',
+				array(),
+				'3.3.1'
 			);
 			
 			// Bootstrap Theme
 			// Adds visual styles to Bootstrap components.
 			//
-			wp_enqueue_style( 'bootstrap-theme',
-				Artificial_Intelligence::$dir_abs . '/bower_components/bootstrap/dist/css/bootstrap-theme.min.css'
+			wp_register_style(
+				'bootstrap-theme',
+				Artificial_Intelligence::$dir_abs . '/bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
+				array( 'bootstrap' ),
+				'3.3.1'
 			);
 			
 			// Bootstrap JavaScript
 			// Provides interactivity for Bootstrap components.
 			//
-			wp_enqueue_script( 'bootstrap-js',
+			wp_register_script(
+				'bootstrap',
 				Artificial_Intelligence::$dir_abs . '/bower_components/bootstrap/dist/js/bootstrap.min.js',
-				array('jquery'),
+				array( 'jquery' ),
 				'3.3.1',
 				true
 			);
 			
+			wp_enqueue_style( 'bootstrap' );
+			wp_enqueue_style( 'bootstrap-theme' );
+			
 			// Streams app
 			// Primary Streams JavaScript app file
 			//
-			wp_enqueue_script( 'streams',
-			                   Artificial_Intelligence::$dir_abs . '/streams/streams.js',
-												 array(
-												 	'wp-api',
-												 	'angular',
-												 	'angular-sanitize',
-												 	'angular-resource',
-												 	'angular-route',
-												 ), '', false );
+			wp_register_script(
+				'streams',
+				Artificial_Intelligence::$dir_abs . '/streams/streams.js',
+				array(
+					'wp-api',
+					'angular',
+					'angular-sanitize',
+					'angular-resource',
+					'angular-route',
+					'bootstrap',
+				), '', false );
 			
 			// Output sidebar
 			//

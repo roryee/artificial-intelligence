@@ -151,41 +151,89 @@ class Artificial_Intelligence
 	 **/
 	public static function assets()
 	{
+		
+		// Get current theme.
+		//
+		$theme = get_theme_mod( 'ai_theme' );
+		
+		// If theme is not set, default to lightning.
+		//
+		if ( empty( $theme ) )
+			$theme = 'lightning';
+		
 		// Frontend styles
 		// The actual stylesheet enqueued depends on the skin currently selected.
 		//
-		wp_enqueue_style( 'frontend', self::$dir_abs . '/frontend/gen/' .
-			( get_theme_mod( 'ai_theme' ) ? get_theme_mod( 'ai_theme' ) : 'lightning' ) . '.css'
+		wp_register_style(
+			'frontend',
+			self::$dir_abs . '/frontend/gen/' . $theme . '.css'
 		);
 		
 		// Modernizr
 		// Detects browser features
 		//
-		wp_enqueue_script( 'modernizr', self::$dir_abs . '/frontend/gen/modernizr.js',
-		array(), '', false);
+		wp_register_script(
+			'modernizr',
+			self::$dir_abs . '/frontend/gen/modernizr.js',
+			array(),
+			'2.8.3',
+			false
+		);
 		
 		// Reponsd.js
 		// Allows IE6, IE7, IE8 to interpret width-based media queries
 		//
-		wp_enqueue_script( 'respond', self::$dir_abs . '/bower_components/Respond/src/respond.js',
-		array( 'modernizr' ), '', false );
+		wp_register_script(
+			'respond',
+			self::$dir_abs . '/bower_components/Respond/src/respond.js',
+			array( 'modernizr' ),
+			'',
+			false
+		);
 		
 		// GSAP
 		// Fast, fluid animation library
 		//
-		wp_enqueue_script( 'gsap', self::$dir_abs . '/bower_components/gsap/src/minified/TweenMax.min.js',
-		array(), '', false );
+		wp_register_script(
+			'gsap',
+			self::$dir_abs . '/bower_components/gsap/src/minified/TweenMax.min.js',
+			array(),
+			'',
+			false
+		);
 		
 		// SlidesJS
 		// Lightweight slider plugin for jQuery
 		//
-		wp_enqueue_script( 'slidesjs', self::$dir_abs . '/bower_components/slidesjs/source/jquery.slides.min.js',
-		array( 'jquery' ), '', false );
+		wp_register_script(
+			'slidesjs',
+			self::$dir_abs . '/bower_components/slidesjs/source/jquery.slides.min.js',
+			array( 'jquery' ),
+			'',
+			false
+		);
 		
 		// Frontend scipts
 		//
-		wp_enqueue_script( 'frontend', self::$dir_abs . '/frontend/gen/frontend.js',
-		array( 'jquery', 'slidesjs', 'gsap' ), '', true );
+		wp_register_script(
+			'frontend',
+			self::$dir_abs . '/frontend/gen/frontend.js',
+			array(
+				'modernizr',
+				'respond',
+				'jquery',
+				'slidesjs',
+				'gsap',
+			),
+			'',
+			true
+		);
+		
+		
+		// ENQUEUE ALL THE THINGS
+		//
+		wp_enqueue_style(  'frontend' );
+		wp_enqueue_script( 'frontend' );
 		
 	}
 	
