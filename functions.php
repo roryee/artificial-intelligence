@@ -7,7 +7,7 @@
  * @license GPLv2
  *
  * @package Artifical Intelligence
- * @version 1.1.2
+ * @version 1.1.3
  *
  * @since v1.0 First introduced.
  *
@@ -19,7 +19,7 @@ class Artificial_Intelligence
 	 *
 	 * @var string
 	 **/
-	public static $version = '1.1.2';
+	public static $version = '1.1.3';
 	
 	/**
 	 * Template directory, root-relative.
