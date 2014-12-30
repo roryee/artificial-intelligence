@@ -179,8 +179,42 @@ module.exports = (grunt) ->
 					]
 				
 				matchCommunityTests: false
-        
+    
+		# Shell config
+		# Manages shell commands
+		shell:
+			
+			# Update dependencies on branch switch
+			# Can be extremely annoying to deal with otherwise
+			checkout:
+				command: (branch) ->
+					if branch is "dependencies" or branch is "master"
+						[
+							"git checkout #{branch}"
+							"composer install"
+							"bower install"
+						].join("&&")
+					
+					else
+						"git checkout #{branch}"
+			
+			# install
+			# Installs all the things
+			install:
+				command: [
+					"npm install"
+					"echo npm install finished"
+					"bower install"
+					"echo bower install finished"
+					"bundler install"
+					"echo bundler install finished"
+					"composer install"
+					"echo composer install finished"
+				].join("&&")
+			
+			
 	
+	grunt.registerTask 'checkout', ['shell:checkout']
 	
 	grunt.registerTask 'build', [
 		'sass:dist'
@@ -190,4 +224,7 @@ module.exports = (grunt) ->
 		'modernizr'
 	]
 	
-	require('load-grunt-tasks') grunt # Also awesome
+	grunt.registerTask 'setup', ['shell:install', 'build']
+	
+	
+	require('load-grunt-tasks') grunt
