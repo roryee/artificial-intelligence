@@ -5,6 +5,10 @@
 <main id="main" class="ww<?php echo ( get_field( 'fade' ) ? ' fade-slide' : '' ); ?>">
 
 	<?php
+	
+	// Build new WordPress query
+	// Request all showcase blocks that have the show ID of this post
+	//
 	$showcase_q = new WP_Query( array(
 		'post_type'      => 'showcases',
 		'order'          => 'ASC',
