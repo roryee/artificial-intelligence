@@ -29,7 +29,7 @@ class AI_Walker_Comment extends Walker_Comment
 	<?php }
 	
 	// opens a single comment
-	public function start_el( &$output, $comment, $depth = 0, $args = [], $id = 0 )
+	public function start_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 )
 	{
 		$depth++;
 		$GLOBALS['comment_depth'] = $depth;
@@ -55,11 +55,11 @@ class AI_Walker_Comment extends Walker_Comment
 						<li class="reply">
 							<?php
 							
-							$reply_args = [
+							$reply_args = array(
 								'depth' => $depth,
 								'max_depth' => $args['max_depth'],
 								'reply_text' => '<span data-icon="reply"></span>'
-							];
+							);
 							
 							comment_reply_link( array_merge( $args, $reply_args ) );
 							
@@ -78,7 +78,7 @@ class AI_Walker_Comment extends Walker_Comment
 	<?php }
 							
 	// closes a single comment
-	public function end_el( &$output, $comment, $depth = 0, $args = [], $id = 0 )
+	public function end_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 )
 	{ ?>
 		</li>
 	<?php }
@@ -141,9 +141,9 @@ add_filter( 'comment_form_field_comment', 'ai_comments_field' );
 		<?php if ( get_comments_number() ): ?>
 			
 			<?php
-			wp_list_comments([
+			wp_list_comments( array(
 				'walker' => new AI_Walker_Comment,
-			]);
+			));
 			?>
 			
 		<?php endif; if ( comments_open() ): ?>
@@ -151,7 +151,7 @@ add_filter( 'comment_form_field_comment', 'ai_comments_field' );
 			<section class="comments-new w">
 				
 				<?php
-				comment_form([
+				comment_form( array(
 					
 					'id_form'              => '',
 					
@@ -164,8 +164,8 @@ add_filter( 'comment_form_field_comment', 'ai_comments_field' );
 					
 					'label_submit'         => __( 'Submit' ),
 					
-					]);
-					?>
+				));
+				?>
 				
 			</section>
 				

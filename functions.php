@@ -18,34 +18,55 @@ class Artificial_Intelligence
 		self::$dir =     get_template_directory();
 		self::$dir_abs = get_template_directory_uri();
 		
-		add_action( 'after_setup_theme',  ['Artificial_Intelligence', 'setup'     ] );
-		add_action( 'wp_enqueue_scripts', ['Artificial_Intelligence', 'assets'    ] );
-		add_action( 'init',               ['Artificial_Intelligence', 'menus'     ] );
-		add_action( 'widgets_init',       ['Artificial_Intelligence', 'widgets'   ] );
-		add_action( 'init',               ['Artificial_Intelligence', 'post_types'] );
-		add_action( 'customize_register', ['Artificial_Intelligence', 'customizer'] );
+		add_action( 'after_setup_theme', array(
+			'Artificial_Intelligence', 'setup'
+		));
 		
-		add_filter( 'excerpt_length', ['Artificial_Intelligence', 'excerpt'], 999 );
+		add_action( 'wp_enqueue_scripts', array(
+			'Artificial_Intelligence', 'assets'
+		));
+		
+		add_action( 'init', array(
+			'Artificial_Intelligence', 'menus'
+		));
+		
+		add_action( 'widgets_init', array(
+			'Artificial_Intelligence', 'widgets'
+		));
+		
+		add_action( 'init', array(
+			'Artificial_Intelligence', 'post_types'
+		));
+		
+		add_action( 'customize_register', array(
+			'Artificial_Intelligence', 'customizer'
+		));
+		
+		
+		add_filter( 'excerpt_length', array(
+			'Artificial_Intelligence', 'excerpt'
+		), 999 );
+		
 	}
 	
 	public static function setup()
 	{
-		add_theme_support( 'html5', [
+		add_theme_support( 'html5', array(
 			'comment-list', 'comment-form', 'search-form', 'gallery', 'caption',
-		]);
+		));
 		
-		add_theme_support( 'custom-background', [
+		add_theme_support( 'custom-background', array(
 			'default-color'      => '#000',
 			'default-image'      => self::$dir_abs . '/images/robot2.jpg',
 			'default-attachment' => 'fixed',
 			'default-position-x' => 'center',
 			'default-repeat'     => 'no-repeat',
-		]);
+		));
 			
 		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'post-formats', [
+		add_theme_support( 'post-formats', array(
 			'aside', 'image', 'video', 'status', 'quote', 'link',
-		]);
+		));
 		
 		add_theme_support( 'automatic-feed-links' );
 		
@@ -60,19 +81,19 @@ class Artificial_Intelligence
 		);
 		
 		wp_enqueue_script( 'modernizr', self::$dir_abs . '/frontend/gen/modernizr.js',
-		[], '', false);
+		array(), '', false);
 		
 		wp_enqueue_script( 'respond', self::$dir_abs . '/bower_components/Respond/src/respond.js',
-		['modernizr'], '', false );
+		array( 'modernizr' ), '', false );
 		
 		wp_enqueue_script( 'gsap', self::$dir_abs . '/bower_components/gsap/src/minified/TweenMax.min.js',
-		[], '', false );
+		array(), '', false );
 		
 		wp_enqueue_script( 'slidesjs', self::$dir_abs . '/bower_components/slidesjs/source/jquery.slides.min.js',
-		['jquery'], '', false );
+		array( 'jquery' ), '', false );
 		
 		wp_enqueue_script( 'frontend', self::$dir_abs . '/frontend/gen/frontend.js',
-		['jquery', 'slidesjs', 'gsap'], '', true );
+		array( 'jquery', 'slidesjs', 'gsap' ), '', true );
 		
 	}
 	
@@ -132,43 +153,43 @@ class Artificial_Intelligence
 		
 		$wp_customize->add_setting(
 			'ai_theme',
-			[
+			array(
 				'default' => 'lightning',
-			]
+			)
 		);
 		
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
 				'ai_theme',
-				[
+				array(
 					'label'     => __( 'Skin' ),
 					'section'   => 'colors',
 					'settings'  => 'ai_theme',
 					'type'      => 'select',
 					'choices'   => $themes,
-				]
+				)
 			)
 		);
 		
 		
 		$wp_customize->add_setting(
 			'copyright',
-			[
+			array(
 				'default' => '',
-			]
+			)
 		);
 		
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
 				'copyright',
-				[
+				array(
 					'label'    => __( 'Copyright text' ),
 					'section'  => 'title_tagline',
 					'settings' => 'copyright',
 					'type'     => 'text',
-				]
+				)
 			)
 		);
 		
@@ -176,11 +197,11 @@ class Artificial_Intelligence
 	
 	public static function post_types()
 	{
-		register_post_type( 'slides', [
-			'labels' => [
+		register_post_type( 'slides', array(
+			'labels' => array(
 				'name'               => __( 'Slides' ),
 				'singular_name'      => __( 'Slide'  ),
-			],
+			),
 			'description'          => 'Slides that appear on the front page.',
 			'menu_position'        => 20,
 			'menu_icon'            => 'dashicons-images-alt2',
@@ -189,17 +210,17 @@ class Artificial_Intelligence
 			'publicly_queryabale'  => false,
 			'show_in_nav_menus'    => false,
 			'rewrite'              => false,
-			'supports'             => [
+			'supports'             => array(
 				'title', 'author', 'revisions',
 				'thumbnail', 'custom-fields', 'page-attributes',
-			],
-		]);
+			),
+		));
 		
-		register_post_type( 'showcases', [
-			'labels' => [
+		register_post_type( 'showcases', array(
+			'labels' => array(
 				'name'               => __( 'Showcase' ),
 				'singular_name'      => __( 'Showcase Part' ),
-			],
+			),
 			'description'          => __( 'Pages used for advertising.' ),
 			'menu_position'        => 21,
 			'menu_icon'            => 'dashicons-analytics',
@@ -208,11 +229,11 @@ class Artificial_Intelligence
 			'publicly_queryabale'  => false,
 			'show_in_nav_menus'    => false,
 			'rewrite'              => false,
-			'supports'             => [
+			'supports'             => array(
 				'title', 'author', 'revisions',
 				'thumbnail', 'custom-fields', 'page-attributes',
-			]
-		]);
+			)
+		));
 		
 		// Temporary structure for ACF until I can make it better
 		// if ( ! WP_DEBUG )
