@@ -38,7 +38,7 @@ Got an idea? Open a ticket for it and we'll see about implementing it!
 
 Artificial Intelligence is a [WordPress](https://wordpress.org) theme; it requires you to have a working installation of WordPress, version 3.9 or later. WordPress has a couple base requirements that almost all webhosts provide; in fact, many hosts provide one-click installations. If you're setting up your install manually, check out the [installation guide on the WordPress Codex](http://codex.wordpress.org/Installing_WordPress).
 
-1. Download the latest release of Artificial Intelligence to your computer.
+1. Download the [latest release](https://github.com/duchenerc/artificial-intelligence/releases) of Artificial Intelligence to your computer. Make sure to get the distribution release! (big green button)
 2. In your WordPress install, navigate to Appearance >> Themes. Click "Add Theme," then "Upload Theme."
 3. Upload Artificial Intelligence to WordPress and activate it.
 
