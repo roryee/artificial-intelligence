@@ -214,7 +214,12 @@ module.exports = (grunt) ->
 			
 			
 	
-	grunt.registerTask 'checkout', ['shell:checkout']
+	grunt.registerTask 'skins', [
+		'sass:dist'
+		'autoprefixer'
+	]
+	
+	# grunt.registerTask 'checkout', ['shell:checkout']
 	
 	grunt.registerTask 'build', [
 		'sass:dist'
