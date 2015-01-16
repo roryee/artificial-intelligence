@@ -26,8 +26,8 @@ $colors: (
 	dac:    darken($gallery, 40%),
 
 	chrfg:  $gallery,
-	chrbg:  transparentize($mineshaft, 0.4),
-	chra:   transparentize($mineshaft, 0.2),
+	chrbg:  transparentize($mineshaft, 0.3),
+	chra:   transparentize($mineshaft, 0.1),
 	chrh:   $lightning,
 	chrac:  lighten($mineshaft, 40%),
 
