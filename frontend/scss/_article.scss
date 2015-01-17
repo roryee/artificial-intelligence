@@ -158,3 +158,65 @@
 	}
 	
 }
+
+#post-nav
+{
+	@extend %cf;
+	background: color(dbg);
+	
+	.post-next,
+	.post-prev
+	{
+		display: block;
+		float: left;
+		@extend %hide-pop;
+		@extend %show-disco;
+		
+		border: 0 !important;
+		width: 50%;
+		
+		background-size: cover;
+		background-position: center;
+		
+		@extend %ai-article;
+		
+		> .c
+		{
+			min-height: 20rem;
+			padding: 3rem;
+			transition: background, 0.5s, ease;
+			
+			background: color(chrbg);
+		}
+		
+		&:hover
+		{
+			
+			> .c
+			{
+				background: color(chra);
+			}
+		}
+		
+		h4
+		{
+			@extend %font-heading;
+			@include scale(3);
+			@include trailer;
+			color: color(chrh);
+		}
+		
+		.icon
+		{
+			@include scale(8);
+			color: color(dh);
+		}
+		
+	}
+	
+	.post-prev
+	{
+		text-align: right;
+	}
+	
+}

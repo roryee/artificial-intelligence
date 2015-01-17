@@ -504,7 +504,7 @@ function get_post_thumbnail_src( $post = null )
 	if ( has_post_thumbnail( $post->ID ) )
 		return wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
 	
-	elseif ( ! get_theme_mod( 'post_thumbnail' ) )
+	elseif ( get_theme_mod( 'default_post_thumbnail' ) )
 		return get_theme_mod( 'default_post_thumbnail' );
 	
 	else
