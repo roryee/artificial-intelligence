@@ -22,8 +22,7 @@ streamsCtrls.controller 'navbarCtrl', [
 		
 		$scope.save = ->
       console.log $scope.postNew
-			$scope.postNew.$save ->
-        $route.reload();
+			Post.save $scope.postNew
 			
 		
 		$scope.temp = ->

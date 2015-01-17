@@ -70,8 +70,7 @@ class Streams
 			// Plugin for AngularJS.
 			wp_register_script(
 				'angular-resource',
-				Artificial_Intelligence::$dir_abs .
-				'/bower_components/angular-resource/angular-resource.min.js',
+				Artificial_Intelligence::$dir_abs . '/bower_components/angular-resource/angular-resource.min.js',
 				array( 'angular' ),
 				'1.3.6',
 				false
@@ -89,7 +88,7 @@ class Streams
 			
 			// JSON API.
 			//
-			wp_register_script( 'wp-api' );
+			wp_enqueue_script( 'wp-api' );
 			
 			// Bootstrap
 			// Design framework that makes rapid prototyping easy.
@@ -139,6 +138,8 @@ class Streams
 					'angular-route',
 					'bootstrap',
 				), '', false );
+			
+			wp_enqueue_script( 'streams' );
 			
 			// Output sidebar
 			//
