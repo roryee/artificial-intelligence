@@ -1,4 +1,4 @@
-		<footer id="footer-forums" class="ww">
+		<footer id="footer" class="ww">
 			<div class="cc">
 				
 				<?php if ( ! dynamic_sidebar( 'footer' ) ): ?>
