@@ -22,3 +22,5 @@ vendor
 bower_components
 frontend/gen/*.js
 frontend/gen/*.css
+forums/gen/*.css
+forums/gen/*.js
