@@ -12,6 +12,11 @@ class Forums
 		add_action( 'init', array(
 			'Forums', 'menus',
 		));
+		
+		add_action( 'widgets_init', array(
+			'Forums', 'widgets'
+		));
+		
 	}
 	
 	public static function post_type()
@@ -39,7 +44,7 @@ class Forums
 			'description' => __( 'Forums posts' ),
 			
 			'exclude_from_search' => true,
-			'publicly_queryable' => false,
+			'publicly_queryable' => true,
 			'show_ui' => true,
 			'show_in_nav_menus' => true,
 			'show_in_menu' => true,
@@ -158,6 +163,27 @@ class Forums
 			'forums_primary' =>          __( 'Forums' ),
 			'forums_offcanvas_left'  =>  __( 'Forums Mobile' ),
 		));
+	}
+	
+	public static function widgets()
+	{
+		$sidebars = array(
+			array(
+				'name'          => 'Footer',
+				'id'            => 'forums_footer',
+				'description'   => 'Forums footer',
+				'before_widget' => '<div id="%1$s" class="col %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h6>',
+				'after_title'   => '</h6>',
+			),
+		);
+		
+		foreach ( $sidebars as $sidebar )
+		{
+			register_sidebar( $sidebar );
+		}
+		
 	}
 	
 }
