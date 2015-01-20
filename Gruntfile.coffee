@@ -154,7 +154,10 @@ module.exports = (grunt) ->
 					bare: true
 					join: true
 				files:
-					'frontend/gen/frontend.js': ['frontend/coffee/*.coffee']
+					'frontend/gen/frontend.js': [
+						'coffee/*.coffee'
+						'frontend/coffee/*.coffee'
+					]
 			
 			## coffee:forums
 			## Compiles forums CoffeeScript
@@ -165,7 +168,10 @@ module.exports = (grunt) ->
 					bare: true
 					join: true
 				files:
-					'forums/gen/forums.js': ['forums/coffee/*.coffee']
+					'forums/gen/forums.js': [
+						'coffee/*.coffee'
+						'forums/coffee/*.coffee'
+					]
 		
 		## watch
 		## Watches files for changes and runs tasks upon change
@@ -178,6 +184,7 @@ module.exports = (grunt) ->
 					'frontend/scss/*.scss'
 					'frontend/coffee/*.coffee'
 					'scss/**/*.scss'
+					'coffee/*.coffee'
 				]
 				tasks: [
 					'sass:frontend'
@@ -192,6 +199,7 @@ module.exports = (grunt) ->
 					'frontend/scss/*.scss'
 					'frontend/coffee/*.coffee'
 					'scss/**/*.scss'
+					'coffee/*.coffee'
 				]
 				tasks: [
 					'sass:frontendd'
@@ -206,6 +214,7 @@ module.exports = (grunt) ->
 					'forums/scss/*.scss'
 					'forums/coffee/*.coffee'
 					'scss/**/*.scss'
+					'coffee/*.coffee'
 				]
 				tasks: [
 					'sass:forums'
@@ -220,6 +229,7 @@ module.exports = (grunt) ->
 					'forums/scss/*.scss'
 					'forums/coffee/*.coffee'
 					'scss/**/*.scss'
+					'coffee/*.coffee'
 				]
 				tasks: [
 					'sass:forums'
