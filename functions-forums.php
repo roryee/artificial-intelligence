@@ -8,6 +8,10 @@ class Forums
 		add_action( 'init', array(
 			'Forums', 'post_type'
 		));
+		
+		add_action( 'init', array(
+			'Forums', 'menus',
+		));
 	}
 	
 	public static function post_type()
@@ -34,8 +38,8 @@ class Forums
 			
 			'description' => __( 'Forums posts' ),
 			
-			'exclude_from_search' => false,
-			'publicly_queryable' => true,
+			'exclude_from_search' => true,
+			'publicly_queryable' => false,
 			'show_ui' => true,
 			'show_in_nav_menus' => true,
 			'show_in_menu' => true,
@@ -146,6 +150,14 @@ class Forums
 			
 		));
 		
+	}
+	
+	public static function menus()
+	{
+		register_nav_menus( array(
+			'forums_primary' =>          __( 'Forums' ),
+			'forums_offcanvas_left'  =>  __( 'Forums Mobile' ),
+		));
 	}
 	
 }
