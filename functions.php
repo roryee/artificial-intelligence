@@ -39,6 +39,13 @@ class Artificial_Intelligence
 	 **/
 	public static $dir_abs;
 	
+	/**
+	 * Skin slug.
+	 *
+	 * @var string
+	 **/
+	public static $skin;
+	
 	
 	/**
 	 * Initializes theme, sets hooks
@@ -52,6 +59,19 @@ class Artificial_Intelligence
 		//
 		self::$dir =     get_template_directory();
 		self::$dir_abs = get_template_directory_uri();
+		
+		// Get current theme.
+		//
+		$skin = get_theme_mod( 'ai_theme' );
+		
+		// If theme is not set, default to lightning.
+		//
+		if ( empty( $skin ) )
+			$skin = 'lightning';
+		
+		// Set theme
+		//
+		self::$skin = $skin;
 		
 		// Set up theme.
 		//
@@ -152,22 +172,14 @@ class Artificial_Intelligence
 	public static function assets()
 	{
 		
-		// Get current theme.
-		//
-		$theme = get_theme_mod( 'ai_theme' );
-		
-		// If theme is not set, default to lightning.
-		//
-		if ( empty( $theme ) )
-			$theme = 'lightning';
-		
 		// Frontend styles
 		// The actual stylesheet enqueued depends on the skin currently selected.
 		//
-		wp_register_style(
-			'frontend',
-			self::$dir_abs . '/frontend/gen/' . $theme . '.css'
-		);
+		if ( ! is_forums() )
+			wp_register_style(
+				'frontend',
+				self::$dir_abs . '/frontend/gen/' . self::$skin . '.css'
+			);
 		
 		// Modernizr
 		// Detects browser features
@@ -215,25 +227,29 @@ class Artificial_Intelligence
 		
 		// Frontend scipts
 		//
-		wp_register_script(
-			'frontend',
-			self::$dir_abs . '/frontend/gen/frontend.js',
-			array(
-				'modernizr',
-				'respond',
-				'jquery',
-				'slidesjs',
-				'gsap',
-			),
-			'',
-			true
-		);
+		if ( ! is_forums() )
+			wp_register_script(
+				'frontend',
+				self::$dir_abs . '/frontend/gen/frontend.js',
+				array(
+					'modernizr',
+					'respond',
+					'jquery',
+					'slidesjs',
+					'gsap',
+				),
+				'',
+				true
+			);
 		
 		
 		// ENQUEUE ALL THE THINGS
 		//
-		wp_enqueue_style(  'frontend' );
-		wp_enqueue_script( 'frontend' );
+		if ( ! is_forums() )
+		{
+			wp_enqueue_style(  'frontend' );
+			wp_enqueue_script( 'frontend' );
+		}
 		
 	}
 	

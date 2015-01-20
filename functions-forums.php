@@ -17,6 +17,10 @@ class Forums
 			'Forums', 'widgets'
 		));
 		
+		add_action( 'wp_enqueue_scripts', array(
+			'Forums', 'assets'
+		));
+		
 	}
 	
 	public static function post_type()
@@ -186,6 +190,47 @@ class Forums
 		
 	}
 	
+	public static function assets()
+	{
+		if ( is_forums() )
+			wp_register_style(
+				'forums',
+				Artificial_Intelligence::$dir_abs . '/forums/gen/' . Artificial_Intelligence::$skin . '.css'
+			);
+		
+		if ( is_forums() )
+			wp_register_script(
+				'forums',
+				Artificial_Intelligence::$dir_abs . '/forums/gen/forums.js',
+				array(
+					'modernizr',
+					'respond',
+					'jquery',
+					'slidesjs',
+					'gsap',
+				),
+				'',
+				true
+			);
+		
+		if ( is_forums() )
+		{
+			wp_enqueue_style(  'forums' );
+			wp_enqueue_script( 'forums' );
+		}
+		
+	}
+	
 }
 
 Forums::init();
+
+/**
+* Returns true if current page is forums-related.
+*
+* @return bool
+**/
+function is_forums()
+{
+	return is_single( 'forum_thread' ) || is_archive( 'forum_thread' ) || is_tax( 'forum' ) || is_tax( 'forum_tag' );
+}

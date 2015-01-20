@@ -31,6 +31,38 @@
 		}
 	}
 	
+	@if map-has-key( $args, header-sep )
+	{
+		#{map-find( $args, header-sep )}
+		{
+			&:first-child
+			{
+				@extend %col-pop-12;
+				@extend %col-disco-6;
+				text-align: center;
+				
+				@include above(disco)
+				{
+					@include box;
+				}
+				
+			}
+			
+			&:last-child:not(:first-child)
+			{
+				@extend %hide-pop;
+				@extend %show-disco;
+				@extend %col-disco-6;
+				
+				@include above(disco)
+				{
+					@include box(right, $cc: "> .c", $items: "> .menu-item");
+				}
+				
+			}
+		}
+	}
+	
 	.menu-item.current-menu-ancestor,
 	.menu-item.current-menu-item
 	{
