@@ -409,7 +409,7 @@ class Artificial_Intelligence
 				'singular_name'      => __( 'Slide'  ),
 			),
 			'description'          => 'Slides that appear on the front page.',
-			'menu_position'        => 20,
+			'menu_position'        => 22,
 			'menu_icon'            => 'dashicons-images-alt2',
 			'show_ui'              => true,
 			'exclude_from_search'  => true,
@@ -430,7 +430,7 @@ class Artificial_Intelligence
 				'singular_name'      => __( 'Showcase Part' ),
 			),
 			'description'          => __( 'Pages used for advertising.' ),
-			'menu_position'        => 21,
+			'menu_position'        => 24,
 			'menu_icon'            => 'dashicons-analytics',
 			'show_ui'              => true,
 			'exclude_from_search'  => true,
@@ -485,6 +485,7 @@ require_once Artificial_Intelligence::$dir . '/vendor/autoload.php';
  *
  **/
 require Artificial_Intelligence::$dir . '/functions-streams.php';
+require Artificial_Intelligence::$dir . '/functions-forums.php';
 
 
 /**
@@ -499,7 +500,7 @@ function get_post_thumbnail_src( $post = null )
 {
 	
 	if ( empty( $post ) )
-		global $post;
+		$post = get_post();
 	
 	if ( has_post_thumbnail( $post->ID ) )
 		return wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
