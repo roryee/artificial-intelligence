@@ -232,5 +232,5 @@ Forums::init();
 **/
 function is_forums()
 {
-	return is_single( 'forum_thread' ) || is_archive( 'forum_thread' ) || is_tax( 'forum' ) || is_tax( 'forum_tag' );
+	return is_singular( 'forum_thread' ) || is_post_type_archive( 'forum_thread' ) || is_tax( 'forum' ) || is_tax( 'forum_tag' );
 }
