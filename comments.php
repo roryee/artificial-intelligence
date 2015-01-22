@@ -135,41 +135,45 @@ add_filter( 'comment_form_field_comment', 'ai_comments_field' );
 
 ?>
 
-<aside id="comments">
-	<div class="cc">
-		
-		<?php if ( get_comments_number() ): ?>
+<?php if ( comments_open() || get_comments_number() ): ?>
+
+	<aside id="comments">
+		<div class="cc">
 			
-			<?php
-			wp_list_comments( array(
-				'walker' => new AI_Walker_Comment,
-			));
-			?>
-			
-		<?php endif; if ( comments_open() ): ?>
-			
-			<section class="comments-new w">
+			<?php if ( get_comments_number() ): ?>
 				
 				<?php
-				comment_form( array(
-					
-					'id_form'              => '',
-					
-					'comment_notes_before' => '',
-					'comment_notes_after'  => '',
-					
-					'title_reply'          => __( 'Reply' ),
-					'title_reply_to'       => __( 'Reply to %s' ),
-					'cancel_reply_link'    => __( 'Cancel' ),
-					
-					'label_submit'         => __( 'Submit' ),
-					
+				wp_list_comments( array(
+					'walker' => new AI_Walker_Comment,
 				));
 				?>
 				
-			</section>
+			<?php endif; if ( comments_open() ): ?>
 				
-		<?php endif; ?>
-				
-	</div>
-</aside>
+				<section class="comments-new w">
+					
+					<?php
+					comment_form( array(
+						
+						'id_form'              => '',
+						
+						'comment_notes_before' => '',
+						'comment_notes_after'  => '',
+						
+						'title_reply'          => __( 'Reply' ),
+						'title_reply_to'       => __( 'Reply to %s' ),
+						'cancel_reply_link'    => __( 'Cancel' ),
+						
+						'label_submit'         => __( 'Submit' ),
+						
+					));
+					?>
+					
+				</section>
+					
+			<?php endif; ?>
+					
+		</div>
+	</aside>
+
+<?php endif; ?>
