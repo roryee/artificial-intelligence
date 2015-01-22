@@ -51,14 +51,6 @@
 		@include scale(1);
 	}
 	
-	hr
-	{
-		@extend %ccs-article;
-		height: rem(1px);
-		@include spacing(bottom, margin);
-		border: 0;
-	}
-	
 	strong
 	{
 		@extend %font-bold;

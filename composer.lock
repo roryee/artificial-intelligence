@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8098f45af5e09cdbdc11819b7bf48b72",
+    "hash": "a1160b79efce1312d50fffd175d68edb",
     "packages": [
         {
             "name": "composer/installers",
@@ -145,6 +145,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "http://wordpress.org/plugins/json-rest-api/"
+        },
+        {
+            "name": "wpackagist-plugin/radio-buttons-for-taxonomies",
+            "version": "1.7.1",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/radio-buttons-for-taxonomies/",
+                "reference": "tags/1.7.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/radio-buttons-for-taxonomies.1.7.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/radio-buttons-for-taxonomies/"
         }
     ],
     "packages-dev": [],

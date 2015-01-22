@@ -1,0 +1,80 @@
+#main-forums
+{
+	min-height: 90vh;
+	background: color(lbg);
+	@include ai-forms;
+	@extend %ai-article;
+	
+}
+
+#forums-header
+{
+	@extend %ccw-article;
+	
+	h1
+	{
+		@extend %ccw-article;
+		@extend %font-title;
+		@include scale(5);
+		@include trailer;
+		text-align: center;
+	}
+	
+	p
+	{
+		@include trailer;
+	}
+	
+}
+
+#article
+{
+	@extend %ccw-article;
+	@include ai-article;
+}
+
+.forum,
+.forum_thread
+{
+	@extend %ccw-article;
+	transition: background 0.25s ease;
+	
+	a
+	{
+		display: block;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		@include wrap;
+		color: color(lfg);
+	}
+	
+	&-name
+	{
+		@extend %font-heading;
+		@include scale(1);
+	}
+	
+	&-meta
+	{
+		@include scale(-1);
+		color: color(lh);
+	}
+	
+	&-excerpt
+	{
+		@include leader;
+		color: color(la);
+	}
+	
+	&:hover
+	{
+		background: darken(color(lbg), 10%);
+		// background: color(la);
+	}
+	
+}
+
+#comments
+{
+	@include ai-comments($sel-comment: ".comment");
+}

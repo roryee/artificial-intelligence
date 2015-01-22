@@ -47,7 +47,7 @@ class Forums
 			
 			'description' => __( 'Forums posts' ),
 			
-			'exclude_from_search' => true,
+			'exclude_from_search' => false,
 			'publicly_queryable' => true,
 			'show_ui' => true,
 			'show_in_nav_menus' => true,
@@ -72,7 +72,7 @@ class Forums
 			),
 			
 			'rewrite' => array(
-				'slug' => 'forums',
+				'slug' => 'forums/t',
 				'pages' => true,
 			),
 			'hierarchial' => false,
@@ -100,7 +100,7 @@ class Forums
 				'search_items'                => __( 'Search Forums' ),
 			),
 			
-			'public' => false,
+			'public' => true,
 			
 			'show_ui' => true,
 			'show_in_nav_menus' => true,
@@ -108,7 +108,7 @@ class Forums
 			'hierarchial' => true,
 			
 			'rewrite' => array(
-				'slug' => 'forums',
+				'slug' => 'forums/f',
 				'hierarchial' => true,
 			),
 			

@@ -105,3 +105,22 @@ small
 	background-color: color(chrbg);
 	color: color(chrh);
 }
+
+.nav-padding
+{
+	padding: 4rem 0;
+}
+
+hr
+{
+	@extend %ccs-article;
+	height: rem(1px);
+	background: color(la);
+	@include spacing(bottom, margin);
+	border: 0;
+}
+
+textarea
+{
+	overflow:auto;
+}

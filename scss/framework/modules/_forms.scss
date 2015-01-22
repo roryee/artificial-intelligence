@@ -1,19 +1,12 @@
-
-// GENERAL FORMS STYLES
-//
-
-textarea
+@mixin ai-forms($sel: &, $opts...)
 {
-	overflow:auto;
-}
-
-#main
-{
+	$args: keywords($opts);
+	
 	form
 	{
 		@extend %cc-article;
 	}
-
+	
 	.form-group
 	{
 		@include trailer;
@@ -22,9 +15,9 @@ textarea
 		textarea
 		{
 			-webkit-appearance: none;
-			   -moz-appearance: none;
-				  -ms-appearance: none;
-			        appearance: none;
+			-moz-appearance: none;
+			-ms-appearance: none;
+			appearance: none;
 			
 			border: 0;
 			padding: 0.5em;
@@ -45,15 +38,15 @@ textarea
 			}
 		}
 	}
-
+	
 	button,
 	input[type="submit"]
 	{
 		
 		-webkit-appearance: none;
-		   -moz-appearance: none;
-		    -ms-appearance: none;
-		        appearance: none;
+		-moz-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
 		
 		display: inline-block;
 		padding: 0.4em;
@@ -64,4 +57,5 @@ textarea
 		background-color: color(chribg);
 		color: color(chrifg);
 	}
+	
 }
