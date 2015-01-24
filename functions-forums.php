@@ -105,11 +105,11 @@ class Forums
 			'show_ui' => true,
 			'show_in_nav_menus' => true,
 			'show_tagcloud' => true,
-			'hierarchial' => true,
+			'hierarchical' => true,
 			
 			'rewrite' => array(
 				'slug' => 'forums/f',
-				'hierarchial' => true,
+				'hierarchical' => true,
 			),
 			
 			// TODO: Add capabilities

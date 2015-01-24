@@ -124,3 +124,10 @@ textarea
 {
 	overflow:auto;
 }
+
+pre.debug
+{
+	background: color(lbg);
+	color: color(lfg);
+	font-family: 'Source Code Pro', Menlo, Monaco, 'Courier New', Courier, monospace;
+}

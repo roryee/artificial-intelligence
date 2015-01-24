@@ -3,6 +3,7 @@
 	@extend %ccw-article;
 	padding: 0.45rem 0.25rem;
 	color: color(lfg);
+	@include scale(-1);
 	
 	.crumb
 	{
