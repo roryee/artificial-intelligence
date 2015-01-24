@@ -3,6 +3,8 @@
 <main id="main-forums">
 	<div class="c nav-padding">
 		
+		<?php get_template_part( 'interface', 'breadcrumbs-forums' ); ?>
+		
 		<?php if ( have_posts() ): ?>
 			
 			<?php while ( have_posts() ): the_post(); ?>

@@ -1,6 +1,6 @@
 <?php
 	if ( ! is_user_logged_in() )
-		wp_redirect( wp_login_url( home_url( '/forums/' ) ) );
+		wp_redirect( wp_login_url( get_post_type_archive_link( 'forum_thread' ) ) );
 ?>
 <!DOCTYPE html>
 

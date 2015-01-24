@@ -3,6 +3,8 @@
 <main id="main-forums">
 	
 	<div class="c nav-padding">
+		
+		<?php get_template_part( 'interface', 'breadcrumbs-forums' ); ?>
 	
 		<header id="forums-header">
 			
@@ -22,8 +24,6 @@
 				'url' => '/forums/',
 			),
 		);
-		
-		// $temp = get_ancestors( get_queried_object(), 'taxonomy' );
 		
 		?>
 		
