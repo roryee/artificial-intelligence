@@ -1,6 +1,6 @@
 <?php
 	if ( ! is_user_logged_in() )
-		wp_redirect( home_url() );
+		wp_redirect( wp_login_url( home_url( '/forums/' ) ) );
 ?>
 <!DOCTYPE html>
 
