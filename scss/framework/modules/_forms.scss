@@ -56,6 +56,12 @@
 		@extend %font-heading;
 		background-color: color(chribg);
 		color: color(chrifg);
+		
+		&:hover
+		{
+			cursor: pointer;
+		}
+		
 	}
 	
 }

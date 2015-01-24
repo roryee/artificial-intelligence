@@ -22,6 +22,13 @@ $article-colors: (
 {
 	$args: keywords($opts);
 	
+	$cc: cc-article !default;
+	
+	@if map-has-key($args, cc)
+	{
+		$cc: map-find($args, cc)
+	}
+	
 	$colors: ();
 	
 	@each $context, $color in $article-colors
@@ -45,6 +52,22 @@ $article-colors: (
 	
 	@extend %ai-post;
 	color: color(map-find($colors, p));
+	
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	ul,
+	ol,
+	blockquote,
+	.wp-caption.aligncenter,
+	.wp-caption.alignnone
+	{
+		@extend %#{$cc};
+	}
 	
 	h1,
 	h2,

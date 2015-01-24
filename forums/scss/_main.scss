@@ -29,8 +29,7 @@
 
 #article
 {
-	@extend %ccw-article;
-	@include ai-article;
+	@include ai-article($cc: ccw-article);
 }
 
 .forum,
@@ -72,9 +71,4 @@
 		// background: color(la);
 	}
 	
-}
-
-#comments
-{
-	@include ai-comments($sel-comment: ".comment");
 }
