@@ -6,7 +6,7 @@ $forums = get_terms( 'forum', array(
 	// 'orderby' => 'name',
 	// 'order' => 'ASC',
 	'hide_empty' => false,
-	
+	'parent' => 0,
 ));
 
 ?>
@@ -22,17 +22,7 @@ $forums = get_terms( 'forum', array(
 		
 		<?php foreach ( $forums as $forum ): ?>
 			
-			<section class="forum">
-				<a href="<?php bloginfo( 'url' ); ?>/forums/f/<?php echo $forum->slug; ?>/">
-					
-					<h2 class="forum-name"><?php echo $forum->name; ?></h2>
-					
-					<p class="forum-excerpt">
-						<?php echo $forum->description; ?>
-					</p>
-					
-				</a>
-			</section>
+			<?php get_template_part( 'forums', 'loop-forums' ); ?>
 			
 		<?php endforeach; ?>
 		

@@ -30,10 +30,10 @@
 							</li>
 						<?php endif; ?>
 						<li class="number">
-							<a href="<?php bloginfo( 'url' ); ?>/forums/"><?php bloginfo( 'description' ); ?></a>
+							<a href="<?php echo get_post_type_archive_link( 'forum_thread' ); ?>"><?php bloginfo( 'description' ); ?></a>
 						</li>
 						<li class="name">
-							<a href="<?php bloginfo( 'url' ); ?>/forums/">Forums</a>
+							<a href="<?php echo get_post_type_archive_link( 'forum_thread' ); ?>">Forums</a>
 						</li>
 					</ul>
 				</hgroup>

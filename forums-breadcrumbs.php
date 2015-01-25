@@ -29,9 +29,19 @@ elseif ( is_tax( 'forum' ) )
 
 // Get the ancestors of the current forum, append the current forum
 //
-$forums = get_ancestors( $forum->term_id, 'taxonomy' );
-$forums[] = $forum;
+$ancestor_ids = get_ancestors( $forum->term_id, 'forum', 'taxonomy' );
 
+// get_ancestors returns a bunch of IDs, so we need to convert them to objects.
+//
+$forums = array();
+foreach ( $ancestor_ids as $ancestor_id )
+{
+	$forums[] = get_term( $ancestor_id, 'forum' );
+}
+
+$forums[] = $forum; ?>
+
+<?php
 // Add the ancestors to the breadcrumbs
 //
 foreach ( $forums as $forum )
@@ -49,6 +59,13 @@ if ( is_singular( 'forum_thread' ) )
 	$crumbs[] = array(
 		'name' => $obj->post_title,
 	);
+}
+
+// If it's a forum, unlink that last forum (because it's the one they're in)
+//
+if ( is_tax( 'forum' ) )
+{
+	unset($crumbs[count($crumbs) - 1]['url']);
 }
 
 ?>

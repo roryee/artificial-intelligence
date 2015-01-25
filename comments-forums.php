@@ -88,6 +88,7 @@ class Forums_Walker_Comment extends Walker_Comment
 	{ ?>
 		</ul>
 	</section>
+	<hr>
 	<?php }
 							
 }

@@ -36,6 +36,14 @@
 	
 }
 
+.forums-subheader
+{
+	@include scale(2);
+	@include trailer;
+	text-align: center;
+	@extend %font-heading;
+}
+
 #forums-header
 {
 	@extend %ccw-article;
@@ -45,7 +53,7 @@
 		@extend %ccw-article;
 		@extend %font-title;
 		@include scale(5);
-		@include trailer;
+		@include wrap;
 		text-align: center;
 	}
 	
@@ -65,7 +73,7 @@
 .forum_thread
 {
 	@extend %ccw-article;
-	transition: background 0.25s ease;
+	transition: background 0.4s ease;
 	
 	a
 	{
