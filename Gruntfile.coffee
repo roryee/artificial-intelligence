@@ -102,6 +102,47 @@ module.exports = (grunt) ->
 						'forums/scss/'
 					]
 			
+			## sass:editor
+			## Compiles editor Sass
+			editor:
+				files: [
+					{
+						expand: true
+						cwd: 'scss/skins/'
+						src: ['*.scss']
+						dest: 'editor/gen/'
+						ext: '.css'
+						extDot: 'first'
+					}
+				]
+				options:
+					style: 'compressed'
+					loadPath: [
+						'scss/'
+						'editor/scss/'
+					]
+			
+			## sass:editord
+			## Compiles editor Sass with debug info
+			editord:
+				files: [
+					{
+						expand: true
+						cwd: 'scss/skins/'
+						src: ['*.scss']
+						dest: 'editor/gen/'
+						ext: '.css'
+						extDot: 'first'
+					}
+				]
+				options:
+					style: 'expanded'
+					lineNumbers: true
+					loadPath: [
+						'scss/'
+						'editor/scss/'
+					]
+			
 		## autoprefixer
 		## Automatically adds vendor prefixes to generated CSS
 		## @see watch:frontend
@@ -126,12 +167,17 @@ module.exports = (grunt) ->
 			frontend:
 				src: 'frontend/gen/*.css'
 			
-			## autoprefixer:frontend
+			## autoprefixer:forums
 			## Prefixes frontend CSS
 			## @see watch:frontend
 			## @see watch:frontendd
 			forums:
 				src: 'forums/gen/*.css'
+			
+			## autoprefixer:editor
+			## Prefixes editor CSS
+			editor:
+				src: 'editor/gen/*.css'
 			
 		
 		## coffee
@@ -236,6 +282,32 @@ module.exports = (grunt) ->
 					'autoprefixer:forums'
 					'coffee:forums'
 				]
+			
+			## watch:editor
+			## Watches editor assets and compiles them
+			editor:
+				files: [
+					'editor/scss/*.scss'
+					'editor/coffee/*.coffee'
+					'scss/**/*.scss'
+				]
+				tasks: [
+					'sass:editor'
+					'autoprefixer:editor'
+				]
+			
+			## watch:editor
+			## Watches editor assets and compiles them with debug info
+			editord:
+				files: [
+					'editor/scss/*.scss'
+					'editor/coffee/*.coffee'
+					'scss/**/*.scss'
+				]
+				tasks: [
+					'sass:editord'
+					'autoprefixer:editor'
+				]
 		
 		## modernizr
 		## Generates custom modernizr build based on CSS and JS assets
@@ -271,6 +343,10 @@ module.exports = (grunt) ->
 						"!bower_components/modernizr/**/*.js"
 						"frontend/**/*.js"
 						"frontend/**/*.scss"
+						"forums/**/*.js"
+						"forums/**/*.scss"
+						"editor/**/*.js"
+						"editor/**/*.scss"
 						"scss/**/*.scss"
 						"streams/**/*.js"
 						"streams/**/*.scss"
@@ -320,6 +396,7 @@ module.exports = (grunt) ->
 	grunt.registerTask 'build', [
 		'sass:frontend'
 		'sass:forums'
+		'sass:editor'
 		'autoprefixer'
 		'coffee'
 		'modernizr'
