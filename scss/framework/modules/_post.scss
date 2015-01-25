@@ -94,6 +94,19 @@
 		border-left: rem(2px) solid;
 	}
 	
+	pre
+	{
+		@extend %ccw-article;
+		padding: 0 1rem;
+		@include wrap;
+		@include spacing($prop: margin);
+		
+		background: color(dbg);
+		color: color(dfg);
+		
+		@extend %font-mono;
+	}
+	
 	.wp-caption
 	{
 		
