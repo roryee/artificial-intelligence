@@ -39,9 +39,24 @@
 			
 			<h2 class="forums-subheader">Threads</h2>
 			
-			<?php if ( have_posts() ): ?>
+			<?php
+			
+			$tax_query = new WP_Query( array(
+				'tax_query' => array(
+					array(
+						'taxonomy'          => 'forum',
+						'field'             => 'term_id',
+						'terms'             => get_queried_object()->term_id,
+						'include_children'  => false,
+					),
+				),
+			));
+			
+			?>
+			
+			<?php if ( $tax_query->have_posts() ): ?>
 				
-				<?php while ( have_posts() ): the_post(); ?>
+				<?php while ( $tax_query->have_posts() ): $tax_query->the_post(); ?>
 					
 					<?php get_template_part( 'forums', 'loop-threads' ); ?>
 					
