@@ -15,7 +15,7 @@
 	$('.nav-mobile-toggle').click offcanvas
 	$('[title="Offcanvas Right"]').click ->
 		offcanvas 'right'
-		console.log 'Clicked!'
+		false
 	
 	$('.reset-offcanvas-1').click    resetOffcanvas
 	$('.reset-offcanvas-2').dblclick resetOffcanvas
