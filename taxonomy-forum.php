@@ -37,15 +37,19 @@
 		
 		<section class="forums-posts">
 			
+			<h2 class="forums-subheader">Threads</h2>
+			
 			<?php if ( have_posts() ): ?>
-				
-				<h2 class="forums-subheader">Threads</h2>
 				
 				<?php while ( have_posts() ): the_post(); ?>
 					
 					<?php get_template_part( 'forums', 'loop-threads' ); ?>
 					
 				<?php endwhile; ?>
+				
+			<?php else: ?>
+				
+				<h3 class="no-posts">No threads</h3>
 				
 			<?php endif; ?>
 			

@@ -201,13 +201,14 @@ $genericons-data-icon: (
 	cog,
 	edit,
 	feed,
+	home,
 	menu,
 	next,
 	previous,
 	reply,
 	search,
 	tag,
-	user
+	user,
 );
 
 @each $slug in $genericons-data-icon

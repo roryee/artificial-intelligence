@@ -1,3 +1,5 @@
+
+
 #crumbs-forums
 {
 	@extend %ccw-article;
@@ -7,7 +9,13 @@
 	
 	.crumb
 	{
-		display: inline;
+		display: inline-block;
+		
+		a,
+		span
+		{
+			padding: 0.25rem;
+		}
 		
 		&:after
 		{
@@ -22,7 +30,16 @@
 	
 	a
 	{
-		@extend a%ai-article;
+		color: color(lh);
+		transition-property: color, background;
+		transition-duration: 0.1s, 0.1s;
+		transition-timing-function: ease, ease;
+		
+		&:hover
+		{
+			background: color(chrbg);
+			color: color(dfg);
+		}
 	}
 	
 }
@@ -33,6 +50,16 @@
 	background: color(lbg);
 	@include ai-forms;
 	@extend %ai-article;
+	
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6
+	{
+		color: color(lh);
+	}
 	
 }
 
@@ -67,6 +94,14 @@
 #article
 {
 	@include ai-article($cc: ccw-article);
+}
+
+.no-posts
+{
+	@include scale(1);
+	@extend %font-lead;
+	text-align: center;
+	color: color(lac);
 }
 
 .forum,

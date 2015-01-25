@@ -104,7 +104,7 @@ class Forums
 			
 			'show_ui' => true,
 			'show_in_nav_menus' => true,
-			'show_tagcloud' => true,
+			'show_tagcloud' => false,
 			'hierarchical' => true,
 			
 			'rewrite' => array(
@@ -122,9 +122,9 @@ class Forums
 		
 		register_taxonomy( 'forum_tag', array( 'forum_thread' ), array(
 			'labels' => array(
-				'name'                        => __( 'Tags' ),
+				'name'                        => __( 'Thread Tags' ),
 				'singular_name'               => __( 'Tag' ),
-				'menu_name'                   => __( 'Tags' ),
+				'menu_name'                   => __( 'Thread Tags' ),
 				'all_items'                   => __( 'All Tags' ),
 				'edit_item'                   => __( 'Edit Tag' ),
 				'view_item'                   => __( 'View Tag' ),
@@ -147,6 +147,7 @@ class Forums
 			'show_in_nav_menus' => true,
 			'show_tagcloud' => true,
 			'hierarchial' => false,
+			'show_tagcloud' => true,
 			
 			'rewrite' => array(
 				'slug' => 'forums/tags',
