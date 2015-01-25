@@ -500,6 +500,7 @@ require_once Artificial_Intelligence::$dir . '/vendor/autoload.php';
  * Import other AI features.
  *
  **/
+require Artificial_Intelligence::$dir . '/functions-editor.php';
 require Artificial_Intelligence::$dir . '/functions-streams.php';
 require Artificial_Intelligence::$dir . '/functions-forums.php';
 
