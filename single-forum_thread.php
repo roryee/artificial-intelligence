@@ -16,7 +16,10 @@
 				<article id="article">
 					
 					<p class="forum_thread-meta">
-						<?php the_author(); ?> | <?php the_time( get_option( 'date_format' ) ); ?> | <?php comments_number( '0 comments', '1 comment', '% comments' ); ?>
+						<?php the_author(); ?> |
+						<?php the_time( get_option( 'date_format' ) ); ?> |
+						<?php comments_number( '0 comments', '1 comment', '% comments' ); ?> |
+						<?php edit_post_link( 'Edit' ); ?>
 					</p>
 					
 					<?php the_content(); ?>

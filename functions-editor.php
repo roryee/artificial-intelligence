@@ -5,15 +5,15 @@ class Editor
 	
 	public static function init()
 	{
-		self::assets();
+		add_action( 'admin_init', array(
+			__CLASS__, 'assets'
+		));
 	}
 	
 	public static function assets()
 	{
 		add_editor_style(
-			Artificial_Intelligence::$dir_abs . '/editor/gen/' . (
-				get_theme_mod( 'ai_theme' ) ? get_theme_mod( 'ai_theme' ) : 'lightning'
-			) . '.css'
+			'editor/gen/' . Artificial_Intelligence::$skin . '.css'
 		);
 	}
 	

@@ -48,7 +48,6 @@
 {
 	min-height: 90vh;
 	background: color(lbg);
-	@include ai-forms;
 	@extend %ai-article;
 	
 	h1,

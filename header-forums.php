@@ -1,7 +1,4 @@
-<?php
-	if ( ! is_user_logged_in() )
-		wp_redirect( wp_login_url( get_post_type_archive_link( 'forum_thread' ) ) );
-?>
+<?php get_template_part( 'forums', 'handler' ); ?>
 <!DOCTYPE html>
 
 <html class="no-js" <?php language_attributes(); ?>>

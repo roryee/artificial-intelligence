@@ -68,7 +68,17 @@
 				
 			<?php endif; ?>
 			
+			<br><hr>
+			
 		</section>
+		
+		<form class="forums-new-thread" method="POST">
+			
+			<h2 class="forums-subheader">New Thread</h2>
+			
+			<?php get_template_part( 'forums', 'form-thread-new' ); ?>
+			
+		</form>
 	
 	</div>
 </main>
