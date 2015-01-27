@@ -21,6 +21,14 @@ class Forums
 			'Forums', 'assets'
 		));
 		
+		register_activation_hook( __FILE__, array(
+			__CLASS__, 'add_caps'
+		));
+		
+		register_deactivation_hook( __FILE__, array(
+			__CLASS__, 'remove_caps'
+		));
+		
 	}
 	
 	public static function post_type()
@@ -57,7 +65,7 @@ class Forums
 			'menu_position' => 21,
 			'menu_icon' => 'dashicons-format-status',
 			
-			'capability_type' => 'post',
+			'capability_type' => 'forum_thread',
 			// TODO: Add custom capabilities
 			// 'capabilities' => array(
 			// 	'edit_post'
@@ -66,6 +74,7 @@ class Forums
 			// 	'edit_posts'
 			// 	'edit_others_posts'
 			// ),
+			'map_meta_cap' => true,
 			
 			'supports' => array(
 				'title', 'editor', 'author', 'comments', 'revisions'
@@ -222,9 +231,112 @@ class Forums
 		
 	}
 	
+	public static $roles = array(
+		// Administrator
+		//
+		'administrator' => array(
+			'do_forums',
+			'edit_forum_thread',
+			'read_forum_thread',
+			'delete_forum_thread',
+			'edit_forum_threads',
+			'edit_others_forum_threads',
+			'publish_forum_threads',
+			'read_private_forum_threads',
+			'delete_forum_threads',
+			'delete_private_forum_threads',
+			'delete_published_forum_threads',
+			'delete_others_forum_threads',
+			'edit_private_forum_threads',
+			'edit_published_forum_threads',
+		),
+		//
+		// Forums Administrator
+		//
+		'editor' => array(
+			'do_forums',
+			'edit_forum_thread',
+			'read_forum_thread',
+			'delete_forum_thread',
+			'edit_forum_threads',
+			'edit_others_forum_threads',
+			'publish_forum_threads',
+			'read_private_forum_threads',
+			'delete_forum_threads',
+			'delete_private_forum_threads',
+			'delete_published_forum_threads',
+			'delete_others_forum_threads',
+			'edit_private_forum_threads',
+			'edit_published_forum_threads',
+		),
+		//
+		// Forums Moderator
+		//
+		'author' => array(
+			'do_forums',
+			'edit_forum_thread',
+			'read_forum_thread',
+			'delete_forum_thread',
+			'edit_forum_threads',
+			'edit_others_forum_threads',
+			'publish_forum_threads',
+			'read_private_forum_threads',
+			'edit_published_forum_threads',
+		),
+		//
+		// Forums Participant (regular user)
+		//
+		'contributor' => array(
+			'do_forums',
+			'edit_forum_thread',
+			'read_forum_thread',
+			'delete_forum_thread',
+			'publish_forum_threads',
+		),
+	);
+	
+	public static function add_caps()
+	{
+		
+		foreach ( self::$roles as $role => $caps )
+		{
+			$role = get_role( $role );
+			
+			foreach ( $caps as $cap )
+			{
+				$role->add_cap( $cap );
+			}
+			
+		}
+		
+	}
+	
+	public static function remove_caps()
+	{
+		
+		foreach ( self::$roles as $role => $caps )
+		{
+			$role = get_role( $role );
+			
+			foreach ( $caps as $cap )
+			{
+				$role->remove_cap( $cap );
+			}
+			
+		}
+		
+	}
+	
 }
 
 Forums::init();
+
+function temp()
+{
+	Forums::add_caps();
+}
+
+add_action( 'admin_init', 'temp' );
 
 /**
 * Returns true if current page is forums-related.

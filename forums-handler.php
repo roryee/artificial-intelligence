@@ -6,13 +6,12 @@ if ( ! is_user_logged_in() )
 	exit;
 }
 
-/*
-elseif ( ! current_user_can( 'view_forum_threads' ) )
+elseif ( ! current_user_can( 'do_forums' ) )
 {
 	wp_redirect( home_url() );
 	exit;
 }
-*/
+
 
 // Implement creating forum threads
 // TODO: Add editing and deleting support to frontend
@@ -20,34 +19,44 @@ elseif ( ! current_user_can( 'view_forum_threads' ) )
 
 if ( ! empty( $_POST['thread_new'] ) )
 {
-	// TODO: Check for permissions
 	
-	$thread_new = $_POST['thread_new'];
-	
-	$thread_new_id = wp_insert_post( array(
-		'post_content' => $thread_new['content'],
-		'post_title' => $thread_new['title'],
-		'post_type' => 'forum_thread',
-		'post_status' => 'publish',
-		'tax_input' => array(
-			'forum' => array(
-				$thread_new['forum'],
-			),
-		),
-	));
-	
-	if ( $thread_new_id === 0 )
+	// Check if current use is allowed to publish forum threads, because that would be bad
+	//
+	if ( current_user_can( 'publish_forum_threads' ) )
 	{
-		// Post creation failed for some reason
-		//
-		// TODO: Implement fallback
+		$thread_new = $_POST['thread_new'];
+		
+		$thread_new_id = wp_insert_post( array(
+			'post_content' => $thread_new['content'],
+			'post_title' => $thread_new['title'],
+			'post_type' => 'forum_thread',
+			'post_status' => 'publish',
+			'tax_input' => array(
+				'forum' => array(
+					$thread_new['forum'],
+				),
+			),
+		));
+		
+		if ( $thread_new_id === 0 )
+		{
+			// Post creation failed for some reason
+			//
+			// TODO: Implement fallback
+		}
+		
+		else
+		{
+			// Post created; redirect to post page
+			//
+			wp_redirect( get_post( $thread_new_id )->guid );
+		}
+		
 	}
 	
 	else
 	{
-		// Post created; redirect to post page
-		//
-		wp_redirect( get_post( $thread_new_id )->guid );
+		wp_die( 'Cheatin\', \'uh?' );
 	}
 	
 }
