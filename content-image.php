@@ -11,6 +11,8 @@
 		</div>
 	</article>
 	
+	<?php get_template_part( 'nav', 'single' ); ?>
+	
 <?php else: ?>
 	
 	<section <?php post_class( 'w' ); ?>>
