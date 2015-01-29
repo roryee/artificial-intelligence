@@ -1,5 +1,5 @@
 <section <?php post_class(); ?>>
-	<a href="<?php the_permalink(); ?>">
+	<a href="<?php the_permalink(); ?>" class="c">
 		
 		<h2 class="forum_thread-name"><?php the_title(); ?></h2>
 		<p class="forum_thread-meta">

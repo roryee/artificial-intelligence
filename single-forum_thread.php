@@ -24,6 +24,10 @@
 					
 					<?php the_content(); ?>
 					
+					<p class="forum_thread-meta">
+						<?php the_terms( get_the_ID(), 'forum_tag', 'Tagged as ' ); ?>
+					</p>
+					
 				</article>
 				
 			<?php endwhile; ?>

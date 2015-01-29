@@ -109,12 +109,16 @@
 	@extend %ccw-article;
 	transition: background 0.4s ease;
 	
-	a
+	> .c
 	{
 		display: block;
 		padding-left: 1rem;
 		padding-right: 1rem;
 		@include wrap;
+	}
+	
+	a
+	{
 		color: color(lfg);
 	}
 	
