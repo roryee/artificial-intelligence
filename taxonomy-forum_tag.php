@@ -33,6 +33,8 @@
 			
 		</section>
 		
+		<?php get_template_part( 'forums', 'pagination' ); ?>
+		
 	</div>
 </main>
 

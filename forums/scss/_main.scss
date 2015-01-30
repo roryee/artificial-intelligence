@@ -143,7 +143,44 @@
 	&:hover
 	{
 		background: darken(color(lbg), 10%);
-		// background: color(la);
+	}
+	
+}
+
+
+.threads-pagination
+{
+	@extend %cc-article;
+	@include wrap;
+	@include box(center, $cc:"> .c", $items: "&-li");
+	
+	&-current,
+	&-empty,
+	a
+	{
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		color: color(lfg);
+	}
+	
+	&-current
+	{
+		background: darken(color(lbg), 10%);
+	}
+	
+	&-empty
+	{
+		color: transparent;
+	}
+	
+	a
+	{
+		transition: background 0.4s ease;
+		
+		&:hover
+		{
+			background: darken(color(lbg), 10%);
+		}
 	}
 	
 }
