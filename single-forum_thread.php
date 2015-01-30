@@ -5,15 +5,6 @@
 		
 		<?php get_template_part( 'forums', 'breadcrumbs' ); ?>
 		
-		<?php
-		
-		// global $tags_ids;
-		// global $thread_new;
-		
-		?>
-		
-		<pre class="debug"><?php var_dump( get_option( 'temp_tags_ids' ) ); ?></pre>
-		
 		<?php if ( have_posts() ): ?>
 			
 			<?php while ( have_posts() ): the_post(); ?>
