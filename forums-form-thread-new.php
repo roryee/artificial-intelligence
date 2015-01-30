@@ -8,7 +8,6 @@ wp_editor( '', 'thread-new', array(
 	'textarea_name'     => 'thread_new[content]',
 	'textarea_rows'     => 15,
 	'tabindex'          => null,
-	// 'editor_css'        => '<style>@import url(' . Artificial_Intelligence::$dir_abs . '/editor/gen/' . Artificial_Intelligence::$skin . '.css' . ');</style>',
 	'editor_class'      => 'thread-new-editor',
 	'teeny'             => false,
 	'dfw'               => true,
@@ -18,6 +17,8 @@ wp_editor( '', 'thread-new', array(
 ));
 
 ?>
+
+<input class="thread-new-tags" type="text" name="thread_new[tags]" value="" placeholder="Tags (separate with commas)" />
 
 <input type="hidden" name="thread_new[forum]" value="<?php echo get_queried_object()->term_id; ?>">
 

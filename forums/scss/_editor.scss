@@ -5,24 +5,34 @@ form
 	@include ai-forms;
 }
 
-.thread-new-title
+#wp-thread-new-wrap
 {
-	display: block;
-	width: 100%;
-	border: 0;
-	padding: 0.25rem;
-	@include spacing($prop: margin);
+	@include wrap;
+}
 
-	@include scale(1);
+.thread-new
+{
+	&-title,
+	&-tags
+	{
+		display: block;
+		width: 100%;
+		border: 0;
+		padding: 0.25rem;
+		// @include spacing($prop: margin);
 
-	@extend %font-lead;
+		@include scale(1);
 
-	-webkit-appearance: none;
-	   -moz-appearance: none;
-		  -ms-appearance: none;
-			    appearance: none;
+		@extend %font-lead;
 
+		-webkit-appearance: none;
+			 -moz-appearance: none;
+				-ms-appearance: none;
+						appearance: none;
 
+		// placeholder to help with indents
+		
+	}
 }
 
 button[type="submit"],

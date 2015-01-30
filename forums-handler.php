@@ -12,9 +12,8 @@ elseif ( ! current_user_can( 'do_forums' ) )
 	exit;
 }
 
-
 // Implement creating forum threads
-// TODO: Add editing and deleting support to frontend
+// TODO: Add editing and deleting support to frontend, maybe?
 //
 
 if ( ! empty( $_POST['thread_new'] ) )
@@ -26,6 +25,43 @@ if ( ! empty( $_POST['thread_new'] ) )
 	{
 		$thread_new = $_POST['thread_new'];
 		
+		$tags_ids = array();
+		
+		// If any thread tags are set, make them nice too.
+		//
+		if ( ! empty( $thread_new['tags'] ) )
+		{
+			
+			foreach ( explode( ',', $thread_new['tags'] ) as $tag )
+			{
+				// Trim the raw tag and replace any internal whitespace with a space
+				//
+				$tag = preg_replace( '/\s/', ' ', trim( $tag ) );
+				
+				// Let WordPress handle the hard stuff
+				//
+				if ( term_exists( $tag ) )
+				{
+					// If the tag already exists, get its ID
+					//
+					$tags_ids[] = (int) get_term_by( 'name', $tag, 'forum_tag' )->term_id;
+				}
+				
+				else
+				{
+					// If not, create it and get its ID
+					//
+					$tags_ids[] = wp_insert_term( $tag, 'forum_tag' )['term_id'];
+				}
+				
+			}
+			
+			update_option( 'temp_tags_ids', $tags_ids );
+			
+		}
+		
+		// Make the new post
+		//
 		$thread_new_id = wp_insert_post( array(
 			'post_content' => $thread_new['content'],
 			'post_title' => $thread_new['title'],
@@ -35,6 +71,7 @@ if ( ! empty( $_POST['thread_new'] ) )
 				'forum' => array(
 					$thread_new['forum'],
 				),
+				'forum_tag' => $tags_ids,
 			),
 		));
 		
@@ -56,6 +93,8 @@ if ( ! empty( $_POST['thread_new'] ) )
 	
 	else
 	{
+		// Not allowed to post, so die
+		//
 		wp_die( 'Cheatin\', \'uh?' );
 	}
 	

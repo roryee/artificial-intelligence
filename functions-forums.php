@@ -6,26 +6,26 @@ class Forums
 	public static function init()
 	{
 		add_action( 'init', array(
-			'Forums', 'post_type'
+			__CLASS__, 'post_type'
 		));
 		
 		add_action( 'init', array(
-			'Forums', 'menus',
+			__CLASS__, 'menus',
 		));
 		
 		add_action( 'widgets_init', array(
-			'Forums', 'widgets'
+			__CLASS__, 'widgets'
 		));
 		
 		add_action( 'wp_enqueue_scripts', array(
-			'Forums', 'assets'
+			__CLASS__, 'assets'
 		));
 		
-		register_activation_hook( __FILE__, array(
+		add_action( 'after_setup_theme', array(
 			__CLASS__, 'add_caps'
 		));
 		
-		register_deactivation_hook( __FILE__, array(
+		add_action( 'switch_theme', array(
 			__CLASS__, 'remove_caps'
 		));
 		
@@ -66,14 +66,7 @@ class Forums
 			'menu_icon' => 'dashicons-format-status',
 			
 			'capability_type' => 'forum_thread',
-			// TODO: Add custom capabilities
-			// 'capabilities' => array(
-			// 	'edit_post'
-			// 	'delete_post'
-			// 	'read_post'
-			// 	'edit_posts'
-			// 	'edit_others_posts'
-			// ),
+			
 			'map_meta_cap' => true,
 			
 			'supports' => array(
@@ -85,7 +78,6 @@ class Forums
 				'pages' => true,
 			),
 			'hierarchial' => false,
-			// 'query_var' => true,
 			
 			'has_archive' => 'forums',
 			'can_export' => true,
@@ -121,10 +113,12 @@ class Forums
 				'hierarchical' => true,
 			),
 			
-			// TODO: Add capabilities
-			// 'capabilities' => array(
-			//
-			// ),
+			'capabilities' => array(
+				'manage_terms'  => 'manage_forums',
+				'edit_terms'    => 'manage_forums',
+				'delete_terms'  => 'manage_forums',
+				'assign_terms'  => 'do_forums',
+			),
 			
 		));
 		
@@ -162,10 +156,12 @@ class Forums
 				'slug' => 'forums/tags',
 			),
 			
-			// TODO: Add capabilities
-			// 'capabilities' => array(
-			//
-			// ),
+			'capabilities' => array(
+				'manage_terms'  => 'manage_forums',
+				'edit_terms'    => 'manage_forums',
+				'delete_terms'  => 'manage_forums',
+				'assign_terms'  => 'do_forums',
+			),
 			
 		));
 		
@@ -236,6 +232,7 @@ class Forums
 		//
 		'administrator' => array(
 			'do_forums',
+			'manage_forums',
 			'edit_forum_thread',
 			'read_forum_thread',
 			'delete_forum_thread',
@@ -255,6 +252,7 @@ class Forums
 		//
 		'editor' => array(
 			'do_forums',
+			'manage_forums',
 			'edit_forum_thread',
 			'read_forum_thread',
 			'delete_forum_thread',
@@ -289,8 +287,9 @@ class Forums
 		'contributor' => array(
 			'do_forums',
 			'edit_forum_thread',
+			'edit_forum_threads',
+			'edit_published_forum_threads',
 			'read_forum_thread',
-			'delete_forum_thread',
 			'publish_forum_threads',
 		),
 	);
@@ -331,12 +330,11 @@ class Forums
 
 Forums::init();
 
-function temp()
-{
-	Forums::add_caps();
-}
-
-add_action( 'admin_init', 'temp' );
+// function temp()
+// {
+// 	Forums::add_caps();
+// }
+// add_action( 'init', 'temp' );
 
 /**
 * Returns true if current page is forums-related.
