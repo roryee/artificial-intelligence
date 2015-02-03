@@ -15,6 +15,8 @@
 			
 		</header>
 		
+		<?php $paginate = (bool) have_posts(); ?>
+		
 		<section class="forums-posts">
 			
 			<?php if ( have_posts() ): ?>
@@ -33,7 +35,11 @@
 			
 		</section>
 		
-		<?php get_template_part( 'forums', 'pagination' ); ?>
+		<?php if ( $paginate ): ?>
+			
+			<?php get_template_part( 'forums', 'pagination' ); ?>
+			
+		<?php endif; ?>
 		
 	</div>
 </main>

@@ -54,6 +54,8 @@
 				),
 			));
 			
+			$paginate = (bool) $tax_query->have_posts();
+			
 			?>
 			
 			<?php if ( $tax_query->have_posts() ): ?>
@@ -72,7 +74,11 @@
 			
 		</section>
 		
-		<?php get_template_part( 'forums', 'pagination' ); ?>
+		<?php if ( $paginate ): ?>
+			
+			<?php get_template_part( 'forums', 'pagination' ); ?>
+			
+		<?php endif; ?>
 		
 		<?php if ( current_user_can( 'publish_forum_threads' ) ): ?>
 		
