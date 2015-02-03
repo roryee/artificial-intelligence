@@ -76,44 +76,44 @@ class Artificial_Intelligence
 		// Set up theme.
 		//
 		add_action( 'after_setup_theme', array(
-			'Artificial_Intelligence', 'setup'
+			__CLASS__, 'setup'
 		));
 		
 		// Enqueue assets.
 		//
 		add_action( 'wp_enqueue_scripts', array(
-			'Artificial_Intelligence', 'assets'
+			__CLASS__, 'assets'
 		));
 		
 		// Register menus.
 		//
 		add_action( 'init', array(
-			'Artificial_Intelligence', 'menus'
+			__CLASS__, 'menus'
 		));
 		
 		// Register sidebars.
 		//
 		add_action( 'widgets_init', array(
-			'Artificial_Intelligence', 'widgets'
+			__CLASS__, 'widgets'
 		));
 		
 		// Register custom post types.
 		//
 		add_action( 'init', array(
-			'Artificial_Intelligence', 'post_types'
+			__CLASS__, 'post_types'
 		));
 		
 		// Register customizer options.
 		//
 		add_action( 'customize_register', array(
-			'Artificial_Intelligence', 'customizer'
+			__CLASS__, 'customizer'
 		));
 		
 		
 		// Tweak excerpt length.
 		//
 		add_filter( 'excerpt_length', array(
-			'Artificial_Intelligence', 'excerpt'
+			__CLASS__, 'excerpt'
 		), 999 );
 		
 	}
@@ -501,7 +501,6 @@ require_once Artificial_Intelligence::$dir . '/vendor/autoload.php';
  *
  **/
 require Artificial_Intelligence::$dir . '/functions-editor.php';
-require Artificial_Intelligence::$dir . '/functions-streams.php';
 require Artificial_Intelligence::$dir . '/functions-forums.php';
 
 
