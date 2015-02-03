@@ -9,7 +9,7 @@ class Forums_Walker_Comment extends Walker_Comment
 	// opens the comments section
 	public function __construct()
 	{ ?>
-		<section class="comments-old w">
+		<section id="comments-old" class="comments-old w">
 			<hr>
 			<h2>Replies</h2>
 				<ul class="comments-old c">
@@ -57,9 +57,9 @@ class Forums_Walker_Comment extends Walker_Comment
 							<?php
 							
 							$reply_args = array(
-							'depth' => $depth,
-							'max_depth' => $args['max_depth'],
-							'reply_text' => '<span data-icon="reply"></span>'
+								'depth' => $depth,
+								'max_depth' => $args['max_depth'],
+								'reply_text' => '<span data-icon="reply"></span>'
 							);
 							
 							comment_reply_link( array_merge( $args, $reply_args ) );
@@ -88,11 +88,37 @@ class Forums_Walker_Comment extends Walker_Comment
 	{ ?>
 		</ul>
 	</section>
+	
+	<?php
+	$comments_pages = paginate_comments_links( array(
+		'base' => add_query_arg( 'cpage', '%#%' ),
+		'type' => 'array',
+		'prev_next' => false,
+		'echo' => false,
+		'add_fragment' => '#comments-old',
+	));
+	?>
+	
+	<div class="comments-pagination">
+		<ul class="c">
+			
+			<?php foreach ( $comments_pages as $link ): ?>
+				
+				<li class="comments-pagination-li">
+					<?php echo $link; ?>
+				</li>
+				
+			<?php endforeach; ?>
+			
+		</ul>
+	</div>
+	
 	<hr>
+	
 	<?php }
-							
+
 }
-						
+
 function ai_comments_fields( $fields )
 {
 	$req = '';
@@ -130,9 +156,9 @@ function ai_comments_field()
 	return
 	'<div class="form-group req">' .
 		'<textarea name="comment" placeholder="Comment" style="min-height:10em;"></textarea>' .
-		'</div>';
-	}
-	add_filter( 'comment_form_field_comment', 'ai_comments_field' );
+	'</div>';
+}
+add_filter( 'comment_form_field_comment', 'ai_comments_field' );
 	
 ?>
 	

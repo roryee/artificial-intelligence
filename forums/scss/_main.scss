@@ -148,24 +148,30 @@
 }
 
 
-.threads-pagination
+.threads-pagination,
+.comments-pagination
 {
 	@extend %cc-article;
 	@include wrap;
 	@include box(center, $cc:"> .c", $items: "&-li");
 	
-	&-current,
 	&-empty,
-	a
+	.current,
+	a,
 	{
-		display: inline-block;
+		display: block;
 		padding: 0.5rem 1rem;
 		color: color(lfg);
 	}
 	
-	&-current
+	.current,
 	{
 		background: darken(color(lbg), 10%);
+	}
+	
+	&-current
+	{
+		@extend .current;
 	}
 	
 	&-empty
