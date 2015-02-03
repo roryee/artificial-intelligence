@@ -33,3 +33,48 @@
 	}
 	
 }
+
+#posts-nav
+{
+	@extend %cf;
+	background: color(dbg);
+	
+	> a
+	{
+		display: block;
+		float: left;
+		width: 50%;
+		padding: 1rem 1.5rem;
+		@include scale(2);
+		@extend %font-heading;
+		
+		color: color(dh);
+		
+		transition-property: background, color;
+		transition-duration: 0.2s, 0.2s;
+		transition-timing-function: ease, ease;
+		
+		&:hover
+		{
+			background: color(dh);
+			color: color(dbg);
+		}
+		
+		span[data-icon]:before
+		{
+			@include scale(2);
+		}
+		
+	}
+	
+	.posts-nav-next
+	{
+		text-align: right;
+		
+		&:only-child
+		{
+			float: right;
+		}
+	}
+	
+}
