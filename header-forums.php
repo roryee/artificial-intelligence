@@ -67,8 +67,8 @@
 		
 		
 		wp_nav_menu( array(
-			'theme_location'  => 'offcanvas_right',
-			'menu'            => 'Offcanvas Right',
+			'theme_location'  => 'forums_offcanvas_right',
+			'menu'            => 'Forums Offcanvas Right',
 			'container'       => 'nav',
 			'container_class' => 'reset-offcanvas-2',
 			'container_id'    => 'nav-offcanvas-right',

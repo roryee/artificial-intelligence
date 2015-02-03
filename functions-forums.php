@@ -172,6 +172,7 @@ class Forums
 		register_nav_menus( array(
 			'forums_primary' =>          __( 'Forums' ),
 			'forums_offcanvas_left'  =>  __( 'Forums Mobile' ),
+			'forums_offcanvas_right' =>  __( 'Forums Offcanvas Right' ),
 		));
 	}
 	
