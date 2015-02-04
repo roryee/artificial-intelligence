@@ -19,8 +19,7 @@
     "type": "wordpress-theme",
     "require": {
         "php": ">=5.3.3",
-        "wpackagist-plugin/advanced-custom-fields": ">=4.3.9",
-        "wpackagist-plugin/radio-buttons-for-taxonomies": "~1.7"
+        "wpackagist-plugin/advanced-custom-fields": ">=4.3.9"
     },
     "require-dev":{
         "php": ">=5.3.3"
@@ -28,15 +27,13 @@
     "extra": {
       "installer-paths": {
         "vendor/{$name}": [
-          "wpackagist-plugin/advanced-custom-fields",
-          "wpackagist-plugin/radio-buttons-for-taxonomies"
+          "wpackagist-plugin/advanced-custom-fields"
         ]
       }
     },
     "autoload": {
       "files": [
-        "vendor/advanced-custom-fields/acf.php",
-        "vendor/radio-buttons-for-taxonomies/radio-buttons-for-taxonomies.php"
+        "vendor/advanced-custom-fields/acf.php"
       ]
     }
 }
