@@ -1,0 +1,13 @@
+{
+  "name": "slidesjs",
+  "homepage": "https://github.com/nathansearles/Slides",
+  "_release": "130735b3e1",
+  "_resolution": {
+    "type": "branch",
+    "branch": "SlidesJS-3",
+    "commit": "130735b3e15f75e726755cf9108ba20e105456ef"
+  },
+  "_source": "https://github.com/nathansearles/Slides.git",
+  "_target": "SlidesJS-3",
+  "_originalSource": "https://github.com/nathansearles/Slides.git"
+}
