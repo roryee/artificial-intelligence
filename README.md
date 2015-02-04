@@ -38,7 +38,7 @@ Got an idea? Open a ticket for it and we'll see about implementing it!
 
 Artificial Intelligence is a [WordPress](https://wordpress.org) theme; it requires you to have a working installation of WordPress, version 3.9 or later. WordPress has a couple base requirements that almost all webhosts provide; in fact, many hosts provide one-click installations. If you're setting up your install manually, check out the [installation guide on the WordPress Codex](http://codex.wordpress.org/Installing_WordPress).
 
-1. Download the latest release of Artificial Intelligence to your computer.
+1. Download the [latest release](https://github.com/duchenerc/artificial-intelligence/releases) of Artificial Intelligence to your computer. Make sure to get the distribution release! (big green button)
 2. In your WordPress install, navigate to Appearance >> Themes. Click "Add Theme," then "Upload Theme."
 3. Upload Artificial Intelligence to WordPress and activate it.
 
@@ -50,40 +50,4 @@ We've got a [quick guide](https://github.com/duchenerc/artificial-intelligence/w
 
 ## Development
 
-To help develop AI, you'll need the following tools:
-
-* [Ruby](https://www.ruby-lang.org/) (with [Bundler](http://bundler.io/))
-* [PHP](http://php.net/) (with [Composer](https://getcomposer.org/))
-* [Node](http://nodejs.org/) (with [npm](https://www.npmjs.com/))
-* [Grunt](http://www.gruntjs.org/)
-* [Bower](http://bower.io/)
-* [Vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/)
-
-After cloning the repo, you'll need to run the following commands to get everything up and working:
-
-```bash
-npm install
-bower install
-bundle install
-composer install
-grunt build
-```
-
-If you're using Vagrant, running a VM is as simple as a `vagrant up`.
-
-Note that the master branch is for stable releases, and the development branch is unstable. Probably opposite of the way it should be, but whatever.
-
-### Documentation
-
-Documentation is in the works. We're working hard to put out a lot of new features right now, but docs will follow shortly.
-
-### Grunt tasks
-
-* `grunt sass`: Compiles Sass to CSS.
-* `grunt autoprefixer`: Prefixes generated CSS.
-* `grunt coffee`: Compiles CoffeeScript to JavaScript.
-* `grunt watch`: Run most of the above tasks when certain files change.
-	* `grunt watch:sass`: Compiles Sass to CSS and applies necessary vendor prefixes with Autoprefixer.
-	* `grunt watch:coffee`: Compiles CoffeeScript to JavaScript.
-* `grunt modernizr`: Regenerates the Modernizr build.
-* `grunt build`: Quickly builds CSS and JS for conveinence.
+For information on the development environment, check out [the page in the wiki](https://github.com/duchenerc/artificial-intelligence/wiki/Development-Environment).
