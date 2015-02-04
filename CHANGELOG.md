@@ -1,3 +1,10 @@
+## v1.2.0
+
+* Add forums
+* Add navigation to bottom of posts and archives
+* Removed width limit on site container
+* Cleaned up code
+
 ## v1.1.4
 
 * Fix update issues

@@ -51,7 +51,7 @@
 					<?php if ( get_tags() ): ?>
 						<div class="col">
 							<h6><span data-icon="tag"></span></h6>
-							<?php the_tags( '<ul>\n<li>', '</li>\n<li>', '</li>\n</ul>' ); ?>
+							<?php the_tags( '<ul><li>', '</li><li>', '</li></ul>' ); ?>
 						</div>
 					<?php endif; ?>
 					
@@ -59,6 +59,8 @@
 				
 			</div>
 		</footer>
+		
+		<?php get_template_part( 'nav', 'single' ); ?>
 		
 	<?php endif; ?>
 	

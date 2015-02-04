@@ -1,0 +1,37 @@
+
+// MODULE: PROFILE
+// Simple, beautiful profile widget.
+// Has no options.
+//
+@mixin ai-profile($sel: &, $opts...)
+{
+	$args: keywords($opts);
+	
+	@extend %ccw-article;
+	@include vpadding;
+	
+	text-align: center;
+	
+	&-img
+	{
+		@include vpadding-top;
+		
+		img
+		{
+			border-radius: 50%;
+		}
+		
+	}
+	
+	&-bio
+	{
+		@extend %ai-article;
+		@extend %font-lead;
+		
+		a
+		{
+			@extend a%ai-article;
+		}
+	}
+	
+}

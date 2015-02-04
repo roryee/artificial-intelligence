@@ -18,6 +18,8 @@
 			
 		<?php endwhile; ?>
 		
+		<?php get_template_part( 'nav', 'archive' ); ?>
+		
 	<?php endif; ?>
 	
 </main>

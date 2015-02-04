@@ -1,55 +1,5 @@
 [
     {
-        "name": "wpackagist-plugin/advanced-custom-fields",
-        "version": "4.3.9",
-        "version_normalized": "4.3.9.0",
-        "source": {
-            "type": "svn",
-            "url": "http://plugins.svn.wordpress.org/advanced-custom-fields/",
-            "reference": "trunk"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "http://downloads.wordpress.org/plugin/advanced-custom-fields.zip",
-            "reference": null,
-            "shasum": null
-        },
-        "require": {
-            "composer/installers": "~1.0"
-        },
-        "replace": {
-            "wpackagist/advanced-custom-fields": "self.version"
-        },
-        "type": "wordpress-plugin",
-        "installation-source": "dist",
-        "homepage": "http://wordpress.org/plugins/advanced-custom-fields/"
-    },
-    {
-        "name": "wpackagist-plugin/json-rest-api",
-        "version": "1.1.1",
-        "version_normalized": "1.1.1.0",
-        "source": {
-            "type": "svn",
-            "url": "http://plugins.svn.wordpress.org/json-rest-api/",
-            "reference": "tags/1.1.1"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "http://downloads.wordpress.org/plugin/json-rest-api.1.1.1.zip",
-            "reference": null,
-            "shasum": null
-        },
-        "require": {
-            "composer/installers": "~1.0"
-        },
-        "replace": {
-            "wpackagist/json-rest-api": "self.version"
-        },
-        "type": "wordpress-plugin",
-        "installation-source": "dist",
-        "homepage": "http://wordpress.org/plugins/json-rest-api/"
-    },
-    {
         "name": "composer/installers",
         "version": "v1.0.20",
         "version_normalized": "1.0.20.0",
@@ -144,5 +94,27 @@
             "zend",
             "zikula"
         ]
+    },
+    {
+        "name": "wpackagist-plugin/advanced-custom-fields",
+        "version": "4.3.9",
+        "version_normalized": "4.3.9.0",
+        "source": {
+            "type": "svn",
+            "url": "http://plugins.svn.wordpress.org/advanced-custom-fields/",
+            "reference": "trunk"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "http://downloads.wordpress.org/plugin/advanced-custom-fields.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
     }
 ]
