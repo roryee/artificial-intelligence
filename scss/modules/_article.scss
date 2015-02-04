@@ -1,0 +1,113 @@
+
+// CONSTANT: DEFAULT ARTICLE COLORS
+// Default color slugs to use in article contexts.
+//
+$article-colors: (
+	p:  lfg,
+	h:  lh,
+	a:  la,
+	ac: lac,
+);
+
+// MODULE: ARTICLE
+// Provides basic color and typography styles.
+// Options:
+//   p                Color to apply to body copy
+//   h                Color to apply to headings
+//   a                Color to apply to anchors
+//   ac               Accent color
+//   adjust-first     The border-top-width of the first paragraph element
+//
+@mixin ai-article($sel: &, $opts...)
+{
+	$args: keywords($opts);
+	
+	$cc: cc-article !default;
+	
+	@if map-has-key($args, cc)
+	{
+		$cc: map-find($args, cc)
+	}
+	
+	$colors: ();
+	
+	@each $context, $color in $article-colors
+	{
+		@if map-has-key($args, color-#{$context})
+		{
+			$colors: map-merge(
+				$colors,
+				( $context: map-find($args, color-#{$context}) )
+			);
+		}
+		
+		@else
+		{
+			$colors: map-merge(
+				$colors,
+				( $context: $color )
+			);
+		}
+	}
+	
+	@extend %ai-post;
+	color: color(map-find($colors, p));
+	
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	ul,
+	ol,
+	blockquote,
+	.wp-caption.aligncenter,
+	.wp-caption.alignnone
+	{
+		@extend %#{$cc};
+	}
+	
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6
+	{
+		color: color(map-find($colors, h));
+	}
+	
+	hr
+	{
+		color: color(map-find($colors, ac));
+	}
+	
+	blockquote,
+	.wp-caption,
+	.wp-caption-text
+	{
+		color: color(map-find($colors, ac));
+		color: color(map-find($colors, ac));
+	}
+	
+	span[style*="underline"]
+	{
+		color: color(map-find($colors, p));
+	}
+	
+	@if map-has-key($args, adjust-first)
+	{
+		p:first-of-type
+		{
+			border-top: map-find($args, adjust-first) solid transparent;
+		}
+	}
+	
+	address
+	{
+		color: color(map-find($colors, ac));
+	}
+	
+}

@@ -3,51 +3,43 @@ module.exports = (grunt) ->
 	grunt.initConfig
 		pkg: grunt.file.readJSON 'package.json'
 		
-		# Watch config
-		watch:
-			sass:
-				files: [
-					'frontend/scss/*.scss'
-					'scss/**/*.scss'
-				]
-				tasks: [
-					'sass:dist'
-					'autoprefixer'
-				]
-			
-			sassdebug:
-				files: [
-					'frontend/scss/*.scss'
-					'scss/**/*.scss'
-				]
-				tasks: [
-					'sass:debug'
-					'autoprefixer'
-				]
-					
-			coffee:
-				files: [
-					'frontend/coffee/*.coffee'
-				]
-				tasks: [
-					'coffee:frontend'
-				]
-			
-			streams:
-				files: [
-					'streams/app/**/*.coffee'
-					'streams/templates/*.jade'
-				]
-				tasks: [
-					'jade:streams'
-					'coffee:streams'
-				]
-		
-		# Sass config
+		## sass
+		## Compiles Sass assets
+		## @see watch:frontend
+		## @see watch:frontendd
+		## @see watch:forums
+		## @see watch:forumsd
+		## @see build
 		sass:
 			options:
 				bundleExec: true
-			debug:
+			
+			## sass:frontend
+			## Compiles frontend Sass.
+			## @see watch:frontend
+			## @see build
+			frontend:
+				files: [
+					{
+						expand: true
+						cwd: 'scss/skins/'
+						src: ['*.scss']
+						dest: 'frontend/gen/'
+						ext: '.css'
+						extDot: 'first'
+					}
+				]
+				options:
+					style: 'compressed'
+					loadPath: [
+						'scss/'
+						'frontend/scss/'
+					]
+			
+			## sass:frontendd
+			## Compiles frontend Sass with debug info
+			## @see watch:frontendd
+			frontendd:
 				files: [
 					{
 						expand: true
@@ -65,13 +57,18 @@ module.exports = (grunt) ->
 						'scss/'
 						'frontend/scss/'
 					]
-			dist:
+				
+			## sass:forums
+			## Compiles forums Sass
+			## @see watch:forums
+			## @see build
+			forums:
 				files: [
 					{
 						expand: true
 						cwd: 'scss/skins/'
-						src: ['*.scss']
-						dest: 'frontend/gen/'
+						src: ['*.scss'],
+						dest: 'forums/gen/'
 						ext: '.css'
 						extDot: 'first'
 					}
@@ -80,10 +77,79 @@ module.exports = (grunt) ->
 					style: 'compressed'
 					loadPath: [
 						'scss/'
-						'frontend/scss/'
+						'forums/scss/'
 					]
-					
-		# Autoprefixer config
+			
+			## sass:forumsd
+			## Compiles forums Sass with debug info
+			## @see watch:forumsd
+			forumsd:
+				files: [
+					{
+						expand: true
+						cwd: 'scss/skins/'
+						src: ['*.scss'],
+						dest: 'forums/gen/'
+						ext: '.css'
+						extDot: 'first'
+					}
+				]
+				options:
+					style: 'expanded'
+					lineNumbers: true
+					loadPath: [
+						'scss/'
+						'forums/scss/'
+					]
+			
+			## sass:editor
+			## Compiles editor Sass
+			editor:
+				files: [
+					{
+						expand: true
+						cwd: 'scss/skins/'
+						src: ['*.scss']
+						dest: 'editor/gen/'
+						ext: '.css'
+						extDot: 'first'
+					}
+				]
+				options:
+					style: 'compressed'
+					loadPath: [
+						'scss/'
+						'editor/scss/'
+					]
+			
+			## sass:editord
+			## Compiles editor Sass with debug info
+			editord:
+				files: [
+					{
+						expand: true
+						cwd: 'scss/skins/'
+						src: ['*.scss']
+						dest: 'editor/gen/'
+						ext: '.css'
+						extDot: 'first'
+					}
+				]
+				options:
+					style: 'expanded'
+					lineNumbers: true
+					loadPath: [
+						'scss/'
+						'editor/scss/'
+					]
+			
+		## autoprefixer
+		## Automatically adds vendor prefixes to generated CSS
+		## @see watch:frontend
+		## @see watch:frontendd
+		## @see watch:forums
+		## @see watch:forumsd
+		## @see build
 		autoprefixer:
 			options:
 				browsers: [
@@ -93,55 +159,159 @@ module.exports = (grunt) ->
 					'firefox esr'
 				]
 				map: true
-				
-			dist:
+			
+			## autoprefixer:frontend
+			## Prefixes frontend CSS
+			## @see watch:frontend
+			## @see watch:frontendd
+			frontend:
 				src: 'frontend/gen/*.css'
 			
+			## autoprefixer:forums
+			## Prefixes frontend CSS
+			## @see watch:frontend
+			## @see watch:frontendd
+			forums:
+				src: 'forums/gen/*.css'
+			
+			## autoprefixer:editor
+			## Prefixes editor CSS
+			editor:
+				src: 'editor/gen/*.css'
+			
 		
-		# CoffeeScript config
+		## coffee
+		## Compiles CoffeeScript assets
+		## @see watch:frontend
+		## @see watch:frontendd
+		## @see watch:forums
+		## @see watch:forumsd
+		## @see build
 		coffee:
 			options:
 				sourceMap: true
 			
+			## coffee:frontend
+			## Compiles frontend CoffeeScript
+			## @see watch:frontend
+			## @see watch:frontendd
 			frontend:
 				options:
 					bare: true
 					join: true
 				files:
-					'frontend/gen/frontend.js': ['frontend/coffee/*.coffee']
+					'frontend/gen/frontend.js': [
+						'coffee/*.coffee'
+						'frontend/coffee/*.coffee'
+					]
 			
-			streams:
+			## coffee:forums
+			## Compiles forums CoffeeScript
+			## @see watch:forums
+			## @see watch:forumsd
+			forums:
 				options:
 					bare: true
 					join: true
 				files:
-					'streams/streams.js': [
-						'streams/app/factories/*.coffee'
-						'streams/app/controllers/*coffee'
-						'streams/app/config/*.coffee'
+					'forums/gen/forums.js': [
+						'coffee/*.coffee'
+						'forums/coffee/*.coffee'
 					]
-				
 		
-		# Jade config
-		# used for Streams templating, maybe eventually for WordPress
-		jade:
-			options:
-				pretty: true
-				
-			streams:
+		## watch
+		## Watches files for changes and runs tasks upon change
+		watch:
+			
+			## watch:frontend
+			## Watches frontend assets and compiles them
+			frontend:
 				files: [
-					{
-						expand: true
-						cwd: 'streams/templates/'
-						src: ['*.jade']
-						dest: 'streams/partials/'
-						ext: '.html'
-						extDot: 'first'
-					}
+					'frontend/scss/*.scss'
+					'frontend/coffee/*.coffee'
+					'scss/**/*.scss'
+					'coffee/*.coffee'
+				]
+				tasks: [
+					'sass:frontend'
+					'autoprefixer:frontend'
+					'coffee:frontend'
+				]
+			
+			## watch:frontendd
+			## Watches frontend asssets and compiles them with debug info
+			frontendd:
+				files: [
+					'frontend/scss/*.scss'
+					'frontend/coffee/*.coffee'
+					'scss/**/*.scss'
+					'coffee/*.coffee'
+				]
+				tasks: [
+					'sass:frontendd'
+					'autoprefixer:frontend'
+					'coffee:frontend'
+				]
+			
+			## watch:forums
+			## Watches forums assets and compiles them
+			forums:
+				files: [
+					'forums/scss/*.scss'
+					'forums/coffee/*.coffee'
+					'scss/**/*.scss'
+					'coffee/*.coffee'
+				]
+				tasks: [
+					'sass:forums'
+					'autoprefixer:forums'
+					'coffee:forums'
+				]
+			
+			## watch:forumsd
+			## Watches forums assets and compiles them with debug info
+			forumsd:
+				files: [
+					'forums/scss/*.scss'
+					'forums/coffee/*.coffee'
+					'scss/**/*.scss'
+					'coffee/*.coffee'
+				]
+				tasks: [
+					'sass:forums'
+					'autoprefixer:forums'
+					'coffee:forums'
+				]
+			
+			## watch:editor
+			## Watches editor assets and compiles them
+			editor:
+				files: [
+					'editor/scss/*.scss'
+					'editor/coffee/*.coffee'
+					'scss/**/*.scss'
+				]
+				tasks: [
+					'sass:editor'
+					'autoprefixer:editor'
+				]
+			
+			## watch:editor
+			## Watches editor assets and compiles them with debug info
+			editord:
+				files: [
+					'editor/scss/*.scss'
+					'editor/coffee/*.coffee'
+					'scss/**/*.scss'
+				]
+				tasks: [
+					'sass:editord'
+					'autoprefixer:editor'
 				]
 		
-		# Modernizr config
-		# Awesomeness
+		## modernizr
+		## Generates custom modernizr build based on CSS and JS assets
+		## @see build
 		modernizr:
 			dist:
 				devFile: "bower_components/modernizr/modernizr.js"
@@ -173,6 +343,10 @@ module.exports = (grunt) ->
 						"!bower_components/modernizr/**/*.js"
 						"frontend/**/*.js"
 						"frontend/**/*.scss"
+						"forums/**/*.js"
+						"forums/**/*.scss"
+						"editor/**/*.js"
+						"editor/**/*.scss"
 						"scss/**/*.scss"
 						"streams/**/*.js"
 						"streams/**/*.scss"
@@ -180,12 +354,13 @@ module.exports = (grunt) ->
 				
 				matchCommunityTests: false
     
-		# Shell config
-		# Manages shell commands
+		## shell
+		## Adds shell shortcuts
+		## @see build
 		shell:
 			
-			# Update dependencies on branch switch
-			# Can be extremely annoying to deal with otherwise
+			## shell:checkout
+			## Update dependencies on branch switch
 			checkout:
 				command: (branch) ->
 					if branch is "dependencies" or branch is "master"
@@ -198,8 +373,9 @@ module.exports = (grunt) ->
 					else
 						"git checkout #{branch}"
 			
-			# install
-			# Installs all the things
+			## shell:install
+			## Installs all dependencies
+			## @see setup
 			install:
 				command: [
 					"npm install"
@@ -214,22 +390,24 @@ module.exports = (grunt) ->
 			
 			
 	
-	grunt.registerTask 'skins', [
-		'sass:dist'
-		'autoprefixer'
-	]
-	
-	# grunt.registerTask 'checkout', ['shell:checkout']
-	
+	## build
+	## Builds all assets
+	## @see setup
 	grunt.registerTask 'build', [
-		'sass:dist'
+		'sass:frontend'
+		'sass:forums'
+		'sass:editor'
 		'autoprefixer'
 		'coffee'
-		'jade'
 		'modernizr'
 	]
 	
-	grunt.registerTask 'setup', ['shell:install', 'build']
+	## setup
+	## Initializes a repository from scratch
+	grunt.registerTask 'setup', [
+		'shell:install'
+		'build'
+	]
 	
 	
 	require('load-grunt-tasks') grunt

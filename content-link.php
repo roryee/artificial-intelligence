@@ -2,14 +2,16 @@
 	
 	<article id="article"
 	style="background-image:url(<?php the_post_thumbnail_src( $post ); ?>);">
-	<div class="c">
-		<div <?php post_class( 'article cc c' ); ?>>
-			
-			<?php the_content(); ?>
-			
+		<div class="c">
+			<div <?php post_class( 'article cc c' ); ?>>
+				
+				<?php the_content(); ?>
+				
+			</div>
 		</div>
-	</div>
-</article>
+	</article>
+	
+	<?php get_template_part( 'nav', 'single' ); ?>
 	
 <?php else: ?>
 	

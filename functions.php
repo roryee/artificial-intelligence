@@ -7,7 +7,7 @@
  * @license GPLv2
  *
  * @package Artifical Intelligence
- * @version 1.1.4
+ * @version 1.2.0
  *
  * @since v1.0 First introduced.
  *
@@ -19,7 +19,7 @@ class Artificial_Intelligence
 	 *
 	 * @var string
 	 **/
-	public static $version = '1.1.4';
+	public static $version = '1.2.0';
 	
 	/**
 	 * Template directory, root-relative.
@@ -39,6 +39,13 @@ class Artificial_Intelligence
 	 **/
 	public static $dir_abs;
 	
+	/**
+	 * Skin slug.
+	 *
+	 * @var string
+	 **/
+	public static $skin;
+	
 	
 	/**
 	 * Initializes theme, sets hooks
@@ -53,47 +60,60 @@ class Artificial_Intelligence
 		self::$dir =     get_template_directory();
 		self::$dir_abs = get_template_directory_uri();
 		
+		// Get current theme.
+		//
+		$skin = get_theme_mod( 'ai_theme' );
+		
+		// If theme is not set, default to lightning.
+		//
+		if ( empty( $skin ) )
+			$skin = 'lightning';
+		
+		// Set theme
+		//
+		self::$skin = $skin;
+		
 		// Set up theme.
 		//
 		add_action( 'after_setup_theme', array(
-			'Artificial_Intelligence', 'setup'
+			__CLASS__, 'setup'
 		));
 		
 		// Enqueue assets.
 		//
 		add_action( 'wp_enqueue_scripts', array(
-			'Artificial_Intelligence', 'assets'
+			__CLASS__, 'assets'
 		));
 		
 		// Register menus.
 		//
 		add_action( 'init', array(
-			'Artificial_Intelligence', 'menus'
+			__CLASS__, 'menus'
 		));
 		
 		// Register sidebars.
 		//
 		add_action( 'widgets_init', array(
-			'Artificial_Intelligence', 'widgets'
+			__CLASS__, 'widgets'
 		));
 		
 		// Register custom post types.
 		//
 		add_action( 'init', array(
-			'Artificial_Intelligence', 'post_types'
+			__CLASS__, 'post_types'
 		));
 		
 		// Register customizer options.
 		//
 		add_action( 'customize_register', array(
-			'Artificial_Intelligence', 'customizer'
+			__CLASS__, 'customizer'
 		));
 		
 		
 		// Tweak excerpt length.
 		//
 		add_filter( 'excerpt_length', array(
-			'Artificial_Intelligence', 'excerpt'
+			__CLASS__, 'excerpt'
 		), 999 );
 		
 	}
@@ -152,22 +172,14 @@ class Artificial_Intelligence
 	public static function assets()
 	{
 		
-		// Get current theme.
-		//
-		$theme = get_theme_mod( 'ai_theme' );
-		
-		// If theme is not set, default to lightning.
-		//
-		if ( empty( $theme ) )
-			$theme = 'lightning';
-		
 		// Frontend styles
 		// The actual stylesheet enqueued depends on the skin currently selected.
 		//
-		wp_register_style(
-			'frontend',
-			self::$dir_abs . '/frontend/gen/' . $theme . '.css'
-		);
+		if ( ! is_forums() )
+			wp_register_style(
+				'frontend',
+				self::$dir_abs . '/frontend/gen/' . self::$skin . '.css'
+			);
 		
 		// Modernizr
 		// Detects browser features
@@ -215,25 +227,29 @@ class Artificial_Intelligence
 		
 		// Frontend scipts
 		//
-		wp_register_script(
-			'frontend',
-			self::$dir_abs . '/frontend/gen/frontend.js',
-			array(
-				'modernizr',
-				'respond',
-				'jquery',
-				'slidesjs',
-				'gsap',
-			),
-			'',
-			true
-		);
+		if ( ! is_forums() )
+			wp_register_script(
+				'frontend',
+				self::$dir_abs . '/frontend/gen/frontend.js',
+				array(
+					'modernizr',
+					'respond',
+					'jquery',
+					'slidesjs',
+					'gsap',
+				),
+				'',
+				true
+			);
 		
 		
 		// ENQUEUE ALL THE THINGS
 		//
-		wp_enqueue_style(  'frontend' );
-		wp_enqueue_script( 'frontend' );
+		if ( ! is_forums() )
+		{
+			wp_enqueue_style(  'frontend' );
+			wp_enqueue_script( 'frontend' );
+		}
 		
 	}
 	
@@ -409,7 +425,7 @@ class Artificial_Intelligence
 				'singular_name'      => __( 'Slide'  ),
 			),
 			'description'          => 'Slides that appear on the front page.',
-			'menu_position'        => 20,
+			'menu_position'        => 22,
 			'menu_icon'            => 'dashicons-images-alt2',
 			'show_ui'              => true,
 			'exclude_from_search'  => true,
@@ -430,7 +446,7 @@ class Artificial_Intelligence
 				'singular_name'      => __( 'Showcase Part' ),
 			),
 			'description'          => __( 'Pages used for advertising.' ),
-			'menu_position'        => 21,
+			'menu_position'        => 24,
 			'menu_icon'            => 'dashicons-analytics',
 			'show_ui'              => true,
 			'exclude_from_search'  => true,
@@ -484,7 +500,8 @@ require_once Artificial_Intelligence::$dir . '/vendor/autoload.php';
  * Import other AI features.
  *
  **/
-require Artificial_Intelligence::$dir . '/functions-streams.php';
+require Artificial_Intelligence::$dir . '/functions-editor.php';
+require Artificial_Intelligence::$dir . '/functions-forums.php';
 
 
 /**
@@ -499,12 +516,12 @@ function get_post_thumbnail_src( $post = null )
 {
 	
 	if ( empty( $post ) )
-		global $post;
+		$post = get_post();
 	
 	if ( has_post_thumbnail( $post->ID ) )
 		return wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
 	
-	elseif ( ! get_theme_mod( 'post_thumbnail' ) )
+	elseif ( get_theme_mod( 'default_post_thumbnail' ) )
 		return get_theme_mod( 'default_post_thumbnail' );
 	
 	else

@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "97c32abd9ae7506d99a2ec8989a07539",
+    "hash": "b3910050e27f9d5dbd67107318b6a580",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.0.19",
+            "version": "v1.0.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db"
+                "reference": "1bff8aa77a18f3616f468ed8000cf86a5725bac3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/89d77bfbee79e16653f7162c86e602cc188471db",
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db",
+                "url": "https://api.github.com/repos/composer/installers/zipball/1bff8aa77a18f3616f468ed8000cf86a5725bac3",
+                "reference": "1bff8aa77a18f3616f468ed8000cf86a5725bac3",
                 "shasum": ""
             },
             "replace": {
@@ -59,6 +59,7 @@
                 "Hurad",
                 "MODX Evo",
                 "OXID",
+                "SMF",
                 "Thelia",
                 "WolfCMS",
                 "agl",
@@ -97,7 +98,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-11-29 01:29:17"
+            "time": "2015-01-11 03:51:11"
         },
         {
             "name": "wpackagist-plugin/advanced-custom-fields",
@@ -123,27 +124,24 @@
             "homepage": "http://wordpress.org/plugins/advanced-custom-fields/"
         },
         {
-            "name": "wpackagist-plugin/json-rest-api",
-            "version": "1.1.1",
+            "name": "wpackagist-plugin/radio-buttons-for-taxonomies",
+            "version": "1.7.1",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/json-rest-api/",
-                "reference": "tags/1.1.1"
+                "url": "http://plugins.svn.wordpress.org/radio-buttons-for-taxonomies/",
+                "reference": "tags/1.7.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/json-rest-api.1.1.1.zip",
+                "url": "http://downloads.wordpress.org/plugin/radio-buttons-for-taxonomies.1.7.1.zip",
                 "reference": null,
                 "shasum": null
             },
             "require": {
                 "composer/installers": "~1.0"
             },
-            "replace": {
-                "wpackagist/json-rest-api": "self.version"
-            },
             "type": "wordpress-plugin",
-            "homepage": "http://wordpress.org/plugins/json-rest-api/"
+            "homepage": "https://wordpress.org/plugins/radio-buttons-for-taxonomies/"
         }
     ],
     "packages-dev": [],
@@ -151,7 +149,6 @@
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
-    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.3"
     },
