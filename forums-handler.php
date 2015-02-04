@@ -21,7 +21,7 @@ if ( ! empty( $_POST['thread_new'] ) )
 	
 	// Check if current use is allowed to publish forum threads, because that would be bad
 	//
-	if ( current_user_can( 'publish_forum_threads' ) )
+	if ( current_user_can( 'publish_forum_threads' ) && check_admin_referer( 'publish_forum_thread' ) )
 	{
 		$thread_new = $_POST['thread_new'];
 		
