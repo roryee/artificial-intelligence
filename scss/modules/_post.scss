@@ -11,16 +11,11 @@
 	p
 	{
 		@extend %cc-article;
-		@include trailer;
+		@include vpadding-bottom;
 		
-		&:first-of-type
+		&:first-child
 		{
-			@include leader;
-		}
-		
-		a
-		{
-			@extend a%ai-article;
+			@include vpadding-top;
 		}
 	}
 	
@@ -32,7 +27,7 @@
 	h6
 	{
 		@extend %cc-article;
-		@include wrap;
+		@include vpadding;
 		@extend %font-heading;
 	}
 	
@@ -72,7 +67,7 @@
 	ol
 	{
 		@extend %cc-article;
-		@include trailer;
+		@include vpadding-bottom;
 		border-left: 2rem solid transparent;
 	}
 	
@@ -90,21 +85,118 @@
 	{
 		@extend %cc-article;
 		@extend %font-lead;
-		@include spacing($prop: margin);
+		@include vpadding-bottom;
 		border-left: rem(2px) solid;
+	}
+	
+	a,
+	ins
+	{
+		@extend a%ai-article;
 	}
 	
 	pre
 	{
 		@extend %ccw-article;
 		padding: 0 1rem;
-		@include wrap;
-		@include spacing($prop: margin);
+		@include vpadding-bottom;
+		@include trailer;
+		overflow-x: scroll;
 		
 		background: color(dbg);
 		color: color(dfg);
 		
 		@extend %font-mono;
+	}
+	
+	dl
+	{
+		@extend %cc-article;
+		
+		dt
+		{
+			@extend strong;
+		}
+		
+		dd
+		{
+			@include vpadding-bottom;
+		}
+		
+	}
+	
+	abbr,
+	acronym
+	{
+		border-bottom: dotted 1px color(lfg);
+	}
+	
+	big
+	{
+		font-size: scale(1);
+	}
+	
+	del,
+	strike
+	{
+		text-decoration: line-through;
+	}
+	
+	kbd,
+	code,
+	tt,
+	var
+	{
+		@extend %font-mono;
+	}
+	
+	sub
+	{
+		position: relative;
+		top: 0.3em;
+		font-size: 0.8em;
+	}
+	
+	sup
+	{
+		position: relative;
+		bottom: 0.5em;
+		font-size: 0.8em;
+	}
+	
+	address
+	{
+		@extend %cc-article;
+		@include scale(-1);
+	}
+	
+	table
+	{
+		@extend %ccw-article;
+		
+		tr
+		{
+			border-bottom: 1px solid;
+		}
+		
+		thead tr
+		{
+			border-bottom: 2px solid;
+		}
+		
+		th
+		{
+			@extend %font-bold;
+		}
+		
+		td,
+		th
+		{
+			text-align: left;
+			padding: 0 0.25rem;
+			@include vpadding;
+		}
+		
 	}
 	
 	.wp-caption

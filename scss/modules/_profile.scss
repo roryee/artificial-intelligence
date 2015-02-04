@@ -8,13 +8,13 @@
 	$args: keywords($opts);
 	
 	@extend %ccw-article;
-	@include wrap;
+	@include vpadding;
 	
 	text-align: center;
 	
 	&-img
 	{
-		@include leader;
+		@include vpadding-top;
 		
 		img
 		{

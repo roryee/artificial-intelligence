@@ -139,7 +139,7 @@
 	.categories
 	{
 		@extend %ccw-article;
-		@include wrap;
+		@include vpadding;
 		@extend %font-lead;
 		text-align: center;
 		@extend %row;
@@ -207,7 +207,7 @@
 		{
 			@extend %font-heading;
 			@include scale(3);
-			@include trailer;
+			@include vpadding-bottom;
 			color: color(chrh);
 		}
 		

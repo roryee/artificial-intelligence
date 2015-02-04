@@ -65,7 +65,7 @@
 .forums-subheader
 {
 	@include scale(2);
-	@include trailer;
+	@include vpadding-bottom;
 	text-align: center;
 	@extend %font-heading;
 }
@@ -79,13 +79,13 @@
 		@extend %ccw-article;
 		@extend %font-title;
 		@include scale(5);
-		@include wrap;
+		@include vpadding;
 		text-align: center;
 	}
 	
 	p
 	{
-		@include trailer;
+		@include vpadding-bottom;
 	}
 	
 }
@@ -114,7 +114,7 @@
 		display: block;
 		padding-left: 1rem;
 		padding-right: 1rem;
-		@include wrap;
+		@include vpadding;
 	}
 	
 	a
@@ -136,7 +136,7 @@
 	
 	&-excerpt
 	{
-		@include leader;
+		@include vpadding-top;
 		color: color(la);
 	}
 	
@@ -152,7 +152,7 @@
 .comments-pagination
 {
 	@extend %cc-article;
-	@include wrap;
+	@include vpadding;
 	@include box(center, $cc:"> .c", $items: "&-li");
 	
 	&-empty,

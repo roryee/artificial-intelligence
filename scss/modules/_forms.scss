@@ -9,7 +9,7 @@
 	
 	.form-group
 	{
-		@include trailer;
+		@include vpadding-bottom;
 		
 		input,
 		textarea

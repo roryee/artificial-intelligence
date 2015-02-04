@@ -2,7 +2,7 @@
 {
 	$args: keywords($opts);
 	
-	@include wrap;
+	@include vpadding;
 	background-color: color(chrbg);
 	color: color(chrfg);
 	
@@ -22,7 +22,7 @@
 		
 		h6
 		{
-			@include trailer;
+			@include vpadding-bottom;
 			@include scale;
 			@extend %font-heading;
 			color: color(chrh);

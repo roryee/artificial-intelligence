@@ -41,7 +41,7 @@
 		
 		p
 		{
-			@include trailer;
+			@include vpadding-bottom;
 		}
 		
 	}
@@ -52,7 +52,7 @@
 	#{map-find($args, sel-comment)}
 	{
 		
-		@include leader;
+		@include vpadding-top;
 		
 		&-header
 		{

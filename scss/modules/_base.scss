@@ -98,7 +98,7 @@ small
 //
 #copyright
 {
-	@include wrap;
+	@include vpadding;
 	@include scale(-1);
 	text-align:center;
 	@extend %font-lead;

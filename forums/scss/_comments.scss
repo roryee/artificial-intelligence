@@ -1,14 +1,14 @@
 
 #comments-forums
 {
-	@include wrap;
+	@include vpadding;
 	@include ai-forms;
 	
 	h2,
 	h3
 	{
 		@include scale(2);
-		@include trailer;
+		@include vpadding-bottom;
 		@extend %font-heading;
 		text-align: center;
 	}
@@ -27,13 +27,13 @@
 		
 		p
 		{
-			@include trailer;
+			@include vpadding-bottom;
 		}
 	}
 	
 	.comment
 	{
-		@include wrap;
+		@include vpadding;
 		
 		&-header
 		{
@@ -85,7 +85,7 @@
 		
 		&-body
 		{
-			@include wrap;
+			@include vpadding;
 			
 			a
 			{
