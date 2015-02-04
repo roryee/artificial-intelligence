@@ -1,8 +1,21 @@
 <?php
 
+/**
+ * Wrapper class for forums functionality
+ *
+ * @package Artificial Intelligence
+ * @subpackage Forums
+ *
+ * @since 1.2.0
+ */
 class Forums
 {
 	
+	/**
+	 * Initializes forums hooks
+	 *
+	 * @since 1.2.0
+	 **/
 	public static function init()
 	{
 		add_action( 'init', array(
@@ -31,9 +44,16 @@ class Forums
 		
 	}
 	
+	/**
+	 * Registers custom post types and taxonomies used in forums
+	 *
+	 * @since 1.2.0
+	 */
 	public static function post_type()
 	{
 		
+		// Register forum threads post type
+		//
 		register_post_type( 'forum_thread', array(
 			
 			'labels' => array(
@@ -84,6 +104,9 @@ class Forums
 			
 		));
 		
+		// Register forums taxonomy
+		// This is what's actually used for the forums functionality
+		//
 		register_taxonomy( 'forum', array( 'forum_thread' ), array(
 			
 			'labels' => array(
@@ -122,7 +145,8 @@ class Forums
 			
 		));
 		
-		
+		// Register forum tags taxonomy
+		//
 		register_taxonomy( 'forum_tag', array( 'forum_thread' ), array(
 			'labels' => array(
 				'name'                        => __( 'Thread Tags' ),
@@ -167,6 +191,11 @@ class Forums
 		
 	}
 	
+	/**
+	 * Registers forums menu locations
+	 *
+	 * @since 1.2.0
+	 */
 	public static function menus()
 	{
 		register_nav_menus( array(
@@ -176,6 +205,11 @@ class Forums
 		));
 	}
 	
+	/**
+	 * Registers forums sidebars
+	 *
+	 * @since 1.2.0
+	 */
 	public static function widgets()
 	{
 		$sidebars = array(
@@ -197,6 +231,11 @@ class Forums
 		
 	}
 	
+	/**
+	 * Registers forums assets
+	 *
+	 * @since 1.2.0
+	 */
 	public static function assets()
 	{
 		if ( is_forums() )
@@ -228,6 +267,12 @@ class Forums
 		
 	}
 	
+	/**
+	 * Associative array of roles that the forums add
+	 *
+	 * @var array
+	 * @since 1.2.0
+	 */
 	public static $roles = array(
 		// Administrator
 		//
@@ -295,6 +340,11 @@ class Forums
 		),
 	);
 	
+	/**
+	 * Register roles on theme setup
+	 *
+	 * @since 1.2.0
+	 */
 	public static function add_caps()
 	{
 		
@@ -311,6 +361,11 @@ class Forums
 		
 	}
 	
+	/**
+	 * Unregister roles on theme switch
+	 *
+	 * @since 1.2.0
+	 */
 	public static function remove_caps()
 	{
 		
@@ -329,13 +384,9 @@ class Forums
 	
 }
 
+// Initialize forums
+//
 Forums::init();
-
-// function temp()
-// {
-// 	Forums::add_caps();
-// }
-// add_action( 'init', 'temp' );
 
 /**
 * Returns true if current page is forums-related.
