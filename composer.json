@@ -19,8 +19,7 @@
     "type": "wordpress-theme",
     "require": {
         "php": ">=5.3.3",
-        "wpackagist-plugin/advanced-custom-fields": ">=4.3.9",
-        "wpackagist-plugin/radio-buttons-for-taxonomies": "~1.7"
+        "wpackagist-plugin/advanced-custom-fields": ">=4.3.9"
     },
     "require-dev":{
         "php": ">=5.3.3"
