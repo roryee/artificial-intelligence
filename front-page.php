@@ -37,7 +37,7 @@
 				
 				<?php while ( $q_slides_slider->have_posts() ): $q_slides_slider->the_post(); ?>
 					
-					<?php get_template_part( 'display', 'slide' ); ?>
+					<?php get_template_part( 'block', 'thumbnail' ); ?>
 					
 				<?php endwhile; ?>
 				
@@ -65,7 +65,7 @@
 			<?php while ( $q_slides_not_slider->have_posts() ):
 				$q_slides_not_slider->the_post(); ?>
 				
-				<?php get_template_part( 'display', 'slide' ); ?>
+				<?php get_template_part( 'block', 'thumbnail' ); ?>
 				
 			<?php endwhile; ?>
 			

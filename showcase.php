@@ -25,7 +25,7 @@
 			
 			<?php if ( in_array( get_queried_object()->ID, get_field( 'show' ), true ) ): ?>
 				
-				<?php get_template_part( 'display', 'slide' ); ?>
+				<?php get_template_part( 'block', get_field( 'layout' ) ); ?>
 				
 			<?php endif; ?>
 			
