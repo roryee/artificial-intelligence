@@ -72,8 +72,71 @@
 	p
 	{
 		@extend %ccw-article;
+		@extend %font-lead;
 		color: color(chrfg);
 		
+	}
+	
+}
+
+
+.solid
+{
+	
+	background: color(dbg);
+	
+	> .ccc
+	{
+		display: table;
+	}
+	
+	.c
+	{
+		display: block;
+		padding: 2.5rem 0;
+		@extend %ai-rhythm;
+		
+		@include above(punk)
+		{
+			display: table-cell;
+		}
+		
+	}
+	
+	
+	&-thumbnail
+	{
+		width: 20%;
+		
+		background-size: cover;
+		background-position: center;
+	}
+	
+	&-headers
+	{
+		width: 35%;
+		vertical-align: middle;
+	}
+	
+	&-content
+	{
+		width: 40%;
+		border-right: 2rem solid transparent;
+		vertical-align: middle;
+	}
+	
+	h1
+	{
+		@extend %font-heading;
+		@include scale(4);
+		color: color(dh);
+		text-align: center;
+	}
+	
+	p
+	{
+		@extend %font-lead;
+		color: color(dfg);
 	}
 	
 }
