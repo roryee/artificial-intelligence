@@ -21,7 +21,7 @@
 		// Build new WordPress query
 		// Request all slides that are in the slider
 		//
-		$q_slides_slider = new WP_Query( array(
+		$q_slides = new WP_Query( array(
 			'post_type'  => 'slides',
 			'meta_key'   => 'position',
 			'meta_value' => 'slider',
@@ -31,13 +31,13 @@
 		
 		?>
 		
-		<?php if ( $q_slides_slider->have_posts() ): ?>
+		<?php if ( $q_slides->have_posts() ): ?>
 			
 			<section class="slidesjs">
 				
-				<?php while ( $q_slides_slider->have_posts() ): $q_slides_slider->the_post(); ?>
+				<?php while ( $q_slides->have_posts() ): $q_slides->the_post(); ?>
 					
-					<?php get_template_part( 'block', 'thumbnail' ); ?>
+					<?php get_template_part( 'block', ( get_field( 'layout' ) !== 'solid' ? 'thumbnail' : get_field( 'layout' ) ) ); ?>
 					
 				<?php endwhile; ?>
 				
@@ -50,7 +50,7 @@
 		// Build new WordPress query
 		// Request all slides not in the slider position
 		//
-		$q_slides_not_slider = new WP_Query(array(
+		$q_blocks = new WP_Query(array(
 			'post_type'    => 'slides',
 			'meta_key'     => 'position',
 			'meta_compare' => '!=',
@@ -60,12 +60,11 @@
 		));
 		?>
 		
-		<?php if ( $q_slides_not_slider->have_posts() ): ?>
+		<?php if ( $q_blocks->have_posts() ): ?>
 			
-			<?php while ( $q_slides_not_slider->have_posts() ):
-				$q_slides_not_slider->the_post(); ?>
+			<?php while ( $q_blocks->have_posts() ): $q_blocks->the_post(); ?>
 				
-				<?php get_template_part( 'block', 'thumbnail' ); ?>
+				<?php get_template_part( 'block', ( get_field( 'layout' ) !== 'solid' ? 'thumbnail' : get_field( 'layout' ) ) ); ?>
 				
 			<?php endwhile; ?>
 			
