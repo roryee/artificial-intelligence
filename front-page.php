@@ -37,7 +37,7 @@
 				
 				<?php while ( $q_slides->have_posts() ): $q_slides->the_post(); ?>
 					
-					<?php get_template_part( 'block', ( get_field( 'layout' ) !== 'solid' ? 'thumbnail' : get_field( 'layout' ) ) ); ?>
+					<?php get_template_part( 'block', ( get_field( 'layout' ) === 'solid' ? 'thumbnail' : get_field( 'layout' ) ) ); ?>
 					
 				<?php endwhile; ?>
 				
@@ -64,7 +64,7 @@
 			
 			<?php while ( $q_blocks->have_posts() ): $q_blocks->the_post(); ?>
 				
-				<?php get_template_part( 'block', ( get_field( 'layout' ) !== 'solid' ? 'thumbnail' : get_field( 'layout' ) ) ); ?>
+				<?php get_template_part( 'block', ( get_field( 'layout' ) === 'solid' ? 'thumbnail' : get_field( 'layout' ) ) ); ?>
 				
 			<?php endwhile; ?>
 			
