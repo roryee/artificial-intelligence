@@ -65,7 +65,8 @@
 	h2
 	{
 		@extend %font-title;
-		@include scale(3);
+		@include scale(4);
+		@include trailer;
 		color: color(chrac);
 	}
 	
@@ -82,7 +83,6 @@
 
 .solid
 {
-	
 	background: color(dbg);
 	
 	> .ccc

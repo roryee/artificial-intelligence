@@ -5,6 +5,7 @@ style="background-image:url(<?php the_post_thumbnail_src( $post ); ?>);">
 		<hgroup class="c">
 			
 			<h1><?php the_field( 'heading' ); ?></h1>
+			<h2><?php the_field( 'heading_2' ); ?></h2>
 			<p>
 				<?php the_field( 'content' ); ?>
 			</p>
