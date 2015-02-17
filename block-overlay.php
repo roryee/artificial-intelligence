@@ -1,4 +1,4 @@
-<section class="overlay"
+<section class="slide overlay"
 style="background-image:url(<?php the_post_thumbnail_src( $post ); ?>);">
 	<div class="ccc">
 		

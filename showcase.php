@@ -2,7 +2,7 @@
 
 <?php get_header( 'showcase' ); ?>
 
-<main id="main" class="ww<?php echo ( get_field( 'fade' ) ? ' fade-slide' : '' ); ?>">
+<main id="main" class="ww<?php echo ( get_field( 'fade_in' ) ? ' fade-slide' : '' ); ?>">
 
 	<?php
 	

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main id="main" class="ww<?php echo ( get_field( 'fade' ) ? ' fade-slide' : '' ); ?>">
+<main id="main" class="ww<?php echo ( get_field( 'fade_in' ) ? ' fade-slide' : '' ); ?>">
 	
 	<?php if ( is_home() ): ?>
 	

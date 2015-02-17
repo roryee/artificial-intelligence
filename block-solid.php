@@ -1,4 +1,4 @@
-<section class="solid">
+<section class="slide solid">
 	<div class="ccc">
 		
 		<div class="c solid-thumbnail" style="background-image:url(<?php the_post_thumbnail_src( $post ); ?>);"></div>
