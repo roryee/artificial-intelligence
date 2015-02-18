@@ -5,11 +5,17 @@
 //
 #header-archive
 {
-	padding: 7rem 0;
+	padding: 3rem 0;
 	
 	@extend %ai-rhythm;
 	background-color: color(dbg);
 	color: color(dh);
+	
+	@include above(punk)
+	{
+		padding: 7rem 0;
+		text-align: center;
+	}
 	
 	h1
 	{
@@ -36,17 +42,22 @@
 
 #posts-nav
 {
-	@extend %cf;
+	display: table;
+	width: 100%;
 	background: color(dbg);
 	
 	> a
 	{
-		display: block;
-		float: left;
+		@extend %font-heading;
+		display: table-cell;
 		width: 50%;
 		padding: 1rem 1.5rem;
-		@include scale(2);
-		@extend %font-heading;
+		
+		@include scale(1);
+		@include above(punk)
+		{
+			@include scale(2);
+		}
 		
 		color: color(dh);
 		
@@ -60,21 +71,25 @@
 			color: color(dbg);
 		}
 		
-		span[data-icon]:before
+		&:only-child
+		{
+			text-align: center;
+		}
+		
+	}
+	
+	[data-icon]:before
+	{
+		@include scale(1);
+		@include above(punk)
 		{
 			@include scale(2);
 		}
-		
 	}
 	
 	.posts-nav-next
 	{
 		text-align: right;
-		
-		&:only-child
-		{
-			float: right;
-		}
 	}
 	
 }

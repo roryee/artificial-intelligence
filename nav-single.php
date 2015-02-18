@@ -20,8 +20,6 @@ $post_prev = get_previous_post();
 			</div>
 		</a>
 	
-	<?php else: ?>
-		<div class="post-next">temporary</div>
 	<?php endif; ?>
 
 	<?php if ( ! empty( $post_prev ) ): ?>
@@ -36,9 +34,7 @@ $post_prev = get_previous_post();
 				</p>
 			</div>
 		</a>
-
-	<?php else: ?>
-		<div class="post-prev">temporary</div>
+		
 	<?php endif; ?>
 
 </footer>

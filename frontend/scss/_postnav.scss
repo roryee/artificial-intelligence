@@ -4,19 +4,21 @@
 //
 #post-nav
 {
-	@extend %cf;
+	display: table;
+	width: 100%;
 	background: color(dbg);
 	
 	.post-next,
 	.post-prev
 	{
-		display: block;
-		float: left;
-		@extend %hide-pop;
-		@extend %show-disco;
+		display: none;
+		@include above(disco)
+		{
+			display: table-cell;
+			width: 50%;
+		}
 		
 		border: 0 !important;
-		width: 50%;
 		
 		background-size: cover;
 		background-position: center;
@@ -25,20 +27,17 @@
 		
 		> .c
 		{
+			height: 100%;
 			min-height: 20rem;
-			padding: 3rem;
+			padding: 1.5rem;
 			transition: background, 0.5s, ease;
 			
 			background: color(chrbg);
 		}
 		
-		&:hover
+		&:hover > .c
 		{
-			
-			> .c
-			{
-				background: color(chra);
-			}
+			background: color(chra);
 		}
 		
 		h4

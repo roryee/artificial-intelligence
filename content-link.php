@@ -34,9 +34,8 @@
 			</ul>
 			
 			<div class="content">
-				
+				<h3 class="content-title"><?php the_title(); ?></h3>
 				<?php the_content(); ?>
-				
 			</div>
 			
 		</div>
