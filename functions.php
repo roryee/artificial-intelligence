@@ -282,18 +282,18 @@ class Artificial_Intelligence
 		
 		$sidebars = array(
 			array(
-				'name'          => 'Footer',
+				'name'          => __( 'Primary Footer' ),
 				'id'            => 'footer',
-				'description'   => 'Primary footer',
+				'description'   => __( 'Appears in the footer at the bottom of most posts and pages.' ),
 				'before_widget' => '<div id="%1$s" class="col %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h6>',
 				'after_title'   => '</h6>',
 			),
 			array(
-				'name'          => 'Footer',
+				'name'          => 'Showcase Footer',
 				'id'            => 'footer_showcase',
-				'description'   => 'Showcase Footer',
+				'description'   => __( 'Appears in the footer at the bottom of showcase pages.' ),
 				'before_widget' => '<div id="%1$s" class="col %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h6>',
@@ -425,12 +425,15 @@ class Artificial_Intelligence
 				'singular_name'      => __( 'Slide'  ),
 			),
 			'description'          => 'Slides that appear on the front page.',
-			'menu_position'        => 22,
 			'menu_icon'            => 'dashicons-images-alt2',
+			
 			'show_ui'              => true,
 			'exclude_from_search'  => true,
 			'publicly_queryabale'  => false,
 			'show_in_nav_menus'    => false,
+			
+			'capability_type'      => 'page',
+			
 			'rewrite'              => false,
 			'supports'             => array(
 				'title', 'author', 'revisions',
@@ -446,12 +449,15 @@ class Artificial_Intelligence
 				'singular_name'      => __( 'Showcase Part' ),
 			),
 			'description'          => __( 'Pages used for advertising.' ),
-			'menu_position'        => 24,
 			'menu_icon'            => 'dashicons-analytics',
+			
 			'show_ui'              => true,
 			'exclude_from_search'  => true,
 			'publicly_queryabale'  => false,
 			'show_in_nav_menus'    => false,
+			
+			'capability_type'      => 'page',
+			
 			'rewrite'              => false,
 			'supports'             => array(
 				'title', 'author', 'revisions',
@@ -488,7 +494,7 @@ Artificial_Intelligence::init();
  * Make sure ACF is in lite mode, no GUI.
  *
  **/
-define( 'ACF_LITE', true );
+// define( 'ACF_LITE', true );
 
 /**
  * Import PHP dependencies.

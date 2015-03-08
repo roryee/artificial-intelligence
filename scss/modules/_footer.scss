@@ -14,10 +14,10 @@
 	#{map-find($args, col-sel)}
 	{
 		@extend %hide-pop;
-		@extend %show-rock;
-		@extend %col-rock-2;
+		@extend %show-punk;
+		@extend %col-punk-2;
 		
-		@extend %ai-article;
+		@extend %ai-rhythm;
 		@extend %font-lead;
 		
 		h6
@@ -32,7 +32,7 @@
 		{
 			@extend %show-pop;
 			@extend %col-pop-12;
-			@extend %col-rock-4;
+			@extend %col-punk-4;
 			
 			h6
 			{

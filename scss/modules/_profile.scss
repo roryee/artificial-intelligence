@@ -25,12 +25,12 @@
 	
 	&-bio
 	{
-		@extend %ai-article;
+		@extend %ai-rhythm;
 		@extend %font-lead;
 		
 		a
 		{
-			@extend a%ai-article;
+			@extend a%ai-rhythm;
 		}
 	}
 	

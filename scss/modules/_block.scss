@@ -10,28 +10,40 @@
 {
 	$args: keywords($opts);
 	
-	height:100vh;
-	width:100vw;
+	@include above(punk)
+	{
+		height:100vh;
+		width:100vw;
+	}
+	
 	position:relative;
+	
 	background-color: color(dbg);
 	background-size: cover;
 	background-position: center;
 	
 	> .c
 	{
-		@extend %ai-article;
-		position: absolute;
-		bottom: 0;
-		width: 100%;
+		@extend %ai-rhythm;
 		padding: 1em 0 2em;
-		background-color: color(chrbg);
-		color: color(chrfg);
 		
+		background-color: color(dbg);
+		color: color(dfg);
 		transition: background, 0.5s, ease;
 		
-		&:hover
+		@include above(punk)
 		{
-			background-color: color(chra);
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			
+			background-color: color(chrbg);
+			color: color(chrfg);
+			
+			&:hover
+			{
+				background-color: color(chra);
+			}
 		}
 		
 	}
@@ -39,8 +51,15 @@
 	h1
 	{
 		@extend %font-title;
-		@include scale(5);
-		color: color(chrh);
+		@include scale(3);
+		color: color(dh);
+		
+		@include above(punk)
+		{
+			@include scale(5);
+			color: color(chrh);
+		}
+		
 	}
 	
 	p
@@ -48,7 +67,14 @@
 		@extend %font-lead;
 		max-width: 30em;
 		@include scale;
-		color: color(chrfg);
+		
+		color: color(dfg);
+		
+		@include above(punk)
+		{
+			color: color(chrfg);
+		}
+		
 	}
 	
 	@if map-has-key($args, icon)
@@ -69,20 +95,38 @@
 	{
 		@if map-find($args, req-sticky)
 		{
+			
 			.icon-sticky
 			{
-				position: absolute;
-				@extend %genericon-pinned;
-				top: -2.5rem; right: 1rem;
-				width: 1.7rem; height: 1.7rem;
-				border-radius: 50%;
-				text-align: center;
-				background-color: color(chribg);
-				color: color(chrifg);
+				display: none;
+			}
+			
+			@include above(punk)
+			{
 				
-				&:before
+				@at-root (without: media)
 				{
-					vertical-align: middle;
+					.icon-sticky
+					{
+						@extend %genericon-pinned;
+					}
+				}
+				
+				.icon-sticky
+				{
+					display: block;
+					position: absolute;
+					top: -2.5rem; right: 1rem;
+					width: 1.7rem; height: 1.7rem;
+					border-radius: 50%;
+					text-align: center;
+					background-color: color(chribg);
+					color: color(chrifg);
+					
+					&:before
+					{
+						vertical-align: middle;
+					}
 				}
 			}
 		}

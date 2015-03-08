@@ -2,7 +2,7 @@
 
 <?php get_header( 'showcase' ); ?>
 
-<main id="main" class="ww<?php echo ( get_field( 'fade' ) ? ' fade-slide' : '' ); ?>">
+<main id="main" class="ww<?php echo ( get_field( 'fade_in' ) ? ' fade-slide' : '' ); ?>">
 
 	<?php
 	
@@ -11,10 +11,9 @@
 	//
 	$showcase_q = new WP_Query( array(
 		'post_type'      => 'showcases',
+		'nopaging'       => false,
 		'order'          => 'ASC',
 		'orderby'        => 'menu_order',
-		'meta_key'       => 'show',
-		'meta_value_num' => $post->ID,
 	));
 	?>
 
@@ -22,7 +21,13 @@
 		
 		<?php while ( $showcase_q->have_posts() ): $showcase_q->the_post(); ?>
 			
-			<?php get_template_part( 'display', 'slide' ); ?>
+			<?php // Major hack because WordPress queries kind of suck... ?>
+			
+			<?php if ( in_array( get_queried_object()->ID, get_field( 'show' ), true ) ): ?>
+				
+				<?php get_template_part( 'block', get_field( 'layout' ) ); ?>
+				
+			<?php endif; ?>
 			
 		<?php endwhile; ?>
 		

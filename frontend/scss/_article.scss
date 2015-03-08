@@ -15,7 +15,7 @@
 	// Actual article
 	.article.c
 	{
-		@include ai-article(".article", $adjust-first: 0.42rem);
+		@extend %ai-article-normal;
 	}
 }
 
@@ -51,10 +51,7 @@
 			padding: 7rem 0;
 		}
 		
-		@include ai-article(".article",
-												$color-p: chrfg,
-												$color-h: chrh,
-												$color-ac: chrac);
+		@extend %ai-article-photo;
 		
 	}
 }
@@ -88,10 +85,7 @@
 			padding: 7rem 0;
 		}
 		
-		@include ai-article(".article",
-		                    $color-p: dfg,
-		                    $color-h: dh,
-		                    $color-ac: dac);
+		@extend %ai-article-dark;
 		
 	}
 	
@@ -112,151 +106,4 @@
 	display: block;
 	@extend #nav-search-input;
 	@extend %cc-article;
-}
-
-// SELECTOR: ARTICLE FOOTER
-// Appears at the bottom of posts,
-// giving author bio and associated categories and tags.
-//
-#article-footer
-{
-	@extend %ai-article;
-	background-color: color(lbg);
-	
-	hr.end
-	{
-		@extend %ccs-article;
-		height: rem(1px);
-		border: 0;
-		background-color: color(la);
-	}
-	
-	.profile
-	{
-		@include ai-profile;
-	}
-	
-	.categories
-	{
-		@extend %ccw-article;
-		@include vpadding;
-		@extend %font-lead;
-		text-align: center;
-		@extend %row;
-			
-		.col
-		{
-			@extend %col-pop-6;
-		}
-		
-		h6
-		{
-			@include scale(4);
-		}
-		
-		a
-		{
-			@extend a%ai-article;
-			border: 0 !important;
-		}
-			
-	}
-	
-}
-
-#post-nav
-{
-	@extend %cf;
-	background: color(dbg);
-	
-	.post-next,
-	.post-prev
-	{
-		display: block;
-		float: left;
-		@extend %hide-pop;
-		@extend %show-disco;
-		
-		border: 0 !important;
-		width: 50%;
-		
-		background-size: cover;
-		background-position: center;
-		
-		@extend %ai-article;
-		
-		> .c
-		{
-			min-height: 20rem;
-			padding: 3rem;
-			transition: background, 0.5s, ease;
-			
-			background: color(chrbg);
-		}
-		
-		&:hover
-		{
-			
-			> .c
-			{
-				background: color(chra);
-			}
-		}
-		
-		h4
-		{
-			@extend %font-heading;
-			@include scale(3);
-			@include vpadding-bottom;
-			color: color(chrh);
-		}
-		
-		.icon
-		{
-			@include scale(8);
-			color: color(dh);
-		}
-		
-	}
-	
-	.post-prev
-	{
-		text-align: right;
-	}
-	
-}
-
-.attachment #main
-{
-	
-	min-height: 100vh;
-	padding: 3rem;
-	background: color(dbg);
-	
-	> .cc
-	{
-		@extend %row;
-	}
-	
-	.article.c
-	{
-		@extend %cc-article;
-		@include ai-article(".article",
-												$color-p: dfg,
-												$color-h: dh,
-												$color-ac: dac);
-		
-	}
-	
-	.attachment.w
-	{
-		text-align: center;
-	}
-	
-	img
-	{
-		margin: 0 auto;
-		max-height: 80vh;
-	}
-	
 }
