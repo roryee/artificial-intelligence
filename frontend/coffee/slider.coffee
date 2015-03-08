@@ -70,13 +70,14 @@
 				onComplete: endFade
 			}
 			
-			tl.from $slide,     5, { autoAlpha: 0 }, 2
-			tl.from $h1,        2, { autoAlpha: 0 }, 5
-			tl.from $p,			    2, { autoAlpha: 0 }, 10
-			tl.from $c,         2, { background: 'transparent' }, 8
-			tl.from $pag,       2, { autoAlpha: 0 }, 10
-			tl.from $h,         3, { autoAlpha: 0 }, 10
-			tl.from $hshowcase, 3, { autoAlpha: 0 }, 10
+			tl.from $slide,     6, { autoAlpha: 0 }, 2
+			tl.from $h1,        2, { autoAlpha: 0 }, 7
+			tl.from $h2,        2, { autoAlpha: 0 }, 10
+			tl.from $p,			    2, { autoAlpha: 0 }, 14
+			tl.from $c,         2, { background: 'transparent' }, 12
+			tl.from $pag,       2, { autoAlpha: 0 }, 14
+			tl.from $h,         3, { autoAlpha: 0 }, 14
+			tl.from $hshowcase, 3, { autoAlpha: 0 }, 14
 			
 		else
 			doSlider()

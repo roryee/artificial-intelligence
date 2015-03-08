@@ -8,9 +8,12 @@
 {
 	$args: keywords($opts);
 	
-	position: absolute;
-	top: 0;
-	width: 100%;
+	@include above(punk)
+	{
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
 	
 	z-index: 1000;
 	font-size: scale(1);

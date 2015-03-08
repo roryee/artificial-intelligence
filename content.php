@@ -60,7 +60,11 @@
 			</div>
 		</footer>
 		
-		<?php get_template_part( 'nav', 'single' ); ?>
+		<?php if ( is_single() ): ?>
+			
+			<?php get_template_part( 'nav', 'single' ); ?>
+			
+		<?php endif; ?>
 		
 	<?php endif; ?>
 	

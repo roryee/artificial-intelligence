@@ -12,7 +12,11 @@
 		</div>
 	</article>
 	
-	<?php get_template_part( 'nav', 'single' ); ?>
+	<?php if ( is_single() ): ?>
+		
+		<?php get_template_part( 'nav', 'single' ); ?>
+		
+	<?php endif; ?>
 	
 <?php else: ?>
 	
@@ -28,9 +32,8 @@
 			</ul>
 			
 			<div class="content">
-				
+				<h3 class="content-title"><?php the_title(); ?></h3>
 				<?php the_content(); ?>
-				
 			</div>
 			
 		</div>

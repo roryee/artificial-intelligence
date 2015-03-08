@@ -1,7 +1,6 @@
-<section class="slide"
-style="background-image:url(<?php the_post_thumbnail_src( $post ); ?>);">
+<section class="slide thumbnail"
+style="url(<?php the_post_thumbnail_src( $post ); ?>);">
 	<hgroup class="c">
-		
 		
 		<?php if ( get_field( 'link' ) ): ?>
 			

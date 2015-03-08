@@ -82,7 +82,6 @@ class Forums
 			'show_in_menu' => true,
 			'show_in_admin_bar' => true,
 			
-			'menu_position' => 21,
 			'menu_icon' => 'dashicons-format-status',
 			
 			'capability_type' => 'forum_thread',
@@ -214,9 +213,9 @@ class Forums
 	{
 		$sidebars = array(
 			array(
-				'name'          => 'Footer',
+				'name'          => 'Forums Footer',
 				'id'            => 'forums_footer',
-				'description'   => 'Forums footer',
+				'description'   => __( 'Appears in the footer at the bottom of the forums.' ),
 				'before_widget' => '<div id="%1$s" class="col %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h6>',

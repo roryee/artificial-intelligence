@@ -4,7 +4,7 @@
 //
 @if $config-rhythm-debug
 {
-	%ai-article
+	%ai-rhythm
 	{
 		@include above(punk)
 		{
@@ -59,7 +59,7 @@
 }
 
 // Add line-heights to articles
-%ai-article
+%ai-rhythm
 {
 	@include above(punk)
 	{
