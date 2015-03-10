@@ -1,3 +1,19 @@
+## 1.2.3
+
+Fix styles not being generated
+
+## 1.2.2
+
+Fix version bump
+
+## 1.2.1
+
+* Added overlay and solid block layouts
+* Fixed all showcase blocks appearing on all showcase pages
+* Fixed posts navigation displaying at the bottom of pages
+* Fixed sidebar descriptions
+* Improved responsive behavior of archives
+
 ## v1.2.0
 
 * Add forums
